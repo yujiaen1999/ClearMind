@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 //    private DatabaseReference db;
 //    private String username;  //TODO: needs to save the data before enter next activity
     private Button button_to_login;
+    private Button button_to_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +31,31 @@ public class MainActivity extends AppCompatActivity {
 //            Log.d("save_username", "onRestoreCreate");
 //        }
         button_to_login = (Button) findViewById(R.id.button);
+        button_to_register = (Button) findViewById(R.id.button2);
+
         button_to_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 openLoginActivity();
             }
         });
+
+        // click register button
+        button_to_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openRegisterActivity();
+            }
+        });
     }
 
     public void openLoginActivity(){
         Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void openRegisterActivity(){
+        Intent intent = new Intent(this,RegisterActivity.class);
         startActivity(intent);
     }
 
