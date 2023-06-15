@@ -59,15 +59,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
-//        this.db = FirebaseDatabase.getInstance().getReference();
-//        HashMap<String, Object> map = new HashMap<>();
-//        map.put("name", "Jiaen");
-//        map.put("username", "jiaen");
-//        map.put("question3", "yes");
-//        map.put("question4", "answer4");
-//
-//        this.db.child("register").child("jiaen").setValue(map);
     }
 
     private void register(String username, HashMap<String, Object> map) {

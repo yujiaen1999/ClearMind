@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private Button button_to_login;
     private Button button_to_register;
 
+//    private Button button_test;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         button_to_login = (Button) findViewById(R.id.button);
         button_to_register = (Button) findViewById(R.id.button2);
 
+//        button_test = (Button) findViewById(R.id.button4);
+
         button_to_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -47,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
                 openRegisterActivity();
             }
         });
+
+//        button_test.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v){
+//                OpenSetting();
+//            }
+//        });
     }
 
     public void openLoginActivity(){
@@ -58,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,RegisterActivity.class);
         startActivity(intent);
     }
+
+//    public void OpenSetting(){
+//        Intent intent = new Intent(this, SettingActivity.class);
+//        startActivity(intent);
+//    }
 
     @Override
     protected void onStart() {
