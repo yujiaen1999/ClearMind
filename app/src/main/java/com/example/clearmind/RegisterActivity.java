@@ -1,5 +1,6 @@
 package com.example.clearmind;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                boolean toMainPage = false;
                 String txt_username = username.getText().toString();
                 String txt_name = name.getText().toString();
                 String txt_email = email.getText().toString();
@@ -55,6 +57,13 @@ public class RegisterActivity extends AppCompatActivity {
 
                     register(txt_username, map);
                     Toast.makeText(RegisterActivity.this,  "Register successful", Toast.LENGTH_SHORT).show();
+                    toMainPage = true;
+                }
+
+                if (toMainPage){
+                    Intent intent = new Intent(getApplicationContext(), LoginPageActivity.class);
+//                    intent.putExtra("username", username);
+                    startActivity(intent);  //go to main page (activity)
                 }
             }
         });

@@ -18,12 +18,15 @@ public class SettingActivity extends AppCompatActivity {
     private String username;
     private Button change_pswd_button;
 
+    private Button logout_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         Intent intent = getIntent();
         change_pswd_button = (Button) findViewById(R.id.change_pswd);
+        logout_button = (Button) findViewById(R.id.logout);
 
         this.username = intent.getStringExtra("username");
         this.db = FirebaseDatabase.getInstance().getReference(); //get a reference of database
@@ -38,11 +41,23 @@ public class SettingActivity extends AppCompatActivity {
                 onClickChangePswd();
             }
         });
+
+        logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openMainActivity();
+            }
+        });
     }
 
     public void onClickChangePswd(){
         Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
         intent.putExtra("username", this.username);
+        startActivity(intent);
+    }
+
+    public void openMainActivity(){
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 }

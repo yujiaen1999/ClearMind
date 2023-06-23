@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private DatabaseReference db;
     private Button login;
 
+    private Button button_register;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,14 @@ public class LoginActivity extends AppCompatActivity {
         this.passwordInput = (EditText)(findViewById(R.id.password_input));
         this.db = FirebaseDatabase.getInstance().getReference(); //get a reference of database
         login = findViewById(R.id.entry_button);
+        button_register = findViewById(R.id.button_register);
+
+        button_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openSignupActivity();
+            }
+        });
     }
 
     public void openMain(View view){
@@ -60,19 +70,24 @@ public class LoginActivity extends AppCompatActivity {
                     //Log.d("Login", Integer.toString(map.size()));
 
                     User user = task.getResult().getValue(User.class);
-                    //Log.d("Login", user.toString());
+//                    Log.d("LoginUser", user.toString());
                     if (user == null){
                         // the username doesn't exist in db
                         // need to register
-                        register(username, password);
-                        toMainPage = true;
+                        Toast.makeText(LoginActivity.this,  "New User, please register first ", Toast.LENGTH_SHORT).show();
+//                        register(username, password);
+//                        toMainPage = true;
                     }
                     else
                     { //the username exists in db
                         //need to login
                         boolean verify = user.getPassword().equals(password);
                         //check if the entered password == the password in db
+                        if (!verify){
+                            Toast.makeText(LoginActivity.this,  "Wrong Password", Toast.LENGTH_SHORT).show();
+                        }
                         toMainPage = verify;
+                        Log.d("LoginUser", user.toString());
                         Log.d("Login", user.getPassword());
                         Log.d("Login", password);
                         Log.d("Login", Boolean.toString(verify));
@@ -115,6 +130,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void register(String username, String password){
         this.db.child("users").child(username).setValue(new User(username, password, "1"));
+    }
+
+    public void openSignupActivity(){
+        Intent intent = new Intent(this,SignupActivity.class);
+        startActivity(intent);
     }
 
 
