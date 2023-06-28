@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 if (toMainPage){
-                    Intent intent = new Intent(getApplicationContext(), LoginPageActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), LearnActivity.class);
 //                    intent.putExtra("username", username);
                     startActivity(intent);  //go to main page (activity)
                 }

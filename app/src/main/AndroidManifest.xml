@@ -25,6 +25,18 @@
             android:name=".SignupActivity"
             android:exported="true" />
         <activity
+            android:name=".LearnActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SaveActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AchieveActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
