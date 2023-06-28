@@ -13,10 +13,13 @@ public class LearnActivity extends AppCompatActivity {
     private Button achieve_button;
     private Button profile_button;
 
+    private String username;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
         Intent intent = getIntent();
+        this.username = intent.getStringExtra("username");
 
         save_button = (Button) findViewById(R.id.button_save);
         achieve_button = (Button) findViewById(R.id.button_achieve);
@@ -57,6 +60,7 @@ public class LearnActivity extends AppCompatActivity {
 
     public void openProfileActivity(){
         Intent intent = new Intent(this,ProfileActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 }
