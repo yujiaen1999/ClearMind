@@ -20,6 +20,8 @@ public class SettingActivity extends AppCompatActivity {
 
     private Button logout_button;
 
+//    private Button delete_account_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,7 @@ public class SettingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         change_pswd_button = (Button) findViewById(R.id.change_pswd);
         logout_button = (Button) findViewById(R.id.logout);
+//        delete_account_button = (Button) findViewById(R.id.delete_account);
 
         this.username = intent.getStringExtra("username");
         this.db = FirebaseDatabase.getInstance().getReference(); //get a reference of database
@@ -56,8 +59,22 @@ public class SettingActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickDeleteAccount(View view){
+        Log.d("save_username", Boolean.toString(this.username == null));
+        this.db.child("users")
+                .child(this.username)
+                .removeValue();
+        this.db.child("register")
+                .child(this.username)
+                .removeValue();
+        this.finish();
+        Toast.makeText(SettingActivity.this,  "Account Deleted", Toast.LENGTH_SHORT).show();
+        openMainActivity();
+    }
+
     public void openMainActivity(){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
+
 }

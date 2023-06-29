@@ -50,11 +50,13 @@ public class LearnActivity extends AppCompatActivity {
 
     public void openSaveActivity(){
         Intent intent = new Intent(this,SaveActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 
     public void openAchieveActivity(){
         Intent intent = new Intent(this,AchieveActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 

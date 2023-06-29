@@ -27,54 +27,54 @@
         android:layout_height="103dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.245"
+        app:layout_constraintVertical_bias="0.243"
         app:srcCompat="@drawable/user_photo"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/name_show"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="32dp"
         android:text="My name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.228" />
 
     <TextView
         android:id="@+id/username_show"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="32dp"
         android:text="My username"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#6C6B6B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.274" />
 
     <TextView
         android:id="@+id/email_show"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="32dp"
         android:text="My email"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#6C6B6B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
+        app:layout_constraintVertical_bias="0.32" />
 
     <Button
         android:id="@+id/setting_button"
@@ -86,7 +86,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.500"/>
+
+    <Button
+        android:id="@+id/disclaimer_button"
+        android:layout_width="400dp"
+        android:layout_height="65dp"
+        android:text="Privacy &amp; Disclaimer"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.600"/>
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="400dp"
+        android:layout_height="65dp"
+        android:text="Logout Account"
+        android:textColor="#F44336"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.700"/>
 
     <Button
         android:id="@+id/button_learn"

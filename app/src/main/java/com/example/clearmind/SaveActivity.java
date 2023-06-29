@@ -12,10 +12,13 @@ public class SaveActivity extends AppCompatActivity {
     private Button achieve_button;
     private Button profile_button;
 
+    private String username;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save);
         Intent intent = getIntent();
+        this.username = intent.getStringExtra("username");
 
         learn_button = (Button) findViewById(R.id.button_learn);
         achieve_button = (Button) findViewById(R.id.button_achieve);
@@ -46,16 +49,19 @@ public class SaveActivity extends AppCompatActivity {
 
     public void openLearnActivity(){
         Intent intent = new Intent(this,LearnActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 
     public void openAchieveActivity(){
         Intent intent = new Intent(this,AchieveActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 
     public void openProfileActivity(){
         Intent intent = new Intent(this,ProfileActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 }

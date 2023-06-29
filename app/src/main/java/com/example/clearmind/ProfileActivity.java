@@ -23,6 +23,8 @@ public class ProfileActivity extends AppCompatActivity {
 //    private Button profile_button;
 
     private Button button_to_setting;
+
+    private Button logout_button;
     private TextView show_name;
     private TextView show_username;
     private TextView show_email;
@@ -44,6 +46,8 @@ public class ProfileActivity extends AppCompatActivity {
 //        profile_button = (Button) findViewById(R.id.button_profile);
 
         button_to_setting = (Button) findViewById(R.id.setting_button);
+        logout_button = (Button) findViewById(R.id.logout_button);
+
 
         show_name = findViewById(R.id.name_show);
         show_username = findViewById(R.id.username_show);
@@ -51,6 +55,13 @@ public class ProfileActivity extends AppCompatActivity {
 //        show_name.setText("Name: " + username);
 
         getdata();
+
+        logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openMainActivity();
+            }
+        });
 
         button_to_setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,11 +132,13 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void openSaveActivity(){
         Intent intent = new Intent(this,SaveActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 
     public void openAchieveActivity(){
         Intent intent = new Intent(this,AchieveActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 
@@ -137,6 +150,11 @@ public class ProfileActivity extends AppCompatActivity {
     public void OpenSetting(){
         Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
         intent.putExtra("username", this.username);
+        startActivity(intent);
+    }
+
+    public void openMainActivity(){
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 }
