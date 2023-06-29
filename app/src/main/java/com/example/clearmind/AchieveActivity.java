@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +21,7 @@ public class AchieveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_achieve);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
+        Toast.makeText(AchieveActivity.this,  username, Toast.LENGTH_SHORT).show();
 
         learn_button = (Button) findViewById(R.id.button_learn);
         save_button = (Button) findViewById(R.id.button_save);

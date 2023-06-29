@@ -38,6 +38,8 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
+        Toast.makeText(ProfileActivity.this,  username, Toast.LENGTH_SHORT).show();
+
         this.db = FirebaseDatabase.getInstance().getReference();
 
         learn_button = (Button) findViewById(R.id.button_learn);
@@ -127,6 +129,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void openLearnActivity(){
         Intent intent = new Intent(this,LearnActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 
