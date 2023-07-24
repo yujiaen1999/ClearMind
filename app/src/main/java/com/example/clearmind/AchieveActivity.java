@@ -21,7 +21,7 @@ public class AchieveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_achieve);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
-        Toast.makeText(AchieveActivity.this,  username, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(AchieveActivity.this,  username, Toast.LENGTH_SHORT).show();
 
         learn_button = (Button) findViewById(R.id.button_learn);
         save_button = (Button) findViewById(R.id.button_save);

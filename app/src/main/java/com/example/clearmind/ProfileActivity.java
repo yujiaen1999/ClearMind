@@ -38,7 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
-        Toast.makeText(ProfileActivity.this,  username, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(ProfileActivity.this,  username, Toast.LENGTH_SHORT).show();
 
         this.db = FirebaseDatabase.getInstance().getReference();
 
