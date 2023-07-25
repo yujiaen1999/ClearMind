@@ -74,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
                     }
 
                     if (toQuestionPage){
-                        Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), SecureQuestionActivity.class);
                         intent.putExtra("username", username);
                         startActivity(intent);  //go to main page (activity)
                     }

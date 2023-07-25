@@ -28,6 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     private Button login;
 
     private Button button_register;
+    private Button button_forgot_password;
+
+    private String username;
 
 
     @Override
@@ -39,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         this.db = FirebaseDatabase.getInstance().getReference(); //get a reference of database
         login = findViewById(R.id.entry_button);
         button_register = findViewById(R.id.button_register);
+        button_forgot_password = findViewById(R.id.button_forgot_passward);
 
         button_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +50,21 @@ public class LoginActivity extends AppCompatActivity {
                 openSignupActivity();
             }
         });
+
+        button_forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                username = usernameInput.getText().toString();
+//                Toast.makeText(LoginActivity.this,  username, Toast.LENGTH_SHORT).show();
+                if (username.isEmpty()){
+                    Toast.makeText(LoginActivity.this,  "Please input username", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    openChangePasswordActivity();
+                }
+            }
+        });
+
     }
 
     public void openMain(View view){
@@ -135,6 +154,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void openSignupActivity(){
         Intent intent = new Intent(this,SignupActivity.class);
+        startActivity(intent);
+    }
+
+    public void openChangePasswordActivity(){
+        Intent intent = new Intent(this,ForgotPasswordActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 

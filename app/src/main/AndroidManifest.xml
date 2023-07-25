@@ -37,6 +37,12 @@
             android:name=".ProfileActivity"
             android:exported="true" />
         <activity
+            android:name=".SecureQuestionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

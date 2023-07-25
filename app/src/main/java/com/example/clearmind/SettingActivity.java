@@ -67,6 +67,9 @@ public class SettingActivity extends AppCompatActivity {
         this.db.child("register")
                 .child(this.username)
                 .removeValue();
+        this.db.child("security")
+                .child(this.username)
+                .removeValue();
         this.finish();
         Toast.makeText(SettingActivity.this,  "Account Deleted", Toast.LENGTH_SHORT).show();
         openMainActivity();

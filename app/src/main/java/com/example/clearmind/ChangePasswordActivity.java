@@ -45,5 +45,11 @@ public class ChangePasswordActivity extends AppCompatActivity {
             //passwords don't match
         }
         this.finish();
+        openLoginActivity();
+    }
+
+    public void openLoginActivity(){
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
 }

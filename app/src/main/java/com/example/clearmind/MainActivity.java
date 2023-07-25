@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         button_to_login = (Button) findViewById(R.id.button);
         button_to_register = (Button) findViewById(R.id.button2);
 
-//        button_test = (Button) findViewById(R.id.button4);
+//        button_test = (Button) findViewById(R.id.button3);
 
         button_to_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 //        button_test.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v){
-//                OpenSetting();
+//                OpenSecureQuestion();
 //            }
 //        });
     }
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void OpenSetting(){
-//        Intent intent = new Intent(this, SettingActivity.class);
+//    public void OpenSecureQuestion(){
+//        Intent intent = new Intent(this, SecureQuestionActivity.class);
 //        startActivity(intent);
 //    }
 
