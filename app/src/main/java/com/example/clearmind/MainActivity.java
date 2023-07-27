@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 //        button_test.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v){
-//                OpenSecureQuestion();
+//                OpenTest();
 //            }
 //        });
     }
@@ -71,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void OpenSecureQuestion(){
-//        Intent intent = new Intent(this, SecureQuestionActivity.class);
+
+//    public void OpenTest(){
+//        Intent intent = new Intent(this, RegisterActivity2.class);
 //        startActivity(intent);
 //    }
 
