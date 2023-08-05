@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
@@ -86,6 +87,16 @@ public class SignupActivity extends AppCompatActivity {
 
     private void register(String username, String password){
         this.db.child("users").child(username).setValue(new User(username, password, "1"));
+
+        HashMap<String, Object> progress_map = new HashMap<>();
+        progress_map.put("presurvey", "0");
+        progress_map.put("chapter1", "0");
+        progress_map.put("chapter2", "0");
+        progress_map.put("chapter3", "0");
+        progress_map.put("chapter4", "0");
+        progress_map.put("postsurvey", "0");
+
+        this.db.child("progress").child(username).setValue(progress_map);
     }
 
 }

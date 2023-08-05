@@ -101,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                     { //the username exists in db
                         //need to login
                         boolean verify = user.getPassword().equals(password);
+//                        Toast.makeText(LoginActivity.this, "HERE: "+ verify, Toast.LENGTH_SHORT).show();
                         //check if the entered password == the password in db
                         if (!verify){
                             Toast.makeText(LoginActivity.this,  "Wrong Password", Toast.LENGTH_SHORT).show();
