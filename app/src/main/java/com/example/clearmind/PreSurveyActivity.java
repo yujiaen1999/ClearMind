@@ -2,11 +2,14 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.PopupWindow;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -67,11 +70,12 @@ public class PreSurveyActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Map<String, Object> update = new HashMap<>();
-                update.put("presurvey", "1");
-                db.child("progress").child(username).updateChildren(update);
+//                Map<String, Object> update = new HashMap<>();
+//                update.put("presurvey", "1");
+//                db.child("progress").child(username).updateChildren(update);
 
-                openLearnActivity();
+//                openLearnActivity();
+                openPopupWindow(v);
             }
         });
 
@@ -83,4 +87,46 @@ public class PreSurveyActivity extends AppCompatActivity {
         intent.putExtra("username", username);
         startActivity(intent);
     }
+
+    public void openPopupWindow(View view){
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_popup_window, null);
+
+        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 900, 700, true);
+
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        Button button_yes = (Button) viewPopupWindow.findViewById(R.id.button_yes);
+        Button button_no_stay = (Button) viewPopupWindow.findViewById(R.id.button_no_stay);
+        Button button_no_backtohome = (Button) viewPopupWindow.findViewById(R.id.button_no_backtohome);
+
+        button_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Map<String, Object> update = new HashMap<>();
+                update.put("presurvey", "1");
+                db.child("progress").child(username).updateChildren(update);
+
+                openLearnActivity();
+            }
+        });
+
+        button_no_stay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                popupWindow.dismiss();
+            }
+        });
+
+        button_no_backtohome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openLearnActivity();
+            }
+        });
+
+
+    }
+
 }

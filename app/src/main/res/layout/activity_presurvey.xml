@@ -16,7 +16,7 @@
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="I Submitted the Survey"
+        android:text="I've Submitted the Survey"
         android:background="#5FA12E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
