@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void OpenTest(){
-        Intent intent = new Intent(this, PreSurveyActivity.class);
+        Intent intent = new Intent(this, Chapter1_Summary_Activity.class);
         startActivity(intent);
     }
 

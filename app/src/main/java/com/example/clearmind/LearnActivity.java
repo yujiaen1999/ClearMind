@@ -116,12 +116,6 @@ public class LearnActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openProfileActivity(){
-        Intent intent = new Intent(this,ProfileActivity.class);
-        intent.putExtra("username", username);
-        startActivity(intent);
-    }
-
     public void getData() {
 
         // calling add value event listener method
@@ -175,6 +169,7 @@ public class LearnActivity extends AppCompatActivity {
                             if(status_presurvey.equals("1")){
                                 Toast.makeText(LearnActivity.this, "Open Chapter 1 page", Toast.LENGTH_SHORT).show();
                                 // openPreSurveyACtivity();
+                                openChapterOneActivity();
 
                                 // update
                                 Map<String, Object> update = new HashMap<>();
@@ -192,6 +187,7 @@ public class LearnActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Toast.makeText(LearnActivity.this, "Open Chapter 1 page", Toast.LENGTH_SHORT).show();
+                            openChapterOneActivity();
                         }
                     });
                 }
@@ -324,6 +320,18 @@ public class LearnActivity extends AppCompatActivity {
                 Toast.makeText(LearnActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void openProfileActivity(){
+        Intent intent = new Intent(this,ProfileActivity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
+
+    private void openChapterOneActivity() {
+        Intent intent = new Intent(this,Chapter1_Activity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
     }
 
 //    public void handleImgButton(String status, ImageButton button){
