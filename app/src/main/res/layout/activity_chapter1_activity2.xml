@@ -279,7 +279,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:padding="20dp"
-                android:text="5. John postponed declaring his college major because his career goal doesn’t match his parents' expectations and he finds it difficult to find a solution to this situation. Which type of procrastination is it?" />
+                android:text="5. John postponed declaring his college major because he enjoys learning about different subjects and wanting to explore more in different fields. Which type of procrastination is it?" />
 
             <RadioGroup
                 android:id="@+id/radioGroup5"

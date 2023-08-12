@@ -173,10 +173,10 @@ public class Chapter1_Activity2_Activity extends AppCompatActivity {
                     question5_response.setText("Not quite right! Arousal procrastination often occurs because some individuals believe that the pressure that comes with imminent deadlines assists them in completing tasks productively. This doesn't seem applicable to his situation, because John is not seeking the pressure and productivity associated with the imminent deadline.");
                     question5_response.setTextColor(Color.parseColor("#FF0000"));
                 } else if (answer5.equals("B. Avoidant")) {
-                    question5_response.setText("Not quite right!Avoidant procrastination often happens because some individuals want to avoid negative emotions or situations associated with the tasks. In John’s case, his procrastination on declaring his college major doesn’t seem to be connected to ");
+                    question5_response.setText("Not quite right!Avoidant procrastination often happens because some individuals want to avoid negative emotions or situations associated with the tasks. In John’s case, his procrastination on declaring his college major doesn’t seem to be connected to difficult emotions.");
                     question5_response.setTextColor(Color.parseColor("#FF0000"));
                 } else if (answer5.equals("C. Decisional")) {
-                    question5_response.setText("Good job! Decisional procrastinators often experience hesitation when making decisions about a task or behavior. In Vincent’s case, his procrastination doesn’t come from the indecision about what action to take, but comes from his avoidance of potential negative criticism.");
+                    question5_response.setText("Good job! Decisional procrastinators often experience hesitation when making decisions about a task or behavior. In John’s case, his procrastination comes from the indecision about what action to take.");
                     question5_response.setTextColor(Color.parseColor("#008000"));
                 }
             }

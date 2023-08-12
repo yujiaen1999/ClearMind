@@ -15,7 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/textView1"
@@ -44,16 +45,129 @@
 <!--                android:layout_height="wrap_content"-->
 <!--                android:text="TextView" />-->
 
-            <EditText
-                android:id="@+id/input1"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:ems="10"
-                android:hint="Input here"
-                android:padding="20dp"
-                android:background="#FFFFFF"
-                tools:ignore="ExtraText" />
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lack of Motivation"
+                    android:id="@+id/checkbox1"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fear of Failure"
+                    android:id="@+id/checkbox2"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perfectionism"
+                    android:id="@+id/checkbox3"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Task Difficulty"
+                    android:id="@+id/checkbox4"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Poor Time Management"
+                    android:id="@+id/checkbox5"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lack of Clear Goals"
+                    android:id="@+id/checkbox6"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Distractions"
+                    android:id="@+id/checkbox7"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low Self-Discipline"
+                    android:id="@+id/checkbox8"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Overwhelm"
+                    android:id="@+id/checkbox9"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delayed Gratification"
+                    android:id="@+id/checkbox10"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Decision Paralysis"
+                    android:id="@+id/checkbox11"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other"
+                        android:paddingRight="20dp"
+                        android:id="@+id/checkbox12"/>
+
+                    <EditText
+                        android:id="@+id/input2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="true"
+                        android:paddingLeft="10dp"
+                        android:hint="Input here"
+                        android:background="#FFFFFF"
+                        tools:ignore="ExtraText" />
+
+                </LinearLayout>
+<!--                <CheckBox-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Other"-->
+<!--                    android:id="@+id/checkbox12"/>-->
+
+            </LinearLayout>
+
+            <!--            <EditText-->
+<!--                android:id="@+id/input1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:cursorVisible="true"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Input here"-->
+<!--                android:padding="20dp"-->
+<!--                android:background="#FFFFFF"-->
+<!--                tools:ignore="ExtraText" />-->
+
+            <Button
+                android:id="@+id/button_submit"
+                android:layout_width="150dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                app:backgroundTint="#5FA12E" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -61,11 +175,6 @@
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:text="Thank you for your responses. Now let's explore what other users have shared. Here are the top 5 common answers provided by other users:
-
-                \n\n========= Place Holder =========
-                \n(list top 5 common answers/ word cloud)
-                \n(We can just list the top 5, and collect data and save it for future use)
-                \n========= Place Holder =========
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -76,6 +185,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 app:srcCompat="@drawable/word_cloud" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/button_previous"

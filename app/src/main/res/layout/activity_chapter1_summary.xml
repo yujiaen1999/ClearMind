@@ -47,7 +47,9 @@
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:padding="20dp"
-                android:text="1. Based on what we discussed in this chapter, have you recognized any specific types of procrastination tendencies that you exhibit in your daily life? How do these tendencies manifest in your daily routines and tasks?" />
+                android:text="1. Based on what we discussed in this chapter, have you identified any
+personal procrastination tendencies that you exhibit in your daily life, and how do they manifest in your daily routines and tasks? What do you believe are the primary reasons behind these  procrastination behaviors?
+" />
 
             <EditText
                 android:id="@+id/input1"
@@ -67,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:padding="20dp"
-                android:text="2. What do you believe are the main underlying reasons for your procrastination behaviors?" />
+                android:text="2. Have you gained any new insights from this chapter that you would like to incorporate into your approaches to managing procrastination?" />
 
             <EditText
                 android:id="@+id/input2"
@@ -81,33 +83,33 @@
                 tools:ignore="ExtraText" />
 
             <!--      QUESTION 3      -->
+<!--            <TextView-->
+<!--                android:id="@+id/question_3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16dp"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="3. Have you gained any new insights from this chapter that you would like to incorporate into your approaches to managing procrastination?" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/input3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:cursorVisible="true"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Input your answer for question3"-->
+<!--                android:padding="20dp"-->
+<!--                android:background="#FFFFFF"-->
+<!--                tools:ignore="ExtraText" />-->
+
+            <!--      QUESTION 3      -->
             <TextView
                 android:id="@+id/question_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:padding="20dp"
-                android:text="3. Have you gained any new insights from this chapter that you would like to incorporate into your approaches to managing procrastination?" />
-
-            <EditText
-                android:id="@+id/input3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:ems="10"
-                android:hint="Input your answer for question3"
-                android:padding="20dp"
-                android:background="#FFFFFF"
-                tools:ignore="ExtraText" />
-
-            <!--      QUESTION 4      -->
-            <TextView
-                android:id="@+id/question_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:padding="20dp"
-                android:text="4. On a scale of 1 to 5, where 1 represents “not effective at all” and 5 represents “extremely effective,” how would you rate the effectiveness of what you’ve learned in this chapter for managing procrastination tendencies?" />
+                android:text="3. On a scale of 1 to 5, where 1 represents “not effective at all” and 5 represents “extremely effective,” how would you rate the effectiveness of what you’ve learned in this chapter for managing procrastination tendencies?" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"

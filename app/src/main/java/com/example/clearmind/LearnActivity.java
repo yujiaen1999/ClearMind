@@ -172,9 +172,9 @@ public class LearnActivity extends AppCompatActivity {
                                 openChapterOneActivity();
 
                                 // update
-                                Map<String, Object> update = new HashMap<>();
-                                update.put("chapter1", "1");
-                                db.child("progress").child(username).updateChildren(update);
+//                                Map<String, Object> update = new HashMap<>();
+//                                update.put("chapter1", "1");
+//                                db.child("progress").child(username).updateChildren(update);
                             } else{
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
