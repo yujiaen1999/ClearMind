@@ -129,14 +129,14 @@
                 android:id="@+id/imgbutton_presurvey"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:srcCompat="@drawable/presurvey"
+                app:srcCompat="@drawable/imgbutton_presurvey_0"
                 android:background="@null"/>
 
             <ImageButton
                 android:id="@+id/imgbutton_chapter1"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:srcCompat="@drawable/chapter1"
+                app:srcCompat="@drawable/imgbutton_chapter1_0"
                 android:background="@null"/>
 
             <ImageButton
@@ -144,27 +144,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:background="@null"
-                app:srcCompat="@drawable/chapter2" />
+                app:srcCompat="@drawable/imgbutton_chapter2_0" />
 
             <ImageButton
                 android:id="@+id/imgbutton_chapter3"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:background="@null"
-                app:srcCompat="@drawable/chapter3" />
+                app:srcCompat="@drawable/imgbutton_chapter3_0" />
 
             <ImageButton
                 android:id="@+id/imgbutton_chapter4"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:srcCompat="@drawable/chapter4"
+                app:srcCompat="@drawable/imgbutton_chapter4_0"
                 android:background="@null"/>
 
             <ImageButton
                 android:id="@+id/imgbutton_postsurvey"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:srcCompat="@drawable/postsurvey"
+                app:srcCompat="@drawable/imgbutton_postsurvey_0"
                 android:background="@null"/>
 
 

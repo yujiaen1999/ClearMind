@@ -3,8 +3,11 @@ package com.example.clearmind;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -64,7 +67,8 @@ public class Chapter1_Activity2_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                open_Next_Activity();
+//                open_Next_Activity();
+                openPopupWindow(v);
             }
         });
 
@@ -204,6 +208,58 @@ public class Chapter1_Activity2_Activity extends AppCompatActivity {
 
 
     }
+
+    private void openPopupWindow(View view) {
+        Integer score = 0;
+
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_chapter1_activity2_score, null);
+
+        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 900, 700, true);
+
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        TextView show_score = (TextView) viewPopupWindow.findViewById(R.id.textView_score);
+        Button button_confirm = (Button) viewPopupWindow.findViewById(R.id.button_confirm);
+
+        if(answer1 != null && answer1.equals("A. Arousal")){
+//            Toast.makeText(Chapter1_Activity2_Activity.this, "answer 1 is right", Toast.LENGTH_SHORT).show();
+            score += 20;
+        }
+        if(answer2 != null && answer2.equals("B. Avoidant")){
+//            Toast.makeText(Chapter1_Activity2_Activity.this, "answer 2 is right", Toast.LENGTH_SHORT).show();
+            score += 20;
+        }
+        if(answer3 != null && answer3.equals("B. Avoidant")){
+//            Toast.makeText(Chapter1_Activity2_Activity.this, "answer 3 is right", Toast.LENGTH_SHORT).show();
+            score += 20;
+        }
+        if(answer4 != null && answer4.equals("B. Avoidant")){
+//            Toast.makeText(Chapter1_Activity2_Activity.this, "answer 4 is right", Toast.LENGTH_SHORT).show();
+            score += 20;
+        }
+        if(answer5 != null && answer5.equals("C. Decisional")){
+//            Toast.makeText(Chapter1_Activity2_Activity.this, "answer 5 is right", Toast.LENGTH_SHORT).show();
+            score += 20;
+        }
+
+        String show_txt = "You got " + score + " out of 100 points. ";
+        if (score >= 80){
+            show_txt += "Good job!";
+        }
+
+        show_score.setText(show_txt);
+
+        button_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                open_Next_Activity();
+//                openPopupWindow(v);
+            }
+        });
+    }
+
     private void open_Previous_Activity() {
         Intent intent = new Intent(this,Chapter1_Activity1_Activity.class);
         intent.putExtra("username", username);

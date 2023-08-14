@@ -136,7 +136,7 @@ public class LearnActivity extends AppCompatActivity {
 //                Toast.makeText(LearnActivity.this, status_presurvey, Toast.LENGTH_SHORT).show();
 
                 // HANDLE PRE-SURVEY BUTTON
-                if (status_presurvey.equals("0")){
+                if (status_presurvey.equals("0")) {
                     imgBtn_presurvey.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -150,8 +150,8 @@ public class LearnActivity extends AppCompatActivity {
                         }
                     });
                 } else {
-                    // status == "1"
-                    imgBtn_presurvey.setImageResource(R.drawable.presurvey_done);
+                    // status == "2"
+                    imgBtn_presurvey.setImageResource(R.drawable.imgbutton_presurvey_2);
                     imgBtn_presurvey.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -166,7 +166,7 @@ public class LearnActivity extends AppCompatActivity {
                     imgBtn_chapter1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if(status_presurvey.equals("1")){
+                            if(status_presurvey.equals("2")){
                                 Toast.makeText(LearnActivity.this, "Open Chapter 1 page", Toast.LENGTH_SHORT).show();
                                 // openPreSurveyACtivity();
                                 openChapterOneActivity();
@@ -180,9 +180,18 @@ public class LearnActivity extends AppCompatActivity {
                             }
                         }
                     });
+                } else if (status_chapter1.equals("1")) {
+                    imgBtn_chapter1.setImageResource(R.drawable.imgbutton_chapter1_1);
+                    imgBtn_chapter1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 1 page", Toast.LENGTH_SHORT).show();
+                            openChapterOneActivity();
+                        }
+                    });
                 } else {
-                    // status == "1"
-                    imgBtn_chapter1.setImageResource(R.drawable.done);
+                    // status == "2"
+                    imgBtn_chapter1.setImageResource(R.drawable.imgbutton_chapter1_2);
                     imgBtn_chapter1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -197,22 +206,30 @@ public class LearnActivity extends AppCompatActivity {
                     imgBtn_chapter2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if(status_chapter1.equals("1")){
+                            if(status_chapter1.equals("2")){
                                 Toast.makeText(LearnActivity.this, "Open Chapter 2 page", Toast.LENGTH_SHORT).show();
                                 // openPreSurveyACtivity();
 
                                 // update
                                 Map<String, Object> update = new HashMap<>();
-                                update.put("chapter2", "1");
+                                update.put("chapter2", "2");
                                 db.child("progress").child(username).updateChildren(update);
                             } else {
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
+                } else if (status_chapter2.equals("1")) {
+                    imgBtn_chapter2.setImageResource(R.drawable.imgbutton_chapter2_1);
+                    imgBtn_chapter2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 2 page", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
                     // status == "1"
-                    imgBtn_chapter2.setImageResource(R.drawable.done);
+                    imgBtn_chapter2.setImageResource(R.drawable.imgbutton_chapter2_2);
                     imgBtn_chapter2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -227,22 +244,30 @@ public class LearnActivity extends AppCompatActivity {
                     imgBtn_chapter3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if(status_chapter2.equals("1")){
+                            if(status_chapter2.equals("2")){
                                 Toast.makeText(LearnActivity.this, "Open Chapter 3 page", Toast.LENGTH_SHORT).show();
                                 // openPreSurveyACtivity();
 
                                 // update
                                 Map<String, Object> update = new HashMap<>();
-                                update.put("chapter3", "1");
+                                update.put("chapter3", "2");
                                 db.child("progress").child(username).updateChildren(update);
                             } else {
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
+                } else if (status_chapter3.equals("1")) {
+                    imgBtn_chapter3.setImageResource(R.drawable.imgbutton_chapter3_1);
+                    imgBtn_chapter3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 3 page", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
                     // status == "1"
-                    imgBtn_chapter3.setImageResource(R.drawable.done);
+                    imgBtn_chapter3.setImageResource(R.drawable.imgbutton_chapter3_2);
                     imgBtn_chapter3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -257,22 +282,30 @@ public class LearnActivity extends AppCompatActivity {
                     imgBtn_chapter4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if(status_chapter3.equals("1")){
+                            if(status_chapter3.equals("2")){
                                 Toast.makeText(LearnActivity.this, "Open Chapter 4 page", Toast.LENGTH_SHORT).show();
                                 // openPreSurveyACtivity();
 
                                 // update
                                 Map<String, Object> update = new HashMap<>();
-                                update.put("chapter4", "1");
+                                update.put("chapter4", "2");
                                 db.child("progress").child(username).updateChildren(update);
                             } else {
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
+                } else if (status_chapter4.equals("1")) {
+                    imgBtn_chapter4.setImageResource(R.drawable.imgbutton_chapter4_1);
+                    imgBtn_chapter4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 4 page", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
                     // status == "1"
-                    imgBtn_chapter4.setImageResource(R.drawable.done);
+                    imgBtn_chapter4.setImageResource(R.drawable.imgbutton_chapter4_2);
                     imgBtn_chapter4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -287,22 +320,30 @@ public class LearnActivity extends AppCompatActivity {
                     imgBtn_postsurvey.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if(status_chapter4.equals("1")){
+                            if(status_chapter4.equals("2")){
                                 Toast.makeText(LearnActivity.this, "Open PostSurvey page", Toast.LENGTH_SHORT).show();
                                 // openPreSurveyACtivity();
 
                                 // update
                                 Map<String, Object> update = new HashMap<>();
-                                update.put("postsurvey", "1");
+                                update.put("postsurvey", "2");
                                 db.child("progress").child(username).updateChildren(update);
                             } else {
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
+                } else if (status_postsurvey.equals("1")) {
+                    imgBtn_postsurvey.setImageResource(R.drawable.imgbutton_postsurvey_1);
+                    imgBtn_postsurvey.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open PostSurvey page", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
                     // status == "1"
-                    imgBtn_postsurvey.setImageResource(R.drawable.done);
+                    imgBtn_postsurvey.setImageResource(R.drawable.imgbutton_postsurvey_2);
                     imgBtn_postsurvey.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

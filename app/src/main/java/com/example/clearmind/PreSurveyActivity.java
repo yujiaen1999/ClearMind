@@ -105,7 +105,7 @@ public class PreSurveyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Map<String, Object> update = new HashMap<>();
-                update.put("presurvey", "1");
+                update.put("presurvey", "2");
                 db.child("progress").child(username).updateChildren(update);
 
                 openLearnActivity();

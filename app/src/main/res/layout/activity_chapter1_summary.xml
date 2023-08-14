@@ -123,22 +123,27 @@ personal procrastination tendencies that you exhibit in your daily life, and how
                 android:paddingBottom="20dp">
 
                 <RadioButton
+                    android:id="@+id/radiobtn_1"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:text="1" />
                 <RadioButton
+                    android:id="@+id/radiobtn_2"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:text="2" />
                 <RadioButton
+                    android:id="@+id/radiobtn_3"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:text="3" />
                 <RadioButton
+                    android:id="@+id/radiobtn_4"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:text="4" />
                 <RadioButton
+                    android:id="@+id/radiobtn_5"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:text="5" />

@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Chapter1_Opening_Activity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;
@@ -40,6 +43,10 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                Map<String, Object> update = new HashMap<>();
+                update.put("chapter1", "1");
+                db.child("progress").child(username).updateChildren(update);
+
                 open_Chapter1_Activity1();
             }
         });
