@@ -43,7 +43,11 @@ public class PreSurveyActivity extends AppCompatActivity {
 
 //        webview_presurvey.loadUrl("https://www.surveymonkey.com/r/MTVHND3");
 //        webview_presurvey.loadUrl("https://www.google.com/");
-        webview_presurvey.loadUrl("https://docs.google.com/forms/d/e/1FAIpQLScybYJrxW3GMlpdcFwVv-fkrXXdTKtTw3JiLSmqxXjQSUxOwA/viewform?usp=sf_link");
+//        webview_presurvey.loadUrl("https://docs.google.com/forms/d/e/1FAIpQLScybYJrxW3GMlpdcFwVv-fkrXXdTKtTw3JiLSmqxXjQSUxOwA/viewform?usp=sf_link");
+
+        // pre survey link:
+        webview_presurvey.loadUrl("https://docs.google.com/forms/d/e/1FAIpQLSfF_Q69c_Uk-SVXplx21WIP-_hSRpJNfKtrEvEdqL2zIBBi1w/viewform?usp=sf_link");
+//        webview_presurvey.loadUrl("https://www.surveymonkey.com/r/wi23preworkshopsurvey");
 
         WebSettings webSettings = webview_presurvey.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -59,9 +63,9 @@ public class PreSurveyActivity extends AppCompatActivity {
         webview_presurvey.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                //使用WebView加载显示url
+                //use the webview to load url
                 view.loadUrl(url);
-                //返回true
+                //return true
                 return true;
             }
         });

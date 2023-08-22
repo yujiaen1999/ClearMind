@@ -1,8 +1,16 @@
 package com.example.clearmind;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -10,9 +18,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Calendar;
 
 public class Chapter1_Time_Activity  extends AppCompatActivity {
     private String username;
@@ -27,6 +38,8 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
 
     private TextView response;
 
+    private Integer frequency = 1;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +47,8 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
         this.db = FirebaseDatabase.getInstance().getReference();
+
+        createNotificationChannel("@time", "@TimeManagement", NotificationManager.IMPORTANCE_HIGH);
 
         button_home = findViewById(R.id.button_home);
         button_back = findViewById(R.id.button_previous);
@@ -56,6 +71,36 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                Notification notification = new NotificationCompat.Builder(Chapter1_Time_Activity.this, "@time")
+                        .setContentTitle("Time Notification enabled")
+                        .setContentText("Time notification set successfully. You will get a system notification every " + frequency.toString() + " days.")
+                        .setSmallIcon(R.drawable.notification_icon)
+                        .setDefaults(Notification.DEFAULT_ALL)
+                        .build();
+                manager.notify(1, notification);
+
+                Intent resultIntent = new Intent(Chapter1_Time_Activity.this, TimeBroadcast.class);
+                PendingIntent servicePendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, resultIntent, PendingIntent.FLAG_IMMUTABLE);
+                resultIntent.setAction("CLOCK_IN");
+
+                // Use AlarmManager to send notification at regular intervals
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.HOUR_OF_DAY, 10);
+                calendar.set(Calendar.MINUTE, 00);
+                calendar.set(Calendar.SECOND, 00);
+
+                Log.d("NotificationFrequency", frequency.toString());
+
+                // intervalMillis: hours * minutes
+//                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), frequency * 24 * 60 * 60 * 1000 ,servicePendingIntent);
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), frequency * 24 * 60 * 60 * 1000, servicePendingIntent);  //set repeating every 24 hours
+
+
+                // ============================================ end
+
                 open_Next_Activity();
             }
         });
@@ -70,7 +115,21 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_1 = (RadioButton) findViewById(checkedId);
                 answer1 = selected_button_1.getText().toString();
-                response.setText("Your plan to use the App: " + answer1 + "; And for each visit, you plan to spend: " +  answer2);
+                response.setText("Your planned frequency to use the App is: " + answer1 + "; And for each visit, the time you plan to spend is: " +  answer2);
+
+                switch (answer1){
+                    case "A. Daily":
+                        frequency = 1;
+                        break;
+                    case "B. Once a week":
+                        frequency = 7;
+                        break;
+                    case "C. 2-3 times a week":
+                        frequency = 3;
+                        break;
+                    default:
+                        break;
+                }
             }
         });
 
@@ -79,10 +138,24 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_2 = (RadioButton) findViewById(checkedId);
                 answer2 = selected_button_2.getText().toString();
-                response.setText("Your plan to use the App: " + answer1 + "; And for each visit, you plan to spend: " +  answer2);
+                response.setText("Your planned frequency to use the App is: " + answer1 + "; And for each visit, the time you plan to spend is: " +  answer2);
             }
         });
+
     }
+
+    private String createNotificationChannel(String channelId, String channelName, int level){
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, level);
+            channel.setDescription("Notification level " + level) ;
+
+            manager.createNotificationChannel(channel);
+        }
+
+        return channelId;
+    }
+
 
     private void open_Previous_Activity() {
         Intent intent = new Intent(this,Chapter1_Intro_ACT_Activity.class);
