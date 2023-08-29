@@ -172,7 +172,7 @@ personal procrastination tendencies that you exhibit in your daily life, and how
         android:id="@+id/button_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
+        android:text="Exit"
         app:backgroundTint="#5FA12E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

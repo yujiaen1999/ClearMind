@@ -80,9 +80,10 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
                         .build();
                 manager.notify(1, notification);
 
-                Intent resultIntent = new Intent(Chapter1_Time_Activity.this, TimeBroadcast.class);
-                PendingIntent servicePendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, resultIntent, PendingIntent.FLAG_IMMUTABLE);
-                resultIntent.setAction("CLOCK_IN");
+                Intent myIntent = new Intent(getApplicationContext(), TimeBroadcast.class);
+//                myIntent.putExtra("username", username);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, myIntent, PendingIntent.FLAG_IMMUTABLE);
+//                myIntent.setAction("CLOCK_IN");
 
                 // Use AlarmManager to send notification at regular intervals
                 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -95,11 +96,8 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
                 Log.d("NotificationFrequency", frequency.toString());
 
                 // intervalMillis: hours * minutes
-//                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), frequency * 24 * 60 * 60 * 1000 ,servicePendingIntent);
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), frequency * 24 * 60 * 60 * 1000, servicePendingIntent);  //set repeating every 24 hours
-
-
-                // ============================================ end
+//                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), frequency * 1000 ,pendingIntent); // test
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), frequency * 24 * 60 * 60 * 1000, pendingIntent);
 
                 open_Next_Activity();
             }

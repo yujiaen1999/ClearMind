@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,12 +41,16 @@ public class ChangePasswordActivity extends AppCompatActivity {
             update.put("password", newPassword);
             this.db.child("users").child(this.username)
                     .updateChildren(update);
+
+            this.finish();
+            openLoginActivity();
         }
         else{
             //passwords don't match
+            Toast.makeText(ChangePasswordActivity.this, "passwords don't match", Toast.LENGTH_SHORT).show();
         }
-        this.finish();
-        openLoginActivity();
+//        this.finish();
+//        openLoginActivity();
     }
 
     public void openLoginActivity(){
