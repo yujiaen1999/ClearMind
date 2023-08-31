@@ -46,6 +46,7 @@
             android:background="@null"
             android:paddingTop="15dp"
             android:src="@drawable/button_back_1"
+            android:contentDescription="Back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -85,17 +86,32 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="150dp"
+            android:layout_width="230dp"
             android:layout_height="50dp"
             android:background="@null"
-            android:drawableLeft="@drawable/practice"
-            android:text="Activity 1.2"
+            android:drawableLeft="@drawable/lesson"
+            android:text="Activity 1.2 - Discover"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.200"
+            app:layout_constraintHorizontal_bias="0.287"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.350"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button3_1"
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:drawableLeft="@drawable/practice"
+            android:text="Activity 1.2 - Questions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.450"
             tools:ignore="MissingConstraints" />
 
         <Button
@@ -107,11 +123,10 @@
             android:text="Summary and ACT"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.431"
+            app:layout_constraintHorizontal_bias="0.62"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.450
-"
+            app:layout_constraintVertical_bias="0.550"
             tools:ignore="MissingConstraints" />
 
         <Button
@@ -123,10 +138,10 @@
             android:text="Time management"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.658"
+            app:layout_constraintHorizontal_bias="0.431"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.55"
+            app:layout_constraintVertical_bias="0.650"
             tools:ignore="MissingConstraints" />
 
         <Button
@@ -138,10 +153,10 @@
             android:text="Summary and Reflection"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.600"
+            app:layout_constraintHorizontal_bias="0.322"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.65"
+            app:layout_constraintVertical_bias="0.750"
             tools:ignore="MissingConstraints" />
 
         <!--        <ImageButton-->

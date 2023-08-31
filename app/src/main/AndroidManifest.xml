@@ -63,6 +63,9 @@
             android:name=".Chapter1_Activity2_Activity"
             android:exported="true" />
         <activity
+            android:name=".Chapter1_Activity2_Question_Activity"
+            android:exported="true" />
+        <activity
             android:name=".Chapter1_Intro_ACT_Activity"
             android:exported="true" />
         <activity

@@ -136,6 +136,7 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
 
                     db.child("Chapter1").child("summary").child(username).setValue(map);
 
+                    //TODO: Do we need to check the progress status at this point?
                     Map<String, Object> update = new HashMap<>();
                     update.put("chapter1", "2");
                     db.child("progress").child(username).updateChildren(update);

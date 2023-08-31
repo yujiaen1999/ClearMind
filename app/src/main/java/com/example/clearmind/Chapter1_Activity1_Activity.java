@@ -20,11 +20,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 
@@ -139,7 +141,38 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
 //                    user_choice.add(checkBox12.getText().toString());
                 }
 
+                // update hashmap of Firebase database: Chapter1-activity1
                 updateHashmap(user_choice);
+
+                // Store each user’s selection in database for potential need in future
+                db.child("Chapter1").child("activity1_user_input").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if(!task.isSuccessful()){
+                            Log.e("firebase", "Error getting data", task.getException());
+                        } else{
+                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
+//                            List<String> user_choice_in_database = task.getResult().getValue(List.class);
+                            List<String> user_choice_in_database = (List) task.getResult().getValue();
+
+                            if(user_choice_in_database == null){
+                                Log.d("firebase_test", "here");
+                                List<String> user_choice_arr = new ArrayList<>();
+                                user_choice_arr.addAll(user_choice);
+                                db.child("Chapter1").child("activity1_user_input").child(username).setValue(user_choice_arr);
+                            } else{
+                                Log.d("firebase_test", "Not NULL");
+                                for (String item: user_choice){
+                                    if (user_choice_in_database.contains(item)){
+                                        continue;
+                                    }
+                                    user_choice_in_database.add(item);
+                                }
+                                db.child("Chapter1").child("activity1_user_input").child(username).setValue(user_choice_in_database);
+                            }
+                        }
+                    }
+                });
 
 //                HashMap<String, Object> map = new HashMap<>();
 //                map.put("Lack of Motivation", 0);
@@ -189,7 +222,9 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
         db.child("Chapter1").child("activity1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
+                // might have error if task is not success
                 HashMap<String, Object> hashmap_reasons = (HashMap<String, Object>) task.getResult().getValue();
+
                 if(!task.isSuccessful()){
                     Log.e("firebase", "Error getting data", task.getException());
                 }else{
@@ -210,7 +245,9 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
                 }
 
                 HashMap<Integer, HashSet<String>> sort_map = new HashMap<>();
+                Integer total = 0;
                 for(String key: hashmap_reasons.keySet()){
+                    total = total + Integer.parseInt(hashmap_reasons.get(key).toString());
                     if (sort_map.containsKey(Integer.parseInt(hashmap_reasons.get(key).toString()))){
                         sort_map.get(Integer.parseInt(hashmap_reasons.get(key).toString())).add(key);
                     } else{
@@ -232,7 +269,11 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
                     if (count > 5){
                         break;
                     }
-                    ranking_list = ranking_list + count + ". " + String.valueOf(sort_map.get(nums)).replace('[',' ').replace(']',' ') + "\n";
+
+                    DecimalFormat df = new DecimalFormat("0.00");
+                    String percentage_str = df.format(nums / (float)total * 100);
+
+                    ranking_list = ranking_list + count + ". " + String.valueOf(sort_map.get(nums)).replace('[',' ').replace(']',' ')  + "- "+  percentage_str + "%\n";
                     sort_map.remove(nums);
                     count += 1;
                 }

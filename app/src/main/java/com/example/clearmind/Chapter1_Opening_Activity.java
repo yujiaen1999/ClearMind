@@ -2,11 +2,16 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -43,9 +48,27 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Map<String, Object> update = new HashMap<>();
-                update.put("chapter1", "1");
-                db.child("progress").child(username).updateChildren(update);
+                db.child("progress").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if(!task.isSuccessful()){
+                            Log.e("firebase", "Error getting data", task.getException());
+                        } else{
+                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                            HashMap<String, Object> hashmap_progress = (HashMap<String, Object>) task.getResult().getValue();
+                            Integer cur_status = Integer.parseInt(hashmap_progress.get("chapter1").toString());
+                            if (cur_status == 0){
+                                Map < String, Object > update = new HashMap<>();
+                                update.put("chapter1", "1");
+                                db.child("progress").child(username).updateChildren(update);
+                            }
+                        }
+                    }
+                });
+
+//                Map < String, Object > update = new HashMap<>();
+//                update.put("chapter1", "1");
+//                db.child("progress").child(username).updateChildren(update);
 
                 open_Chapter1_Activity1();
             }
