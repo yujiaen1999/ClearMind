@@ -51,6 +51,48 @@
             android:name=".PreSurveyActivity"
             android:exported="true" />
         <activity
+            android:name=".PreSurvey1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey5_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey6_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey7_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey8_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey9_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey10_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey11_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey12_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey13_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey14_Activity"
+            android:exported="true" />
+        <activity
             android:name=".Chapter1_Activity"
             android:exported="true" />
         <activity

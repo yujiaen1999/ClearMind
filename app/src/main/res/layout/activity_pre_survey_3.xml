@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2FFD8">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        app:layout_constraintBottom_toTopOf="@+id/button_previous"
+        tools:layout_editor_absoluteX="-194dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="ClearMind Pre-Survey"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="300dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:progress="16"
+                tools:layout_editor_absoluteX="56dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+
+            <TextView
+                android:id="@+id/introduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:text="How much do you, yourself agree to the following statements? \n1 = Disagree; 5 = Agree"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+            <!--      QUESTION 10      -->
+            <TextView
+                android:id="@+id/question_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:text="10. I waste a lot of time on unimportant things."
+                android:textSize="16dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+
+            <!--      QUESTION 11      -->
+            <TextView
+                android:id="@+id/question_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:text="11. I get distracted by other, more fun, things when I am supposed to work on schoolwork."
+                android:textSize="16dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+
+            <!--      QUESTION 12      -->
+            <TextView
+                android:id="@+id/question_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:text="12. I concentrate on school work instead of other distractions."
+                android:textSize="16dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+
+            <!--      QUESTION 13      -->
+            <TextView
+                android:id="@+id/question_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:text="13. I can‟t focus on school work or projects for more than an hour until I get distracted."
+                android:textSize="16dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+            <!--      QUESTION 14      -->
+            <TextView
+                android:id="@+id/question_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:text="14. My attention span for schoolwork is very short."
+                android:textSize="16dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+
+            <!--     Place holder   -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="30dp"
+                android:paddingRight="20dp"
+                android:text=""
+                android:textSize="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_previous"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_gravity="left"
+        app:backgroundTint="#5FA12E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_gravity="right"
+        app:backgroundTint="#5FA12E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

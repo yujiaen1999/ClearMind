@@ -99,7 +99,7 @@ public class LearnActivity extends AppCompatActivity {
     }
 
     private void openPreSurveyACtivity() {
-        Intent intent = new Intent(this,PreSurveyActivity.class);
+        Intent intent = new Intent(this,PreSurvey1_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

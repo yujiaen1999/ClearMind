@@ -71,10 +71,16 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                String notification_content = "Time notification set successfully. You will get a system notification every ";
+                if (frequency == 1){
+                    notification_content = notification_content + frequency.toString() + " day.";
+                } else{
+                    notification_content = notification_content + frequency.toString() + " days.";
+                }
                 NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 Notification notification = new NotificationCompat.Builder(Chapter1_Time_Activity.this, "@time")
                         .setContentTitle("Time Notification enabled")
-                        .setContentText("Time notification set successfully. You will get a system notification every " + frequency.toString() + " days.")
+                        .setContentText(notification_content)
                         .setSmallIcon(R.drawable.notification_icon)
                         .setDefaults(Notification.DEFAULT_ALL)
                         .build();

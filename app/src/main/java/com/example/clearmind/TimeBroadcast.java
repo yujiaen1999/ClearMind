@@ -33,7 +33,7 @@ public class TimeBroadcast extends BroadcastReceiver {
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notification = new NotificationCompat.Builder(context, "@time")
                 .setContentTitle("ClearMind Reminder")
-                .setContentText("Continue your journey with ClearMind.")
+                .setContentText("Continue your mindful journey.")
                 .setSmallIcon(R.drawable.notification_icon)
 //                .setContentIntent(pendingIntent)
                 .setDefaults(Notification.DEFAULT_ALL)
