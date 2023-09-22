@@ -86,8 +86,12 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void register(String username, String password){
+        // TODO: Add all progress setting in Database here
+
+        // user' username and password
         this.db.child("users").child(username).setValue(new User(username, password, "1"));
 
+        // General progress
         HashMap<String, Object> progress_map = new HashMap<>();
         progress_map.put("presurvey", "0");
         progress_map.put("chapter1", "0");
@@ -97,6 +101,32 @@ public class SignupActivity extends AppCompatActivity {
         progress_map.put("postsurvey", "0");
 
         this.db.child("progress").child(username).setValue(progress_map);
+
+        // Chapter 1 progress
+        HashMap<String, Object> progress_chapter1 = new HashMap<>();
+        progress_chapter1.put("1_Opening", "0");
+        progress_chapter1.put("2_Activity1_1", "0");
+        progress_chapter1.put("3_Activity1_2_Discover", "0");
+        progress_chapter1.put("4_Activity1_2_Questions", "0");
+        progress_chapter1.put("5_Summary_and_ACT", "0");
+        progress_chapter1.put("6_Time_Management", "0");
+        progress_chapter1.put("7_Summary", "0");
+
+        this.db.child("Chapter1").child("progress").child(username).setValue(progress_chapter1);
+
+        // Chapter 2 progress
+        HashMap<String, Object> progress_chapter2 = new HashMap<>();
+        progress_chapter2.put("1_Opening", "0");
+        progress_chapter2.put("2_Activity2_1", "0");
+        progress_chapter2.put("3_Passengers_On_The_Bus", "0");
+        progress_chapter2.put("4_Example", "0");
+        progress_chapter2.put("5_Identify_your_passengers", "0");
+        progress_chapter2.put("6_Diagram", "0");
+        progress_chapter2.put("7_Willingness_to_Carry_On", "0");
+        progress_chapter2.put("8_Summary", "0");
+        this.db.child("Chapter2").child("progress").child(username).setValue(progress_chapter2);
+
+
     }
 
 }

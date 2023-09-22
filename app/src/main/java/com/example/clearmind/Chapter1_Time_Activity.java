@@ -24,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Chapter1_Time_Activity  extends AppCompatActivity {
     private String username;
@@ -104,6 +106,11 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
                 // intervalMillis: hours * minutes
 //                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), frequency * 1000 ,pendingIntent); // test
                 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), frequency * 24 * 60 * 60 * 1000, pendingIntent);
+
+                // update Chapter1 progress
+                Map<String, Object> chapter1_progress_update = new HashMap<>();
+                chapter1_progress_update.put("6_Time_Management", "1");
+                db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
 
                 open_Next_Activity();
             }

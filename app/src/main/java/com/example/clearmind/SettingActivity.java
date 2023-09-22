@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.PopupWindow;
@@ -70,7 +71,12 @@ public class SettingActivity extends AppCompatActivity {
             public void onClick(View v){
                 LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                 View viewPopupWindow = layoutInflater.inflate(R.layout.activity_notification_setting, null);
-                final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 900, 900, true);
+//                final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 900, 900, true);
+                final PopupWindow popupWindow = new PopupWindow(viewPopupWindow);
+                popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+                popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+                popupWindow.setFocusable(true);
+
                 popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
 
                 Spinner spinner_notification = (Spinner) viewPopupWindow.findViewById(R.id.spinner_notification);

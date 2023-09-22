@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Chapter1_Opening_Activity extends AppCompatActivity {
+public class Chapter2_Opening_Activity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;
 
@@ -29,7 +29,7 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chapter1_opening);
+        setContentView(R.layout.activity_chapter2_opening);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
         this.db = FirebaseDatabase.getInstance().getReference();
@@ -41,7 +41,7 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                open_Chapter1();
+                open_Chapter2();
             }
         });
 
@@ -52,7 +52,7 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
                 // update Chapter1 progress
                 Map<String, Object> chapter1_progress_update = new HashMap<>();
                 chapter1_progress_update.put("1_Opening", "1");
-                db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
+                db.child("Chapter2").child("progress").child(username).updateChildren(chapter1_progress_update);
 
                 // Update the whole progress
                 db.child("progress").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -63,10 +63,10 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
                         } else{
                             Log.d("firebase", String.valueOf(task.getResult().getValue()));
                             HashMap<String, Object> hashmap_progress = (HashMap<String, Object>) task.getResult().getValue();
-                            Integer cur_status = Integer.parseInt(hashmap_progress.get("chapter1").toString());
+                            Integer cur_status = Integer.parseInt(hashmap_progress.get("chapter2").toString());
                             if (cur_status == 0){
                                 Map < String, Object > update = new HashMap<>();
-                                update.put("chapter1", "1");
+                                update.put("chapter2", "1");
                                 db.child("progress").child(username).updateChildren(update);
                             }
                         }
@@ -77,20 +77,20 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
 //                update.put("chapter1", "1");
 //                db.child("progress").child(username).updateChildren(update);
 
-                open_Chapter1_Activity1();
+                open_Next_Activity();
             }
         });
 
     }
 
-    private void open_Chapter1_Activity1() {
-        Intent intent = new Intent(this,Chapter1_Activity1_Activity.class);
+    private void open_Next_Activity() {
+        Intent intent = new Intent(this,Chapter2_Activity1_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }
 
-    private void open_Chapter1() {
-        Intent intent = new Intent(this,Chapter1_Activity.class);
+    private void open_Chapter2() {
+        Intent intent = new Intent(this,Chapter2_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

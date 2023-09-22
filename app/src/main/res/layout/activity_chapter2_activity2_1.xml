@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="\n \nChapter2: Passengers On The Bus"
+                android:textStyle="bold"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Imagine you are a bus driver, driving your bus along the path of life. Your bus is filled with diverse passengers, each representing your difficult thoughts, emotions, memories, and challenging sensations. Some of the passengers seem friendly, while many others are not. Some passengers appear angry, while some others are judgmental. You also have passengers who are gripped by fear and carry sadness or shame, urging you to avoid taking risks or postpone making decisions.
+                \n\nYour natural instinct might be to fight with these difficult passengers and get them off the bus. You try to push them away or ignore them by covering your ears and closing your eyes, hoping they won’t bother you anymore. However, you soon realize that this approach doesn’t get you very far. With your attention diverted, you can't drive your bus, and you can't make progress towards your destination. Additionally, by fighting the challenging passengers and distracting yourself, you also miss the chance to interact with the friendly passengers on the bus.
+                \n\nThere is a better solution. Instead of fighting or avoiding these passengers, you learn to accept, allow, and let them be. You can focus your attention on driving your bus towards your values and the destination, regardless of the unpleasant passengers on board. It's not ideal to have these unpleasant passengers on board, but you acknowledge their presence without judgment. You recognize that the solution is not to push them away, but to create space for them internally and don't let them control your journey. As you journey towards your destination, you may learn valuable lessons from those challenging passengers."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/button_previous"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                app:backgroundTint="#5FA12E" />
+
+            <Button
+                android:id="@+id/button_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                app:backgroundTint="#5FA12E"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        app:backgroundTint="#5FA12E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
 
 //    private DatabaseReference db;
-//    private String username;  //TODO: needs to save the data before enter next activity
+//    private String username;
+// Done: needs to save the data before enter next activity - No need because user haven't log in yet
     private Button button_to_login;
     private Button button_to_register;
 
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void OpenTest(){
-        Intent intent = new Intent(this, Chapter1_Summary_Activity.class);
+        Intent intent = new Intent(this, Chapter2_Diagram_Activity.class);
         startActivity(intent);
     }
 

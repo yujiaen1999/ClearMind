@@ -117,6 +117,37 @@
             android:name=".Chapter1_Summary_Activity"
             android:exported="true" />
         <activity
+            android:name=".Chapter2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Opening_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity2_1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity2_2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity2_2Q_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity2_3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Diagram_Activity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Chapter2_Activity2_5_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Summary_Activity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

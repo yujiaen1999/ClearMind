@@ -19,6 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Chapter1_Activity2_Activity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;
@@ -76,6 +79,11 @@ public class Chapter1_Activity2_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                // update Chapter1 progress
+                Map<String, Object> chapter1_progress_update = new HashMap<>();
+                chapter1_progress_update.put("3_Activity1_2_Discover", "1");
+                db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
+
                 open_Next_Activity();
 //                openPopupWindow(v);
             }

@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,14 +19,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
-public class Chapter1_Summary_Activity extends AppCompatActivity {
-
+public class Chapter2_Summary_Activity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;
 
@@ -57,8 +52,8 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
         RadioGroup radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
 
 
-        // Get and Display user input from the database
-        db.child("Chapter1").child("summary").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        // Retrieve and Display user input from the database
+        db.child("Chapter2").child("summary").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 HashMap<String, String> hashmap_summary = (HashMap<String, String>) task.getResult().getValue();
@@ -126,7 +121,7 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
                 String txt_answer2 = answer2.getText().toString();
 
                 if (txt_answer1.isEmpty() || txt_answer2.isEmpty() || txt_answer3 == null){
-                    Toast.makeText(Chapter1_Summary_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Chapter2_Summary_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
                 } else {
                     // Get all answers from user
                     HashMap<String, Object> map = new HashMap<>();
@@ -134,17 +129,17 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
                     map.put("answer2", txt_answer2);
                     map.put("answer3", txt_answer3);
 
-                    db.child("Chapter1").child("summary").child(username).setValue(map);
+                    db.child("Chapter2").child("summary").child(username).setValue(map);
 
                     //Done: Do we need to check the progress status at this point? - No need
                     Map<String, Object> update = new HashMap<>();
-                    update.put("chapter1", "2");
+                    update.put("chapter2", "2");
                     db.child("progress").child(username).updateChildren(update);
 
                     // update Chapter1 progress
-                    Map<String, Object> chapter1_progress_update = new HashMap<>();
-                    chapter1_progress_update.put("7_Summary", "1");
-                    db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
+                    Map<String, Object> chapter_progress_update = new HashMap<>();
+                    chapter_progress_update.put("8_Summary", "1");
+                    db.child("Chapter2").child("progress").child(username).updateChildren(chapter_progress_update);
 
                     open_Next_Activity();
                 }
@@ -159,19 +154,19 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
     }
 
     private void open_Previous_Activity() {
-        Intent intent = new Intent(this,Chapter1_Time_Activity.class);
+        Intent intent = new Intent(this,Chapter2_Activity2_5_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }
 
     private void open_Next_Activity() {
-        Intent intent = new Intent(this,Chapter1_Activity.class);
+        Intent intent = new Intent(this,Chapter2_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }
 
     private void open_Chapter1() {
-        Intent intent = new Intent(this,Chapter1_Activity.class);
+        Intent intent = new Intent(this,Chapter2_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

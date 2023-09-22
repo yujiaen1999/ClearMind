@@ -208,12 +208,12 @@ public class LearnActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             if(status_chapter1.equals("2")){
                                 Toast.makeText(LearnActivity.this, "Open Chapter 2 page", Toast.LENGTH_SHORT).show();
-                                // openPreSurveyACtivity();
+                                openChapterTwoActivity();
 
-                                // update
-                                Map<String, Object> update = new HashMap<>();
-                                update.put("chapter2", "2");
-                                db.child("progress").child(username).updateChildren(update);
+//                                // update
+//                                Map<String, Object> update = new HashMap<>();
+//                                update.put("chapter2", "1");
+//                                db.child("progress").child(username).updateChildren(update);
                             } else {
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
@@ -225,15 +225,17 @@ public class LearnActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Toast.makeText(LearnActivity.this, "Open Chapter 2 page", Toast.LENGTH_SHORT).show();
+                            openChapterTwoActivity();
                         }
                     });
                 } else {
-                    // status == "1"
+                    // status == "2"
                     imgBtn_chapter2.setImageResource(R.drawable.imgbutton_chapter2_2);
                     imgBtn_chapter2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Toast.makeText(LearnActivity.this, "Open Chapter 2 page", Toast.LENGTH_SHORT).show();
+                            openChapterTwoActivity();
                         }
                     });
                 }
@@ -371,6 +373,12 @@ public class LearnActivity extends AppCompatActivity {
 
     private void openChapterOneActivity() {
         Intent intent = new Intent(this,Chapter1_Activity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
+
+    private void openChapterTwoActivity() {
+        Intent intent = new Intent(this,Chapter2_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

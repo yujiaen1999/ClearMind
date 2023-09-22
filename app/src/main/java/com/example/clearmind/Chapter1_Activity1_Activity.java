@@ -27,6 +27,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
 
@@ -210,6 +211,11 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                // update Chapter1 progress
+                Map<String, Object> chapter1_progress_update = new HashMap<>();
+                chapter1_progress_update.put("2_Activity1_1", "1");
+                db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
+
                 open_Next_Activity();
             }
         });
@@ -232,7 +238,7 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
 //                    HashMap<String, Object> hashmap_reasons = (HashMap<String, Object>) task.getResult().getValue();
                     HashMap<String, Object> new_map = new HashMap<>();
                     for(String value: user_choice){
-                        if(hashmap_reasons.containsKey(value)){
+                        if(hashmap_reasons != null && hashmap_reasons.containsKey(value)){
                             Object obj = hashmap_reasons.get(value);
 //                            Log.d("firebase_hashmap", String.valueOf(hashmap_reasons.get(value).getClass()));
                             new_map.put(value, Integer.parseInt(obj.toString())+1);

@@ -7,6 +7,7 @@ import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
@@ -17,6 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
     private String username;
@@ -220,7 +224,7 @@ public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
 
 //                Toast.makeText(getApplicationContext(), "your choice is " + answer1, Toast.LENGTH_LONG).show();
                 if(answer2.equals("A. Arousal")){
-                    question2_response.setText("Not quite right! Arousal procrastination often occurs because some individuals believe that the pressure that comes with imminent deadlines assists them in completing tasks productively. This doesn't seem to be the case, because Tommy is not seeking the pressure and productivity associated with the imminent deadline.\n");
+                    question2_response.setText("Not quite right! Arousal procrastination often occurs because some individuals believe that the pressure that comes with imminent deadlines assists them in completing tasks productively. This doesn't seem to be the case, because Tommy is not seeking the pressure and productivity associated with the imminent deadline.");
                     question2_response.setTextColor(Color.parseColor("#FF0000"));
                 } else if (answer2.equals("B. Avoidant")) {
                     question2_response.setText("Good job! That is the correct one. Avoidant procrastination often happens because some individuals want to avoid negative emotions or situations associated with the tasks. In Tommy’s case, he procrastinated on his English essay because he perceived the class as boring.");
@@ -300,7 +304,11 @@ public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
 
         View viewPopupWindow = layoutInflater.inflate(R.layout.activity_chapter1_activity2_score, null);
 
-        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 900, 700, true);
+//        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 900, 700, true);
+        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow);
+        popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setFocusable(true);
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 
@@ -338,6 +346,11 @@ public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
         button_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                // update Chapter1 progress
+                Map<String, Object> chapter1_progress_update = new HashMap<>();
+                chapter1_progress_update.put("4_Activity1_2_Questions", "1");
+                db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
+
                 open_Next_Activity();
 //                openPopupWindow(v);
             }

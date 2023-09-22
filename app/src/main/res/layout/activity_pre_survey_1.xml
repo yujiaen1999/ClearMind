@@ -40,6 +40,16 @@
             tools:layout_editor_absoluteX="56dp"
             tools:layout_editor_absoluteY="16dp" />
 
+        <TextView
+            android:id="@+id/introduction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:text="This Survey contains 68 questions in total, and it takes approximately 10 minutes to complete."
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <!--      QUESTION 1      -->
         <TextView
