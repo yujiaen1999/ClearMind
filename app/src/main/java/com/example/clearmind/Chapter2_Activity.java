@@ -3,10 +3,12 @@ package com.example.clearmind;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -320,7 +322,7 @@ public class Chapter2_Activity extends AppCompatActivity {
                     });
                 } else {
                     // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
+                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_text_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_activity2_3.setCompoundDrawables(icon_done, null, null, null);
                     button_activity2_3.setOnClickListener(new View.OnClickListener() {
@@ -346,7 +348,7 @@ public class Chapter2_Activity extends AppCompatActivity {
                     });
                 } else {
                     // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
+                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_diagram_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_activity2_4.setCompoundDrawables(icon_done, null, null, null);
                     button_activity2_4.setOnClickListener(new View.OnClickListener() {
@@ -401,6 +403,14 @@ public class Chapter2_Activity extends AppCompatActivity {
                     Drawable icon_done = getResources().getDrawable(R.drawable.icon_summary_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_summary.setCompoundDrawables(icon_done, null, null, null);
+
+                    // Add finish word
+                    TextView finish_word = findViewById(R.id.finish_word);
+                    String txt_word = "&#127881; You have finished this Chapter!";
+                    finish_word.setText(Html.fromHtml(txt_word));
+//                    finish_word.setText("You have finished this Chapter!");
+                    finish_word.setBackgroundResource(R.drawable.shape_hints);
+
                     button_summary.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

@@ -6,64 +6,81 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
-    <Button
-        android:id="@+id/button_learn"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:drawableTop="@drawable/learn"
-        android:text="Learn"
-        android:background="@null"
+    <LinearLayout
+        android:id="@+id/navigation_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
+        android:layout_weight="2">
 
-    <Button
-        android:id="@+id/button_save"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:drawableTop="@drawable/star"
-        android:text="Save"
-        android:background="@drawable/button_selected"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/button_learn"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/learn"
+            android:text="Learn"
+            android:paddingTop="5dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/button_achieve"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:drawableTop="@drawable/achievement"
-        android:text="Achieve"
-        android:background="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/star"
+            android:text="Save"
+            android:paddingTop="5dp"
+            android:background="@drawable/button_selected"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/button_profile"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:drawableTop="@drawable/profile"
-        android:text="Profile"
-        android:background="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9999"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/button_achieve"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/achievement"
+            android:text="Achieve"
+            android:paddingTop="5dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button_profile"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/profile"
+            android:text="Profile"
+            android:paddingTop="5dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9999"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

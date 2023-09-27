@@ -35,6 +35,7 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
     private Button button_back;
     private Button button_next;
     private Button button_home;
+    private Button button_submit;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6,
             checkBox7, checkBox8;
 
@@ -48,6 +49,7 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
         button_home = findViewById(R.id.button_home);
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
+        button_submit = findViewById(R.id.button_submit);
 
         checkBox1 = findViewById(R.id.checkbox1);
         checkBox2 = findViewById(R.id.checkbox2);
@@ -68,16 +70,10 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
             }
         });
 
-        button_back.setOnClickListener(new View.OnClickListener() {
+        button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                open_Previous_Activity();
-            }
-        });
 
-        button_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
                 Set<String> user_choice = new HashSet<>();
 
 //                Toast.makeText(Chapter1_Activity1_Activity.this, String.valueOf(user_choice), Toast.LENGTH_SHORT).show();
@@ -121,7 +117,20 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
                 // TODO: Do we need to give any feedback after user chose something?
                 updateHashmap(user_choice);
 
+            }
+        });
 
+
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                open_Previous_Activity();
+            }
+        });
+
+        button_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
                 // update Chapter1 progress
                 Map<String, Object> chapter1_progress_update = new HashMap<>();
                 chapter1_progress_update.put("2_Activity2_1", "1");
@@ -160,6 +169,47 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
                     // update hashmap in database
                     db.child("Chapter2").child("activity1").updateChildren(new_map);
                 }
+
+                HashMap<Integer, HashSet<String>> sort_map = new HashMap<>();
+                Integer total = 0;
+                for(String key: hashmap_reasons.keySet()){
+                    total = total + Integer.parseInt(hashmap_reasons.get(key).toString());
+                    if (sort_map.containsKey(Integer.parseInt(hashmap_reasons.get(key).toString()))){
+                        sort_map.get(Integer.parseInt(hashmap_reasons.get(key).toString())).add(key);
+                    } else{
+                        HashSet<String> new_set = new HashSet<>();
+                        new_set.add(key);
+                        sort_map.put(Integer.parseInt(hashmap_reasons.get(key).toString()), new_set);
+                    }
+                }
+
+                ArrayList<Integer> sortedKeys = new ArrayList<Integer>(sort_map.keySet());
+                Collections.sort(sortedKeys);
+                Collections.reverse(sortedKeys);
+
+                String ranking_list = "Top 3 Common Thoughts: \n";
+
+
+                int count = 1;
+                for(Integer nums: sortedKeys){
+                    if (count > 3){
+                        break;
+                    }
+
+                    DecimalFormat df = new DecimalFormat("0.00");
+                    String percentage_str = df.format(nums / (float)total * 100);
+
+                    ranking_list = ranking_list + count + ". " + String.valueOf(sort_map.get(nums)).replace('[',' ').replace(']',' ')  + "- "+  percentage_str + "%\n";
+                    sort_map.remove(nums);
+                    count += 1;
+                }
+
+                TextView ask_for_submit = findViewById(R.id.textView3);
+                ask_for_submit.setText("Thank you for your responses. Now let's explore what other users have shared. Here are the top 3 common thoughts provided by other users:");
+
+                TextView ranking = findViewById(R.id.textView4);
+                ranking.setText(ranking_list);
+
             }
         });
 

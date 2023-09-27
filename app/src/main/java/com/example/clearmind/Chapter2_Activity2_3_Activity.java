@@ -28,9 +28,9 @@ public class Chapter2_Activity2_3_Activity extends AppCompatActivity {
     private Button button_next;
     private Button button_home;
 
-    private EditText answer1;
-    private EditText answer2;
-    private EditText answer3;
+//    private EditText answer1;
+//    private EditText answer2;
+//    private EditText answer3;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,27 +43,27 @@ public class Chapter2_Activity2_3_Activity extends AppCompatActivity {
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
 
-        answer1 = findViewById(R.id.input1);
-        answer2 = findViewById(R.id.input2);
-        answer3 = findViewById(R.id.input3);
+//        answer1 = findViewById(R.id.input1);
+//        answer2 = findViewById(R.id.input2);
+//        answer3 = findViewById(R.id.input3);
 
         // Retrieve and Display user input from the database
-        db.child("Chapter2").child("activity2").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                HashMap<String, String> hashmap_chapter2 = (HashMap<String, String>) task.getResult().getValue();
-                if(!task.isSuccessful()){
-                    Log.e("firebase_summary", "Error getting data", task.getException());
-                }else{
-                    Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
-                    if(hashmap_chapter2 != null){
-                        answer1.setText(hashmap_chapter2.get("identify_goal"));
-                        answer2.setText(hashmap_chapter2.get("identify_passengers"));
-                        answer3.setText(hashmap_chapter2.get("identify_persuasion"));
-                    }
-                }
-            }
-        });
+//        db.child("Chapter2").child("activity2").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                HashMap<String, String> hashmap_chapter2 = (HashMap<String, String>) task.getResult().getValue();
+//                if(!task.isSuccessful()){
+//                    Log.e("firebase_summary", "Error getting data", task.getException());
+//                }else{
+//                    Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
+//                    if(hashmap_chapter2 != null){
+//                        answer1.setText(hashmap_chapter2.get("identify_goal"));
+//                        answer2.setText(hashmap_chapter2.get("identify_passengers"));
+//                        answer3.setText(hashmap_chapter2.get("identify_persuasion"));
+//                    }
+//                }
+//            }
+//        });
 
 
         button_home.setOnClickListener(new View.OnClickListener() {
@@ -83,32 +83,40 @@ public class Chapter2_Activity2_3_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                String txt_answer1 = answer1.getText().toString();
-                String txt_answer2 = answer2.getText().toString();
-                String txt_answer3 = answer3.getText().toString();
+                // update Chapter progress
+                Map<String, Object> chapter_progress_update = new HashMap<>();
+                chapter_progress_update.put("5_Identify_your_passengers", "1");
+                db.child("Chapter2").child("progress").child(username).updateChildren(chapter_progress_update);
 
-                if (txt_answer1.isEmpty() || txt_answer2.isEmpty() || txt_answer3.isEmpty()){
-                    Toast.makeText(Chapter2_Activity2_3_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Get all answers from user
-//                    HashMap<String, Object> map = new HashMap<>();
-//                    map.put("identify_goal", txt_answer1);
-//                    map.put("identify_passengers", txt_answer2);
-//                    map.put("identify_persuasion", txt_answer3);
+                open_Next_Activity();
+
+                // Save answers to database
+//                String txt_answer1 = answer1.getText().toString();
+//                String txt_answer2 = answer2.getText().toString();
+//                String txt_answer3 = answer3.getText().toString();
 //
-//                    db.child("Chapter2").child("activity2").child(username).setValue(map);
-
-                    db.child("Chapter2").child("activity2").child(username).child("identify_goal").setValue(txt_answer1);
-                    db.child("Chapter2").child("activity2").child(username).child("identify_passengers").setValue(txt_answer2);
-                    db.child("Chapter2").child("activity2").child(username).child("identify_persuasion").setValue(txt_answer3);
-
-                    // update Chapter progress
-                    Map<String, Object> chapter_progress_update = new HashMap<>();
-                    chapter_progress_update.put("5_Identify_your_passengers", "1");
-                    db.child("Chapter2").child("progress").child(username).updateChildren(chapter_progress_update);
-
-                    open_Next_Activity();
-                }
+//                if (txt_answer1.isEmpty() || txt_answer2.isEmpty() || txt_answer3.isEmpty()){
+//                    Toast.makeText(Chapter2_Activity2_3_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    // Get all answers from user
+////                    HashMap<String, Object> map = new HashMap<>();
+////                    map.put("identify_goal", txt_answer1);
+////                    map.put("identify_passengers", txt_answer2);
+////                    map.put("identify_persuasion", txt_answer3);
+////
+////                    db.child("Chapter2").child("activity2").child(username).setValue(map);
+//
+//                    db.child("Chapter2").child("activity2").child(username).child("identify_goal").setValue(txt_answer1);
+//                    db.child("Chapter2").child("activity2").child(username).child("identify_passengers").setValue(txt_answer2);
+//                    db.child("Chapter2").child("activity2").child(username).child("identify_persuasion").setValue(txt_answer3);
+//
+//                    // update Chapter progress
+//                    Map<String, Object> chapter_progress_update = new HashMap<>();
+//                    chapter_progress_update.put("5_Identify_your_passengers", "1");
+//                    db.child("Chapter2").child("progress").child(username).updateChildren(chapter_progress_update);
+//
+//                    open_Next_Activity();
+//                }
             }
         });
 

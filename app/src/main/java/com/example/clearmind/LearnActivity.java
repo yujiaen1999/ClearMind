@@ -107,12 +107,14 @@ public class LearnActivity extends AppCompatActivity {
     public void openSaveActivity(){
         Intent intent = new Intent(this,SaveActivity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 
     public void openAchieveActivity(){
         Intent intent = new Intent(this,AchieveActivity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 
@@ -368,6 +370,7 @@ public class LearnActivity extends AppCompatActivity {
     public void openProfileActivity(){
         Intent intent = new Intent(this,ProfileActivity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 

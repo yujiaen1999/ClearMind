@@ -37,7 +37,7 @@ public class Chapter2_Summary_Activity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chapter1_summary);
+        setContentView(R.layout.activity_chapter2_summary);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
         this.db = FirebaseDatabase.getInstance().getReference();

@@ -130,18 +130,21 @@ public class ProfileActivity extends AppCompatActivity {
     public void openLearnActivity(){
         Intent intent = new Intent(this,LearnActivity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 
     public void openSaveActivity(){
         Intent intent = new Intent(this,SaveActivity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 
     public void openAchieveActivity(){
         Intent intent = new Intent(this,AchieveActivity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 

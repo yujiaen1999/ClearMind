@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
-                android:text="\n \nChapter1: \nSummary of Chapter 1"
+                android:text="\n \nChapter1: Summary"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"

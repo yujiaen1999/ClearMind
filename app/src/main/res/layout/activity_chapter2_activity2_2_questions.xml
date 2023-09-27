@@ -51,20 +51,20 @@
                 android:text="1. You have a challenging assignment that is due tomorrow, you should:"
                 android:textSize="16dp" />
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/hint_1"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginLeft="20dp"-->
-            <!--                android:layout_marginRight="20dp"-->
-            <!--                android:background="@drawable/shape_hints"-->
-            <!--                android:paddingLeft="10dp"-->
-            <!--                android:paddingTop="5dp"-->
-            <!--                android:paddingRight="10dp"-->
-            <!--                android:paddingBottom="5dp"-->
-            <!--                android:text="hints?"-->
-            <!--                android:textColor="#388e3c"-->
-            <!--                android:textSize="16dp" />-->
+            <TextView
+                android:id="@+id/hint_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_hints"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:text="hints?"
+                android:textColor="#388e3c"
+                android:textSize="16dp" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"
@@ -84,13 +84,13 @@
                     android:id="@+id/btn1_A"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A. Put off studying and constantly check social media" />
+                    android:text="Put off studying and constantly check social media" />
 
                 <RadioButton
                     android:id="@+id/btn1_B"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="B. Complete the assignment regardless of what your minds say" />
+                    android:text="Complete the assignment regardless of what your minds say" />
 
             </RadioGroup>
 
@@ -118,6 +118,21 @@
                 android:text="2. You find yourself at a crossroad, considering a significant change in your life: going to your dream college in a new city and you feel uncertain and fearful that you will be all on your own there. You should:"
                 android:textSize="16dp" />
 
+            <TextView
+                android:id="@+id/hint_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_hints"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:text="hints?"
+                android:textColor="#388e3c"
+                android:textSize="16dp" />
+
             <RadioGroup
                 android:id="@+id/radioGroup2"
                 android:layout_width="wrap_content"
@@ -135,12 +150,12 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A. Embrace the uncertainty and fear and go to your dream school" />
+                    android:text="Embrace the uncertainty and fear and go to your dream school" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="B. Decline the offer letter and go to a local college" />
+                    android:text="Decline the offer letter and go to a local college" />
 
             </RadioGroup>
 
@@ -168,6 +183,21 @@
                 android:text="3. You failed a course that was required for your major and you have to retake it. You’ve been depressed recently. You should:"
                 android:textSize="16dp" />
 
+            <TextView
+                android:id="@+id/hint_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_hints"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:text="hints?"
+                android:textColor="#388e3c"
+                android:textSize="16dp" />
+
             <RadioGroup
                 android:id="@+id/radioGroup3"
                 android:layout_width="wrap_content"
@@ -185,12 +215,12 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A. Ignore and suppress these emotions" />
+                    android:text="Ignore and suppress these emotions" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="B. Allow yourself to feel sad but open to seek support from friends and family" />
+                    android:text="Allow yourself to feel sad but open to seek support from friends and family" />
 
             </RadioGroup>
 
@@ -218,6 +248,21 @@
                 android:text="4. You’ve always wanted to learn to play guitar since you were young. Once you started taking guitar lessons, you realized that it was time-consuming and more complicated than you thought. You should:"
                 android:textSize="16dp" />
 
+            <TextView
+                android:id="@+id/hint_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_hints"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:text="hints?"
+                android:textColor="#388e3c"
+                android:textSize="16dp" />
+
             <RadioGroup
                 android:id="@+id/radioGroup4"
                 android:layout_width="wrap_content"
@@ -235,12 +280,12 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A. Give up on playing guitar" />
+                    android:text="Give up on playing guitar" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="B. Embrace the learning process and don’t solely focus on the end result" />
+                    android:text="Embrace the learning process and don’t solely focus on the end result" />
 
             </RadioGroup>
 
@@ -267,6 +312,21 @@
                 android:text="5. Your doctor has advised you to lose weight and followed a healthier diet, but one day you find yourself craving junk food. You should:"
                 android:textSize="16dp" />
 
+            <TextView
+                android:id="@+id/hint_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_hints"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:text="hints?"
+                android:textColor="#388e3c"
+                android:textSize="16dp" />
+
             <RadioGroup
                 android:id="@+id/radioGroup5"
                 android:layout_width="wrap_content"
@@ -284,12 +344,12 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A. Practice mindful eating and ask yourself if you're really hungry" />
+                    android:text="Practice mindful eating and ask yourself if you're really hungry" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="B. Eat whatever you want and commit to the diet next time" />
+                    android:text="Eat whatever you want and commit to the diet next time" />
 
             </RadioGroup>
 

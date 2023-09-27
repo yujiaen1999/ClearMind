@@ -32,6 +32,7 @@ public class Chapter2_Diagram_Activity extends AppCompatActivity {
     private EditText answer2;
     private EditText answer3;
     private EditText answer4;
+    private EditText answer5;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class Chapter2_Diagram_Activity extends AppCompatActivity {
         answer2 = findViewById(R.id.input2);
         answer3 = findViewById(R.id.input3);
         answer4 = findViewById(R.id.input4);
+        answer5 = findViewById(R.id.input5);
 
 
         // Retrieve and Display user input from the database
@@ -64,6 +66,7 @@ public class Chapter2_Diagram_Activity extends AppCompatActivity {
                         answer2.setText(hashmap_chapter2.get("diagram_passenger_A"));
                         answer3.setText(hashmap_chapter2.get("diagram_passenger_B"));
                         answer4.setText(hashmap_chapter2.get("diagram_passenger_C"));
+                        answer5.setText(hashmap_chapter2.get("diagram_persuasion"));
                     }
                 }
             }
@@ -91,8 +94,9 @@ public class Chapter2_Diagram_Activity extends AppCompatActivity {
                 String txt_answer2 = answer2.getText().toString();
                 String txt_answer3 = answer3.getText().toString();
                 String txt_answer4 = answer4.getText().toString();
+                String txt_answer5 = answer5.getText().toString();
 
-                if (txt_answer1.isEmpty() || txt_answer2.isEmpty() || txt_answer3.isEmpty() || txt_answer4.isEmpty()){
+                if (txt_answer1.isEmpty() || txt_answer2.isEmpty() || txt_answer3.isEmpty() || txt_answer4.isEmpty() || txt_answer5.isEmpty()){
                     Toast.makeText(Chapter2_Diagram_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
                 } else {
                     // Get all answers from user
@@ -108,6 +112,7 @@ public class Chapter2_Diagram_Activity extends AppCompatActivity {
                     db.child("Chapter2").child("activity2").child(username).child("diagram_passenger_A").setValue(txt_answer2);
                     db.child("Chapter2").child("activity2").child(username).child("diagram_passenger_B").setValue(txt_answer3);
                     db.child("Chapter2").child("activity2").child(username).child("diagram_passenger_C").setValue(txt_answer4);
+                    db.child("Chapter2").child("activity2").child(username).child("diagram_persuasion").setValue(txt_answer5);
 
 
                     // update Chapter progress

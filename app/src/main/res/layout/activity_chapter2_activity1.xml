@@ -15,7 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center" >
 
             <TextView
                 android:id="@+id/textView1"
@@ -33,9 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
-                android:text="First, let’s spend a few moments reflecting on your recent experiences with procrastination. What challenging thoughts and feelings come to you when you reflect on those experiences? Try to narrow it down to at most three of the most challenging thoughts and feelings.
-                \n\nHere are some common challenging thoughts that other users of this app have encountered:
-"
+                android:text="First, let’s spend a few moments reflecting on your recent experiences with procrastination. What challenging thoughts and feelings come to you when you reflect on those experiences?
+                \n\nWe list some common challenge thoughts that our users have encountered already here. Try to narrow it down to at most three of the most challenging thoughts and feelings for your."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="18dp" />
@@ -116,6 +116,36 @@
             </LinearLayout>
 
 
+            <Button
+                android:id="@+id/button_submit"
+                android:layout_width="150dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                app:backgroundTint="#5FA12E" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Please submit your response to unlock other users' common thoughts before going to next page.
+"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
 
             <Button

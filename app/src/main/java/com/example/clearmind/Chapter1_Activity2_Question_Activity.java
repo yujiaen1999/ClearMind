@@ -92,7 +92,6 @@ public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
         // flag for hints status
         final Integer[] flag = {0,0,0,0,0};
 
-
         // ******************************************
         // Display the hints when click button
         // ******************************************
@@ -301,7 +300,6 @@ public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
         Integer score = 0;
 
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-
         View viewPopupWindow = layoutInflater.inflate(R.layout.activity_chapter1_activity2_score, null);
 
 //        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 900, 700, true);
@@ -357,18 +355,18 @@ public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
         });
     }
 
-    private void openHints(View view) {
-        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_popup_hints, null);
-        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 900, 700, true);
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-
-        TextView show_hints = (TextView) viewPopupWindow.findViewById(R.id.textView_hints);
-        String txt_hints = "<b>Arousal procrastination</b>: It is the tendency to purposefully put off completing specific tasks until the last moment."
-                + "<br><br><b>Avoidant procrastination</b>: It is the tendency to postpone or avoid tasks out of fear of failure, task aversiveness, or even success."
-                + "<br><br><b>Decisional procrastination</b>: It is the tendency to put off making decisions in a timely manner.";
-        show_hints.setText(Html.fromHtml(txt_hints));
-    }
+//    private void openHints(View view) {
+//        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+//        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_popup_hints, null);
+//        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 900, 700, true);
+//        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+//
+//        TextView show_hints = (TextView) viewPopupWindow.findViewById(R.id.textView_hints);
+//        String txt_hints = "<b>Arousal procrastination</b>: It is the tendency to purposefully put off completing specific tasks until the last moment."
+//                + "<br><br><b>Avoidant procrastination</b>: It is the tendency to postpone or avoid tasks out of fear of failure, task aversiveness, or even success."
+//                + "<br><br><b>Decisional procrastination</b>: It is the tendency to put off making decisions in a timely manner.";
+//        show_hints.setText(Html.fromHtml(txt_hints));
+//    }
 
     private void open_Previous_Activity() {
         Intent intent = new Intent(this,Chapter1_Activity2_Activity.class);
