@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ClearMind">
+        android:theme="@style/Theme.ClearMind.NoActionBar">
         <activity
             android:name=".SettingActivity"
             android:exported="true" />
@@ -146,6 +146,43 @@
             android:exported="true" />
         <activity
             android:name=".Chapter2_Summary_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Opening_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity3_Activity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".Chapter3_Activity4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity4_stop_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity4_breathe_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity4_believe_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity4_sum_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity5_1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity5_2_Activity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

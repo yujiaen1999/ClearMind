@@ -11,6 +11,7 @@
     <style name="Theme.ClearMind.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/black</item>
     </style>
 
     <style name="Theme.ClearMind.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

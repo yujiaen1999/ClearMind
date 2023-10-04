@@ -2,6 +2,7 @@ package com.example.clearmind;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,13 +20,17 @@ public class MainActivity extends AppCompatActivity {
     private Button button_to_login;
     private Button button_to_register;
 
-    private Button button_test;
+//    private Button button_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.w("MainActivity", "onCreate");
+
+//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//        getWindow().setStatusBarColor(getResources().getColor(R.color.transparent));
+
 //        Intent intent = getIntent();
 //        this.username = intent.getStringExtra("username");
 //        this.db = FirebaseDatabase.getInstance().getReference(); //get a reference of database
@@ -36,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         button_to_login = (Button) findViewById(R.id.button);
         button_to_register = (Button) findViewById(R.id.button2);
 
-        button_test = (Button) findViewById(R.id.button3);
+//        button_test = (Button) findViewById(R.id.button3);
 
         button_to_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,12 +58,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button_test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                OpenTest();
-            }
-        });
+//        button_test.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v){
+//                OpenTest();
+//            }
+//        });
     }
 
     public void openLoginActivity(){

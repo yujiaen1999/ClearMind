@@ -205,7 +205,7 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
                 }
 
                 TextView ask_for_submit = findViewById(R.id.textView3);
-                ask_for_submit.setText("Thank you for your responses. Now let's explore what other users have shared. Here are the top 3 common thoughts provided by other users:");
+                ask_for_submit.setText("Thank you for your responses. Here are the top 3 common thoughts provided by other users:");
 
                 TextView ranking = findViewById(R.id.textView4);
                 ranking.setText(ranking_list);

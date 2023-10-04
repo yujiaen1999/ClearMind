@@ -18,7 +18,7 @@ public class TimeBroadcast extends BroadcastReceiver {
     private String username;
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "it reaches here", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Notification triggered", Toast.LENGTH_SHORT).show();
         Log.d("TimeBroadcast", "Notification triggered");
 
         this.username = intent.getStringExtra("username");

@@ -49,7 +49,7 @@ public class Chapter2_Opening_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                // update Chapter1 progress
+                // update Chapter2 progress
                 Map<String, Object> chapter1_progress_update = new HashMap<>();
                 chapter1_progress_update.put("1_Opening", "1");
                 db.child("Chapter2").child("progress").child(username).updateChildren(chapter1_progress_update);
