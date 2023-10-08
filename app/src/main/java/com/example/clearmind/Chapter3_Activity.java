@@ -120,6 +120,24 @@ public class Chapter3_Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void open_Chapter3_Activity5_sum() {
+        Intent intent = new Intent(this,Chapter3_Activity5_sum_Activity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
+
+    private void open_Chapter3_Activity6() {
+        Intent intent = new Intent(this,Chapter3_Activity6_Activity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
+
+    private void open_Chapter3_Summary() {
+        Intent intent = new Intent(this,Chapter3_Summary_Activity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
+
     public void getData() {
         // calling add value event listener method
         // for getting the values from database.
@@ -133,9 +151,9 @@ public class Chapter3_Activity extends AppCompatActivity {
                 String status_4 = String.valueOf(snapshot.child("Chapter3").child("progress").child(username).child("4_Activity3_3").getValue());
                 String status_5 = String.valueOf(snapshot.child("Chapter3").child("progress").child(username).child("5_Activity3_4").getValue());
                 String status_6 = String.valueOf(snapshot.child("Chapter3").child("progress").child(username).child("6_Activity3_5_1").getValue());
-//                String status_7 = String.valueOf(snapshot.child("Chapter3").child("progress").child(username).child("7_Activity3_5_2").getValue());
-//                String status_8 = String.valueOf(snapshot.child("Chapter3").child("progress").child(username).child("8_Activity3_6").getValue());
-//                String status_9 = String.valueOf(snapshot.child("Chapter3").child("progress").child(username).child("9_Summary").getValue());
+                String status_7 = String.valueOf(snapshot.child("Chapter3").child("progress").child(username).child("7_Activity3_5_2").getValue());
+                String status_8 = String.valueOf(snapshot.child("Chapter3").child("progress").child(username).child("8_Activity3_6").getValue());
+                String status_9 = String.valueOf(snapshot.child("Chapter3").child("progress").child(username).child("9_Summary").getValue());
 
                 // HANDLE status_1
                 if (status_1.equals("0")) {
@@ -292,65 +310,91 @@ public class Chapter3_Activity extends AppCompatActivity {
                     });
                 }
 
-//                // HANDLE status_7
-//                if (status_7.equals("0")){
-//                    button_activity2_5.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            if(status_6.equals("1")){
-//                                Toast.makeText(Chapter2_Activity.this, "Open", Toast.LENGTH_SHORT).show();
-//                                open_Chapter2_Activity2_5();
-//                            } else{
-//                                Toast.makeText(Chapter2_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//                    });
-//                } else {
-//                    // status == "1"
-//                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
-//                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
-//                    button_activity2_5.setCompoundDrawables(icon_done, null, null, null);
-//                    button_activity2_5.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            open_Chapter2_Activity2_5();
-//                        }
-//                    });
-//                }
-//
-//                // HANDLE status_8
-//                if (status_8.equals("0")){
-//                    button_summary.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            if(status_7.equals("1")){
-//                                Toast.makeText(Chapter2_Activity.this, "Open", Toast.LENGTH_SHORT).show();
-//                                open_Chapter2_Summary();
-//                            } else{
-//                                Toast.makeText(Chapter2_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//                    });
-//                } else {
-//                    // status == "1"
-//                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_summary_done);
-//                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
-//                    button_summary.setCompoundDrawables(icon_done, null, null, null);
-//
-//                    // Add finish word
-//                    TextView finish_word = findViewById(R.id.finish_word);
-//                    String txt_word = "&#127881; You have finished this Chapter!";
-//                    finish_word.setText(Html.fromHtml(txt_word));
-////                    finish_word.setText("You have finished this Chapter!");
-//                    finish_word.setBackgroundResource(R.drawable.shape_hints);
-//
-//                    button_summary.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            open_Chapter2_Summary();
-//                        }
-//                    });
-//                }
+                // HANDLE status_7
+                if (status_7.equals("0")){
+                    button_activity5_2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_6.equals("1")){
+                                Toast.makeText(Chapter3_Activity.this, "Open", Toast.LENGTH_SHORT).show();
+                                open_Chapter3_Activity5_sum();
+                            } else{
+                                Toast.makeText(Chapter3_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
+                    // status == "1"
+                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_diagram_done);
+                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
+                    button_activity5_2.setCompoundDrawables(icon_done, null, null, null);
+                    button_activity5_2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            open_Chapter3_Activity5_sum();
+                        }
+                    });
+                }
+
+                // HANDLE status_8
+                if (status_8.equals("0")){
+                    button_activity6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_7.equals("1")){
+                                Toast.makeText(Chapter3_Activity.this, "Open", Toast.LENGTH_SHORT).show();
+                                open_Chapter3_Activity6();
+                            } else{
+                                Toast.makeText(Chapter3_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
+                    // status == "1"
+                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
+                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
+                    button_activity6.setCompoundDrawables(icon_done, null, null, null);
+                    button_activity6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            open_Chapter3_Activity6();
+                        }
+                    });
+                }
+
+                // HANDLE status_8
+                if (status_9.equals("0")){
+                    button_summary.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_8.equals("1")){
+//                                Toast.makeText(Chapter3_Activity.this, "Open", Toast.LENGTH_SHORT).show();
+                                open_Chapter3_Summary();
+                            } else{
+                                Toast.makeText(Chapter3_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
+                    // status == "1"
+                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_summary_done);
+                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
+                    button_summary.setCompoundDrawables(icon_done, null, null, null);
+
+                    // Add finish word
+                    TextView finish_word = findViewById(R.id.finish_word);
+                    String txt_word = "&#127881; You have finished this Chapter!";
+                    finish_word.setText(Html.fromHtml(txt_word));
+//                    finish_word.setText("You have finished this Chapter!");
+                    finish_word.setBackgroundResource(R.drawable.shape_hints);
+
+                    button_summary.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            open_Chapter3_Summary();
+                        }
+                    });
+                }
 
             }
 

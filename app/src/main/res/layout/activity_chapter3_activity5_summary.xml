@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
-                android:text="Here are the cognitive distortions that you selected. (Provide a list and hint to pop up the entire message.) Once you start realizing that you are experiencing these thinking distortions, it’s important to take action to change the ways you think. To change these cognitive distortions that you selected, we recommend that: (provide a list of solutions corresponding to the selected distortions.)"
+                android:text="Here are the cognitive distortions that you selected. Once you start realizing that you are experiencing these thinking distortions, it’s important to take action to change the ways you think. To change these cognitive distortions that you selected, we recommend that:"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="18dp" />
@@ -50,27 +50,44 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:background="@drawable/shape_hints">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/image"
-                    android:src="@drawable/distortion_mental_filtering_1"
-                    android:layout_margin="5dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/image"
+                        android:src="@drawable/distortion_mental_filtering_1"
+                        android:layout_margin="5dp"/>
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Mental Filtering"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/name"
+                    android:id="@+id/solution_0"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="distortion_0"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_margin="5dp"
-                    android:gravity="center"
-                    android:textColor="#000000" />
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="Journaling can be a valuable method to help overcome mental filtering. Keeping a diary or journal that involves writing down your thoughts and emotions about the events in your life will help redirect your attention away from the negatives and actively seek out the neutral or positive aspects of a situation."
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
 
             </LinearLayout>
 
@@ -83,25 +100,42 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:background="@drawable/shape_hints">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/distortion_question"
-                    android:layout_margin="5dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/distortion_question"
+                        android:layout_margin="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Distortion_1"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
                 <TextView
+                    android:id="@+id/solution_1"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="distortion_1"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_margin="5dp"
-                    android:gravity="center"
-                    android:textColor="#000000" />
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="Distortion solutions place holder here! xxxxxxx xxxx xxx x"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
 
             </LinearLayout>
 
@@ -114,25 +148,42 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:background="@drawable/shape_hints">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/distortion_question"
-                    android:layout_margin="5dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/distortion_question"
+                        android:layout_margin="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Distortion_2"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
                 <TextView
+                    android:id="@+id/solution_2"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="distortion_2"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_margin="5dp"
-                    android:gravity="center"
-                    android:textColor="#000000" />
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="Distortion solutions place holder here! xxxxxxx xxxx xxx x"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
 
             </LinearLayout>
 
@@ -145,27 +196,54 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:background="@drawable/shape_hints">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/distortion_question"
-                    android:layout_margin="5dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/distortion_question"
+                        android:layout_margin="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Distortion_3"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
                 <TextView
+                    android:id="@+id/solution_3"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="distortion_3"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_margin="5dp"
-                    android:gravity="center"
-                    android:textColor="#000000" />
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="Distortion solutions place holder here! xxxxxxx xxxx xxx x"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
 
             </LinearLayout>
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="Once you start realizing that you are experiencing these thinking distortions, it’s important to take action to change the ways you think. To change these cognitive distortions that you selected, we recommend that:"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="18dp" />-->
 
             <Button
                 android:id="@+id/button_previous"

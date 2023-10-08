@@ -48,7 +48,7 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
 
     // Distortion elements
     // TODO: Add more
-    String[] distortion_name = {"Mental filtering"};
+    String[] distortion_name = {"Mental filtering", "All-or-nothing thinking", "Overgeneralization", "Discounting the positive", "Jumping to Conclusions", "Magnification", "Emotional Reasoning", "“Should” Statements", "Labeling", "Personalization and Blame"};
     String[] distortion_intro = {"Mental filtering is like viewing the world through a negative lens. It involves focusing solely on the negative aspects while entirely disregarding the positive things in one's life."
     };
     String[] distortion_example = {"You gave a presentation at work, and your colleagues gave you positive feedback, saying your ideas were awesome and you explained things well. However, one person offered a minor critique about your slides for potential improvement. Instead of recognizing the positive feedback, you focused solely on that one piece of criticism, feeling like your entire presentation was a failure."
@@ -69,7 +69,7 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
         button_next = findViewById(R.id.button_next);
 
         // Set activity database
-        // TODO: need to be initialized somewhere
+        // Done: need to be initialized somewhere
 //        Map<String, Object> activity_update = new HashMap<>();
 //        activity_update.put("distortion_0", "0");
 //        activity_update.put("distortion_1", "0");
@@ -84,17 +84,56 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
 //
 //        db.child("Chapter3").child("activity5").child(username).updateChildren(activity_update);
 
+        db.child("Chapter3").child("activity5").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                HashMap<String, String> hashmap_activity5 = (HashMap<String, String>) task.getResult().getValue();
+//                hashmap_activity5 = hashmap_here;
+                Log.d("Hashmap Check inside", String.valueOf(hashmap_activity5));
+                if(!task.isSuccessful()){
+                    Log.e("firebase_activity5", "Error getting data", task.getException());
+                }else{
+                    Log.d("firebase_activity5", String.valueOf(task.getResult().getValue()));
+                    if(hashmap_activity5 == null){
+                        // Initialize the db activity5
+                        Log.d("firebase_activity5", "Initialized the db activity5");
+
+                        Map<String, Object> activity_update = new HashMap<>();
+                        activity_update.put("distortion_0", "0");
+                        activity_update.put("distortion_1", "0");
+                        activity_update.put("distortion_2", "0");
+                        activity_update.put("distortion_3", "0");
+                        activity_update.put("distortion_4", "0");
+                        activity_update.put("distortion_5", "0");
+                        activity_update.put("distortion_6", "0");
+                        activity_update.put("distortion_7", "0");
+                        activity_update.put("distortion_8", "0");
+                        activity_update.put("distortion_9", "0");
+
+                        db.child("Chapter3").child("activity5").child(username).updateChildren(activity_update);
+                    }
+                }
+            }
+        });
+
 
         // Set up Gridview
         gridView = findViewById(R.id.gridview);
 //        ArrayList<DistortionModel> DistortionModelArrayList = new ArrayList<DistortionModel>();
         DistortionModelArrayList = new ArrayList<DistortionModel>();
 
-        // TODO: Initialize gridview (add more)
-        DistortionModelArrayList.add(new DistortionModel("Mental filtering", R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel("All-or-nothing thinking", R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel("Overgeneralization", R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel("Discounting the positive", R.drawable.distortion_question));
+        // Done: Initialize gridview (add more)
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[0], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[1], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[2], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[3], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[4], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[5], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[6], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[7], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[8], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[9], R.drawable.distortion_question));
+
 
 //        DistortionGVAdapter adapter = new DistortionGVAdapter(this, DistortionModelArrayList);
         adapter = new DistortionGVAdapter(this, DistortionModelArrayList);
@@ -285,7 +324,7 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
 
     private void initialize_Gridview() {
         // Gridview image initialize
-        // TODO: image initialize based on status in database
+        // TODO: image initialize based on status in database (Change image)
         db.child("Chapter3").child("activity5").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -301,8 +340,14 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
                         String status_1 = hashmap_activity5.get("distortion_1");
                         String status_2 = hashmap_activity5.get("distortion_2");
                         String status_3 = hashmap_activity5.get("distortion_3");
+                        String status_4 = hashmap_activity5.get("distortion_4");
+                        String status_5 = hashmap_activity5.get("distortion_5");
+                        String status_6 = hashmap_activity5.get("distortion_6");
+                        String status_7 = hashmap_activity5.get("distortion_7");
+                        String status_8 = hashmap_activity5.get("distortion_8");
+                        String status_9 = hashmap_activity5.get("distortion_9");
 
-                        Log.d("Status Check", hashmap_activity5.get("distortion_0"));
+//                        Log.d("Status Check", hashmap_activity5.get("distortion_0"));
 
                         switch (status_0) {
                             case "1":
@@ -332,7 +377,12 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
                 String status_1 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_1").getValue());
                 String status_2 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_2").getValue());
                 String status_3 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_3").getValue());
-//                String status_4 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_4").getValue());
+                String status_4 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_4").getValue());
+                String status_5 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_5").getValue());
+                String status_6 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_6").getValue());
+                String status_7 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_7").getValue());
+                String status_8 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_8").getValue());
+                String status_9 = String.valueOf(snapshot.child("Chapter3").child("activity5").child(username).child("distortion_9").getValue());
 
                 switch (status_0) {
                     case "1":
@@ -344,6 +394,8 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
                     default:
                         break;
                 }
+
+
 
                 gridView.setAdapter(adapter);
 
@@ -366,7 +418,7 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
     }
 
     private void open_Next_Activity() {
-        Intent intent = new Intent(this,Chapter3_Activity.class);
+        Intent intent = new Intent(this,Chapter3_Activity5_sum_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

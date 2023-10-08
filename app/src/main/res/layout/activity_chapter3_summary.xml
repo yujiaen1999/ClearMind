@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="\n \nChapter3: Summary"
+                android:textStyle="bold"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="In this chapter, we practiced some positive cognitive strategies, such as breath meditation and the Stop Breathe Believe practice, that could help you progress towards your goal, even when those challenging emotions pop up. We also discussed the ten most common cognitive distortions that could lead to misperceptions of reality, negative emotions, and unhealthy mindsets and how we could change our thinking patterns and adopt more positive mindsets.
+                \n\nPlease take a moment and complete the following questions reflecting on your experiences:
+"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <!--      QUESTION 1      -->
+            <TextView
+                android:id="@+id/question_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:padding="20dp"
+                android:text="1. Have you gained any new insights from this chapter that you would like to incorporate into your approaches to managing procrastination?
+" />
+
+            <EditText
+                android:id="@+id/input1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="Input your answer for question1"
+                android:padding="20dp"
+                android:background="#FFFFFF"
+                tools:ignore="ExtraText" />
+
+            <!--      QUESTION 2      -->
+            <TextView
+                android:id="@+id/question_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:padding="20dp"
+                android:text="2. If you could share one cognitive distortion you've learned about in this chapter with your friend, which one would you choose and why?" />
+
+            <EditText
+                android:id="@+id/input2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="Input your answer for question2"
+                android:padding="20dp"
+                android:background="#FFFFFF"
+                tools:ignore="ExtraText" />
+
+            <!--      QUESTION 3      -->
+            <!--            <TextView-->
+            <!--                android:id="@+id/question_3"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:textSize="16dp"-->
+            <!--                android:padding="20dp"-->
+            <!--                android:text="3. Have you gained any new insights from this chapter that you would like to incorporate into your approaches to managing procrastination?" />-->
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/input3"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:cursorVisible="true"-->
+            <!--                android:ems="10"-->
+            <!--                android:hint="Input your answer for question3"-->
+            <!--                android:padding="20dp"-->
+            <!--                android:background="#FFFFFF"-->
+            <!--                tools:ignore="ExtraText" />-->
+
+            <!--      QUESTION 3      -->
+            <TextView
+                android:id="@+id/question_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:padding="20dp"
+                android:text="3. Rate the effectiveness of this chapter in managing your procrastination tendencies on a scale of 1 to 5, where 1 represents “not effective at all” and 5 represents “extremely effective.”" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp">
+
+                <RadioButton
+                    android:id="@+id/radiobtn_1"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/radiobtn_2"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/radiobtn_3"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+                <RadioButton
+                    android:id="@+id/radiobtn_4"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="4" />
+                <RadioButton
+                    android:id="@+id/radiobtn_5"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="5" />
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/button_previous"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                app:backgroundTint="#5FA12E" />
+
+            <Button
+                android:id="@+id/button_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Finish"
+                app:backgroundTint="#5FA12E"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        app:backgroundTint="#5FA12E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

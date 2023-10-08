@@ -39,7 +39,7 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
     private Button button_next;
     private Button button_home;
 
-    private VideoView videoView;
+//    private VideoView videoView;
     private WebView webView;
 
     private TextView button_transcript;
@@ -65,7 +65,7 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
 //                openHints(v);
 
                 if (flag[0] == 0){
-                    String txt_hints = "<p style=\"text-align: center\"><b>Video Transcript</b></p>\n" +
+                    String txt_hints = "<p style=\"text-align: center\"><b>Can’t play the video?</b></p>\n" +
                             "Focus on your breath. Without changing how you breathe, become aware of all the sensations that come with breathing. Start counting your exhales using your inner voice. As you exhale for the first time, say \"one\" silently. Continue this pattern with the next exhale, saying \"two.\" Keep up until you've counted ten full breath cycles. After that, count another ten cycles, but this time go in reverse order, starting from ten and counting down to one." +
                             "<br><br>" +
                             "Give each breath your full attention. Observe the subtle differences in the sensations of your breath. Remember, you're not changing your breath; you're simply using it as a focal point to keep your mind anchored." +
@@ -74,7 +74,7 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
                     button_transcript.setText(Html.fromHtml(txt_hints));
                     flag[0] = 1;
                 } else{
-                    button_transcript.setText("Video Transcript");
+                    button_transcript.setText("Can’t play the video?");
                     flag[0] = 0;
                 }
             }
@@ -116,21 +116,21 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
         webView.setLayoutParams(vc);
 
 
-        // set up the video from local storage
-        videoView = findViewById(R.id.videoview);
-        String videoUrl = "android.resource://" + getPackageName() + "/" + R.raw.test_video;
-        Uri uri = Uri.parse(videoUrl);
-
-//        videoView.setVideoPath("/res/raw/test.mp4");
-        videoView.setVideoURI(uri);
-        MediaController mediaController = new MediaController(this);
-        mediaController.setAnchorView(videoView);
-        // sets the media player to the videoView
-        mediaController.setMediaPlayer(videoView);
-        // sets the media controller to the videoView
-        videoView.setMediaController(mediaController);
-        // starts the video
-//        videoView.start();
+//        // set up the video from local storage
+//        videoView = findViewById(R.id.videoview);
+//        String videoUrl = "android.resource://" + getPackageName() + "/" + R.raw.test_video;
+//        Uri uri = Uri.parse(videoUrl);
+//
+////        videoView.setVideoPath("/res/raw/test.mp4");
+//        videoView.setVideoURI(uri);
+//        MediaController mediaController = new MediaController(this);
+//        mediaController.setAnchorView(videoView);
+//        // sets the media player to the videoView
+//        mediaController.setMediaPlayer(videoView);
+//        // sets the media controller to the videoView
+//        videoView.setMediaController(mediaController);
+//        // starts the video
+////        videoView.start();
 
 
         button_home.setOnClickListener(new View.OnClickListener() {

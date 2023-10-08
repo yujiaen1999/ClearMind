@@ -49,17 +49,17 @@
                 tools:ignore="WebViewLayout" />
 
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="20dp">
+<!--            <FrameLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_margin="20dp">-->
 
-                <VideoView
-                    android:id="@+id/videoview"
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"/>
+<!--                <VideoView-->
+<!--                    android:id="@+id/videoview"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="500dp"/>-->
 
-            </FrameLayout>
+<!--            </FrameLayout>-->
 
 <!--            <VideoView-->
 <!--                android:id="@+id/videoview"-->
@@ -102,7 +102,7 @@
                 android:paddingTop="5dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="5dp"
-                android:text="Video Transcript"
+                android:text="Can’t play the video?"
                 android:textColor="#000000"
                 android:textSize="16dp" />
 

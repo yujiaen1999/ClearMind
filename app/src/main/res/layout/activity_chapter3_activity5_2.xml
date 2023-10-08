@@ -53,7 +53,7 @@
             <GridView
                 android:id="@+id/gridview"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
+                android:layout_height="600dp"
                 android:horizontalSpacing="6dp"
                 android:numColumns="2"
                 android:verticalSpacing="6dp" />

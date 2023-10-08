@@ -185,6 +185,15 @@
             android:name=".Chapter3_Activity5_2_Activity"
             android:exported="true" />
         <activity
+            android:name=".Chapter3_Activity5_sum_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity6_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Summary_Activity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
