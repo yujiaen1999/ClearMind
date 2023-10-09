@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:paddingBottom="20dp"
+                android:paddingBottom="10dp"
                 android:text="Please enter the emotion that you are experiencing most strongly:
 "
                 android:textAlignment="textStart"
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="and I think:"
+                android:text="and it is because:"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="18dp" />
@@ -107,11 +107,20 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:paddingBottom="20dp"
+                android:paddingBottom="10dp"
                 android:text="triggers this emotion."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/example"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="(Example: I’m feeling anxious and it is because I haven’t yet begun to prepare for my final exam which is scheduled for tomorrow triggers this emotion.)"
+                android:textSize="16dp" />
 
 
             <Button
