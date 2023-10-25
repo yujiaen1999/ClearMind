@@ -83,6 +83,7 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
                 Notification notification = new NotificationCompat.Builder(Chapter1_Time_Activity.this, "@time")
                         .setContentTitle("Time Notification enabled")
                         .setContentText(notification_content)
+                        .setAutoCancel(true)
                         .setSmallIcon(R.drawable.notification_icon)
                         .setDefaults(Notification.DEFAULT_ALL)
                         .build();

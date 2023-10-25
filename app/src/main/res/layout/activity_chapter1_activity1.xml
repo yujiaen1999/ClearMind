@@ -16,28 +16,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter1: Activity1.1 \nDiscover the Reason for Procrastination"
+                android:layout_marginTop="48dp"
+                android:text="Chapter1: Activity1.1 \nDiscover the Reason for Procrastination"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginTop="@dimen/text_internal"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="We would like to begin with exploring the reasons behind procrastination behaviors. In this activity, please take a moment to reflect on why you might delay or put off certain tasks. You can enter your responses in the text input field provided below. Feel free to be as specific as possible."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 <!--            <TextView-->
 <!--                android:id="@+id/textView4"-->
@@ -57,66 +60,77 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lack of Motivation"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox1"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fear of Failure"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox2"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Perfectionism"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox3"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Task Difficulty"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox4"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Poor Time Management"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox5"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lack of Clear Goals"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox6"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Distractions"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox7"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Low Self-Discipline"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox8"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Overwhelm"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox9"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Delayed Gratification"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox10"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Decision Paralysis"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox11"/>
 
 
@@ -128,7 +142,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Other"
-                        android:paddingRight="20dp"
+                        android:textSize="@dimen/text_size_main_small"
+                        android:paddingRight="10dp"
                         android:id="@+id/checkbox12"/>
 
                     <EditText
@@ -137,9 +152,14 @@
                         android:layout_height="wrap_content"
                         android:cursorVisible="true"
                         android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
                         android:hint="Input here"
+                        android:textSize="@dimen/text_size_main_small"
                         android:background="#FFFFFF"
                         tools:ignore="ExtraText" />
+
 
                 </LinearLayout>
 <!--                <CheckBox-->
@@ -147,6 +167,14 @@
 <!--                    android:layout_height="wrap_content"-->
 <!--                    android:text="Other"-->
 <!--                    android:id="@+id/checkbox12"/>-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/button_submit"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Submit"-->
+<!--                    app:backgroundTint="#5FA12E" />-->
 
             </LinearLayout>
 
@@ -173,7 +201,8 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginTop="@dimen/text_internal"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="Thank you for your responses. Now let's explore what other users have shared. Here are the top 5 common answers provided by other users:
 "
                 android:textAlignment="textStart"
@@ -186,11 +215,11 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:paddingBottom="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text=""
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <ImageView
                 android:id="@+id/imageView"

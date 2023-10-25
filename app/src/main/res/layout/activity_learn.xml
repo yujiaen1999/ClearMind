@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_general">
+    android:background="@drawable/background"
+    android:id="@+id/activity_learn">
 
 
 <!--    <ImageButton-->
@@ -37,18 +38,84 @@
 <!--        tools:layout_editor_absoluteX="59dp"-->
 <!--        tools:layout_editor_absoluteY="231dp" />-->
 
-    <TextView
+
+    <LinearLayout
         android:id="@+id/welcome"
-        android:layout_width="341dp"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="@dimen/fab_margin"
         android:layout_height="140dp"
-        android:text="Hi, Welcome!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.00"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/hello"
+                android:layout_width="248dp"
+                android:layout_height="40dp"
+                android:paddingTop="5dp"
+                android:text="Hi, Welcome!"
+                android:textSize="28dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/instruction"
+                android:layout_width="248dp"
+                android:layout_height="100dp"
+                android:text="Welcome to ClearMind Learn page. You can find 4 Chapters here, let's see your challenge for today."
+                android:textSize="@dimen/text_size_main_large"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/progressBar2"-->
+<!--            style="?android:attr/progressBarStyle"-->
+<!--            android:progress="20"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="140dp"-->
+<!--            android:layout_weight="1" />-->
+
+        <com.example.clearmind.CustomProgressBar
+            android:id="@+id/progressBar2"
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:background="@drawable/circle_shape"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:progress="65"/>
+
+
+
+    </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/welcome"-->
+<!--        android:layout_width="343dp"-->
+<!--        android:layout_height="140dp"-->
+<!--        android:text="Hi, Welcome!"-->
+<!--        android:textSize="@dimen/text_size_main_large"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+<!--        android:textColor="#000000"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.05" />-->
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -138,8 +205,8 @@
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/star"
-            android:text="Save"
+            android:drawableTop="@drawable/tracker"
+            android:text="Tracker"
             android:paddingTop="5dp"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

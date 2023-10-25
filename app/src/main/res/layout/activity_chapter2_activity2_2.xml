@@ -15,31 +15,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter2: Examples of Driving The Bus"
+                android:layout_marginTop="48dp"
+                android:text="Chapter2: Examples of Driving The Bus"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="As the driver of the bus, you have the power to respond to the passengers in different ways. One option might be engaging in arguments with them and trying to make them quiet by shouting over them. However, this can drain all your energy, making it difficult to concentrate on the direction of travel.
                 \n\nYour passengers may be loud and confrontational, but it’s crucial to remember that they can’t actually hurt you. Your primary focus should remain on the direction of travel(towards your values), while being prepared for disruptive behaviors from your passengers at times.
                 \n\nHere are some examples of how people might respond to difficult passengers. For each question, select the answer that best describes driving with your passengers while traveling towards your destination."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
-
+                android:textSize="@dimen/text_size_main_large" />
 
 
             <Button

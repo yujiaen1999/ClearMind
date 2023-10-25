@@ -2,10 +2,12 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +33,8 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
     private EditText answer1;
     private EditText answer2;
 
+    private TextView example;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter3_activity1);
@@ -44,6 +48,10 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
 
         answer1 = findViewById(R.id.input1);
         answer2 = findViewById(R.id.input2);
+        example = findViewById(R.id.example);
+
+        String txt_example = "<b>Example</b>: I’m feeling <u>anxious</u> and it is because <u>I haven’t yet begun to prepare for my final exam which is scheduled for tomorrow</u> triggers this emotion.";
+        example.setText(Html.fromHtml(txt_example));
 
         // Retrieve and Display user input from the database
         db.child("Chapter3").child("activity1").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {

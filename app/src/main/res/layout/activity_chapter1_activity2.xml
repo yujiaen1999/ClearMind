@@ -15,28 +15,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter1: Activity1.2 \nDiscover various kinds of procrastination tendencies"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Chapter1: Activity1.2 \nDiscover various kinds of procrastination tendencies"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="Now, let's familiarize ourselves with different types of procrastination tendencies. We can classify procrastination tendencies into three primary categories: arousal procrastination, avoidant procrastination, and decisional procrastination."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 <!--            <EditText-->
 <!--                android:id="@+id/input1"-->
@@ -53,7 +56,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="Here is the detailed definition of each type:
                 \n\nArousal procrastination: It is the tendency to purposefully put off completing specific tasks until the last moment. It often arises from a desire for heightened urgency, which comes with approaching deadlines. Individuals who engage themselves in arousal procrastination believe that the pressure of a pending deadline assists them in completing tasks under tight time constraints.
                 \n\nAvoidant procrastination: It is the tendency to postpone or avoid tasks out of fear of failure, task aversiveness, or even success. Fear of failure manifests as a common belief among avoidant procrastinators that they lack essential skills or abilities to accomplish them, leading to task delays. Task aversiveness is the notion that avoidant procrastinators genuinely dislike the task, leading them to postpone it. Lastly, fear of success is the notion that avoidant procrastinators fear success because they anticipate additional responsibilities and expectations that come with achieving it.
@@ -62,7 +65,7 @@
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 
 <!--            &lt;!&ndash;      QUESTION 1      &ndash;&gt;-->

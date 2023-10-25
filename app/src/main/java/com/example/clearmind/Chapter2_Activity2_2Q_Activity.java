@@ -93,15 +93,14 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
         // ******************************************
         // Display the hints when click button
         // ******************************************
+        String txt_hints = "<b>Hint</b>: When you drive with your passengers, remember that you are steering the bus, instead of your passengers. Don’t let your passengers decide where the bus goes.";
         button_hint1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
 //                openHints(v);
 
                 if (flag[0] == 0){
-                    String txt_hints = "<b>General Summary</b>: It is the hint template"
-                            + "<br><br><b>General Summary</b>: It is the hints template"
-                            + "<br><br><b>General Summary</b>: It is the hints template";
+//                    String txt_hints = "<b>General Hint</b>: When you drive with your passengers, remember that you are steering the bus, instead of your passengers. Don’t let your passengers decide where the bus goes.";
                     button_hint1.setText(Html.fromHtml(txt_hints));
                     flag[0] = 1;
                 } else{
@@ -115,9 +114,9 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag[1] == 0) {
-                    String txt_hints = "<b>General Summary</b>: It is the hint template"
-                            + "<br><br><b>General Summary</b>: It is the hints template"
-                            + "<br><br><b>General Summary</b>: It is the hints template";
+//                    String txt_hints = "<b>General Summary</b>: It is the hint template"
+//                            + "<br><br><b>General Summary</b>: It is the hints template"
+//                            + "<br><br><b>General Summary</b>: It is the hints template";
                     button_hint2.setText(Html.fromHtml(txt_hints));
                     flag[1] = 1;
                 } else {
@@ -131,9 +130,9 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag[2] == 0) {
-                    String txt_hints = "<b>General Summary</b>: It is the hint template"
-                            + "<br><br><b>General Summary</b>: It is the hints template"
-                            + "<br><br><b>General Summary</b>: It is the hints template";
+//                    String txt_hints = "<b>General Summary</b>: It is the hint template"
+//                            + "<br><br><b>General Summary</b>: It is the hints template"
+//                            + "<br><br><b>General Summary</b>: It is the hints template";
                     button_hint3.setText(Html.fromHtml(txt_hints));
                     flag[2] = 1;
                 } else {
@@ -147,9 +146,9 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag[3] == 0) {
-                    String txt_hints = "<b>General Summary</b>: It is the hint template"
-                            + "<br><br><b>General Summary</b>: It is the hints template"
-                            + "<br><br><b>General Summary</b>: It is the hints template";
+//                    String txt_hints = "<b>General Summary</b>: It is the hint template"
+//                            + "<br><br><b>General Summary</b>: It is the hints template"
+//                            + "<br><br><b>General Summary</b>: It is the hints template";
                     button_hint4.setText(Html.fromHtml(txt_hints));
                     flag[3] = 1;
                 } else {
@@ -163,9 +162,9 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag[4] == 0) {
-                    String txt_hints = "<b>General Summary</b>: It is the hint template"
-                            + "<br><br><b>General Summary</b>: It is the hints template"
-                            + "<br><br><b>General Summary</b>: It is the hints template";
+//                    String txt_hints = "<b>General Summary</b>: It is the hint template"
+//                            + "<br><br><b>General Summary</b>: It is the hints template"
+//                            + "<br><br><b>General Summary</b>: It is the hints template";
                     button_hint5.setText(Html.fromHtml(txt_hints));
                     flag[4] = 1;
                 } else {

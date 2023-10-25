@@ -15,40 +15,40 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter2: Identify Your Passengers"
+                android:layout_marginTop="48dp"
+                android:text="Chapter2: Identify Your Passengers"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="Fill the diagrams below with the details of your own bus.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
                 android:text="My destination:"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -72,12 +72,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingHorizontal="20dp"
                 android:hint="My destination"
+                android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
@@ -85,13 +85,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
                 android:text="My passengers:"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -115,12 +113,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingHorizontal="20dp"
                 android:hint="Passenger A"
+                android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
@@ -141,12 +139,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingHorizontal="20dp"
                 android:hint="Passenger B"
+                android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
@@ -167,13 +165,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingHorizontal="20dp"
                 android:hint="Passenger C"
+                android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
@@ -181,12 +178,11 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="How do your passengers persuade you to give up on your goal?"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp"
+                android:textSize="@dimen/text_size_main_large"
                 android:paddingTop="10dp"/>
 
             <EditText
@@ -194,12 +190,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingHorizontal="20dp"
                 android:hint="Passengers' persuasion"
+                android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 

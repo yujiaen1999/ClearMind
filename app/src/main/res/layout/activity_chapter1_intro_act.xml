@@ -15,31 +15,34 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter1: Introduction of ACT"
+                android:layout_marginTop="48dp"
+                android:text="Chapter1: Introduction of ACT"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginTop="@dimen/text_internal"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="In the following chapters, we will practice Acceptance and Commitment Therapy (ACT) skills to help you overcome the urge to procrastinate. Acceptance and Commitment Therapy is an action-oriented approach that helps individuals to overcome psychological barriers.
                 \n\nAcceptance and commitment therapy (ACT) is an action-oriented approach to psychotherapy that stems from traditional behavior therapy and cognitive behavioral therapy. Clients learn to stop avoiding, denying, and struggling with their inner emotions and, instead, accept that these deeper feelings are appropriate responses to certain situations that should not prevent them from moving forward in their lives. With this understanding, clients begin to accept their hardships and commit to making necessary changes in their behavior, regardless of what is going on in their lives and how they feel about it.
                 \n\nPsychologist Steven C. Hayes, a professor at the University of Nevada, developed ACT during the 1980s. His inspiration came from personal experiences, notably his struggles with panic attacks. This motivated him to confront and embrace himself, vowing not to evade his emotions or experiences any longer.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <Button
                 android:id="@+id/button_previous"

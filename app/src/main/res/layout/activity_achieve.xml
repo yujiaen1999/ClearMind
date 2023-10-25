@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_general">
+    android:background="@drawable/background_general"
+    android:id="@+id/activity_achieve">
 
     <LinearLayout
         android:id="@+id/navigation_buttons"
@@ -35,8 +36,8 @@
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/star"
-            android:text="Save"
+            android:drawableTop="@drawable/tracker"
+            android:text="Tracker"
             android:paddingTop="5dp"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

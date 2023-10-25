@@ -194,6 +194,9 @@
             android:name=".Chapter3_Summary_Activity"
             android:exported="true" />
         <activity
+            android:name=".Chapter4_Activity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

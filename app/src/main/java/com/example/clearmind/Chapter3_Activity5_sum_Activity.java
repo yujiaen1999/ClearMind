@@ -42,6 +42,12 @@ public class Chapter3_Activity5_sum_Activity extends AppCompatActivity {
         LinearLayout distortion_1 = findViewById(R.id.distortion_1);
         LinearLayout distortion_2 = findViewById(R.id.distortion_2);
         LinearLayout distortion_3 = findViewById(R.id.distortion_3);
+        LinearLayout distortion_4 = findViewById(R.id.distortion_4);
+        LinearLayout distortion_5 = findViewById(R.id.distortion_5);
+        LinearLayout distortion_6 = findViewById(R.id.distortion_6);
+        LinearLayout distortion_7 = findViewById(R.id.distortion_7);
+        LinearLayout distortion_8 = findViewById(R.id.distortion_8);
+        LinearLayout distortion_9 = findViewById(R.id.distortion_9);
 
         // get data from bd
         db.child("Chapter3").child("activity5").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -59,6 +65,13 @@ public class Chapter3_Activity5_sum_Activity extends AppCompatActivity {
                         String status_1 = hashmap_activity5.get("distortion_1");
                         String status_2 = hashmap_activity5.get("distortion_2");
                         String status_3 = hashmap_activity5.get("distortion_3");
+                        String status_4 = hashmap_activity5.get("distortion_4");
+                        String status_5 = hashmap_activity5.get("distortion_5");
+                        String status_6 = hashmap_activity5.get("distortion_6");
+                        String status_7 = hashmap_activity5.get("distortion_7");
+                        String status_8 = hashmap_activity5.get("distortion_8");
+                        String status_9 = hashmap_activity5.get("distortion_9");
+
 
 //                        Log.d("Status Check", hashmap_activity5.get("distortion_0"));
 
@@ -80,6 +93,36 @@ public class Chapter3_Activity5_sum_Activity extends AppCompatActivity {
                         if (!status_3.equals("1")){
                             // distortion invisible
                             distortion_3.setVisibility(View.GONE);
+                        }
+
+                        if (!status_4.equals("1")){
+                            // distortion invisible
+                            distortion_4.setVisibility(View.GONE);
+                        }
+
+                        if (!status_5.equals("1")){
+                            // distortion invisible
+                            distortion_5.setVisibility(View.GONE);
+                        }
+
+                        if (!status_6.equals("1")){
+                            // distortion invisible
+                            distortion_6.setVisibility(View.GONE);
+                        }
+
+                        if (!status_7.equals("1")){
+                            // distortion invisible
+                            distortion_7.setVisibility(View.GONE);
+                        }
+
+                        if (!status_8.equals("1")){
+                            // distortion invisible
+                            distortion_8.setVisibility(View.GONE);
+                        }
+
+                        if (!status_9.equals("1")){
+                            // distortion invisible
+                            distortion_9.setVisibility(View.GONE);
                         }
 
                     }

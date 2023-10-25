@@ -15,54 +15,55 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter2: Willingness to Carry On"
+                android:layout_marginTop="48dp"
+                android:text="Chapter2: Willingness to Carry On"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="Now, let's address one of the biggest obstacles to reaching your destination: procrastination. Procrastination tendencies can bring many difficult passengers that come along for the ride, such as self-doubt, anxiety, and depression.
                 \n\nWhat action will you take to acknowledge these difficult passengers while concentrating on traveling towards your destination?
                 \n\nKeep in mind that you can allow difficult feelings to come and go without fighting and arguing with them. They can’t take control of your journey unless you allow them to. You can treat them as background noise, even though they can be loud sometimes."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
                 android:text="Your action:"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_main_large" />
 
             <EditText
                 android:id="@+id/input1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingHorizontal="20dp"
                 android:hint="Input here"
+                android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 

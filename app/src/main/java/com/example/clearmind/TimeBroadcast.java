@@ -34,6 +34,7 @@ public class TimeBroadcast extends BroadcastReceiver {
         Notification notification = new NotificationCompat.Builder(context, "@time")
                 .setContentTitle("ClearMind Reminder")
                 .setContentText("Continue your mindful journey.")
+                .setAutoCancel(true)
                 .setSmallIcon(R.drawable.notification_icon)
 //                .setContentIntent(pendingIntent)
                 .setDefaults(Notification.DEFAULT_ALL)

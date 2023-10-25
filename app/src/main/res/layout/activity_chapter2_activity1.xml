@@ -16,78 +16,86 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center" >
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter2: Activity2.1 \nIdentify and describe your challenging emotions"
+                android:layout_marginTop="48dp"
+                android:text="Chapter2: Activity2.1 \nIdentify and describe your challenging emotions"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="First, let’s spend a few moments reflecting on your recent experiences with procrastination. What challenging thoughts and feelings come to you when you reflect on those experiences?
                 \n\nWe list some common challenge thoughts that our users have encountered already here. Try to narrow it down to at most three of the most challenging thoughts and feelings for your."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="20dp">
+                android:paddingRight="20dp" >
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sadness"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox1"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Anger"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox2"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Loneliness"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox3"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Anxiety"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox4"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Overwhelm"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox5"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Doubt"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox6"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Distraction"
+                    android:textSize="@dimen/text_size_main_small"
                     android:id="@+id/checkbox7"/>
 
                 <LinearLayout
@@ -98,6 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Other"
+                        android:textSize="@dimen/text_size_main_small"
                         android:paddingRight="20dp"
                         android:id="@+id/checkbox8"/>
 
@@ -107,7 +116,11 @@
                         android:layout_height="wrap_content"
                         android:cursorVisible="true"
                         android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
                         android:hint="Input here"
+                        android:textSize="@dimen/text_size_main_small"
                         android:background="#FFFFFF"
                         tools:ignore="ExtraText" />
 
@@ -128,12 +141,12 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="Please submit your response to unlock other users' common thoughts before going to next page.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -141,11 +154,11 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:paddingBottom="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text=""
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_main_small" />
 
 
             <Button

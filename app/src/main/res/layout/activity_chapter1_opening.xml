@@ -15,29 +15,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter1: Opening"
+                android:layout_marginTop="48dp"
+                android:text="Chapter1: Opening"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginTop="@dimen/text_internal"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="In this chapter, you’ll explore various kinds of procrastination and the underlying reasons behind procrastination behaviors. We’ll also introduce the concepts of Acceptance and Commitment Therapy, which can be utilized to manage your procrastination tendencies effectively.
-                \n \nHaving familiarized yourself with the ClearMind ACT App, feel free to press the NEXT button to proceed to part one. This section should take no more than 15 mins to complete. Let’s get started! \n"
+                \n \nHaving familiarized yourself with the ClearMind ACT App, feel free to press the NEXT button to proceed to part one. This section should take no more than 15 mins to complete. Let’s get started!"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <Button
                 android:id="@+id/button_previous"

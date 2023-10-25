@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:animationCache="false"
     tools:context=".LoginActivity"
-    android:background="@drawable/background_general">
+    android:background="@drawable/background_general"
+    android:id="@+id/activity_login">
+
 
     <Button
         android:id="@+id/entry_button"

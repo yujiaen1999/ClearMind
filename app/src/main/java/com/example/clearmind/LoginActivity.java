@@ -1,11 +1,17 @@
 package com.example.clearmind;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -37,6 +43,26 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Enable full screen display and avoid nav bar overlap
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.activity_login), (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            // Apply the insets as a margin to the view. This solution sets only the
+            // bottom, left, and right dimensions, but you can apply whichever insets are
+            // appropriate to your layout. You can also update the view padding if that's
+            // more appropriate.
+            ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+//            mlp.leftMargin = insets.left;
+//            mlp.rightMargin = insets.right;
+            mlp.bottomMargin = insets.bottom;
+            v.setLayoutParams(mlp);
+
+            // Return CONSUMED if you don't want want the window insets to keep passing
+            // down to descendant views.
+            return WindowInsetsCompat.CONSUMED;
+        });
+
         this.usernameInput = (EditText)(findViewById(R.id.username_input));
         this.passwordInput = (EditText)(findViewById(R.id.password_input));
         this.db = FirebaseDatabase.getInstance().getReference(); //get a reference of database
@@ -90,10 +116,13 @@ public class LoginActivity extends AppCompatActivity {
 
                     User user = task.getResult().getValue(User.class);
 //                    Log.d("LoginUser", user.toString());
-                    if (user == null){
+                    if (username.isEmpty()){
+                        Toast.makeText(LoginActivity.this,  "Please enter username", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (user == null) {
                         // the username doesn't exist in db
                         // need to register
-                        Toast.makeText(LoginActivity.this,  "New User, please register first ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,  "New User, please register first", Toast.LENGTH_SHORT).show();
 //                        register(username, password);
 //                        toMainPage = true;
                     }

@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_general">
+    android:background="@drawable/background_general"
+    android:id="@+id/activity_chapter3">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="72dp"
         android:text="Chapter 3: Practice"
         android:background="#5FA12E"
         android:textColor="#FFFFFF"
-        android:textSize="22dp"
+        android:textSize="@dimen/text_size_heading_small"
         android:textStyle="bold"
         android:gravity="center"
+        android:paddingTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -26,10 +28,11 @@
 
     <ImageButton
         android:id="@+id/button_back_learn_page"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:background="@null"
         android:paddingTop="15dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/button_back_1"
         android:contentDescription="Back"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,10 +56,11 @@
 
             <Button
                 android:id="@+id/button_1"
-                android:layout_width="130dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_opening"
+                android:drawablePadding="8dp"
                 android:text="Opening"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -69,10 +73,11 @@
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="240dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_practice"
+                android:drawablePadding="8dp"
                 android:text="Describe your feelings"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -85,10 +90,11 @@
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="320dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_practice"
+                android:drawablePadding="8dp"
                 android:text="Identify how it feels in your body"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -101,10 +107,11 @@
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="270dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_meditation"
+                android:drawablePadding="8dp"
                 android:text="Practice breath meditation"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -117,10 +124,11 @@
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="290dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_meditation"
+                android:drawablePadding="8dp"
                 android:text="Practice stop breathe believe"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -133,10 +141,11 @@
 
             <Button
                 android:id="@+id/button6"
-                android:layout_width="320dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_diagram"
+                android:drawablePadding="8dp"
                 android:text="Be aware of cognitive distortions"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -149,10 +158,11 @@
 
             <Button
                 android:id="@+id/button7"
-                android:layout_width="320dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_diagram"
+                android:drawablePadding="8dp"
                 android:text="Summary of cognitive distortions"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -165,10 +175,11 @@
 
             <Button
                 android:id="@+id/button8"
-                android:layout_width="335dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_practice"
+                android:drawablePadding="8dp"
                 android:text="Reflection on cognitive distortions"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -181,10 +192,11 @@
 
             <Button
                 android:id="@+id/button9"
-                android:layout_width="140dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_summary"
+                android:drawablePadding="8dp"
                 android:text="Summary"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"

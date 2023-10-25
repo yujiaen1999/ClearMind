@@ -15,38 +15,41 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter1: Time Management Settings"
+                android:layout_marginTop="48dp"
+                android:text="Chapter1: Time Management Settings"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_size_heading_small"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginTop="@dimen/text_internal"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="To help you use our application, please answer the following questions.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <!--      QUESTION 1      -->
             <TextView
                 android:id="@+id/question_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="1. How frequently do you plan to use our app?"
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"
@@ -65,19 +68,22 @@
                     android:id="@+id/btn1_A"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A. Daily" />
+                    android:text="A. Daily"
+                    android:textSize="@dimen/text_size_note"/>
 
                 <RadioButton
                     android:id="@+id/btn1_B"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="B. Once a week" />
+                    android:text="B. Once a week"
+                    android:textSize="@dimen/text_size_note"/>
 
                 <RadioButton
                     android:id="@+id/btn1_C"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="C. 2-3 times a week" />
+                    android:text="C. 2-3 times a week"
+                    android:textSize="@dimen/text_size_note"/>
             </RadioGroup>
 
 
@@ -86,9 +92,9 @@
                 android:id="@+id/question_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="2. How much time are you willing to commit to each visit on our app?"
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup2"
@@ -107,38 +113,39 @@
                     android:id="@+id/btn2_A"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A. Less than 10 minutes" />
+                    android:text="A. Less than 10 minutes"
+                    android:textSize="@dimen/text_size_note"/>
 
                 <RadioButton
                     android:id="@+id/btn2_B"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="B. Less than 20 minutes" />
+                    android:text="B. Less than 20 minutes"
+                    android:textSize="@dimen/text_size_note"/>
 
                 <RadioButton
                     android:id="@+id/btn2_C"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="C. Less than 30 minutes" />
+                    android:text="C. Less than 30 minutes"
+                    android:textSize="@dimen/text_size_note"/>
             </RadioGroup>
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text=""
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="Based on your responses, we will enable notifications to keep you on track of your study plan. If you did not chose any options,the default setting will be a daily notification. You can always change your notification preferences by:
                 \n\n1. Open [Clearmind] App on your device
                 \n2. Navigate to “Settings” -> “Notifications”

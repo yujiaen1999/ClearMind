@@ -4,22 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_profile" >
+    android:background="@drawable/background_profile"
+    android:id="@+id/activity_profile">
+
 
     <TextView
         android:id="@+id/welcome_title"
         android:layout_width="390dp"
         android:layout_height="48dp"
         android:text="My Profile"
+        android:textSize="@dimen/text_size_heading_large"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.080" />
-
+        app:layout_constraintVertical_bias="0.081" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -145,8 +148,8 @@
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/star"
-            android:text="Save"
+            android:drawableTop="@drawable/tracker"
+            android:text="Tracker"
             android:paddingTop="5dp"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

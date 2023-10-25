@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_general"
-    android:id="@+id/activity_chapter2">
+    android:id="@+id/activity_chapter4">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:text="Chapter 2: Understanding"
+        android:text="Chapter 4: Determination"
         android:background="#5FA12E"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/text_size_heading_small"
@@ -31,9 +31,9 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@null"
+        android:paddingTop="15dp"
         android:layout_marginTop="24dp"
-
-        android:src="@drawable/expand_left_2"
+        android:src="@drawable/button_back_1"
         android:contentDescription="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,9 +76,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
-                android:drawableLeft="@drawable/icon_practice"
+                android:drawableLeft="@drawable/icon_text"
                 android:drawablePadding="8dp"
-                android:text="Activity 2.1"
+                android:text="Introduction of STAR framework"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -93,9 +93,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
-                android:drawableLeft="@drawable/icon_text"
+                android:drawableLeft="@drawable/icon_practice"
                 android:drawablePadding="8dp"
-                android:text="Passengers On The Bus"
+                android:text="Commit to a new goal"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +112,7 @@
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_practice"
                 android:drawablePadding="8dp"
-                android:text="Example of Driving the bus"
+                android:text="Delve into the values"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
-                android:drawableLeft="@drawable/icon_text"
+                android:drawableLeft="@drawable/icon_practice"
                 android:drawablePadding="8dp"
                 android:text="Identify your passengers"
                 android:layout_marginBottom="10dp"
@@ -144,9 +144,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
-                android:drawableLeft="@drawable/icon_diagram"
+                android:drawableLeft="@drawable/icon_practice"
                 android:drawablePadding="8dp"
-                android:text="Identify your passengers - Diagram"
+                android:text="Willingness to carry on"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -161,17 +161,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@null"
-                android:drawableLeft="@drawable/icon_practice"
+                android:drawableLeft="@drawable/icon_diagram"
                 android:drawablePadding="8dp"
-                android:text="Willingness to Carry On"
+                android:text="Introduce new tools"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.409"
+                app:layout_constraintHorizontal_bias="0.234"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.75"
+                app:layout_constraintVertical_bias="0.65"
                 tools:ignore="MissingConstraints" />
+
+<!--            <Button-->
+<!--                android:id="@+id/button8"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background="@null"-->
+<!--                android:drawableLeft="@drawable/icon_practice"-->
+<!--                android:drawablePadding="8dp"-->
+<!--                android:text="Reflection on cognitive distortions"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.409"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.75"-->
+<!--                tools:ignore="MissingConstraints" />-->
 
             <Button
                 android:id="@+id/button8"

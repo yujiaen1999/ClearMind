@@ -15,29 +15,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter2: Identify Your Passengers"
+                android:layout_marginTop="48dp"
+                android:text="Chapter2: Identify Your Passengers"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="Think about a goal you want to accomplish in the future, but you know that challenging passengers might arise. Recognizing and identifying your passengers is the first step towards overcoming procrastination and staying on track towards your goal.
                 \n\nPlease fill the diagram on the next page with the details of your own bus. Identify the goals and values you are trying to achieve, and fill those in as the destination of the bus. What passengers(challenging thoughts or feelings) will you encounter? How do they persuade you to give up on your goal? Brainstorm some excuses your potential passengers might use to persuade you to give up on your goal. Write them down in the speech bubble."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 
 <!--            <TextView-->
