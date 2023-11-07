@@ -17,29 +17,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center" >
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter3: Be aware of cognitive distortions"
+                android:layout_marginTop="48dp"
+                android:text="Chapter3: Be aware of cognitive distortions"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="Now, let’s talk about the ten most common cognitive distortions with examples:"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 <!--            <LinearLayout-->
 <!--                android:layout_width="match_parent"-->
@@ -53,7 +55,7 @@
             <GridView
                 android:id="@+id/gridview"
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
+                android:layout_height="540dp"
                 android:horizontalSpacing="6dp"
                 android:numColumns="2"
                 android:verticalSpacing="6dp" />

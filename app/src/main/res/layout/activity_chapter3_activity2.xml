@@ -16,28 +16,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center" >
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter3: Identify how it feels in your body"
+                android:layout_marginTop="48dp"
+                android:text="Chapter3: Identify how it feels in your body"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="Now let’s visualize where this difficult emotion seems to manifest within your body. Try to explain in detail how it affects both your body and mind."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 
 <!--            <TextView-->
@@ -57,12 +59,10 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
                 android:text="Where do you feel it most strongly in your body?"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <RelativeLayout
                 android:layout_width="300dp"
@@ -91,18 +91,17 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="What physical sensations do you observe accompanying this emotion?"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <RelativeLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="@dimen/text_internal">
                 <Spinner
                     android:id="@+id/spinner_2"
                     android:layout_width="300dp"
@@ -118,10 +117,8 @@
                 android:cursorVisible="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingLeft="10dp"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:padding = "10dp"
                 android:hint="Input other physical sensations"
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />

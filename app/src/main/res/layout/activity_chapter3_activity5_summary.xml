@@ -17,29 +17,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center" >
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter3: Summary of cognitive distortions"
+                android:layout_marginTop="48dp"
+                android:text="Chapter3: Summary of cognitive distortions"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="Once you start realizing that you are experiencing these thinking distortions, it’s important to take action to change the ways you think. To change these cognitive distortions that you selected, we recommend that:"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <LinearLayout
                 android:id="@+id/distortion_0"
@@ -50,8 +52,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -62,8 +62,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:id="@+id/image"
                         android:src="@drawable/distortion_mental_filtering_1"
                         android:layout_margin="5dp"/>
@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="Mental Filtering"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -87,7 +87,7 @@
                     android:paddingBottom="5dp"
                     android:text="Journaling can be a valuable method to help overcome mental filtering. Keeping a diary or journal that involves writing down your thoughts and emotions about the events in your life will help redirect your attention away from the negatives and actively seek out the neutral or positive aspects of a situation."
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 
@@ -100,8 +100,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -112,8 +110,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/distortion_question"
                         android:layout_margin="5dp"/>
 
@@ -121,7 +119,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="All-or-nothing thinking"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -135,7 +133,7 @@
                     android:paddingBottom="5dp"
                     android:text="To overcome All-or-nothing thinking, it's essential to understand that success and progress are not binary, all-or-nothing concepts. You need to acknowledge and address this type of thinking, and by substituting self-defeating thoughts, you can become more aware of your strengths and focus more on your progress instead of outcomes."
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 
@@ -148,8 +146,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -160,8 +156,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/distortion_question"
                         android:layout_margin="5dp"/>
 
@@ -169,7 +165,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="Overgeneralization"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -183,7 +179,7 @@
                     android:paddingBottom="5dp"
                     android:text="To counter overgeneralization, it's helpful to use more realistic language with a positive tone. Instead of saying, “I always do that!” you can say something like, “That happens occasionally, but I'm committed to improving in the future.”"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 
@@ -196,8 +192,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -208,8 +202,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/distortion_question"
                         android:layout_margin="5dp"/>
 
@@ -217,7 +211,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="Discounting the positive"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -231,7 +225,7 @@
                     android:paddingBottom="5dp"
                     android:text="To conquer this cognitive distortion, try changing how you explain events. Instead of dismissing positive results as luck, pay more attention to how your strengths, abilities, and hard work played a role in achieving them."
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 
@@ -244,8 +238,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -256,8 +248,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/distortion_question"
                         android:layout_margin="5dp"/>
 
@@ -265,7 +257,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="Jumping to Conclusions"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -279,7 +271,7 @@
                     android:paddingBottom="5dp"
                     android:text="To conquer this cognitive distortion, you can follow the following steps: \n\n1. Check the facts: Gather as much information as possible before making judgments or decisions. \n2. Challenge your thoughts: Actively question your assumptions and explore alternative explanations. \n3. Communication: Instead of assuming what others think, communicate your concerns and seek direct answers to avoid confusion or misunderstanding. \n4. Try an alternative viewpoint: View the situation from an outsider's standpoint, considering the information needed for a more accurate understanding."
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 
@@ -293,8 +285,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -305,8 +295,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/distortion_question"
                         android:layout_margin="5dp"/>
 
@@ -314,7 +304,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="Magnification"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -328,7 +318,7 @@
                     android:paddingBottom="5dp"
                     android:text="To overcome magnification, you can work on recognizing these exaggerated thoughts and deliberately replacing them with more constructive and positive thinking patterns."
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 
@@ -342,8 +332,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -354,8 +342,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/distortion_question"
                         android:layout_margin="5dp"/>
 
@@ -363,7 +351,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="Emotional Reasoning"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -377,7 +365,7 @@
                     android:paddingBottom="5dp"
                     android:text="To overcome Emotional Reasoning: \n1) Acknowledge the feeling, 2) call out it's emotional reasoning, and 3) find evidence of Lisa parking just fine."
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 
@@ -390,8 +378,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -402,8 +388,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/distortion_question"
                         android:layout_margin="5dp"/>
 
@@ -411,7 +397,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="“Should” Statements"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -425,7 +411,7 @@
                     android:paddingBottom="5dp"
                     android:text="One way to combat this cognitive distortion is to concentrate on cultivating self-compassion. Swap those unrealistic thoughts with more practical ones and focus on embracing yourself for who you truly are, not who you believe you should be."
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 
@@ -439,8 +425,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -451,8 +435,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/distortion_question"
                         android:layout_margin="5dp"/>
 
@@ -460,7 +444,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="Labeling"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -474,7 +458,7 @@
                     android:paddingBottom="5dp"
                     android:text="To overcome labeling, challenge the validity of your assumptions. Find evidence contradicting your negative thinking, and remember the distinction between personal opinions and objective facts."
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 
@@ -488,8 +472,6 @@
                 android:paddingTop="2dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/shape_hints">
@@ -500,8 +482,8 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/distortion_question"
                         android:layout_margin="5dp"/>
 
@@ -509,7 +491,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:text="Personalization and Blame"
-                        android:textSize="20dp"
+                        android:textSize="@dimen/text_size_main_large"
                         android:layout_marginBottom="10dp"
                         android:layout_margin="5dp"
                         android:gravity="center"
@@ -523,7 +505,7 @@
                     android:paddingBottom="5dp"
                     android:text="To combat personalization and blame, explore additional factors that could have influenced your situation. Instead of placing all the blame on yourself, consider external circumstances or the actions of others that might have also played a part."
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_main_small" />
 
             </LinearLayout>
 

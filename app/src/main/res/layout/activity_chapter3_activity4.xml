@@ -17,19 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center" >
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter3: Practice stop breathe believe"
+                android:layout_marginTop="48dp"
+                android:text="Chapter3: Practice stop breathe believe"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -42,13 +44,13 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="While we may not have control over the events that trigger challenging emotions, we do have the power to manage our responses to emotional distress, including those related to procrastination. The path to recover begins with recognizing the challenging feelings that influence our actions.
                 \n\nThe Stop Breathe Believe practice is a valuable tool to guide you through those difficult times, prompting gentle yet steadfast, and compassionate responses to the negative, hurtful, and unhealthy feelings. Moreover, it helps you proactively manage and effectively address your procrastination tendencies.
                 \n\nNow let’s introduce the basics of the Stop Breathe Believe practice."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 
             <Button

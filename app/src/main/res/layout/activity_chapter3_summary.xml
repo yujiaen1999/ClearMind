@@ -15,38 +15,40 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter3: Summary"
+                android:layout_marginTop="48dp"
+                android:text="Chapter3: Summary"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="In this chapter, we practiced some positive cognitive strategies, such as breath meditation and the Stop Breathe Believe practice, that could help you progress towards your goal, even when those challenging emotions pop up. We also discussed the ten most common cognitive distortions that could lead to misperceptions of reality, negative emotions, and unhealthy mindsets and how we could change our thinking patterns and adopt more positive mindsets.
                 \n\nPlease take a moment and complete the following questions reflecting on your experiences:
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <!--      QUESTION 1      -->
             <TextView
                 android:id="@+id/question_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:padding="20dp"
+                android:textSize="@dimen/text_size_main_small"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="1. Have you gained any new insights from this chapter that you would like to incorporate into your approaches to managing procrastination?
 " />
 
@@ -55,9 +57,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:ems="10"
                 android:hint="Input your answer for question1"
                 android:padding="20dp"
                 android:background="#FFFFFF"
@@ -68,8 +67,8 @@
                 android:id="@+id/question_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:padding="20dp"
+                android:textSize="@dimen/text_size_main_small"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="2. If you could share one cognitive distortion you've learned about in this chapter with your friend, which one would you choose and why?" />
 
             <EditText
@@ -77,9 +76,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:ems="10"
                 android:hint="Input your answer for question2"
                 android:padding="20dp"
                 android:background="#FFFFFF"
@@ -110,20 +106,18 @@
                 android:id="@+id/question_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:padding="20dp"
+                android:textSize="@dimen/text_size_main_small"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="3. Rate the effectiveness of this chapter in managing your procrastination tendencies on a scale of 1 to 5, where 1 represents “not effective at all” and 5 represents “extremely effective.”" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 tools:ignore="MissingConstraints"
                 android:gravity="center"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="20dp">
+                android:layout_marginBottom="@dimen/text_internal">
 
                 <RadioButton
                     android:id="@+id/radiobtn_1"

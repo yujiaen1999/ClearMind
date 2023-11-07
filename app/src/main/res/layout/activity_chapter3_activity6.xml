@@ -17,37 +17,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center" >
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter3: Reflections on cognitive distortions"
+                android:layout_marginTop="48dp"
+                android:text="Chapter3: Reflections on cognitive distortions"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="In Chapter 1, we introduced three different types of procrastination, which were arousal, avoidant, and decisional procrastination."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 
             <TextView
                 android:id="@+id/tendency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:background="@drawable/shape_hints"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
@@ -55,20 +55,17 @@
                 android:paddingBottom="5dp"
                 android:text="Procrastination Tendencies"
                 android:textColor="#000000"
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
                 android:text="Reflect on your own experiences and explore whether you've noticed any pattern where specific cognitive distortions consistently lead to certain types of procrastination tendencies. In what situations do these connections become more evident?
                 \n\nNow, imagine a scenario in the future where you change these ways of thinking. How might these changes help you overcome procrastination tendencies and positively impact your academic outcomes? Describe potential strategies you want to apply to make these changes happen in real life."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 
             <EditText
@@ -76,11 +73,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:padding = "10dp"
                 android:hint="Potential strategy"
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />

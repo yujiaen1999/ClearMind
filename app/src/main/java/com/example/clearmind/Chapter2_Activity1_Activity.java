@@ -114,7 +114,8 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
                 }
 
                 // update hashmap of Firebase database: Chapter2-activity1
-                // TODO: Do we need to give any feedback after user chose something?
+                // Done: Do we need to give any feedback after user chose something?
+                // Solution: feedback top 3 common thought
                 updateHashmap(user_choice);
 
             }

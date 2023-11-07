@@ -17,19 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center" >
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter3: Practice stop breathe believe"
+                android:layout_marginTop="48dp"
+                android:text="Chapter3: Practice stop breathe believe"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -42,20 +44,18 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="Believe:
 Once you are ready, draft a short and simple belief statement that addresses the challenging thoughts and emotions you observed earlier. For example, if your stress stemmed from difficult schoolwork, an effective belief statement could be “I  am developing new strategies to manage my stress so that I don’t procrastinate” or “I am capable of mastering my challenging emotions if I stay focused on my goals.”
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:src="@drawable/img_believe" />
 
 

@@ -18,7 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
                 android:id="@+id/textView1"
@@ -28,7 +30,7 @@
                 android:text="ClearMind Pre-Survey"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="20dp"
+                android:textSize="@dimen/text_size_heading_small"
                 android:textStyle="bold" />
 
             <ProgressBar
@@ -46,11 +48,9 @@
                 android:id="@+id/introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="How much do you, yourself agree to the following statements? \n1 = Disagree; 5 = Agree"
-                android:textSize="16dp"
+                android:textSize="@dimen/text_size_main_small"
                 android:textStyle="bold" />
 
 
@@ -59,11 +59,9 @@
                 android:id="@+id/question_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="5. I usually allocate time to review and proofread my work."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"
@@ -103,11 +101,9 @@
                 android:id="@+id/question_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="6. I put off projects until the last minute."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup2"
@@ -147,11 +143,9 @@
                 android:id="@+id/question_7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="7. I have found myself waiting until the day before to start a big project."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup3"
@@ -191,11 +185,9 @@
                 android:id="@+id/question_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="8. I know I should work on school work, but I just don‟t do it."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup4"
@@ -234,11 +226,9 @@
                 android:id="@+id/question_9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="9. When working on schoolwork, I usually get distracted by other things."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup5"
@@ -248,7 +238,8 @@
                 tools:ignore="MissingConstraints"
                 android:layout_gravity="center"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:paddingRight="20dp"
+                android:layout_marginBottom="60dp">
 
                 <RadioButton
                     android:layout_width="60dp"
@@ -273,15 +264,15 @@
             </RadioGroup>
 
 
-            <!--     Place holder   -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="30dp"
-                android:paddingRight="20dp"
-                android:text=""
-                android:textSize="16dp" />
+<!--            &lt;!&ndash;     Place holder   &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                android:paddingTop="30dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:text=""-->
+<!--                android:textSize="16dp" />-->
 
 
         </LinearLayout>

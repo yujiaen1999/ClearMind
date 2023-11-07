@@ -117,12 +117,14 @@ public class PreSurvey11_Activity extends AppCompatActivity {
     private void open_Previous_Activity() {
         Intent intent = new Intent(this,PreSurvey10_Activity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 
     private void open_Next_Activity() {
         Intent intent = new Intent(this,PreSurvey12_Activity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 }

@@ -103,6 +103,7 @@ public class PreSurvey14_Activity extends AppCompatActivity {
     private void open_Previous_Activity() {
         Intent intent = new Intent(this,PreSurvey13_Activity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 

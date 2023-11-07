@@ -17,25 +17,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center" >
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="\n \nChapter3: Be aware of cognitive distortions"
+                android:layout_marginTop="48dp"
+                android:text="Chapter3: Be aware of cognitive distortions"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginVertical="@dimen/text_internal"
                 android:text="In our early activities, we’ve practiced many positive cognitive strategies designed to help you to recognize challenging emotions caused by procrastination tendencies, which can significantly impact our behaviors. These strategies can also assist us in effectively managing our responses to these emotions.
                 \n\nHowever, if you haven’t experienced any procrastination tendencies, that's great news to hear. In the upcoming activities, we’ll introduce you to cognitive distortions. Understanding these distortions can serve as a proactive step to prevent procrastination tendencies.
                 \n\nCognitive distortions are internal mental filters or biases that can lead to misperceptions of reality, negative emotions, and unhealthy mindsets. They often make you view things more negatively than they really are and question your abilities.
@@ -43,7 +45,7 @@
             "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_main_large" />
 
 
             <Button

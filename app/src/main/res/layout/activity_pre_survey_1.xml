@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2FFD8">
+    android:background="#F2FFD8"
+    android:id="@+id/activity_pre_survey_1">
 
 <!--    <ScrollView-->
 <!--        android:layout_width="match_parent"-->
@@ -17,26 +18,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin" >
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="ClearMind Pre-Survey"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="ClearMind Pre-Survey"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_heading_small"
+                android:textStyle="bold" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView3"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="72dp"-->
+<!--            android:text="ClearMind Pre-Survey"-->
+<!--            android:background="#5FA12E"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="@dimen/text_size_heading_small"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center"-->
+<!--            android:paddingTop="24dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0"/>-->
+
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
-            android:progress="0"
             android:layout_width="300dp"
             android:layout_height="20dp"
             android:layout_gravity="center"
+            android:progress="0"
             tools:layout_editor_absoluteX="56dp"
             tools:layout_editor_absoluteY="16dp" />
 
@@ -44,11 +66,9 @@
             android:id="@+id/introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
+            android:layout_marginTop="@dimen/text_internal"
             android:text="This Survey contains 68 questions in total, and it takes approximately 10 minutes to complete."
-            android:textSize="16dp"
+            android:textSize="@dimen/text_size_main_small"
             android:textStyle="bold" />
 
         <!--      QUESTION 1      -->
@@ -56,18 +76,15 @@
             android:id="@+id/question_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:layout_marginTop="@dimen/text_internal"
             android:text="1. What's your age?"
-            android:textSize="16dp" />
+            android:textSize="@dimen/text_size_main_small" />
 
         <EditText
             android:id="@+id/answer1"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="20dp"
+            android:paddingHorizontal="10dp"
             android:hint="age"
             android:inputType="textPersonName" />
 
@@ -76,24 +93,16 @@
             android:id="@+id/question_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
+            android:layout_marginTop="@dimen/text_internal"
             android:text="2. What's your gender?"
-            android:textSize="16dp" />
+            android:textSize="@dimen/text_size_main_small" />
 
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.320"
-            tools:ignore="MissingConstraints">
+            android:paddingLeft="20dp" >
 
             <RadioButton
                 android:layout_width="90dp"
@@ -115,18 +124,15 @@
             android:id="@+id/question_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
+            android:layout_marginTop="@dimen/text_internal"
             android:text="3. What's your major?"
-            android:textSize="16dp" />
+            android:textSize="@dimen/text_size_main_small" />
 
         <EditText
             android:id="@+id/answer3"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="20dp"
+            android:paddingHorizontal="10dp"
             android:hint="major" />
 
 
@@ -135,24 +141,17 @@
             android:id="@+id/question_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
+            android:layout_marginTop="@dimen/text_internal"
             android:text="4. Year at school? (Total number of years in Colleges/Universities after high school)"
-            android:textSize="16dp" />
+            android:textSize="@dimen/text_size_main_small" />
 
         <RadioGroup
             android:id="@+id/radioGroup2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.320"
-            tools:ignore="MissingConstraints">
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp" >
 
             <RadioButton
                 android:layout_width="wrap_content"

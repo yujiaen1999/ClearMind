@@ -47,8 +47,8 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
     private DistortionGVAdapter adapter;
 
     // Distortion elements
-    // TODO: Magnification example missing!!!
-    // TODO: Emotional Reasoning solution need confirm
+    // Done: Magnification example missing!!!
+    // Done: Emotional Reasoning solution need confirm
     String[] distortion_name = {"Mental filtering", "All-or-nothing thinking", "Overgeneralization", "Discounting the positive", "Jumping to Conclusions", "Magnification", "Emotional Reasoning", "“Should” Statements", "Labeling", "Personalization and Blame"};
     String[] distortion_intro = {"Mental filtering is like viewing the world through a negative lens. It involves focusing solely on the negative aspects while entirely disregarding the positive things in one's life.",
             "All-or-nothing thinking is also known as polarized thinking. This type of thinking involves perceiving situations and outcomes in rigid and extreme terms. All good or all bad, all right or all wrong, everything or nothing, success or failure. This distortion can result in unrealistic standards for yourself and others, potentially affecting your relationships and motivation.",
@@ -181,19 +181,8 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO: set item click listener to popup window
+                // Done: set item click listener to popup window
                 openPopupWindow(view, position);
-
-//                switch (position) {
-//                    case 0:
-//                        openPopupWindow(view, position);
-//                        break;
-//                    case 1:
-//                        openPopupWindow(view, position);
-//                        break;
-//
-//                }
-//                gridView.setAdapter(adapter);
             }
         });
 

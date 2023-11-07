@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
             <TextView
                 android:id="@+id/textView1"
@@ -45,11 +47,9 @@
                 android:id="@+id/introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="1 = Not at all typical of me; 2 = Somewhat typical of me; 3 = Quite typical of me; 4 = Very Typical of me"
-                android:textSize="16dp"
+                android:textSize="@dimen/text_size_main_small"
                 android:textStyle="bold" />
 
 
@@ -58,11 +58,9 @@
                 android:id="@+id/question_15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="30. l often worry that my best is not as good as expected in school."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"
@@ -106,11 +104,9 @@
                 android:id="@+id/question_16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="31. I tend to put off doing school work because it stresses me."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup2"
@@ -154,11 +150,9 @@
                 android:id="@+id/question_17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="32. I often worry that I am not doing assignments properly."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup3"
@@ -202,11 +196,9 @@
                 android:id="@+id/question_18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="33. I am less confident about school than my classmates."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup4"
@@ -249,11 +241,9 @@
                 android:id="@+id/question_19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="34. I have a sense of dread when I am in my classrooms."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup5"
@@ -296,11 +286,9 @@
                 android:id="@+id/question_20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="35. I tend to find my instructors intimidating."
-                android:textSize="16dp" />
+                android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
                 android:id="@+id/radioGroup6"
@@ -310,7 +298,7 @@
                 android:orientation="horizontal"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                tools:ignore="MissingConstraints">
+                android:layout_marginBottom="60dp">
 
                 <RadioButton
                     android:layout_width="60dp"
@@ -337,17 +325,6 @@
 <!--                    android:layout_height="48dp"-->
 <!--                    android:text="5" />-->
             </RadioGroup>
-
-
-            <!--     Place holder   -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="30dp"
-                android:paddingRight="20dp"
-                android:text=""
-                android:textSize="16dp" />
 
         </LinearLayout>
     </ScrollView>
