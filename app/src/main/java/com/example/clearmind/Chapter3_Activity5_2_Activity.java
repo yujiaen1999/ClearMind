@@ -83,9 +83,9 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
             "To overcome labeling, challenge the validity of your assumptions. Find evidence contradicting your negative thinking, and remember the distinction between personal opinions and objective facts.",
             "To combat personalization and blame, explore additional factors that could have influenced your situation. Instead of placing all the blame on yourself, consider external circumstances or the actions of others that might have also played a part."
     };
-    int[] distortion_image = {R.drawable.distortion_mental_filtering_1, R.drawable.distortion_placeholder_1, R.drawable.distortion_placeholder_1, R.drawable.distortion_placeholder_1, R.drawable.distortion_placeholder_1, R.drawable.distortion_placeholder_1, R.drawable.distortion_placeholder_1, R.drawable.distortion_placeholder_1, R.drawable.distortion_placeholder_1, R.drawable.distortion_placeholder_1};
+    int[] distortion_image = {R.drawable.distortion_mental_filtering_1, R.drawable.distortion_all_or_nothing_1, R.drawable.distortion_overgeneralization_1, R.drawable.distortion_discounting_the_positive_1, R.drawable.distortion_jumping_to_conclusions_1, R.drawable.distortion_magnification_1, R.drawable.distortion_emotional_reasoning_1, R.drawable.distortion_should_1, R.drawable.distortion_labeling_1, R.drawable.distortion_personalization_and_blame_1};
 
-    int[] distortion_disabled_image = {R.drawable.distortion_mental_filtering_2, R.drawable.distortion_placeholder_2, R.drawable.distortion_placeholder_2, R.drawable.distortion_placeholder_2, R.drawable.distortion_placeholder_2, R.drawable.distortion_placeholder_2, R.drawable.distortion_placeholder_2, R.drawable.distortion_placeholder_2, R.drawable.distortion_placeholder_2, R.drawable.distortion_placeholder_2};
+    int[] distortion_disabled_image = {R.drawable.distortion_mental_filtering_2, R.drawable.distortion_all_or_nothing_2, R.drawable.distortion_overgeneralization_2, R.drawable.distortion_discounting_the_positive_2, R.drawable.distortion_jumping_to_conclusions_2, R.drawable.distortion_magnification_2, R.drawable.distortion_emotional_reasoning_2, R.drawable.distortion_should_2, R.drawable.distortion_labeling_2, R.drawable.distortion_personalization_and_blame_2};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -358,7 +358,6 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
 
     private void initialize_Gridview() {
         // Gridview image initialize
-        // TODO: image initialize based on status in database (Change image)
         db.child("Chapter3").child("activity5").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {

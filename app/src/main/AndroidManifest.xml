@@ -197,6 +197,27 @@
             android:name=".Chapter4_Activity"
             android:exported="true" />
         <activity
+            android:name=".Chapter4_Opening_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity5_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Summary_Activity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

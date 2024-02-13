@@ -147,13 +147,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:text="Based on your responses, we will enable notifications to keep you on track of your study plan. If you did not chose any options,the default setting will be a daily notification. You can always change your notification preferences by:
-                \n\n1. Open [Clearmind] App on your device
+"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="1. Open [Clearmind] App on your device
                 \n2. Navigate to “Settings” -> “Notifications”
                 \n3. Enable or disable notifications according to your preferences.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="@dimen/text_size_note" />
 
 
             <Button

@@ -58,11 +58,13 @@ public class CustomProgressBar extends ProgressBar {
 
         // Draw the percentage text on the canvas
 //        String progressText = (int) (percentage * 100) + "%";
-        completeRatio = completeNum + "/32";
+        completeRatio = completeNum + "/31";
 
         Paint textPaint = new Paint();
         textPaint.setAntiAlias(true);
-        textPaint.setTextSize(40); // Adjust the text size as needed
+        int spSize = 12;  // change the size of sp
+        float scaledSizeInPixels = spSize * getResources().getDisplayMetrics().scaledDensity;
+        textPaint.setTextSize(scaledSizeInPixels); // Adjust the text size as needed
         textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         textPaint.setColor(getResources().getColor(android.R.color.black)); // Text color
         textPaint.setTextAlign(Paint.Align.CENTER);

@@ -141,6 +141,16 @@ public class SignupActivity extends AppCompatActivity {
         progress_chapter3.put("9_Summary", "0");
         this.db.child("Chapter3").child("progress").child(username).setValue(progress_chapter3);
 
+        // Chapter 4 progress
+        HashMap<String, Object> progress_chapter4 = new HashMap<>();
+        progress_chapter4.put("1_Opening", "0");
+        progress_chapter4.put("2_Activity4_1", "0");
+        progress_chapter4.put("3_Activity4_2", "0");
+        progress_chapter4.put("4_Activity4_3", "0");
+        progress_chapter4.put("5_Activity4_4", "0");
+        progress_chapter4.put("6_Activity4_5", "0");
+        progress_chapter4.put("7_Summary", "0");
+        this.db.child("Chapter4").child("progress").child(username).setValue(progress_chapter4);
 
     }
 

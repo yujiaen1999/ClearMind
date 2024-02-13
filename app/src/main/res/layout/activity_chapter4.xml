@@ -105,22 +105,22 @@
                 app:layout_constraintVertical_bias="0.35"
                 tools:ignore="MissingConstraints" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:background="@null"
-                android:drawableLeft="@drawable/icon_practice"
-                android:drawablePadding="8dp"
-                android:text="Delve into the values"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.45"
-                tools:ignore="MissingConstraints" />
+<!--            <Button-->
+<!--                android:id="@+id/button4"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background="@null"-->
+<!--                android:drawableLeft="@drawable/icon_practice"-->
+<!--                android:drawablePadding="8dp"-->
+<!--                android:text="Delve into the values"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.503"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.45"-->
+<!--                tools:ignore="MissingConstraints" />-->
 
             <Button
                 android:id="@+id/button5"

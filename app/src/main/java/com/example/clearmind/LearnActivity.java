@@ -205,7 +205,7 @@ public class LearnActivity extends AppCompatActivity {
                 CustomProgressBar progressBar = findViewById(R.id.progressBar2);
 
                 Log.d("Calculate result", String.valueOf(progressValue));
-                float ratio = (float) progressValue / 32;
+                float ratio = (float) progressValue / 31;
                 float cur_progress = (float) ratio * 100;
                 Log.d("Calculate result", String.valueOf(Math.round(cur_progress)));
 //                progressBar.getUsername(username);

@@ -112,7 +112,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/distortion_question"
+                        android:src="@drawable/distortion_all_or_nothing_1"
                         android:layout_margin="5dp"/>
 
                     <TextView
@@ -158,7 +158,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/distortion_question"
+                        android:src="@drawable/distortion_overgeneralization_1"
                         android:layout_margin="5dp"/>
 
                     <TextView
@@ -204,7 +204,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/distortion_question"
+                        android:src="@drawable/distortion_discounting_the_positive_1"
                         android:layout_margin="5dp"/>
 
                     <TextView
@@ -250,7 +250,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/distortion_question"
+                        android:src="@drawable/distortion_jumping_to_conclusions_1"
                         android:layout_margin="5dp"/>
 
                     <TextView
@@ -297,7 +297,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/distortion_question"
+                        android:src="@drawable/distortion_magnification_1"
                         android:layout_margin="5dp"/>
 
                     <TextView
@@ -344,7 +344,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/distortion_question"
+                        android:src="@drawable/distortion_emotional_reasoning_1"
                         android:layout_margin="5dp"/>
 
                     <TextView
@@ -390,7 +390,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/distortion_question"
+                        android:src="@drawable/distortion_should_1"
                         android:layout_margin="5dp"/>
 
                     <TextView
@@ -437,7 +437,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/distortion_question"
+                        android:src="@drawable/distortion_labeling_1"
                         android:layout_margin="5dp"/>
 
                     <TextView
@@ -484,7 +484,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/distortion_question"
+                        android:src="@drawable/distortion_personalization_and_blame_1"
                         android:layout_margin="5dp"/>
 
                     <TextView

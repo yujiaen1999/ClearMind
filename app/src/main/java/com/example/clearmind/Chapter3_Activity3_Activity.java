@@ -102,8 +102,9 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
 
         // Set up Youtube player
         webView = findViewById(R.id.webView);
-        String video_youtube = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/fHCemviY06Y?si=O_OUVoA42Bkgn5rh\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
-        webView.loadData(video_youtube, "text/html", "utf-8");
+        String embeded_video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/jt7nITE3qaM?si=WQ8I-GiyDrY5s8BT\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+//        String video_youtube = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/fHCemviY06Y?si=O_OUVoA42Bkgn5rh\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
+        webView.loadData(embeded_video, "text/html", "utf-8");
         webView.getSettings().setJavaScriptEnabled(true);
 //        webView.setWebChromeClient(new WebChromeClient());
         webView.setWebChromeClient(new MyChrome2());
