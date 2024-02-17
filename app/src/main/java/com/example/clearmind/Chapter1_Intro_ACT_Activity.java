@@ -13,6 +13,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
+// *********************
+// Not actively in use!
+// *********************
 public class Chapter1_Intro_ACT_Activity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;

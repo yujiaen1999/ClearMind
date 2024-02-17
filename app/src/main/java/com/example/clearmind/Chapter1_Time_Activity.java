@@ -170,7 +170,8 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
 
 
     private void open_Previous_Activity() {
-        Intent intent = new Intent(this,Chapter1_Intro_ACT_Activity.class);
+//        Intent intent = new Intent(this,Chapter1_Intro_ACT_Activity.class);
+        Intent intent = new Intent(this, Chapter1_Activity2_Question_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

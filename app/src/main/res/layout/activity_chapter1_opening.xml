@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter1: Opening"
+                android:text="Part 1: Opening"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -36,8 +36,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="In this chapter, you’ll explore various kinds of procrastination and the underlying reasons behind procrastination behaviors. We’ll also introduce the concepts of Acceptance and Commitment Therapy, which can be utilized to manage your procrastination tendencies effectively.
-                \n \nHaving familiarized yourself with the ClearMind ACT App, feel free to press the NEXT button to proceed to part one. This section should take no more than 15 mins to complete. Let’s get started!"
+                android:text="In this chapter, you will:\n
+1. explore various kinds of procrastination and the underlying reasons behind procrastination behaviors
+"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />

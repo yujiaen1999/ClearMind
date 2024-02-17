@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Chapter1: Activity1.2 \nDiscover various kinds of procrastination tendencies"
+                android:text="Part 1: \nDiscover Various Types of Procrastination Tendencies"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Now, let's familiarize ourselves with different types of procrastination tendencies. We can classify procrastination tendencies into three primary categories: arousal procrastination, avoidant procrastination, and decisional procrastination."
+                android:text="There are three primary types."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
@@ -57,12 +57,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Here is the detailed definition of each type:
-                \n\nArousal procrastination: It is the tendency to purposefully put off completing specific tasks until the last moment. It often arises from a desire for heightened urgency, which comes with approaching deadlines. Individuals who engage themselves in arousal procrastination believe that the pressure of a pending deadline assists them in completing tasks under tight time constraints.
-                \n\nAvoidant procrastination: It is the tendency to postpone or avoid tasks out of fear of failure, task aversiveness, or even success. Fear of failure manifests as a common belief among avoidant procrastinators that they lack essential skills or abilities to accomplish them, leading to task delays. Task aversiveness is the notion that avoidant procrastinators genuinely dislike the task, leading them to postpone it. Lastly, fear of success is the notion that avoidant procrastinators fear success because they anticipate additional responsibilities and expectations that come with achieving it.
-                \n\nDecisional procrastination: It is the tendency to put off making decisions in a timely manner. Decisional procrastinators often experience hesitation when faced with making decisions about a task or behavior. This procrastination tendency can arise from the perceived complexity of the task, potential conflicts with other individuals that a decision may evoke, and the tendency to protect one’s self-esteem or self-confidence.
-                \n\nNow let’s test your understanding of arousal, avoidant, and decisional procrastination tendencies. For each multiple-choice question, you will need about 30 seconds to complete.
-"
+                android:text="Arousal procrastination: Purposely delaying tasks until the last moment. People with arousal procrastination tend to use the time pressure of an approaching deadline to complete their work."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Avoidant procrastination: Delaying tasks to avoid some fears triggered by the tasks. People with avoidant procrastination tend to have fear of failure, challenges, or even additional responsibilities from success."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Decisional procrastination: Delaying decision-making. People tend to have decisional procrastination when they find the task complex, are afraid of potential conflicts with others, or desire to protect their self-esteem or self-confidence."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Now let’s test your understanding of procrastination tendencies."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />

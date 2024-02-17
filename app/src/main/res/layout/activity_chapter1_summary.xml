@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter1: Summary"
+                android:text="Part 1: Summary"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -35,8 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In this chapter, we’ve delved into different types of procrastination tendencies and the underlying reasons behind procrastination behaviors. We’ve also gained insights into how Acceptance and Commitment Therapy can help us manage our procrastination tendencies and improve your mental health and well-being.
-                \n\nPlease take a moment and complete the following questions reflecting on your experiences:
+                android:text="In this chapter, we explored various procrastination tendencies and the reasons behind such behaviors.
+                \n\nFollowing questions will help you reflect on this chapter:
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -49,8 +49,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_main_small"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="1. Based on what we discussed in this chapter, have you identified any
-personal procrastination tendencies that you exhibit in your daily life, and how do they manifest in your daily routines and tasks? What do you believe are the primary reasons behind these  procrastination behaviors?
+                android:text="1. Have you recognized any procrastination tendencies in your daily life? How do these tendencies manifest in your routines and tasks? What do you believe are the main reasons behind your procrastination behaviors?
 " />
 
             <EditText
@@ -59,8 +58,7 @@ personal procrastination tendencies that you exhibit in your daily life, and how
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:hint="Input your answer for question1"
-                android:textSize="@dimen/text_size_main_large"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:background="#FFFFFF"
                 tools:ignore="ExtraText" />
 
@@ -71,16 +69,15 @@ personal procrastination tendencies that you exhibit in your daily life, and how
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_main_small"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="2. Have you gained any new insights from this chapter that you would like to incorporate into your approaches to managing procrastination?" />
+                android:text="2. Did you gain any new insights from this chapter that you would like to integrate into your approaches for managing procrastination?" />
 
             <EditText
                 android:id="@+id/input2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:textSize="@dimen/text_size_main_large"
                 android:hint="Input your answer for question2"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:background="#FFFFFF"
                 tools:ignore="ExtraText" />
 
@@ -111,7 +108,7 @@ personal procrastination tendencies that you exhibit in your daily life, and how
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_main_small"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="3. On a scale of 1 to 5, where 1 represents “not effective at all” and 5 represents “extremely effective,” how would you rate the effectiveness of what you’ve learned in this chapter for managing procrastination tendencies?" />
+                android:text="3. Rate the effectiveness of this chapter in managing your procrastination on a scale of 1 to 5, where 1 is “not effective“ and 5 is ”extremely effective.“" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"

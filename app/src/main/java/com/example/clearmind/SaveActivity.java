@@ -1289,8 +1289,7 @@ public class SaveActivity extends AppCompatActivity {
 
                     switch (current_status) {
                         case "1":
-                            String content_html = "You have checked in for this day. Here is the information:<br>"
-                                    + "Completion(daily): " + map_progress.get(keys[position]).get("goal_daily") + "%;<br>"
+                            String content_html = "Completion(daily): " + map_progress.get(keys[position]).get("goal_daily") + "%;<br>"
                                     + "Completion(weekly): " + map_progress.get(keys[position]).get("goal_weekly") + "%;<br>"
                                     + "Emotion: " + map_progress.get(keys[position]).get("emotion") + ";<br>"
                                     + "Strategy: " + map_progress.get(keys[position]).get("strategy") + ".<br>";
@@ -1301,7 +1300,7 @@ public class SaveActivity extends AppCompatActivity {
                             bubble_text.setText(Html.fromHtml(content_html));
                             break;
                         case "0":
-                            String content_html2 = "You don't have daily goal update for this day.";
+                            String content_html2 = "You didn’t have a task to complete on this date.";
 //                            if (position == 5 || position == 6){
 //                                content_html2 = "<br>" + content_html2;
 //                            }
@@ -1309,7 +1308,7 @@ public class SaveActivity extends AppCompatActivity {
                             bubble_text.setText(Html.fromHtml(content_html2));
                             break;
                         case "-1":
-                            String content_html3 = "You haven't check in for this day. Use the yellow button here to check in!";
+                            String content_html3 = "You have not recorded your progress for this day. Submit one through the “Self-Checkin” button.";
 //                            if (position == 5 || position == 6){
 //                                content_html3 = "<br>" + content_html3;
 //                            }

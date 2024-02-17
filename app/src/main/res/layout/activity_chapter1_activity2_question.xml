@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter1: Activity1.2 Questions"
+                android:text="Part 1: \nProcrastination Tendencies Questions"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="20dp"
@@ -69,8 +69,8 @@
                 android:id="@+id/radioGroup1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -83,6 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A. Arousal"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note"/>
 
                 <RadioButton
@@ -90,6 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B. Avoidant"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note" />
 
                 <RadioButton
@@ -104,8 +106,8 @@
                 android:id="@+id/question1_response"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:text=""
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -137,8 +139,8 @@
                 android:id="@+id/radioGroup2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -151,6 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A. Arousal"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note" />
 
                 <RadioButton
@@ -158,6 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B. Avoidant"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note" />
 
                 <RadioButton
@@ -172,8 +176,8 @@
                 android:id="@+id/question2_response"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:text=""
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -205,8 +209,8 @@
                 android:id="@+id/radioGroup3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -219,6 +223,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A. Arousal"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note" />
 
                 <RadioButton
@@ -226,6 +231,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B. Avoidant"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note" />
 
                 <RadioButton
@@ -240,8 +246,8 @@
                 android:id="@+id/question3_response"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:text=""
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -274,8 +280,8 @@
                 android:id="@+id/radioGroup4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -288,6 +294,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A. Arousal"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note" />
 
                 <RadioButton
@@ -295,6 +302,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B. Avoidant"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note" />
 
                 <RadioButton
@@ -309,8 +317,8 @@
                 android:id="@+id/question4_response"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:text=""
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -343,8 +351,8 @@
                 android:id="@+id/radioGroup5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -357,6 +365,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A. Arousal"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note" />
 
                 <RadioButton
@@ -364,6 +373,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B. Avoidant"
+                    android:layout_marginRight="15dp"
                     android:textSize="@dimen/text_size_note" />
 
                 <RadioButton
@@ -378,8 +388,8 @@
                 android:id="@+id/question5_response"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:text=""
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -392,7 +402,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Now you’ve gained a thorough understanding of various types of procrastination, take a minute to reflect on the specific type that resonates with your own procrastination tendencies and styles."
+                android:text="Now that you have a pretty good understanding about types of procrastination, let’s think about which one resonates with your own tendencies and style."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />

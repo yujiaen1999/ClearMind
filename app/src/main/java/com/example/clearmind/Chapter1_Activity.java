@@ -87,7 +87,7 @@ public class Chapter1_Activity extends AppCompatActivity {
         button_activity1 = findViewById(R.id.button2);
         button_activity2 = findViewById(R.id.button3);
         button_activity2_questions = findViewById(R.id.button3_1);
-        button_act = findViewById(R.id.button4);
+//        button_act = findViewById(R.id.button4);
         button_time = findViewById(R.id.button5);
         button_summary = findViewById(R.id.button6);
 
@@ -326,38 +326,38 @@ public class Chapter1_Activity extends AppCompatActivity {
                     });
                 }
 
-                // HANDLE status_5
-                if (status_5.equals("0")){
-                    button_act.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if(status_4.equals("1")){
-                                Toast.makeText(Chapter1_Activity.this, "Open", Toast.LENGTH_SHORT).show();
-                                open_Chapter1_Intro_ACT();
-                            } else{
-                                Toast.makeText(Chapter1_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                } else {
-                    // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_text_done);
-                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
-                    button_act.setCompoundDrawables(icon_done, null, null, null);
-                    button_act.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            open_Chapter1_Intro_ACT();
-                        }
-                    });
-                }
+//                // HANDLE status_5
+//                if (status_5.equals("0")){
+//                    button_act.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            if(status_4.equals("1")){
+//                                Toast.makeText(Chapter1_Activity.this, "Open", Toast.LENGTH_SHORT).show();
+//                                open_Chapter1_Intro_ACT();
+//                            } else{
+//                                Toast.makeText(Chapter1_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//                } else {
+//                    // status == "1"
+//                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_text_done);
+//                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
+//                    button_act.setCompoundDrawables(icon_done, null, null, null);
+//                    button_act.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            open_Chapter1_Intro_ACT();
+//                        }
+//                    });
+//                }
 
                 // HANDLE status_6
                 if (status_6.equals("0")){
                     button_time.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if(status_5.equals("1")){
+                            if(status_4.equals("1")){
                                 Toast.makeText(Chapter1_Activity.this, "Open", Toast.LENGTH_SHORT).show();
                                 open_Chapter1_Time();
                             } else{

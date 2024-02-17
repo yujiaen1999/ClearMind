@@ -2,9 +2,11 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +39,14 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
         button_home = findViewById(R.id.button_home);
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
+        TextView content = findViewById(R.id.textView2);
+
+        String content_html = "In this chapter, you will:" +
+                "<ol><li>Explore various kinds of procrastination and the underlying reasons behind procrastination behaviors</li> <li>Introduce the concepts of Acceptance and Commitment Therapy, which can be utilized to manage your procrastination tendencies effectively</li></ol>" +
+                "\n" +
+                "This section should take no more than 15 mins to complete. Let’s get started!";
+
+        content.setText(Html.fromHtml(content_html));
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

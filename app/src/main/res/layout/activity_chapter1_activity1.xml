@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter1: Activity1.1 \nDiscover the Reason for Procrastination"
+                android:text="Part 1: \nDiscover the Reasons for Procrastination"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="We would like to begin with exploring the reasons behind procrastination behaviors. In this activity, please take a moment to reflect on why you might delay or put off certain tasks. You can enter your responses in the text input field provided below. Feel free to be as specific as possible."
+                android:text="Take a moment to reflect on why you might put off certain tasks. You can enter your responses below. Be as specific as possible."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
@@ -203,8 +203,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Thank you for your responses. Now let's explore what other users have shared. Here are the top 5 common answers provided by other users:
-"
+                android:text="Here are the top 5 common answers provided by other users, in case you are interested:"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="18sp" />

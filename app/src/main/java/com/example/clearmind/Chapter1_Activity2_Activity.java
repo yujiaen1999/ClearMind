@@ -55,12 +55,16 @@ public class Chapter1_Activity2_Activity extends AppCompatActivity {
         button_next = findViewById(R.id.button_next);
 
         TextView textView3 = findViewById(R.id.textView3);
-        String txt_textView3 = "<b>Here is the detailed definition of each type:</b>" +
-                "<br><br><b>Arousal procrastination</b>: It is the tendency to purposefully put off completing specific tasks until the last moment. It often arises from a desire for heightened urgency, which comes with approaching deadlines. Individuals who engage themselves in arousal procrastination believe that the pressure of a pending deadline assists them in completing tasks under tight time constraints." +
-                "<br><br><b>Avoidant procrastination</b>: It is the tendency to postpone or avoid tasks out of fear of failure, task aversiveness, or even success. Fear of failure manifests as a common belief among avoidant procrastinators that they lack essential skills or abilities to accomplish them, leading to task delays. Task aversiveness is the notion that avoidant procrastinators genuinely dislike the task, leading them to postpone it. Lastly, fear of success is the notion that avoidant procrastinators fear success because they anticipate additional responsibilities and expectations that come with achieving it." +
-                "<br><br><b>Decisional procrastination</b>: It is the tendency to put off making decisions in a timely manner. Decisional procrastinators often experience hesitation when faced with making decisions about a task or behavior. This procrastination tendency can arise from the perceived complexity of the task, potential conflicts with other individuals that a decision may evoke, and the tendency to protect one’s self-esteem or self-confidence." +
-                "<br><br>Now let’s test your understanding of arousal, avoidant, and decisional procrastination tendencies. For each multiple-choice question, you will need about 30 seconds to complete.";
+        TextView textView4 = findViewById(R.id.textView4);
+        TextView textView5 = findViewById(R.id.textView5);
+
+        String txt_textView3 = "<b>Arousal procrastination</b>: Purposely delaying tasks until the last moment. People with arousal procrastination tend to use the time pressure of an approaching deadline to complete their work.";
+        String txt_textView4 = "<b>Avoidant procrastination</b>: Delaying tasks to avoid some fears triggered by the tasks. People with avoidant procrastination tend to have fear of failure, challenges, or even additional responsibilities from success.";
+        String txt_textView5 = "<b>Decisional procrastination</b>: Delaying decision-making. People tend to have decisional procrastination when they find the task complex, are afraid of potential conflicts with others, or desire to protect their self-esteem or self-confidence.";
+
         textView3.setText(Html.fromHtml(txt_textView3));
+        textView4.setText(Html.fromHtml(txt_textView4));
+        textView5.setText(Html.fromHtml(txt_textView5));
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

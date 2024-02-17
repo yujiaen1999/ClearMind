@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter1: Time Management Settings"
+                android:text="Part 1: How to Use the App"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_heading_small"
@@ -36,7 +36,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="To help you use our application, please answer the following questions.
+                android:text="This app will help you discover the cause of your procrastination behaviors and manage it, using Acceptance and Commitment Therapy (ACT) skills. If you want to learn more about ACT, check the “About ACT” page.
+"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="There is really one thing we want you to do: engage with the app on a regular basis until completing the content! So tell us how regularly you want to use the app.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -146,7 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Based on your responses, we will enable notifications to keep you on track of your study plan. If you did not chose any options,the default setting will be a daily notification. You can always change your notification preferences by:
+                android:text="Based on your responses,  we have enabled notifications to keep you on track of your study plan. You can change your notification preferences by:
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"

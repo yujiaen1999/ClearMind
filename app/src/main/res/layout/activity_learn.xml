@@ -73,7 +73,7 @@
                 android:id="@+id/instruction"
                 android:layout_width="248dp"
                 android:layout_height="100dp"
-                android:text="Welcome to ClearMind Learn page. You can find 4 Chapters here, let's see your challenge for today."
+                android:text="Welcome to ClearMind Learn page. You can find 4 Parts here, let's see your challenge for today."
                 android:textSize="@dimen/text_size_main_large"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="#000000" />
