@@ -24,17 +24,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter2: Examples of Driving The Bus"
+                android:text="Part 2: Examples of Driving The Bus"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
+                android:text="Here are some examples of how people might respond to difficult passengers. Choose the answer that best describes driving with your passengers while traveling towards your destination."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="Which one is driving with your passengers?"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -237,7 +246,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="4. You’ve always wanted to learn to play guitar since you were young. Once you started taking guitar lessons, you realized that it was time-consuming and more complicated than you thought. You should:"
+                android:text="4. You've always wanted to learn to play the guitar since you were young. However, once you started taking lessons, you realized it was more time-consuming and complicated than you thought. You should:"
                 android:textSize="@dimen/text_size_main_small" />
 
             <TextView

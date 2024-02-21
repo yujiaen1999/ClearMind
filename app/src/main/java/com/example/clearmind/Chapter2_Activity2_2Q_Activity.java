@@ -93,7 +93,7 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
         // ******************************************
         // Display the hints when click button
         // ******************************************
-        String txt_hints = "<b>Hint</b>: When you drive with your passengers, remember that you are steering the bus, instead of your passengers. Don’t let your passengers decide where the bus goes.";
+        String txt_hints = "<b>Hint</b>: When you drive with your passengers, remember that you are the one steering the bus, not the passengers. Don’t let your passengers decide where the bus goes.";
         button_hint1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -337,7 +337,7 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
 
 
     private void open_Previous_Activity() {
-        Intent intent = new Intent(this,Chapter2_Activity2_2_Activity.class);
+        Intent intent = new Intent(this,Chapter2_Activity2_1_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

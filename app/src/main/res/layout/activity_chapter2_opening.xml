@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter2: Opening"
+                android:text="Part 2: Opening"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In part one, you explored various kinds of procrastination and the underlying reasons behind procrastination behaviors. In this part, we’ll help you to embrace some of the challenging emotions related to procrastination that you’ve been experiencing.
+                android:text="In part one, we explored various types of procrastination and the underlying reasons behind procrastination behaviors. In this part, we’ll help you embrace some of the challenging emotions linked to your procrastination experiences.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"

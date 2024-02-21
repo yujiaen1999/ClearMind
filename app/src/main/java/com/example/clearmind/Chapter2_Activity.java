@@ -183,7 +183,7 @@ public class Chapter2_Activity extends AppCompatActivity {
     }
 
     private void open_Chapter2_Activity2_2() {
-        Intent intent = new Intent(this,Chapter2_Activity2_2_Activity.class);
+        Intent intent = new Intent(this,Chapter2_Activity2_2Q_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter2: Identify Your Passengers"
+                android:text="Part 2: \nPassengers on the Bus Diagram"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -53,7 +53,7 @@
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
-                android:layout_height="370dp"
+                android:layout_height="330dp"
                 android:src="@drawable/diagram1" />
 
 <!--            <TextView-->
@@ -75,7 +75,7 @@
                 android:layout_marginBottom="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="10dp"
                 android:hint="My destination"
                 android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
@@ -94,7 +94,7 @@
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
-                android:layout_height="370dp"
+                android:layout_height="350dp"
                 android:src="@drawable/diagram2" />
 
 <!--            <TextView-->
@@ -116,7 +116,7 @@
                 android:layout_marginTop="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="10dp"
                 android:hint="Passenger A"
                 android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
@@ -142,7 +142,7 @@
                 android:layout_marginTop="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="10dp"
                 android:hint="Passenger B"
                 android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
@@ -168,7 +168,7 @@
                 android:layout_marginVertical="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="10dp"
                 android:hint="Passenger C"
                 android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
@@ -190,10 +190,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginVertical="@dimen/text_internal"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="10dp"
                 android:hint="Passengers' persuasion"
                 android:textSize="@dimen/text_size_main_large"
                 android:background="#FFFFFF"
