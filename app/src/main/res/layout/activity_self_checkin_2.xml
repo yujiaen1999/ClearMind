@@ -37,10 +37,10 @@
 <!--            tools:ignore="ExtraText" />-->
 
         <TextView
-            android:id="@+id/textView_example"
+            android:id="@+id/textView_daily"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="What’ your completion out of the daily goal? (in %)"
+            android:text="How much (in %) did you complete today out of your daily goal?"
             android:textSize="@dimen/text_size_main_small"
             android:gravity="left"
             android:layout_marginBottom="5dp"
@@ -57,12 +57,14 @@
             android:paddingHorizontal="10dp"
             android:background="#FFFFFF"
             android:textSize="@dimen/text_size_main_small"
+            android:inputType="number"
             tools:ignore="ExtraText" />
 
         <TextView
+            android:id="@+id/textView_weekly"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="What’ your completion out of the weekly goal? (in %)"
+            android:text="How much (in %) did you complete out of your weekly goal?"
             android:textSize="@dimen/text_size_main_small"
             android:gravity="left"
             android:layout_marginBottom="5dp"
@@ -79,13 +81,14 @@
             android:paddingHorizontal="10dp"
             android:background="#FFFFFF"
             android:textSize="@dimen/text_size_main_small"
+            android:inputType="number"
             tools:ignore="ExtraText" />
 
 
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Are you facing any difficult emotions?"
+            android:text="List difficult emotion(s) you faced today, if any."
             android:textSize="@dimen/text_size_main_small"
             android:gravity="left"
             android:layout_marginBottom="5dp"
@@ -107,7 +110,7 @@
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="What strategies they used and whether it was helpful?"
+            android:text="What strategies did you use to manage your emotions? Were they helpful?"
             android:textSize="@dimen/text_size_main_small"
             android:gravity="left"
             android:layout_marginBottom="5dp"

@@ -113,7 +113,7 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
         if (pageCloseTime - pageOpenTime > 4999){   // Only if the view time >= 5 seconds
             sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
         }
-//        sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
+//        sendTimeStampsToFirebase();
     }
 
     private void sendTimeStampsToFirebase() {

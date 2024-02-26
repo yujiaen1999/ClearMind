@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Part 1: \nProcrastination Tendencies Questions"
+                android:text="Procrastination Tendencies Questions"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="20dp"

@@ -19,7 +19,7 @@
     <item
         android:width="30dp"
         android:height="@dimen/speech_bubble_tail"
-        android:left="60dp"
+        android:left="75dp"
         android:gravity="top|left">
         <rotate
             android:fromDegrees="45"

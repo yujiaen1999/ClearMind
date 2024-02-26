@@ -177,7 +177,7 @@ public class LearnActivity extends AppCompatActivity {
                 // TODO: generate customized welcome/instructions here
                 name = String.valueOf(snapshot.child("register").child(username).child("name").getValue());
                 welcome.setText("Hi, " + name + "!");
-                instruction.setText("Welcome to ClearMind Learn page. You can find 4 Chapters here, let's see your challenge for today.");
+                instruction.setText("Welcome to ClearMind Learn page. You can find 4 Parts here, let's see your challenge for today.");
 
 
                 // Done: Handle progress bar initialization

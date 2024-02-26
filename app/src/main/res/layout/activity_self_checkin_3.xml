@@ -42,7 +42,7 @@
             android:id="@+id/textView_intro"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="1 = Very seldom or not true of me; \n5 = Very often true or true of me"
+            android:text="1 = Very seldom or not true of me \n5 = Very often true or true of me"
             android:textSize="@dimen/text_size_note"
             android:gravity="left"
             android:layout_marginBottom="5dp"

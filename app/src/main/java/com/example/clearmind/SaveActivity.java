@@ -1,7 +1,9 @@
 package com.example.clearmind;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
@@ -28,6 +30,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
@@ -37,6 +40,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.MarkerView;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -50,9 +54,11 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.utils.MPPointF;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -64,9 +70,11 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -104,6 +112,8 @@ public class SaveActivity extends AppCompatActivity {
     private TextView progressText;
 
     private PopupWindow speechBubble;
+
+    private String[] tooltip_date;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,16 +160,6 @@ public class SaveActivity extends AppCompatActivity {
         // set the progress bar here
 //        progressBar.setProgress(50); // 50% for example
 
-        // ========================
-        // test for speech bubble
-        // ========================
-//        Button myButton_speech = findViewById(R.id.button_speech_bubble);
-//        myButton_speech.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showSpeechBubble(v);
-//            }
-//        });
 
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -176,13 +176,13 @@ public class SaveActivity extends AppCompatActivity {
         DistortionModelArrayList = new ArrayList<CheckinModel>();
 
         // Done: Initialize gridview (add more)
-        DistortionModelArrayList.add(new CheckinModel("try", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("try", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("try", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("try", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("try", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("try", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("try", R.drawable.timeliness_pending, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
 
 //        DistortionGVAdapter adapter = new DistortionGVAdapter(this, DistortionModelArrayList);
         adapter = new CheckinGVAdapter(this, DistortionModelArrayList);
@@ -457,8 +457,22 @@ public class SaveActivity extends AppCompatActivity {
                         Integer cur_completion = Integer.valueOf(hashmap_tracker.get("completion").toString());
                         updateProgress(cur_completion);
 
-                        Log.d("Test history", end_date + " : " + removeSlashes(dateAsString));
-                        Log.d("Test history", end_date + " status is " + tracker_progress.get(end_date).get("status").toString());
+                        // Calculate the current average timeliness score
+                        double timeliness_avg = 0;
+                        double count = 0.0;
+                        for (String key:tracker_progress.keySet()) {
+                            String cur_status = tracker_progress.get(key).get("status").toString();
+                            if (cur_status.equals("1")) {
+                                timeliness_avg += Double.valueOf(tracker_progress.get(key).get("score_timeliness").toString());
+                                count += 1;
+                            }
+                        }
+
+                        timeliness_avg = timeliness_avg / count;
+                        double timeliness_rounded = Math.round(timeliness_avg * 10) / 10.0;
+
+                        TextView cur_avg_score = findViewById(R.id.cur_avg_score);
+                        cur_avg_score.setText("Average Timeliness Score: " + String.valueOf(timeliness_rounded));
 
                         // move current_plan to history plan if finished
                         String end_date_status = tracker_progress.get(end_date).get("status").toString();
@@ -466,18 +480,18 @@ public class SaveActivity extends AppCompatActivity {
 
                         if (end_date_status.equals("0") || end_date_status.equals("1")){
                             // calculate the average timeliness score
-                            double timeliness_avg = 0;
-                            double count = 0.0;
-                            for (String key:tracker_progress.keySet()) {
-                                String cur_status = tracker_progress.get(key).get("status").toString();
-                                if (cur_status.equals("1")){
-                                    timeliness_avg += Double.valueOf(tracker_progress.get(key).get("score_timeliness").toString());
-                                    count += 1;
-                                }
+//                            double timeliness_avg = 0;
+//                            double count = 0.0;
+//                            for (String key:tracker_progress.keySet()) {
+//                                String cur_status = tracker_progress.get(key).get("status").toString();
+//                                if (cur_status.equals("1")){
+//                                    timeliness_avg += Double.valueOf(tracker_progress.get(key).get("score_timeliness").toString());
+//                                    count += 1;
+//                                }
+//
+//                            }
 
-                            }
-
-                            timeliness_avg = timeliness_avg / count;
+//                            timeliness_avg = timeliness_avg / count;
 
                             db.child("Tracker").child(username).child("history_plan").child(start_date).setValue(map_tracker);
                             db.child("Tracker").child(username).child("history_completion").child(start_date).setValue(map_tracker.get("completion"));
@@ -555,38 +569,6 @@ public class SaveActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-//        bar_checkin_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                float value = (float) Math.random() * 10 ; // substitute to actual data
-//                BarEntry bar_entry = new BarEntry(entries_bar.size(), Math.round(value));
-//                entries_bar.add(bar_entry);
-//
-////                if (entries_bar.size() >= 10){
-////                    entries_bar.remove(0);
-////                }
-//                // update bar chart
-//                update_BarChart();
-//            }
-//        });
-//
-//        line_checkin_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                float value = (float) Math.random() * 10; // substitute to actual data
-//                Entry entry = new Entry(entries_line.size(), Math.round(value));
-//                entries_line.add(entry);
-//
-////                if (entries_line.size() >= 10){
-////                    entries_line.remove(0);
-////                }
-//                // update
-//                update_LineChart();
-//            }
-//        });
 
         learn_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -745,6 +727,9 @@ public class SaveActivity extends AppCompatActivity {
 
         // initialize elements
         TextView textView_date = (TextView) viewPopupWindow.findViewById(R.id.textView_date);
+        TextView textView_daily_comp = (TextView) viewPopupWindow.findViewById(R.id.textView_daily);
+        TextView textView_weekly_comp = (TextView) viewPopupWindow.findViewById(R.id.textView_weekly);
+
         EditText input_daily_goal = (EditText) viewPopupWindow.findViewById(R.id.input1);
         EditText input_weekly_goal = (EditText) viewPopupWindow.findViewById(R.id.input2);
         EditText input_emotion = (EditText) viewPopupWindow.findViewById(R.id.input3);
@@ -757,6 +742,12 @@ public class SaveActivity extends AppCompatActivity {
         textView_date.setText("Date: " + dateAsString);
         String date_without_slash = removeSlashes(dateAsString);
 
+        String txt_daily = "How much (in %) did you complete today out of your <b>daily</b> goal?";
+        String txt_weekly = "How much (in %) did you complete out of your <b>weekly</b> goal?";
+
+        textView_daily_comp.setText(Html.fromHtml(txt_daily));
+        textView_weekly_comp.setText(Html.fromHtml(txt_weekly));
+
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -768,9 +759,16 @@ public class SaveActivity extends AppCompatActivity {
                 String txt_cur_emotion = input_emotion.getText().toString();
                 String txt_cur_strategy = input_strategy.getText().toString();
 
+                Integer int_daily = Integer.parseInt(txt_daily_goal);
+                Integer int_weekly = Integer.parseInt(txt_weekly_goal);
+
+                Log.d("Print daily: ", int_daily.toString());
+                Log.d("Print weekly: ", int_weekly.toString());
 
                 if (txt_daily_goal.isEmpty() || txt_weekly_goal.isEmpty() || txt_cur_emotion.isEmpty() || txt_cur_strategy.isEmpty()){
                     Toast.makeText(SaveActivity.this,  "Empty input", Toast.LENGTH_SHORT).show();
+                } else if (int_daily<=0 || int_daily>=100 || int_weekly<=0 || int_weekly>=100) {
+                    Toast.makeText(SaveActivity.this,  "Invalid input", Toast.LENGTH_SHORT).show();
                 } else {
                     // Daily check in
                     db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_daily").setValue(txt_daily_goal);
@@ -1195,8 +1193,7 @@ public class SaveActivity extends AppCompatActivity {
                         lineDataSet2.setColor(Color.parseColor("#60AC50"));
 
                         String[] modified_keys = removeFirstFourChars(keys);
-                        Log.d("modified_keys", String.valueOf(modified_date));
-                        Log.d("modified_keys", String.valueOf(modified_keys));
+                        tooltip_date = modified_keys;
 
 //                        XAxis xAxis = lineChart.getXAxis();
 //                        xAxis.setValueFormatter(new IndexAxisValueFormatter(modified_keys));
@@ -1208,7 +1205,7 @@ public class SaveActivity extends AppCompatActivity {
                         xAxis.setGranularity(1f); // Minimum interval between the axis values
                         xAxis.setGranularityEnabled(true); // Enable granularity to prevent skipping labels
 
-// Custom ValueFormatter to convert index to label from the keys array
+                        // Custom ValueFormatter to convert index to label from the keys array
                         xAxis.setValueFormatter(new ValueFormatter() {
                             @Override
                             public String getFormattedValue(float value) {
@@ -1226,6 +1223,30 @@ public class SaveActivity extends AppCompatActivity {
                         // Combine both datasets into LineData and set it to the chart
                         LineData data = new LineData(lineDataSet1, lineDataSet2);
                         lineChart.setData(data);
+
+                        // Highlight the last data points
+                        int lastPointIndex1 = entriesLine1.size() - 1;
+                        int lastPointIndex2 = entriesLine2.size() - 1;
+
+                        lineDataSet1.setCircleColors(Color.BLUE);
+
+                        Drawable drawable1 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point);
+
+                        // Set the icon for the last entry of lineDataSet1
+                        if (lastPointIndex1 >= 0 && lastPointIndex1 < lineDataSet1.getEntryCount()) {
+                            Entry lastEntry1 = lineDataSet1.getEntryForIndex(lastPointIndex1);
+                            lastEntry1.setIcon(drawable1);
+                        }
+
+                        // Set the icon for the last entry of lineDataSet2
+                        if (lastPointIndex2 >= 0 && lastPointIndex2 < lineDataSet2.getEntryCount()) {
+                            Entry lastEntry2 = lineDataSet2.getEntryForIndex(lastPointIndex2);
+                            lastEntry2.setIcon(drawable1);
+                        }
+
+                        // Assuming 'this' is an Activity or Context
+                        CustomMarkerView markerView = new CustomMarkerView(SaveActivity.this, R.layout.marker_view_layout);
+                        lineChart.setMarker(markerView);
 
                         // Refresh chart
                         lineChart.invalidate();
@@ -1289,10 +1310,10 @@ public class SaveActivity extends AppCompatActivity {
 
                     switch (current_status) {
                         case "1":
-                            String content_html = "Completion(daily): " + map_progress.get(keys[position]).get("goal_daily") + "%;<br>"
-                                    + "Completion(weekly): " + map_progress.get(keys[position]).get("goal_weekly") + "%;<br>"
-                                    + "Emotion: " + map_progress.get(keys[position]).get("emotion") + ";<br>"
-                                    + "Strategy: " + map_progress.get(keys[position]).get("strategy") + ".<br>";
+                            String content_html = "Completion-daily: " + map_progress.get(keys[position]).get("goal_daily") + "%<br>"
+                                    + "Completion-weekly: " + map_progress.get(keys[position]).get("goal_weekly") + "%<br>"
+                                    + "Emotion: " + map_progress.get(keys[position]).get("emotion") + "<br>"
+                                    + "Strategy: " + map_progress.get(keys[position]).get("strategy") + "<br>";
 //                            if (position == 5 || position == 6){
 //                                content_html = "<br>" + content_html;
 //                            }
@@ -1334,5 +1355,33 @@ public class SaveActivity extends AppCompatActivity {
         // Show the PopupWindow
         speechBubble.showAtLocation(anchorView, Gravity.NO_GRAVITY, x, y);
     }
+
+    public class CustomMarkerView extends MarkerView {
+        private TextView tvContent;
+
+        public CustomMarkerView(Context context, int layoutResource) {
+            super(context, layoutResource);
+            // Find your TextView by its id
+            tvContent = findViewById(R.id.tvContent);
+        }
+
+        // This method is called every time the MarkerView is redrawn,
+        // use it to update the content (user-interface)
+        @Override
+        public void refreshContent(Entry e, Highlight highlight) {
+            String txt_content = "Date: " + tooltip_date[(int)e.getX()] + "\n"
+                        + "Value: " + e.getY();
+            tvContent.setText(txt_content);
+//             tvContent.setText(String.format("Value: %s", e.getY()));
+            super.refreshContent(e, highlight);
+        }
+
+        @Override
+        public MPPointF getOffset() {
+            // This provides the offset for the MarkerView. It's the difference between the touch point and the marker view
+            return new MPPointF(-(getWidth() / 2), getHeight()-45);
+        }
+    }
+
 
 }

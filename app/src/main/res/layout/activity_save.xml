@@ -164,6 +164,19 @@
                 android:textSize="@dimen/text_size_main_small"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/cur_avg_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="left"
+                android:paddingLeft="0dp"
+                android:paddingRight="20dp"
+                android:text="Average Timeliness Score: "
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_note"
+                />
+
             <GridView
                 android:id="@+id/gridview"
                 android:layout_width="match_parent"
@@ -366,7 +379,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="0dp"
                 android:paddingRight="20dp"
-                android:text="Timeliness overtime"
+                android:text="Timeliness/Completion overtime"
                 android:gravity="left"
                 android:textStyle="bold"
                 android:textColor="#000000"
