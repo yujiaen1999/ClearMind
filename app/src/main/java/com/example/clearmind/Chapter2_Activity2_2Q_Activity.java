@@ -343,7 +343,7 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
     }
 
     private void open_Next_Activity() {
-        Intent intent = new Intent(this,Chapter2_Activity2_3_Activity.class);
+        Intent intent = new Intent(this,Chapter2_Diagram_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

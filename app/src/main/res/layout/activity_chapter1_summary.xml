@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Part 1: Summary"
+                android:text="Part 1 Summary"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"

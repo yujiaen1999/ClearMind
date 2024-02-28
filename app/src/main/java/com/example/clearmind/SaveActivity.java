@@ -1229,8 +1229,10 @@ public class SaveActivity extends AppCompatActivity {
                         int lastPointIndex2 = entriesLine2.size() - 1;
 
                         lineDataSet1.setCircleColors(Color.BLUE);
+                        lineDataSet2.setCircleColors(Color.GREEN);
 
-                        Drawable drawable1 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point);
+                        Drawable drawable1 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point1);
+                        Drawable drawable2 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point2);
 
                         // Set the icon for the last entry of lineDataSet1
                         if (lastPointIndex1 >= 0 && lastPointIndex1 < lineDataSet1.getEntryCount()) {
@@ -1241,7 +1243,7 @@ public class SaveActivity extends AppCompatActivity {
                         // Set the icon for the last entry of lineDataSet2
                         if (lastPointIndex2 >= 0 && lastPointIndex2 < lineDataSet2.getEntryCount()) {
                             Entry lastEntry2 = lineDataSet2.getEntryForIndex(lastPointIndex2);
-                            lastEntry2.setIcon(drawable1);
+                            lastEntry2.setIcon(drawable2);
                         }
 
                         // Assuming 'this' is an Activity or Context

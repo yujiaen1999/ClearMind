@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Passengers on the Bus Diagram"
+                android:text="Identify Your Passengers &amp; \nPassengers on the Bus Diagram"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="Fill the diagrams below with the details of your own bus.
+                android:text="Recognizing these passengers is the first step to overcome procrastination and stay on track towards your destination! Think of your destination and possible challenging passengers. It can be anything like “health”, or “getting homework done.”
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -53,8 +53,9 @@
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
-                android:layout_height="330dp"
-                android:src="@drawable/diagram1" />
+                android:layout_height="200dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/part2_diagram1" />
 
 <!--            <TextView-->
 <!--                android:id="@+id/textView3"-->
@@ -94,8 +95,9 @@
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:src="@drawable/diagram2" />
+                android:layout_height="200dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/part2_diagram2" />
 
 <!--            <TextView-->
 <!--                android:id="@+id/textView4"-->
@@ -113,7 +115,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:layout_marginTop="@dimen/text_internal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:paddingHorizontal="10dp"

@@ -35,7 +35,7 @@ public class Chapter2_Activity extends AppCompatActivity {
     private Button button_activity1;
     private Button button_activity2_1;
     private Button button_activity2_2;
-    private Button button_activity2_3;
+//    private Button button_activity2_3;
     private Button button_activity2_4;
     private Button button_activity2_5;
     private Button button_summary;
@@ -75,7 +75,7 @@ public class Chapter2_Activity extends AppCompatActivity {
         button_activity1 = findViewById(R.id.button2);
         button_activity2_1 = findViewById(R.id.button3);
         button_activity2_2 = findViewById(R.id.button4);
-        button_activity2_3 = findViewById(R.id.button5);
+//        button_activity2_3 = findViewById(R.id.button5);
         button_activity2_4 = findViewById(R.id.button6);
         button_activity2_5 = findViewById(R.id.button7);
         button_summary = findViewById(R.id.button8);
@@ -332,38 +332,38 @@ public class Chapter2_Activity extends AppCompatActivity {
                     });
                 }
 
-                // HANDLE status_5
-                if (status_5.equals("0")){
-                    button_activity2_3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if(status_4.equals("1")){
-                                Toast.makeText(Chapter2_Activity.this, "Open", Toast.LENGTH_SHORT).show();
-                                open_Chapter2_Activity2_3();
-                            } else{
-                                Toast.makeText(Chapter2_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                } else {
-                    // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_text_done);
-                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
-                    button_activity2_3.setCompoundDrawables(icon_done, null, null, null);
-                    button_activity2_3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            open_Chapter2_Activity2_3();
-                        }
-                    });
-                }
+//                // HANDLE status_5
+//                if (status_5.equals("0")){
+//                    button_activity2_3.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            if(status_4.equals("1")){
+//                                Toast.makeText(Chapter2_Activity.this, "Open", Toast.LENGTH_SHORT).show();
+//                                open_Chapter2_Activity2_3();
+//                            } else{
+//                                Toast.makeText(Chapter2_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//                } else {
+//                    // status == "1"
+//                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_text_done);
+//                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
+//                    button_activity2_3.setCompoundDrawables(icon_done, null, null, null);
+//                    button_activity2_3.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            open_Chapter2_Activity2_3();
+//                        }
+//                    });
+//                }
 
                 // HANDLE status_6
                 if (status_6.equals("0")){
                     button_activity2_4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if(status_5.equals("1")){
+                            if(status_4.equals("1")){
                                 Toast.makeText(Chapter2_Activity.this, "Open", Toast.LENGTH_SHORT).show();
                                 open_Chapter2_Activity2_4();
                             } else{
