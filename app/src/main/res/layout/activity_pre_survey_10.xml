@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="46. I've been giving up trying to deal with it."
+                android:text="42. I've been giving up trying to deal with it."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="47. I've been taking action to try to make the situation better."
+                android:text="43. I've been taking action to try to make the situation better."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="48. I've been refusing to believe that it has happened."
+                android:text="44. I've been refusing to believe that it has happened."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -197,7 +197,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="49. I've been saying things to let my unpleasant feelings escape."
+                android:text="45. I've been saying things to let my unpleasant feelings escape."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -242,7 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="50. I’ve been getting help and advice from other people."
+                android:text="46. I’ve been getting help and advice from other people."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup

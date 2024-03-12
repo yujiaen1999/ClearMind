@@ -23,6 +23,7 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -62,8 +63,10 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.text.DateFormat;
@@ -154,11 +157,44 @@ public class SaveActivity extends AppCompatActivity {
         TextView new_gaol_reminder = findViewById(R.id.new_gaol_reminder);
         new_gaol_reminder.setVisibility(View.GONE);
 
+        ScrollView scrollView = findViewById(R.id.scrollView);
+        LinearLayout locked_part = findViewById(R.id.locked_part);
+
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
         updateProgress(70);
         // set the progress bar here
 //        progressBar.setProgress(50); // 50% for example
+
+
+        // ******************************
+        // Lock/Unlock of the tracker function
+        // ******************************
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String status_finish_learn = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("7_Summary").getValue());
+
+                // HANDLE status
+                if (!status_finish_learn.equals("1")){
+                    scrollView.setVisibility(View.GONE);
+                    newTracker_button.setVisibility(View.GONE);
+                    locked_part.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(SaveActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        Integer test = 1;
+//        if (test == 1){
+//            scrollView.setVisibility(View.GONE);
+//            newTracker_button.setVisibility(View.GONE);
+//            locked_part.setVisibility(View.VISIBLE);
+//        }
 
 
 
@@ -767,7 +803,7 @@ public class SaveActivity extends AppCompatActivity {
 
                 if (txt_daily_goal.isEmpty() || txt_weekly_goal.isEmpty() || txt_cur_emotion.isEmpty() || txt_cur_strategy.isEmpty()){
                     Toast.makeText(SaveActivity.this,  "Empty input", Toast.LENGTH_SHORT).show();
-                } else if (int_daily<=0 || int_daily>=100 || int_weekly<=0 || int_weekly>=100) {
+                } else if (int_daily<0 || int_daily>100 || int_weekly<0 || int_weekly>100) {
                     Toast.makeText(SaveActivity.this,  "Invalid input", Toast.LENGTH_SHORT).show();
                 } else {
                     // Daily check in

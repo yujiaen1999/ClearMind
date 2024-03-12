@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="20. If an assignment is due at midnight, I will work on it until 11:59."
+                android:text="16. If an assignment is due at midnight, I will work on it until 11:59."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="21. When given an assignment, I usually put it away and forget about it until it is almost due."
+                android:text="17. When given an assignment, I usually put it away and forget about it until it is almost due."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="22. Friends usually distract me from schoolwork."
+                android:text="18. Friends usually distract me from schoolwork."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -197,7 +197,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="23. I find myself talking to friends or family instead of working on school work."
+                android:text="19. I find myself talking to friends or family instead of working on school work."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -242,7 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="24. On the weekends, I make plans to do homework and projects, but I get distracted and hang out with friends."
+                android:text="20. On the weekends, I make plans to do homework and projects, but I get distracted and hang out with friends."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup

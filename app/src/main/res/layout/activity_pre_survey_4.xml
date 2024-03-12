@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="15. Tests are meant to be studied for just the night before."
+                android:text="11. Tests are meant to be studied for just the night before."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="16. I feel prepared well in advance for most tests."
+                android:text="12. I feel prepared well in advance for most tests."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="17. “Cramming” and last minute studying is the best way that I study for a big test."
+                android:text="13. “Cramming” and last minute studying is the best way that I study for a big test."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -197,7 +197,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="18. I allocate time so I don‟t have to “cram” at the end of the semester."
+                android:text="14. I allocate time so I don‟t have to “cram” at the end of the semester."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -242,7 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="19. I only study the night before exams."
+                android:text="15. I only study the night before exams."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup

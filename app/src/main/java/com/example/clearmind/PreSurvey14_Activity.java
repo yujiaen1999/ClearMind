@@ -22,9 +22,9 @@ public class PreSurvey14_Activity extends AppCompatActivity {
     private Button button_back;
     private Button button_next;
 
-    private String scale_answer66;
-    private String scale_answer67;
-    private String scale_answer68;
+    private String scale_answer62;
+    private String scale_answer63;
+    private String scale_answer64;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,7 @@ public class PreSurvey14_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_1 = (RadioButton) findViewById(checkedId);
-                scale_answer66 = selected_button_1.getText().toString();
+                scale_answer62 = selected_button_1.getText().toString();
             }
         });
 
@@ -52,7 +52,7 @@ public class PreSurvey14_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_1 = (RadioButton) findViewById(checkedId);
-                scale_answer67 = selected_button_1.getText().toString();
+                scale_answer63 = selected_button_1.getText().toString();
             }
         });
 
@@ -60,7 +60,7 @@ public class PreSurvey14_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_1 = (RadioButton) findViewById(checkedId);
-                scale_answer68 = selected_button_1.getText().toString();
+                scale_answer64 = selected_button_1.getText().toString();
             }
         });
 
@@ -76,12 +76,12 @@ public class PreSurvey14_Activity extends AppCompatActivity {
             public void onClick(View v){
                 boolean toNextPage = false;
 
-                if (scale_answer66==null || scale_answer67==null || scale_answer68==null){
+                if (scale_answer62==null || scale_answer63==null || scale_answer64==null){
                     Toast.makeText(PreSurvey14_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
                 } else {
-                    db.child("PreSurvey").child(username).child("66").setValue(scale_answer66);
-                    db.child("PreSurvey").child(username).child("67").setValue(scale_answer67);
-                    db.child("PreSurvey").child(username).child("68").setValue(scale_answer68);
+                    db.child("PreSurvey").child(username).child("62").setValue(scale_answer62);
+                    db.child("PreSurvey").child(username).child("63").setValue(scale_answer63);
+                    db.child("PreSurvey").child(username).child("64").setValue(scale_answer64);
 
                     toNextPage = true;
                 }

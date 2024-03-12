@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="56. I've been giving up the attempt to cope."
+                android:text="52. I've been giving up the attempt to cope."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="57. I've been looking for something good in what is happening."
+                android:text="53. I've been looking for something good in what is happening."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="58. I've been making jokes about it."
+                android:text="54. I've been making jokes about it."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -197,7 +197,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="59. I've been doing something to think about it less, such as going to movies, watching TV, reading, daydreaming, sleeping, or shopping."
+                android:text="55. I've been doing something to think about it less, such as going to movies, watching TV, reading, daydreaming, sleeping, or shopping."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -242,7 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="60. I've been accepting the reality of the fact that it has happened."
+                android:text="56. I've been accepting the reality of the fact that it has happened."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup

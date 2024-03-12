@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="25. I tend to put off things for the next day."
+                android:text="21. I tend to put off things for the next day."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="26. I don‟t spend much time studying school material until the end of the semester."
+                android:text="22. I don‟t spend much time studying school material until the end of the semester."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="27. I frequently find myself putting important deadlines off."
+                android:text="23. I frequently find myself putting important deadlines off."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -197,7 +197,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="28. If I don‟t understand something, I‟ll usually wait until the night before a test to figure it out."
+                android:text="24. If I don‟t understand something, I‟ll usually wait until the night before a test to figure it out."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -242,7 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="29. I read the textbook and look over notes before coming to class and listening to a lecture or teacher. "
+                android:text="25. I read the textbook and look over notes before coming to class and listening to a lecture or teacher. "
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup

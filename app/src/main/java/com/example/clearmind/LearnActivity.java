@@ -192,9 +192,9 @@ public class LearnActivity extends AppCompatActivity {
                     if (progress_chapter != null) {
                         for (String value : progress_chapter.values()) {
                             if (value.equals("1")) {
-                                Log.d("firebase_progress", "value: " + value);
+//                                Log.d("firebase_progress", "value: " + value);
                                 progressValue += 1;
-                                Log.d("firebase_progress", "progressValue: " + String.valueOf(progressValue));
+//                                Log.d("firebase_progress", "progressValue: " + String.valueOf(progressValue));
                             }
                         }
                     }

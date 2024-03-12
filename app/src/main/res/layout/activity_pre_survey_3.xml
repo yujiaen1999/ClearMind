@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="10. I waste a lot of time on unimportant things."
+                android:text="6. I waste a lot of time on unimportant things."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="11. I get distracted by other, more fun, things when I am supposed to work on schoolwork."
+                android:text="7. I get distracted by other, more fun, things when I am supposed to work on schoolwork."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="12. I concentrate on school work instead of other distractions."
+                android:text="8. I concentrate on school work instead of other distractions."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -197,7 +197,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="13. I can‟t focus on school work or projects for more than an hour until I get distracted."
+                android:text="9. I can‟t focus on school work or projects for more than an hour until I get distracted."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -242,7 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="14. My attention span for schoolwork is very short."
+                android:text="10. My attention span for schoolwork is very short."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup

@@ -110,7 +110,7 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
         super.onPause();
         pageCloseTime = System.currentTimeMillis(); // get the page close time
 
-        if (pageCloseTime - pageOpenTime > 4999){   // Only if the view time >= 5 seconds
+        if (pageCloseTime - pageOpenTime > 1999){   // Only if the view time >= 2 seconds
             sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
         }
 //        sendTimeStampsToFirebase();

@@ -19,11 +19,11 @@ public class PreSurvey9_Activity extends AppCompatActivity {
     private Button button_back;
     private Button button_next;
 
+    private String scale_answer37;
+    private String scale_answer38;
+    private String scale_answer39;
+    private String scale_answer40;
     private String scale_answer41;
-    private String scale_answer42;
-    private String scale_answer43;
-    private String scale_answer44;
-    private String scale_answer45;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class PreSurvey9_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_1 = (RadioButton) findViewById(checkedId);
-                scale_answer41 = selected_button_1.getText().toString();
+                scale_answer37 = selected_button_1.getText().toString();
             }
         });
 
@@ -53,7 +53,7 @@ public class PreSurvey9_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_1 = (RadioButton) findViewById(checkedId);
-                scale_answer42 = selected_button_1.getText().toString();
+                scale_answer38 = selected_button_1.getText().toString();
             }
         });
 
@@ -61,7 +61,7 @@ public class PreSurvey9_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_1 = (RadioButton) findViewById(checkedId);
-                scale_answer43 = selected_button_1.getText().toString();
+                scale_answer39 = selected_button_1.getText().toString();
             }
         });
 
@@ -69,7 +69,7 @@ public class PreSurvey9_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_1 = (RadioButton) findViewById(checkedId);
-                scale_answer44 = selected_button_1.getText().toString();
+                scale_answer40 = selected_button_1.getText().toString();
             }
         });
 
@@ -77,7 +77,7 @@ public class PreSurvey9_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button_1 = (RadioButton) findViewById(checkedId);
-                scale_answer45 = selected_button_1.getText().toString();
+                scale_answer41 = selected_button_1.getText().toString();
             }
         });
 
@@ -94,14 +94,14 @@ public class PreSurvey9_Activity extends AppCompatActivity {
             public void onClick(View v){
                 boolean toNextPage = false;
 
-                if (scale_answer41==null || scale_answer42==null || scale_answer43==null || scale_answer44==null || scale_answer45==null){
+                if (scale_answer37==null || scale_answer38==null || scale_answer39==null || scale_answer40==null || scale_answer41==null){
                     Toast.makeText(PreSurvey9_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
                 } else {
+                    db.child("PreSurvey").child(username).child("37").setValue(scale_answer37);
+                    db.child("PreSurvey").child(username).child("38").setValue(scale_answer38);
+                    db.child("PreSurvey").child(username).child("39").setValue(scale_answer39);
+                    db.child("PreSurvey").child(username).child("40").setValue(scale_answer40);
                     db.child("PreSurvey").child(username).child("41").setValue(scale_answer41);
-                    db.child("PreSurvey").child(username).child("42").setValue(scale_answer42);
-                    db.child("PreSurvey").child(username).child("43").setValue(scale_answer43);
-                    db.child("PreSurvey").child(username).child("44").setValue(scale_answer44);
-                    db.child("PreSurvey").child(username).child("45").setValue(scale_answer45);
 
                     toNextPage = true;
                 }

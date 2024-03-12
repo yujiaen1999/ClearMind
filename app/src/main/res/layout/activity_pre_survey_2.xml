@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="5. I usually allocate time to review and proofread my work."
+                android:text="1. I usually allocate time to review and proofread my work."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="6. I put off projects until the last minute."
+                android:text="2. I put off projects until the last minute."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -144,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="7. I have found myself waiting until the day before to start a big project."
+                android:text="3. I have found myself waiting until the day before to start a big project."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -186,7 +186,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="8. I know I should work on school work, but I just don‟t do it."
+                android:text="4. I know I should work on school work, but I just don‟t do it."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -227,7 +227,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="9. When working on schoolwork, I usually get distracted by other things."
+                android:text="5. When working on schoolwork, I usually get distracted by other things."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup

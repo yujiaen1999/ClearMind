@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="51. I've been using alcohol or other drugs to help me get through it."
+                android:text="47. I've been using alcohol or other drugs to help me get through it."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="52. I've been trying to see it in a different light, to make it seem more positive."
+                android:text="48. I've been trying to see it in a different light, to make it seem more positive."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="53. I’ve been criticizing myself."
+                android:text="49. I’ve been criticizing myself."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -197,7 +197,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="54. I've been trying to come up with a strategy about what to do."
+                android:text="50. I've been trying to come up with a strategy about what to do."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup
@@ -242,7 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="55. I've been getting comfort and understanding from someone."
+                android:text="51. I've been getting comfort and understanding from someone."
                 android:textSize="@dimen/text_size_main_small" />
 
             <RadioGroup

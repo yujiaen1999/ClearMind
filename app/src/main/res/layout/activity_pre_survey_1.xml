@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_internal"
-            android:text="1. What's your age?"
+            android:text="What's your age?"
             android:textSize="@dimen/text_size_main_small" />
 
         <EditText
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_internal"
-            android:text="2. What's your gender?"
+            android:text="What's your gender?"
             android:textSize="@dimen/text_size_main_small" />
 
         <RadioGroup
@@ -125,7 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_internal"
-            android:text="3. What's your major?"
+            android:text="What's your major?"
             android:textSize="@dimen/text_size_main_small" />
 
         <EditText
@@ -142,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_internal"
-            android:text="4. Year at school? (Total number of years in Colleges/Universities after high school)"
+            android:text="Year at school? (Total number of years in Colleges/Universities after high school)"
             android:textSize="@dimen/text_size_main_small" />
 
         <RadioGroup
