@@ -2,6 +2,7 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -10,9 +11,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +31,11 @@ public class PreSurvey14_Activity extends AppCompatActivity {
     private String scale_answer62;
     private String scale_answer63;
     private String scale_answer64;
+    private long pageOpenTime;
+    private long pageCloseTime;
+
+    private DatabaseReference activityRef;
+    private String activityId;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +50,9 @@ public class PreSurvey14_Activity extends AppCompatActivity {
         RadioGroup radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
         RadioGroup radiogroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
         RadioGroup radiogroup3 = (RadioGroup) findViewById(R.id.radioGroup3);
+
+        activityRef = db.child("userActivity").child(username).child("PreSurvey_14");
+        activityId = intent.getStringExtra("activityId");
 
         radiogroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -111,5 +125,63 @@ public class PreSurvey14_Activity extends AppCompatActivity {
         Intent intent = new Intent(this,LearnActivity.class);
         intent.putExtra("username", username);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pageOpenTime = System.currentTimeMillis(); // get the page open time
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pageCloseTime = System.currentTimeMillis(); // get the page close time
+
+//        if (pageCloseTime - pageOpenTime > 1999){   // Only if the view time >= 2 seconds
+//            sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
+//        }
+        sendTimeStampsToFirebase();
+    }
+
+    private void sendTimeStampsToFirebase() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+
+        Date resultdate_open = new Date(pageOpenTime);
+        Date resultdate_close = new Date(pageCloseTime);
+
+        Map<String, Object> activityData = new HashMap<>();
+        activityData.put("openTime_ms", pageOpenTime);
+        activityData.put("openTime_str", String.valueOf(resultdate_open));
+
+        activityData.put("closeTime_ms", pageCloseTime);
+        activityData.put("closeTime_str", String.valueOf(resultdate_close));
+
+        activityData.put("duration", pageCloseTime - pageOpenTime);
+
+        if (activityId != null) {
+            activityRef.child(activityId).setValue(activityData)
+                    .addOnSuccessListener(aVoid -> Log.d("Firebase", "Activity time recorded successfully"))
+                    .addOnFailureListener(e -> Log.d("Firebase", "Failed to record activity time", e));
+
+            // Calculate duration of Scale 2 and record the close time
+            db.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+//                    Post post = dataSnapshot.getValue(Post.class);
+                    long OpenTime_Scale3 = dataSnapshot.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("openTime_ms").getValue(long.class);
+                    db.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("duration").setValue(pageCloseTime - OpenTime_Scale3);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getCode());
+                }
+            });
+
+            // Record the open time of the Scale 2
+            db.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("closeTime_ms").setValue(pageCloseTime);
+            db.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("closeTime_str").setValue(String.valueOf(resultdate_close));
+        }
     }
 }

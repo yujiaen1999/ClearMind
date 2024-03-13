@@ -1177,12 +1177,14 @@ public class SaveActivity extends AppCompatActivity {
                 if(!task.isSuccessful()){
                     Log.e("firebase_summary", "Error getting data", task.getException());
                 }else{
-//                    Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
-                    if(map_tracker != null) {
-                        Map<String, String> map_completion = map_tracker.get("history_completion");
-                        Map<String, String> map_timeliness = map_tracker.get("history_timeliness_avg");
+                    Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
+                    Map<String, String> map_completion = map_tracker.get("history_completion");
+                    Map<String, String> map_timeliness = map_tracker.get("history_timeliness_avg");
+                    if(map_tracker != null && map_completion != null && map_timeliness != null) {
+//                        Map<String, String> map_completion = map_tracker.get("history_completion");
+//                        Map<String, String> map_timeliness = map_tracker.get("history_timeliness_avg");
 
-                        String[] keys = map_completion.keySet().toArray(new String[0]);
+                        String[] keys = map_completion.keySet().toArray(new String[0]);  // Error here!!!!!!
                         Arrays.sort(keys);
                         String[] modified_date = removeFirstFourChars(keys);
 

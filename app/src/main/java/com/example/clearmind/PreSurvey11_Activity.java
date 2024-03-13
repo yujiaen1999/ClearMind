@@ -2,6 +2,7 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -12,6 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PreSurvey11_Activity extends AppCompatActivity {
     private String username;
@@ -24,6 +30,11 @@ public class PreSurvey11_Activity extends AppCompatActivity {
     private String scale_answer49;
     private String scale_answer50;
     private String scale_answer51;
+    private long pageOpenTime;
+    private long pageCloseTime;
+
+    private DatabaseReference activityRef;
+    private String activityId;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +51,9 @@ public class PreSurvey11_Activity extends AppCompatActivity {
         RadioGroup radiogroup3 = (RadioGroup) findViewById(R.id.radioGroup3);
         RadioGroup radiogroup4 = (RadioGroup) findViewById(R.id.radioGroup4);
         RadioGroup radiogroup5 = (RadioGroup) findViewById(R.id.radioGroup5);
+
+        activityRef = db.child("userActivity").child(username).child("PreSurvey_11");
+        activityId = intent.getStringExtra("activityId");
 
         radiogroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -124,7 +138,52 @@ public class PreSurvey11_Activity extends AppCompatActivity {
     private void open_Next_Activity() {
         Intent intent = new Intent(this,PreSurvey12_Activity.class);
         intent.putExtra("username", username);
+        intent.putExtra("activityId", activityId);
+        Log.d("activityId: ", activityId);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pageOpenTime = System.currentTimeMillis(); // get the page open time
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pageCloseTime = System.currentTimeMillis(); // get the page close time
+
+//        if (pageCloseTime - pageOpenTime > 1999){   // Only if the view time >= 2 seconds
+//            sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
+//        }
+        sendTimeStampsToFirebase();
+    }
+
+    private void sendTimeStampsToFirebase() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+
+        Date resultdate_open = new Date(pageOpenTime);
+        Date resultdate_close = new Date(pageCloseTime);
+
+        Map<String, Object> activityData = new HashMap<>();
+        activityData.put("openTime_ms", pageOpenTime);
+        activityData.put("openTime_str", String.valueOf(resultdate_open));
+
+        activityData.put("closeTime_ms", pageCloseTime);
+        activityData.put("closeTime_str", String.valueOf(resultdate_close));
+
+        activityData.put("duration", pageCloseTime - pageOpenTime);
+
+        if (activityId != null) {
+            activityRef.child(activityId).setValue(activityData)
+                    .addOnSuccessListener(aVoid -> Log.d("Firebase", "Activity time recorded successfully"))
+                    .addOnFailureListener(e -> Log.d("Firebase", "Failed to record activity time", e));
+
+            // Record the open time of the Scale 2
+//            db.child("userActivity").child(username).child("PreSurvey_0_Scale_1").child(activityId).child("openTime_ms").setValue(pageOpenTime);
+//            db.child("userActivity").child(username).child("PreSurvey_0_Scale_1").child(activityId).child("openTime_str").setValue(String.valueOf(resultdate_open));
+        }
     }
 }
