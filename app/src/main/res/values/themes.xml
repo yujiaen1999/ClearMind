@@ -7,10 +7,30 @@
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="Theme.ClearMind.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+
+    <style name="Theme.ClearMind.TransparentActionBar">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
     </style>
+
+    <style name="Theme.ClearMind.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Other style attributes for your app -->
+    </style>
+
+<!--    <style name="Theme.ClearMind.NoActionBar">-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+
+<!--&lt;!&ndash;        <item name="colorPrimaryDark">@color/black</item>&ndash;&gt;-->
+<!--        <item name="android:statusBarColor">-->
+<!--            @android:color/transparent-->
+<!--        </item>-->
+<!--&lt;!&ndash;        <item name="android:windowLightStatusBar">true</item>&ndash;&gt;-->
+<!--    </style>-->
+
     <style name="Theme.ClearMind.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.ClearMind.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

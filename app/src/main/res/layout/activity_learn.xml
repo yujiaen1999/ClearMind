@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:id="@+id/activity_learn">
+
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton1"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@null"-->
+<!--        app:srcCompat="@drawable/start"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        tools:layout_editor_absoluteX="84dp"-->
+<!--        tools:layout_editor_absoluteY="170dp" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton3"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@null"-->
+<!--        app:srcCompat="@drawable/practice"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        tools:layout_editor_absoluteX="47dp"-->
+<!--        tools:layout_editor_absoluteY="294dp" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton2"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@null"-->
+<!--        app:srcCompat="@drawable/lesson"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        tools:layout_editor_absoluteX="59dp"-->
+<!--        tools:layout_editor_absoluteY="231dp" />-->
+
+
+    <LinearLayout
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="@dimen/fab_margin"
+        android:layout_height="140dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.00"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/hello"
+                android:layout_width="248dp"
+                android:layout_height="40dp"
+                android:paddingTop="5dp"
+                android:text="Hi, Welcome!"
+                android:textSize="28dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/instruction"
+                android:layout_width="248dp"
+                android:layout_height="100dp"
+                android:text="Welcome to ClearMind Learn page. You can find 4 Parts here, let's see your challenge for today."
+                android:textSize="@dimen/text_size_main_large"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/progressBar2"-->
+<!--            style="?android:attr/progressBarStyle"-->
+<!--            android:progress="20"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="140dp"-->
+<!--            android:layout_weight="1" />-->
+
+        <com.example.clearmind.CustomProgressBar
+            android:id="@+id/progressBar2"
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:background="@drawable/circle_shape"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:progress="65"/>
+
+
+
+    </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/welcome"-->
+<!--        android:layout_width="343dp"-->
+<!--        android:layout_height="140dp"-->
+<!--        android:text="Hi, Welcome!"-->
+<!--        android:textSize="@dimen/text_size_main_large"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+<!--        android:textColor="#000000"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.05" />-->
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_learn_list"
+        app:layout_constraintTop_toBottomOf="@+id/welcome"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_buttons" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/imgbutton_presurvey"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:srcCompat="@drawable/imgbutton_presurvey_0"
+                android:background="@null"/>
+
+            <ImageButton
+                android:id="@+id/imgbutton_chapter1"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@null"
+                app:srcCompat="@drawable/imgbutton_chapter1_0" />
+
+            <ImageButton
+                android:id="@+id/imgbutton_chapter2"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@null"
+                app:srcCompat="@drawable/imgbutton_chapter2_0" />
+
+            <ImageButton
+                android:id="@+id/imgbutton_chapter3"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@null"
+                app:srcCompat="@drawable/imgbutton_chapter3_0" />
+
+            <ImageButton
+                android:id="@+id/imgbutton_chapter4"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:srcCompat="@drawable/imgbutton_chapter4_0"
+                android:background="@null"/>
+
+            <ImageButton
+                android:id="@+id/imgbutton_postsurvey"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:srcCompat="@drawable/imgbutton_postsurvey_0"
+                android:background="@null"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/navigation_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_weight="2">
+
+        <Button
+            android:id="@+id/button_learn"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/learn"
+            android:text="Learn"
+            android:paddingTop="5dp"
+            android:background="@drawable/button_selected"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/tracker"
+            android:text="Tracker"
+            android:paddingTop="5dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button_achieve"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/achievement"
+            android:text="Achieve"
+            android:paddingTop="5dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button_profile"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/profile"
+            android:text="Profile"
+            android:paddingTop="5dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9999"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

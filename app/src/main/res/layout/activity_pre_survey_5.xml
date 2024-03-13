@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2FFD8">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        app:layout_constraintBottom_toTopOf="@+id/button_previous"
+        tools:layout_editor_absoluteX="-194dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="ClearMind Pre-Survey"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="300dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:progress="32"
+                tools:layout_editor_absoluteX="56dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+
+            <TextView
+                android:id="@+id/introduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
+                android:text="How much do you, yourself agree to the following statements? \n1 = Disagree; 5 = Agree"
+                android:textSize="@dimen/text_size_main_small"
+                android:textStyle="bold" />
+
+
+            <!--      QUESTION 15      -->
+            <TextView
+                android:id="@+id/question_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
+                android:text="16. If an assignment is due at midnight, I will work on it until 11:59."
+                android:textSize="@dimen/text_size_main_small" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+
+            <!--      QUESTION 16      -->
+            <TextView
+                android:id="@+id/question_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
+                android:text="17. When given an assignment, I usually put it away and forget about it until it is almost due."
+                android:textSize="@dimen/text_size_main_small" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+
+            <!--      QUESTION 17      -->
+            <TextView
+                android:id="@+id/question_17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
+                android:text="18. Friends usually distract me from schoolwork."
+                android:textSize="@dimen/text_size_main_small" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+
+            <!--      QUESTION 18      -->
+            <TextView
+                android:id="@+id/question_18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
+                android:text="19. I find myself talking to friends or family instead of working on school work."
+                android:textSize="@dimen/text_size_main_small" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+            <!--      QUESTION 19      -->
+            <TextView
+                android:id="@+id/question_19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
+                android:text="20. On the weekends, I make plans to do homework and projects, but I get distracted and hang out with friends."
+                android:textSize="@dimen/text_size_main_small" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginBottom="60dp">
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="1" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="2" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="3" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="4" />
+
+                <RadioButton
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="5" />
+            </RadioGroup>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_previous"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_gravity="left"
+        app:backgroundTint="#5FA12E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_gravity="right"
+        app:backgroundTint="#5FA12E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

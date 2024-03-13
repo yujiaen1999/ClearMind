@@ -1,32 +1,49 @@
 package com.example.clearmind;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
+// !!!! Currently not in use
 public class LoginPageActivity extends AppCompatActivity {
 
 
     private DatabaseReference db;
     private String username;
 
+    private Button button_to_setting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         setContentView(R.layout.activity_login_page);
         Intent intent = getIntent();
+
+        button_to_setting = (Button) findViewById(R.id.setting_button);
+
         this.username = intent.getStringExtra("username");
         this.db = FirebaseDatabase.getInstance().getReference(); //get a reference of database
         if (savedInstanceState != null){
             this.username = savedInstanceState.getString("username");
             Log.d("save_username", "onRestoreCreate");
         }
+
+        button_to_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                OpenSetting();
+            }
+        });
     }
 
 
@@ -79,6 +96,13 @@ public class LoginPageActivity extends AppCompatActivity {
     //for future use
     public void onClickChangePswd(View view){
         Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
+        intent.putExtra("username", this.username);
+        startActivity(intent);
+    }
+
+    // Open Setting Page
+    public void OpenSetting(){
+        Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
         intent.putExtra("username", this.username);
         startActivity(intent);
     }
