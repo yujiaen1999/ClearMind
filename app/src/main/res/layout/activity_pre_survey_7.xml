@@ -73,21 +73,25 @@
                 tools:ignore="MissingConstraints">
 
                 <RadioButton
+                    android:id="@+id/radiobtn_1"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="1" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_2"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="2" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_3"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="3" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_4"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="4" />
@@ -119,21 +123,25 @@
                 tools:ignore="MissingConstraints">
 
                 <RadioButton
+                    android:id="@+id/radiobtn_5"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="1" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_6"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="2" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_7"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="3" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_8"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="4" />
@@ -165,21 +173,25 @@
                 tools:ignore="MissingConstraints">
 
                 <RadioButton
+                    android:id="@+id/radiobtn_9"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="1" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_10"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="2" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_11"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="3" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_12"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="4" />
@@ -211,21 +223,25 @@
                 tools:ignore="MissingConstraints">
 
                 <RadioButton
+                    android:id="@+id/radiobtn_13"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="1" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_14"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="2" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_15"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="3" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_16"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="4" />
@@ -256,21 +272,25 @@
                 tools:ignore="MissingConstraints">
 
                 <RadioButton
+                    android:id="@+id/radiobtn_17"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="1" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_18"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="2" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_19"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="3" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_20"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="4" />
@@ -301,21 +321,25 @@
                 android:layout_marginBottom="60dp">
 
                 <RadioButton
+                    android:id="@+id/radiobtn_21"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="1" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_22"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="2" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_23"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="3" />
 
                 <RadioButton
+                    android:id="@+id/radiobtn_24"
                     android:layout_width="60dp"
                     android:layout_height="48dp"
                     android:text="4" />

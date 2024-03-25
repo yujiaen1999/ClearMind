@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In this chapter, we explored the “Passengers on the Bus,” a metaphor commonly used in ACT practice. It introduces a new way of handling challenging thoughts and feelings – acknowledging them with kindness rather than engaging in a fight or argument. You can practice this exercise whenever you need to make a decision.
+                android:text="In this part, we explored the “Passengers on the Bus,” a metaphor commonly used in ACT practice. It introduces a new way of handling challenging thoughts and feelings – acknowledging them with kindness rather than engaging in a fight or argument. You can practice this exercise whenever you need to make a decision.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"

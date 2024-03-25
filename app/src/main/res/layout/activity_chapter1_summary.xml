@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In this chapter, we explored various procrastination tendencies and the reasons behind such behaviors.
+                android:text="In this part, we explored various procrastination tendencies and the reasons behind such behaviors.
                 \n\nFollowing questions will help you reflect on this chapter:
 "
                 android:textAlignment="textStart"

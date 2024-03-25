@@ -11,12 +11,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -70,11 +74,63 @@ public class PreSurvey1_Activity extends AppCompatActivity {
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
 
+        EditText answer1 = findViewById(R.id.answer1);
+        EditText answer3 = findViewById(R.id.answer3);
+
         RadioGroup radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
         RadioGroup radiogroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
 
         activityRef = db.child("userActivity").child(username).child("PreSurvey_1");
         activityId = activityRef.push().getKey();
+
+        // Retrieve and Display user input from the database
+        db.child("PreSurvey").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                HashMap<String, String> hashmap_presurvey= (HashMap<String, String>) task.getResult().getValue();
+                if(!task.isSuccessful()){
+                    Log.e("firebase_summary", "Error getting data", task.getException());
+                }else{
+                    Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
+                    if(hashmap_presurvey != null){
+                        answer1.setText(hashmap_presurvey.get("0_age"));
+                        answer3.setText(hashmap_presurvey.get("0_major"));
+
+                        String current_answer2 = hashmap_presurvey.get("0_gender");
+                        switch (current_answer2) {
+                            case "Male":
+                                radiogroup1.check(R.id.radiobtn_1);
+                                break;
+                            case "Female":
+                                radiogroup1.check(R.id.radiobtn_2);
+                                break;
+                            case "Other":
+                                radiogroup1.check(R.id.radiobtn_3);
+                                break;
+                        };
+
+                        String current_answer4 = hashmap_presurvey.get("0_yrs_school");
+                        switch (current_answer4) {
+                            case "0-1 year":
+                                radiogroup2.check(R.id.radiobtn_4);
+                                break;
+                            case "1-2 years":
+                                radiogroup2.check(R.id.radiobtn_5);
+                                break;
+                            case "2-3 years":
+                                radiogroup2.check(R.id.radiobtn_6);
+                                break;
+                            case "3-4 years":
+                                radiogroup2.check(R.id.radiobtn_7);
+                                break;
+                            case "4+ years":
+                                radiogroup2.check(R.id.radiobtn_8);
+                                break;
+                        };
+                    }
+                }
+            }
+        });
 
         radiogroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -104,9 +160,9 @@ public class PreSurvey1_Activity extends AppCompatActivity {
             public void onClick(View v){
                 boolean toNextPage = false;
 
-                EditText answer1 = findViewById(R.id.answer1);
-//                EditText answer2 = findViewById(R.id.answer2);
-                EditText answer3 = findViewById(R.id.answer3);
+//                EditText answer1 = findViewById(R.id.answer1);
+////                EditText answer2 = findViewById(R.id.answer2);
+//                EditText answer3 = findViewById(R.id.answer3);
 
                 String txt_answer1 = answer1.getText().toString();
 //                String txt_answer2 = answer2.getText().toString();

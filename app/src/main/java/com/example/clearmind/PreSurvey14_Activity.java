@@ -9,8 +9,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +34,11 @@ public class PreSurvey14_Activity extends AppCompatActivity {
     private String scale_answer62;
     private String scale_answer63;
     private String scale_answer64;
+
+    private RadioGroup radiogroup1;
+    private RadioGroup radiogroup2;
+    private RadioGroup radiogroup3;
+
     private long pageOpenTime;
     private long pageCloseTime;
 
@@ -47,12 +55,14 @@ public class PreSurvey14_Activity extends AppCompatActivity {
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
 
-        RadioGroup radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
-        RadioGroup radiogroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
-        RadioGroup radiogroup3 = (RadioGroup) findViewById(R.id.radioGroup3);
+        radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
+        radiogroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
+        radiogroup3 = (RadioGroup) findViewById(R.id.radioGroup3);
 
         activityRef = db.child("userActivity").child(username).child("PreSurvey_14");
         activityId = intent.getStringExtra("activityId");
+
+        retrieveData();
 
         radiogroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -117,6 +127,7 @@ public class PreSurvey14_Activity extends AppCompatActivity {
     private void open_Previous_Activity() {
         Intent intent = new Intent(this,PreSurvey13_Activity.class);
         intent.putExtra("username", username);
+        intent.putExtra("activityId", activityId);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
@@ -164,24 +175,108 @@ public class PreSurvey14_Activity extends AppCompatActivity {
                     .addOnSuccessListener(aVoid -> Log.d("Firebase", "Activity time recorded successfully"))
                     .addOnFailureListener(e -> Log.d("Firebase", "Failed to record activity time", e));
 
-            // Calculate duration of Scale 2 and record the close time
-            db.addValueEventListener(new ValueEventListener() {
+            // Calculate duration of Scale 3 and record the close time
+            db.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("openTime_ms").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    Post post = dataSnapshot.getValue(Post.class);
-                    long OpenTime_Scale3 = dataSnapshot.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("openTime_ms").getValue(long.class);
-                    db.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("duration").setValue(pageCloseTime - OpenTime_Scale3);
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    System.out.println("The read failed: " + databaseError.getCode());
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    long OpenTime_Scale1 = (long) task.getResult().getValue();
+                    if(!task.isSuccessful()){
+                        Log.e("firebase_presurvey", "Error getting data", task.getException());
+                    }else{
+                        Log.d("firebase_presurvey", String.valueOf(task.getResult().getValue()));
+                        if(OpenTime_Scale1 != 0){
+                            db.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("duration").setValue(pageCloseTime - OpenTime_Scale1);
+                        }
+                    }
                 }
             });
 
-            // Record the open time of the Scale 2
+            db.child("userActivity").child(username).child("PreSurvey_0_All").child(activityId).child("openTime_ms").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    long OpenTime_All = (long) task.getResult().getValue();
+                    if(!task.isSuccessful()){
+                        Log.e("firebase_presurvey", "Error getting data", task.getException());
+                    }else{
+                        Log.d("firebase_presurvey", String.valueOf(task.getResult().getValue()));
+                        if(OpenTime_All != 0){
+                            db.child("userActivity").child(username).child("PreSurvey_0_All").child(activityId).child("duration").setValue(pageCloseTime - OpenTime_All);
+                        }
+                    }
+                }
+            });
+
+            // Record the close time of the Scale 3 and All survey
             db.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("closeTime_ms").setValue(pageCloseTime);
             db.child("userActivity").child(username).child("PreSurvey_0_Scale_3").child(activityId).child("closeTime_str").setValue(String.valueOf(resultdate_close));
+
+            db.child("userActivity").child(username).child("PreSurvey_0_All").child(activityId).child("closeTime_ms").setValue(pageCloseTime);
+            db.child("userActivity").child(username).child("PreSurvey_0_All").child(activityId).child("closeTime_str").setValue(String.valueOf(resultdate_close));
         }
+    }
+
+    private void retrieveData() {
+        // Retrieve and Display user input from the database
+        db.child("PreSurvey").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                HashMap<String, String> hashmap_presurvey= (HashMap<String, String>) task.getResult().getValue();
+                if(!task.isSuccessful()){
+                    Log.e("firebase_presurvey", "Error getting data", task.getException());
+                }else{
+                    Log.d("firebase_presurvey", String.valueOf(task.getResult().getValue()));
+                    if(hashmap_presurvey.get("62") != null){
+
+                        String current_answer62 = hashmap_presurvey.get("62");
+                        switch (current_answer62) {
+                            case "1":
+                                radiogroup1.check(R.id.radiobtn_1);
+                                break;
+                            case "2":
+                                radiogroup1.check(R.id.radiobtn_2);
+                                break;
+                            case "3":
+                                radiogroup1.check(R.id.radiobtn_3);
+                                break;
+                            case "4":
+                                radiogroup1.check(R.id.radiobtn_4);
+                                break;
+                        };
+
+                        String current_answer63 = hashmap_presurvey.get("63");
+                        switch (current_answer63) {
+                            case "1":
+                                radiogroup2.check(R.id.radiobtn_5);
+                                break;
+                            case "2":
+                                radiogroup2.check(R.id.radiobtn_6);
+                                break;
+                            case "3":
+                                radiogroup2.check(R.id.radiobtn_7);
+                                break;
+                            case "4":
+                                radiogroup2.check(R.id.radiobtn_8);
+                                break;
+                        };
+
+                        String current_answer64 = hashmap_presurvey.get("64");
+                        switch (current_answer64) {
+                            case "1":
+                                radiogroup3.check(R.id.radiobtn_9);
+                                break;
+                            case "2":
+                                radiogroup3.check(R.id.radiobtn_10);
+                                break;
+                            case "3":
+                                radiogroup3.check(R.id.radiobtn_11);
+                                break;
+                            case "4":
+                                radiogroup3.check(R.id.radiobtn_12);
+                                break;
+                        };
+                    }
+                }
+            }
+        });
     }
 }

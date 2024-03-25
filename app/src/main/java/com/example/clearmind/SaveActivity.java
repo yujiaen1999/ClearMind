@@ -156,13 +156,14 @@ public class SaveActivity extends AppCompatActivity {
 //        bar_checkin_button = (Button) findViewById(R.id.button_checkin_bar);
         TextView new_gaol_reminder = findViewById(R.id.new_gaol_reminder);
         new_gaol_reminder.setVisibility(View.GONE);
+        achieve_button.setVisibility(View.GONE);
 
         ScrollView scrollView = findViewById(R.id.scrollView);
         LinearLayout locked_part = findViewById(R.id.locked_part);
 
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
-        updateProgress(70);
+        updateProgress(0);
         // set the progress bar here
 //        progressBar.setProgress(50); // 50% for example
 
@@ -630,7 +631,27 @@ public class SaveActivity extends AppCompatActivity {
         selfcheckin_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                openPopupWindow(v);
+                // Determine whether there is an exist current plan
+                db.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                    Post post = dataSnapshot.getValue(Post.class);
+                        String current_plan_name = dataSnapshot.child("Tracker").child(username).child("current_plan").child("goal").getValue(String.class);
+                        if (current_plan_name == null){
+                            Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // if exist a current plan, open check in window
+                            openPopupWindow(v);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("The read failed: " + databaseError.getCode());
+                    }
+                });
+
+//                openPopupWindow(v);
             }
         });
 
@@ -1178,119 +1199,119 @@ public class SaveActivity extends AppCompatActivity {
                     Log.e("firebase_summary", "Error getting data", task.getException());
                 }else{
                     Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
-                    Map<String, String> map_completion = map_tracker.get("history_completion");
-                    Map<String, String> map_timeliness = map_tracker.get("history_timeliness_avg");
-                    if(map_tracker != null && map_completion != null && map_timeliness != null) {
-//                        Map<String, String> map_completion = map_tracker.get("history_completion");
-//                        Map<String, String> map_timeliness = map_tracker.get("history_timeliness_avg");
+                    if (map_tracker != null){
+                        Map<String, String> map_completion = map_tracker.get("history_completion");
+                        Map<String, String> map_timeliness = map_tracker.get("history_timeliness_avg");
 
-                        String[] keys = map_completion.keySet().toArray(new String[0]);  // Error here!!!!!!
-                        Arrays.sort(keys);
-                        String[] modified_date = removeFirstFourChars(keys);
+                        if (map_completion != null && map_timeliness != null){
+                            String[] keys = map_completion.keySet().toArray(new String[0]);  // Error here!!!!!!
+                            Arrays.sort(keys);
+                            String[] modified_date = removeFirstFourChars(keys);
 
-                        List<String> completion_list = new ArrayList<>();
-                        List<String> timeliness_list = new ArrayList<>();
+                            List<String> completion_list = new ArrayList<>();
+                            List<String> timeliness_list = new ArrayList<>();
 
-                        ArrayList<Entry> entriesLine1 = new ArrayList<>();
-                        ArrayList<Entry> entriesLine2 = new ArrayList<>();
+                            ArrayList<Entry> entriesLine1 = new ArrayList<>();
+                            ArrayList<Entry> entriesLine2 = new ArrayList<>();
 
-                        Integer idx = 0;
-                        for (String key : keys){
-                            completion_list.add(map_completion.get(key).toString());
-                            timeliness_list.add(String.valueOf(map_timeliness.get(key)));
+                            Integer idx = 0;
+                            for (String key : keys){
+                                completion_list.add(map_completion.get(key).toString());
+                                timeliness_list.add(String.valueOf(map_timeliness.get(key)));
 
-                            entriesLine1.add(new Entry(idx, Float.valueOf(map_completion.get(key).toString())));
-                            entriesLine2.add(new Entry(idx, Float.valueOf(String.valueOf(map_timeliness.get(key)))));
+                                entriesLine1.add(new Entry(idx, Float.valueOf(map_completion.get(key).toString())));
+                                entriesLine2.add(new Entry(idx, Float.valueOf(String.valueOf(map_timeliness.get(key)))));
 
-                            idx++;
-                        }
+                                idx++;
+                            }
 
-                        Log.d("map_completion", String.valueOf(map_completion));
-                        Log.d("map_timeliness", String.valueOf(map_timeliness));
+                            Log.d("map_completion", String.valueOf(map_completion));
+                            Log.d("map_timeliness", String.valueOf(map_timeliness));
 
-                        // Create a dataset for the first line (to be plotted against the left Y axis)
-                        LineDataSet lineDataSet1 = new LineDataSet(entriesLine1, "Timeliness");
-                        lineDataSet1.setColor(Color.BLUE);
-                        lineDataSet1.setValueTextColor(Color.BLACK);
-                        lineDataSet1.setAxisDependency(YAxis.AxisDependency.LEFT); // Set dependency to left Y axis
+                            // Create a dataset for the first line (to be plotted against the left Y axis)
+                            LineDataSet lineDataSet1 = new LineDataSet(entriesLine1, "Timeliness");
+                            lineDataSet1.setColor(Color.BLUE);
+                            lineDataSet1.setValueTextColor(Color.BLACK);
+                            lineDataSet1.setAxisDependency(YAxis.AxisDependency.LEFT); // Set dependency to left Y axis
 
-                        // Create a dataset for the second line (to be plotted against the right Y axis)
-                        LineDataSet lineDataSet2 = new LineDataSet(entriesLine2, "Completion");
-                        lineDataSet2.setColor(Color.GREEN);
-                        lineDataSet2.setValueTextColor(Color.BLACK);
-                        lineDataSet2.setAxisDependency(YAxis.AxisDependency.RIGHT); // Set dependency to right Y axis
+                            // Create a dataset for the second line (to be plotted against the right Y axis)
+                            LineDataSet lineDataSet2 = new LineDataSet(entriesLine2, "Completion");
+                            lineDataSet2.setColor(Color.GREEN);
+                            lineDataSet2.setValueTextColor(Color.BLACK);
+                            lineDataSet2.setAxisDependency(YAxis.AxisDependency.RIGHT); // Set dependency to right Y axis
 
-                        // Set the line width and text size
-                        lineDataSet1.setLineWidth(2f);
-                        lineDataSet1.setValueTextSize(10f);
+                            // Set the line width and text size
+                            lineDataSet1.setLineWidth(2f);
+                            lineDataSet1.setValueTextSize(10f);
 
-                        lineDataSet2.setLineWidth(2f);
-                        lineDataSet2.setValueTextSize(10f);
+                            lineDataSet2.setLineWidth(2f);
+                            lineDataSet2.setValueTextSize(10f);
 
-                        lineDataSet1.setColor(Color.parseColor("#1402B9"));
-                        lineDataSet2.setColor(Color.parseColor("#60AC50"));
+                            lineDataSet1.setColor(Color.parseColor("#1402B9"));
+                            lineDataSet2.setColor(Color.parseColor("#60AC50"));
 
-                        String[] modified_keys = removeFirstFourChars(keys);
-                        tooltip_date = modified_keys;
+                            String[] modified_keys = removeFirstFourChars(keys);
+                            tooltip_date = modified_keys;
 
 //                        XAxis xAxis = lineChart.getXAxis();
 //                        xAxis.setValueFormatter(new IndexAxisValueFormatter(modified_keys));
 //                        xAxis.setLabelRotationAngle(25f);
 
-                        // Set up the X-axis with custom labels
-                        XAxis xAxis = lineChart.getXAxis();
-                        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                        xAxis.setGranularity(1f); // Minimum interval between the axis values
-                        xAxis.setGranularityEnabled(true); // Enable granularity to prevent skipping labels
+                            // Set up the X-axis with custom labels
+                            XAxis xAxis = lineChart.getXAxis();
+                            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                            xAxis.setGranularity(1f); // Minimum interval between the axis values
+                            xAxis.setGranularityEnabled(true); // Enable granularity to prevent skipping labels
 
-                        // Custom ValueFormatter to convert index to label from the keys array
-                        xAxis.setValueFormatter(new ValueFormatter() {
-                            @Override
-                            public String getFormattedValue(float value) {
-                                // Convert float value to int and use as index to fetch label from keys array
-                                int index = (int) value;
-                                // Check index bounds to prevent IndexOutOfBoundsException
-                                if (index >= 0 && index < modified_keys.length) {
-                                    return modified_keys[index];
-                                } else {
-                                    return "";
+                            // Custom ValueFormatter to convert index to label from the keys array
+                            xAxis.setValueFormatter(new ValueFormatter() {
+                                @Override
+                                public String getFormattedValue(float value) {
+                                    // Convert float value to int and use as index to fetch label from keys array
+                                    int index = (int) value;
+                                    // Check index bounds to prevent IndexOutOfBoundsException
+                                    if (index >= 0 && index < modified_keys.length) {
+                                        // return an empty X-axis value
+                                        return "";
+//                                        return modified_keys[index];
+                                    } else {
+                                        return "";
+                                    }
                                 }
+                            });
+
+                            // Combine both datasets into LineData and set it to the chart
+                            LineData data = new LineData(lineDataSet1, lineDataSet2);
+                            lineChart.setData(data);
+
+                            // Highlight the last data points
+                            int lastPointIndex1 = entriesLine1.size() - 1;
+                            int lastPointIndex2 = entriesLine2.size() - 1;
+
+                            lineDataSet1.setCircleColors(Color.BLUE);
+                            lineDataSet2.setCircleColors(Color.GREEN);
+
+                            Drawable drawable1 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point1);
+                            Drawable drawable2 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point2);
+
+                            // Set the icon for the last entry of lineDataSet1
+                            if (lastPointIndex1 >= 0 && lastPointIndex1 < lineDataSet1.getEntryCount()) {
+                                Entry lastEntry1 = lineDataSet1.getEntryForIndex(lastPointIndex1);
+                                lastEntry1.setIcon(drawable1);
                             }
-                        });
 
-                        // Combine both datasets into LineData and set it to the chart
-                        LineData data = new LineData(lineDataSet1, lineDataSet2);
-                        lineChart.setData(data);
+                            // Set the icon for the last entry of lineDataSet2
+                            if (lastPointIndex2 >= 0 && lastPointIndex2 < lineDataSet2.getEntryCount()) {
+                                Entry lastEntry2 = lineDataSet2.getEntryForIndex(lastPointIndex2);
+                                lastEntry2.setIcon(drawable2);
+                            }
 
-                        // Highlight the last data points
-                        int lastPointIndex1 = entriesLine1.size() - 1;
-                        int lastPointIndex2 = entriesLine2.size() - 1;
+                            CustomMarkerView markerView = new CustomMarkerView(SaveActivity.this, R.layout.marker_view_layout);
+                            lineChart.setMarker(markerView);
 
-                        lineDataSet1.setCircleColors(Color.BLUE);
-                        lineDataSet2.setCircleColors(Color.GREEN);
-
-                        Drawable drawable1 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point1);
-                        Drawable drawable2 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point2);
-
-                        // Set the icon for the last entry of lineDataSet1
-                        if (lastPointIndex1 >= 0 && lastPointIndex1 < lineDataSet1.getEntryCount()) {
-                            Entry lastEntry1 = lineDataSet1.getEntryForIndex(lastPointIndex1);
-                            lastEntry1.setIcon(drawable1);
+                            // Refresh chart
+                            lineChart.invalidate();
                         }
-
-                        // Set the icon for the last entry of lineDataSet2
-                        if (lastPointIndex2 >= 0 && lastPointIndex2 < lineDataSet2.getEntryCount()) {
-                            Entry lastEntry2 = lineDataSet2.getEntryForIndex(lastPointIndex2);
-                            lastEntry2.setIcon(drawable2);
-                        }
-
-                        // Assuming 'this' is an Activity or Context
-                        CustomMarkerView markerView = new CustomMarkerView(SaveActivity.this, R.layout.marker_view_layout);
-                        lineChart.setMarker(markerView);
-
-                        // Refresh chart
-                        lineChart.invalidate();
-
                     }
                 }
             }

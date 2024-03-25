@@ -9,8 +9,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,6 +35,14 @@ public class PreSurvey7_Activity extends AppCompatActivity {
     private String scale_answer29;
     private String scale_answer30;
     private String scale_answer31;
+
+    private RadioGroup radiogroup1;
+    private RadioGroup radiogroup2;
+    private RadioGroup radiogroup3;
+    private RadioGroup radiogroup4;
+    private RadioGroup radiogroup5;
+    private RadioGroup radiogroup6;
+
     private long pageOpenTime;
     private long pageCloseTime;
 
@@ -47,15 +59,17 @@ public class PreSurvey7_Activity extends AppCompatActivity {
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
 
-        RadioGroup radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
-        RadioGroup radiogroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
-        RadioGroup radiogroup3 = (RadioGroup) findViewById(R.id.radioGroup3);
-        RadioGroup radiogroup4 = (RadioGroup) findViewById(R.id.radioGroup4);
-        RadioGroup radiogroup5 = (RadioGroup) findViewById(R.id.radioGroup5);
-        RadioGroup radiogroup6 = (RadioGroup) findViewById(R.id.radioGroup6);
+        radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
+        radiogroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
+        radiogroup3 = (RadioGroup) findViewById(R.id.radioGroup3);
+        radiogroup4 = (RadioGroup) findViewById(R.id.radioGroup4);
+        radiogroup5 = (RadioGroup) findViewById(R.id.radioGroup5);
+        radiogroup6 = (RadioGroup) findViewById(R.id.radioGroup6);
 
         activityRef = db.child("userActivity").child(username).child("PreSurvey_7");
         activityId = intent.getStringExtra("activityId");
+
+        retrieveData();
 
         radiogroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -142,6 +156,7 @@ public class PreSurvey7_Activity extends AppCompatActivity {
     private void open_Previous_Activity() {
         Intent intent = new Intent(this,PreSurvey6_Activity.class);
         intent.putExtra("username", username);
+        intent.putExtra("activityId", activityId);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
@@ -196,5 +211,118 @@ public class PreSurvey7_Activity extends AppCompatActivity {
             db.child("userActivity").child(username).child("PreSurvey_0_Scale_2").child(activityId).child("openTime_ms").setValue(pageOpenTime);
             db.child("userActivity").child(username).child("PreSurvey_0_Scale_2").child(activityId).child("openTime_str").setValue(String.valueOf(resultdate_open));
         }
+    }
+
+    private void retrieveData() {
+        // Retrieve and Display user input from the database
+        db.child("PreSurvey").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                HashMap<String, String> hashmap_presurvey= (HashMap<String, String>) task.getResult().getValue();
+                if(!task.isSuccessful()){
+                    Log.e("firebase_presurvey", "Error getting data", task.getException());
+                }else{
+                    Log.d("firebase_presurvey", String.valueOf(task.getResult().getValue()));
+                    if(hashmap_presurvey.get("26") != null){
+
+                        String current_answer26 = hashmap_presurvey.get("26");
+                        switch (current_answer26) {
+                            case "1":
+                                radiogroup1.check(R.id.radiobtn_1);
+                                break;
+                            case "2":
+                                radiogroup1.check(R.id.radiobtn_2);
+                                break;
+                            case "3":
+                                radiogroup1.check(R.id.radiobtn_3);
+                                break;
+                            case "4":
+                                radiogroup1.check(R.id.radiobtn_4);
+                                break;
+                        };
+
+                        String current_answer27 = hashmap_presurvey.get("27");
+                        switch (current_answer27) {
+                            case "1":
+                                radiogroup2.check(R.id.radiobtn_5);
+                                break;
+                            case "2":
+                                radiogroup2.check(R.id.radiobtn_6);
+                                break;
+                            case "3":
+                                radiogroup2.check(R.id.radiobtn_7);
+                                break;
+                            case "4":
+                                radiogroup2.check(R.id.radiobtn_8);
+                                break;
+                        };
+
+                        String current_answer28 = hashmap_presurvey.get("28");
+                        switch (current_answer28) {
+                            case "1":
+                                radiogroup3.check(R.id.radiobtn_9);
+                                break;
+                            case "2":
+                                radiogroup3.check(R.id.radiobtn_10);
+                                break;
+                            case "3":
+                                radiogroup3.check(R.id.radiobtn_11);
+                                break;
+                            case "4":
+                                radiogroup3.check(R.id.radiobtn_12);
+                                break;
+                        };
+
+                        String current_answer29 = hashmap_presurvey.get("29");
+                        switch (current_answer29) {
+                            case "1":
+                                radiogroup4.check(R.id.radiobtn_13);
+                                break;
+                            case "2":
+                                radiogroup4.check(R.id.radiobtn_14);
+                                break;
+                            case "3":
+                                radiogroup4.check(R.id.radiobtn_15);
+                                break;
+                            case "4":
+                                radiogroup4.check(R.id.radiobtn_16);
+                                break;
+                        };
+
+                        String current_answer30 = hashmap_presurvey.get("30");
+                        switch (current_answer30) {
+                            case "1":
+                                radiogroup5.check(R.id.radiobtn_17);
+                                break;
+                            case "2":
+                                radiogroup5.check(R.id.radiobtn_18);
+                                break;
+                            case "3":
+                                radiogroup5.check(R.id.radiobtn_19);
+                                break;
+                            case "4":
+                                radiogroup5.check(R.id.radiobtn_20);
+                                break;
+                        };
+
+                        String current_answer31 = hashmap_presurvey.get("31");
+                        switch (current_answer31) {
+                            case "1":
+                                radiogroup6.check(R.id.radiobtn_21);
+                                break;
+                            case "2":
+                                radiogroup6.check(R.id.radiobtn_22);
+                                break;
+                            case "3":
+                                radiogroup6.check(R.id.radiobtn_23);
+                                break;
+                            case "4":
+                                radiogroup6.check(R.id.radiobtn_24);
+                                break;
+                        };
+                    }
+                }
+            }
+        });
     }
 }
