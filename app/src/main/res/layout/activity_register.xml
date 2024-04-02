@@ -6,178 +6,156 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_general">
 
-    <TextView
-        android:id="@+id/welcome_title"
-        android:layout_width="390dp"
-        android:layout_height="48dp"
-        android:text="ClearMind Sign up"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#5FB918"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
-    <TextView
-        android:id="@+id/question1"
-        android:layout_width="305dp"
-        android:layout_height="24dp"
-        android:text="Question1: What's your username?"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="209dp"
-        tools:ignore="DuplicateIds,MissingConstraints"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.200" />
-
-    <EditText
-        android:id="@+id/answer1"
-        android:layout_width="305dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Answer1"
-        android:inputType="textMultiLine"
+        android:orientation="vertical"
+        android:gravity="center"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="233dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.240" />
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin" >
 
-    <TextView
-        android:id="@+id/question2"
-        android:layout_width="305dp"
-        android:layout_height="24dp"
-        android:text="Question2: What's your name?"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="319dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.320" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="@dimen/text_internal"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-    <EditText
-        android:id="@+id/answer2"
-        android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Answer2"
-        android:inputType="textMultiLine"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="343dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.360" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:srcCompat="@drawable/design_photoroom" />
 
-    <TextView
-        android:id="@+id/question3"
-        android:layout_width="305dp"
-        android:layout_height="24dp"
-        android:text="Question3: What's your email?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.440"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/welcome_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ClearMind Sign up"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#5FB918" />
 
-    <EditText
-        android:id="@+id/answer3"
-        android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Answer3"
-        android:inputType="textMultiLine"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="458dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.480" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/question4"
-        android:layout_width="305dp"
-        android:layout_height="40dp"
-        android:text="Question4: What are you expecting to learn from this App?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571"
-        tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/answer4"
-        android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Answer4"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.634"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/question1"
+            android:layout_width="305dp"
+            android:layout_height="24dp"
+            android:text="Question1: What's your username?"
+            />
 
-    <TextView
-        android:id="@+id/question5"
-        android:layout_width="305dp"
-        android:layout_height="50dp"
-        android:text="Question5: Have you practiced any mental health therapy techniques (like ACT or CBT) in the past? If yes please provide some details."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731"
-        tools:ignore="MissingConstraints" />
+        <EditText
+            android:id="@+id/answer1"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Answer1"
+            android:inputType="textMultiLine"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="233dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.240" />
 
-    <EditText
-        android:id="@+id/answer5"
-        android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Answer5"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.798"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/question2"
+            android:layout_width="305dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="@dimen/text_internal"
+            android:text="Question2: What's your name?"
+            />
 
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:onClick="openMain"
-        android:text="Submit"
-        app:backgroundTint="#5FB918"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.900" />
+        <EditText
+            android:id="@+id/answer2"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Answer2"
+            android:inputType="textMultiLine"
+            tools:ignore="MissingConstraints"
+            />
+
+        <TextView
+            android:id="@+id/question3"
+            android:layout_width="305dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="@dimen/text_internal"
+            android:text="Question3: What's your email?"
+            />
+
+        <EditText
+            android:id="@+id/answer3"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Answer3"
+            android:inputType="textMultiLine"
+            />
+
+        <TextView
+            android:id="@+id/question4"
+            android:layout_width="305dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/text_internal"
+            android:text="Question4: What are you expecting to learn from this App?"
+            />
+
+        <EditText
+            android:id="@+id/answer4"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Answer4"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:id="@+id/question5"
+            android:layout_width="305dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/text_internal"
+            android:text="Question5: Have you practiced any mental health therapy techniques (like ACT or CBT) in the past? If yes please provide some details."
+            />
+
+        <EditText
+            android:id="@+id/answer5"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Answer5"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/text_internal"
+            android:layout_marginBottom="300dp"
+            android:onClick="openMain"
+            android:text="Submit"
+            app:backgroundTint="#5FB918" />
+
+    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -632,24 +632,43 @@ public class SaveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 // Determine whether there is an exist current plan
-                db.addValueEventListener(new ValueEventListener() {
+                db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                    Post post = dataSnapshot.getValue(Post.class);
-                        String current_plan_name = dataSnapshot.child("Tracker").child(username).child("current_plan").child("goal").getValue(String.class);
-                        if (current_plan_name == null){
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        String current_plan_name = task.getResult().getValue().toString();
+                        if(!task.isSuccessful()){
+                            Log.e("firebase_tracker", "Error getting data", task.getException());
                             Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
-                        } else {
-                            // if exist a current plan, open check in window
-                            openPopupWindow(v);
+                        }else{
+                            Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+                            if(current_plan_name != null){
+                                // if exist a current plan, open check in window
+                                openPopupWindow(v);
+                            } else{
+                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("The read failed: " + databaseError.getCode());
-                    }
                 });
+
+//                db.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+////                    Post post = dataSnapshot.getValue(Post.class);
+//                        String current_plan_name = dataSnapshot.child("Tracker").child(username).child("current_plan").child("goal").getValue(String.class);
+//                        if (current_plan_name == null){
+//                            Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            // if exist a current plan, open check in window
+//                            openPopupWindow(v);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//                        System.out.println("The read failed: " + databaseError.getCode());
+//                    }
+//                });
 
 //                openPopupWindow(v);
             }
@@ -674,15 +693,15 @@ public class SaveActivity extends AppCompatActivity {
         barChart.invalidate(); // Refresh the chart
     }
 
-    private void update_LineChart() {
-        LineDataSet dataSet = new LineDataSet(entries_line, "Data point");
-        dataSet.setDrawValues(false);
-        dataSet.setColor(Color.BLUE);
-
-        LineData lineData = new LineData(dataSet);
-        lineChart.setData(lineData);
-        lineChart.invalidate();
-    }
+//    private void update_LineChart() {
+//        LineDataSet dataSet = new LineDataSet(entries_line, "Data point");
+//        dataSet.setDrawValues(false);
+//        dataSet.setColor(Color.BLUE);
+//
+//        LineData lineData = new LineData(dataSet);
+//        lineChart.setData(lineData);
+//        lineChart.invalidate();
+//    }
 
     public void openLearnActivity(){
         Intent intent = new Intent(this,LearnActivity.class);
@@ -1219,8 +1238,10 @@ public class SaveActivity extends AppCompatActivity {
                                 completion_list.add(map_completion.get(key).toString());
                                 timeliness_list.add(String.valueOf(map_timeliness.get(key)));
 
-                                entriesLine1.add(new Entry(idx, Float.valueOf(map_completion.get(key).toString())));
-                                entriesLine2.add(new Entry(idx, Float.valueOf(String.valueOf(map_timeliness.get(key)))));
+                                // Timeliness
+                                entriesLine1.add(new Entry(idx, Float.valueOf(String.valueOf(map_timeliness.get(key)))));
+                                // Completion
+                                entriesLine2.add(new Entry(idx, Float.valueOf(map_completion.get(key).toString())));
 
                                 idx++;
                             }
@@ -1230,15 +1251,15 @@ public class SaveActivity extends AppCompatActivity {
 
                             // Create a dataset for the first line (to be plotted against the left Y axis)
                             LineDataSet lineDataSet1 = new LineDataSet(entriesLine1, "Timeliness");
-                            lineDataSet1.setColor(Color.BLUE);
+//                            lineDataSet1.setColor(Color.RED);
                             lineDataSet1.setValueTextColor(Color.BLACK);
-                            lineDataSet1.setAxisDependency(YAxis.AxisDependency.LEFT); // Set dependency to left Y axis
+                            lineDataSet1.setAxisDependency(YAxis.AxisDependency.RIGHT); // Set dependency to left Y axis
 
                             // Create a dataset for the second line (to be plotted against the right Y axis)
                             LineDataSet lineDataSet2 = new LineDataSet(entriesLine2, "Completion");
-                            lineDataSet2.setColor(Color.GREEN);
+//                            lineDataSet2.setColor(Color.GREEN);
                             lineDataSet2.setValueTextColor(Color.BLACK);
-                            lineDataSet2.setAxisDependency(YAxis.AxisDependency.RIGHT); // Set dependency to right Y axis
+                            lineDataSet2.setAxisDependency(YAxis.AxisDependency.LEFT); // Set dependency to right Y axis
 
                             // Set the line width and text size
                             lineDataSet1.setLineWidth(2f);

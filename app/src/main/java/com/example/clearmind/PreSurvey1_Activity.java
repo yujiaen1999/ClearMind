@@ -2,13 +2,18 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -76,6 +81,8 @@ public class PreSurvey1_Activity extends AppCompatActivity {
 
         EditText answer1 = findViewById(R.id.answer1);
         EditText answer3 = findViewById(R.id.answer3);
+        TextView intro = findViewById(R.id.introduction);
+        intro.setText(Html.fromHtml("This Survey takes approximately <u>10 minutes</u> to complete."));
 
         RadioGroup radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
         RadioGroup radiogroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
@@ -182,9 +189,9 @@ public class PreSurvey1_Activity extends AppCompatActivity {
                 }
 
                 if (toNextPage){
-                    open_Next_Activity();
+//                    open_Next_Activity();
+                    openPopupWindow(v);
                 }
-//                open_Next_Activity();
             }
         });
 
@@ -200,9 +207,34 @@ public class PreSurvey1_Activity extends AppCompatActivity {
         Intent intent = new Intent(this,PreSurvey2_Activity.class);
         intent.putExtra("username", username);
         intent.putExtra("activityId", activityId);
-        Log.d("activityId: ", activityId);
+//        Log.d("activityId: ", activityId);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
+    }
+
+    private void openPopupWindow(View view) {
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_popup_remind, null);
+
+        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow);
+        popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setFocusable(true);
+
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        TextView show_score = (TextView) viewPopupWindow.findViewById(R.id.textView_content);
+        Button button_confirm = (Button) viewPopupWindow.findViewById(R.id.button_confirm);
+
+//        String show_txt = "Please finish the rest survey in one sitting.”";
+        show_score.setText(Html.fromHtml("Please finish the rest survey <b>in one sitting.</b>"));
+
+        button_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                open_Next_Activity();
+            }
+        });
     }
 
     @Override

@@ -113,6 +113,7 @@ public class PreSurvey2_Activity extends AppCompatActivity {
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+//                Toast.makeText(PreSurvey2_Activity.this,  "Finish the following questions in one sitting, it will take about 9 minutes", Toast.LENGTH_SHORT).show();
                 open_Previous_Activity();
             }
         });

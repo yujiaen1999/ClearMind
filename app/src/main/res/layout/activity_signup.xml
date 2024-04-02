@@ -7,62 +7,112 @@
     tools:context=".SignupActivity"
     android:background="@drawable/background_general">
 
-    <Button
-        android:id="@+id/entry_button"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:onClick="openMain"
-        android:text="Next"
-        app:backgroundTint="#5FB918"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
-    <TextView
-        android:id="@+id/welcome_title"
-        android:layout_width="390dp"
-        android:layout_height="48dp"
-        android:text="ClearMind Sign up"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#5FB918"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.200" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="MissingConstraints"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
 
-    <EditText
-        android:id="@+id/password_input"
-        android:layout_width="247dp"
-        android:layout_height="71dp"
-        android:cursorVisible="true"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.563" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="80dp"
+                app:srcCompat="@drawable/design_photoroom" />
 
-    <EditText
-        android:id="@+id/username_input"
-        android:layout_width="250dp"
-        android:layout_height="81dp"
-        android:cursorVisible="true"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369" />
+            <TextView
+                android:id="@+id/welcome_title"
+                android:layout_width="390dp"
+                android:layout_height="48dp"
+                android:text="ClearMind Sign up"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#5FB918" />
+
+
+            <EditText
+                android:id="@+id/username_input"
+                android:layout_width="250dp"
+                android:layout_height="70dp"
+                android:cursorVisible="true"
+                android:ems="10"
+                android:hint="Username"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/password_input"
+                android:layout_width="250dp"
+                android:layout_height="70dp"
+                android:cursorVisible="true"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+<!--            <Button-->
+<!--                android:id="@+id/button_forgot_passward"-->
+<!--                android:layout_width="120dp"-->
+<!--                android:layout_height="27dp"-->
+<!--                android:background="@null"-->
+<!--                android:layout_gravity="right"-->
+<!--                android:layout_marginRight="70dp"-->
+<!--                android:text="forgot password?"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textColor="#878181"-->
+<!--                app:backgroundTint="#EC96B3" />-->
+
+            <Button
+                android:id="@+id/entry_button"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:onClick="openMain"
+                android:text="Next"
+                android:layout_marginTop="50dp"
+                app:backgroundTint="#5FB918" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+<!--    <EditText-->
+<!--        android:id="@+id/password_input"-->
+<!--        android:layout_width="247dp"-->
+<!--        android:layout_height="71dp"-->
+<!--        android:cursorVisible="true"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Password"-->
+<!--        android:inputType="textPassword"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.485"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.563" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/username_input"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="81dp"-->
+<!--        android:cursorVisible="true"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Username"-->
+<!--        android:inputType="textPersonName"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.369" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,16 +62,18 @@
             tools:layout_editor_absoluteX="56dp"
             tools:layout_editor_absoluteY="16dp" />
 
+        <!--      QUESTION 1      -->
         <TextView
             android:id="@+id/introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_internal"
-            android:text="This Survey contains 68 questions in total, and it takes approximately 10 minutes to complete."
+            android:text="This Survey takes approximately 10 minutes to complete."
             android:textSize="@dimen/text_size_main_small"
             android:textStyle="bold" />
 
-        <!--      QUESTION 1      -->
+<!--        This Survey contains 68 questions in total, and it takes approximately 10 minutes to complete.-->
+
         <TextView
             android:id="@+id/question_1"
             android:layout_width="wrap_content"
