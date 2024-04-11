@@ -40,7 +40,7 @@
             android:id="@+id/textView_example"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="What’ your goal?"
+            android:text="What’s your goal?"
             android:textSize="18dp"
             android:gravity="left"
             android:layout_marginBottom="5dp"
@@ -61,7 +61,7 @@
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="What’ the purpose of your goal?"
+            android:text="What’s the purpose of your goal?"
             android:textSize="18dp"
             android:gravity="left"
             android:layout_marginBottom="5dp"

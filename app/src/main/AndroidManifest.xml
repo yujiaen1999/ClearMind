@@ -215,6 +215,45 @@
             android:name=".Chapter4_Summary_Activity"
             android:exported="true" />
         <activity
+            android:name=".PostSurvey1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey5_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey6_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey7_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey8_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey9_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey10_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey11_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey12_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey13_Activity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

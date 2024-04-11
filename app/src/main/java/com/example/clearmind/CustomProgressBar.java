@@ -56,34 +56,34 @@ public class CustomProgressBar extends ProgressBar {
         int max = 100;
         float percentage = (float) progress / max;
 
-        // Draw the percentage text on the canvas
-//        String progressText = (int) (percentage * 100) + "%";
-        completeRatio = completeNum + "/31";
-
-        Paint textPaint = new Paint();
-        textPaint.setAntiAlias(true);
-        int spSize = 12;  // change the size of sp
-        float scaledSizeInPixels = spSize * getResources().getDisplayMetrics().scaledDensity;
-        textPaint.setTextSize(scaledSizeInPixels); // Adjust the text size as needed
-        textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        textPaint.setColor(getResources().getColor(android.R.color.black)); // Text color
-        textPaint.setTextAlign(Paint.Align.CENTER);
-
-        // Get the center of the progress bar
-        int x = getWidth() / 2 + 50;
-        int y = getHeight() / 2 - 10;
-
-        // Calculate the position to center the text
-        float textWidth = textPaint.measureText(completeRatio);
-        float textX = x - textWidth / 2;
-        float textY = y;
-
-        canvas.drawText(completeRatio, textX, textY, textPaint);
-
-        textY += textPaint.getTextSize();
-
-        // Draw the bottom text
-        canvas.drawText("completed", textX, textY, textPaint);
+//        // Draw the percentage text on the canvas
+////        String progressText = (int) (percentage * 100) + "%";
+//        completeRatio = completeNum + "/31";
+//
+//        Paint textPaint = new Paint();
+//        textPaint.setAntiAlias(true);
+//        int spSize = 12;  // change the size of sp
+//        float scaledSizeInPixels = spSize * getResources().getDisplayMetrics().scaledDensity;
+//        textPaint.setTextSize(scaledSizeInPixels); // Adjust the text size as needed
+//        textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+//        textPaint.setColor(getResources().getColor(android.R.color.black)); // Text color
+//        textPaint.setTextAlign(Paint.Align.CENTER);
+//
+//        // Get the center of the progress bar
+//        int x = getWidth() / 2 + 50;
+//        int y = getHeight() / 2 - 10;
+//
+//        // Calculate the position to center the text
+//        float textWidth = textPaint.measureText(completeRatio);
+//        float textX = x - textWidth / 2;
+//        float textY = y;
+//
+//        canvas.drawText(completeRatio, textX, textY, textPaint);
+//
+//        textY += textPaint.getTextSize();
+//
+//        // Draw the bottom text
+//        canvas.drawText("completed", textX, textY, textPaint);
     }
 
 }

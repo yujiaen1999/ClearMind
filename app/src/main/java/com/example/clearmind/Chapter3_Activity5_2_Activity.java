@@ -207,12 +207,47 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                // update Chapter progress
-                Map<String, Object> chapter_progress_update = new HashMap<>();
-                chapter_progress_update.put("6_Activity3_5_1", "1");
-                db.child("Chapter3").child("progress").child(username).updateChildren(chapter_progress_update);
+                db.child("Chapter3").child("activity5").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        HashMap<String, String> distortion_status = (HashMap<String, String>) task.getResult().getValue();
+                        Log.d("distortion_status Check", String.valueOf(distortion_status));
+                        if(!task.isSuccessful()){
+                            Log.e("firebase_activity5", "Error getting data", task.getException());
+                        }else{
+                            Log.d("firebase_activity5", String.valueOf(task.getResult().getValue()));
+                            if(distortion_status != null){
+                                // Check all status before go next page
+                                Boolean next_page_flage = true;
 
-                open_Next_Activity();
+                                for (String value : distortion_status.values()) {
+                                    Log.d("Test status: ", value);
+                                    if(value.equals("0")){
+                                        next_page_flage = false;
+                                    }
+                                }
+
+                                if (next_page_flage){
+                                    // update Chapter progress
+                                    Map<String, Object> chapter_progress_update = new HashMap<>();
+                                    chapter_progress_update.put("6_Activity3_5_1", "1");
+                                    db.child("Chapter3").child("progress").child(username).updateChildren(chapter_progress_update);
+
+                                    open_Next_Activity();
+                                } else{
+                                    Toast.makeText(Chapter3_Activity5_2_Activity.this, "Explore all cognitive distortions to proceed to the next page", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    }
+                });
+
+//                // update Chapter progress
+//                Map<String, Object> chapter_progress_update = new HashMap<>();
+//                chapter_progress_update.put("6_Activity3_5_1", "1");
+//                db.child("Chapter3").child("progress").child(username).updateChildren(chapter_progress_update);
+//
+//                open_Next_Activity();
 //                openPopupWindow(v);
             }
         });
