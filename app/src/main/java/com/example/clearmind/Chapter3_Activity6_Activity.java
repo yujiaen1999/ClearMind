@@ -77,11 +77,11 @@ public class Chapter3_Activity6_Activity extends AppCompatActivity {
 
                 if (flag[0] == 0){
                     String txt_hints = "<p style=\"text-align: center\"><b>Procrastination Tendencies</b></p>\n" +
-                            "<b>Arousal procrastination:</b> It is the tendency to purposefully put off completing specific tasks until the last moment. It often arises from a desire for heightened urgency, which comes with approaching deadlines. Individuals who engage themselves in arousal procrastination believe that the pressure of a pending deadline assists them in completing tasks under tight time constraints." +
+                            "<b>Arousal procrastination:</b> Purposely delaying tasks until the last moment. People with arousal procrastination tend to use the time pressure of an approaching deadline to complete their work." +
                             "<br><br>" +
-                            "<b>Avoidant procrastination:</b> It is the tendency to postpone or avoid tasks out of fear of failure, task aversiveness, or even success. Fear of failure manifests as a common belief among avoidant procrastinators that they lack essential skills or abilities to accomplish them, leading to task delays. Task aversiveness is the notion that avoidant procrastinators genuinely dislike the task, leading them to postpone it. Lastly, fear of success is the notion that avoidant procrastinators fear success because they anticipate additional responsibilities and expectations that come with achieving it." +
+                            "<b>Avoidant procrastination:</b> Delaying tasks to avoid some fears triggered by the tasks. People with avoidant procrastination tend to have fear of failure, challenges, or even additional responsibilities from success." +
                             "<br><br>" +
-                            "<b>Decisional procrastination:</b> It is the tendency to put off making decisions in a timely manner. Decisional procrastinators often experience hesitation when faced with making decisions about a task or behavior. This procrastination tendency can arise from the perceived complexity of the task, potential conflicts with other individuals that a decision may evoke, and the tendency to protect one’s self-esteem or self-confidence.";
+                            "<b>Decisional procrastination:</b> Delaying decision-making. People tend to have decisional procrastination when they find the task complex, are afraid of potential conflicts with others, or desire to protect their self-esteem or self-confidence.";
                     button_tendency.setText(Html.fromHtml(txt_hints));
                     flag[0] = 1;
                 } else{

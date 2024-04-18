@@ -21,12 +21,13 @@
             android:layout_marginLeft="@dimen/fab_margin"
             android:layout_marginRight="@dimen/fab_margin" >
 
+
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Reflecting on Cognitive Distortions in Various Procrastination Types"
+                android:text="Make a Belief Statement"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -37,46 +38,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In Chapter 1, we introduced three different types of procrastination, which were arousal, avoidant, and decisional procrastination."
+                android:text="When you're calmed down, write a short and simple belief statement addressing the challenging thoughts and emotions you observed earlier. For example, if stress is from difficult schoolwork, your belief statement could be ”I'm developing strategies to manage stress and avoid procrastination“ or “I can master challenging emotions by staying focused on my goals.”
+"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
-
-            <TextView
-                android:id="@+id/tendency"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:background="@drawable/shape_hints"
-                android:paddingLeft="15dp"
-                android:paddingTop="5dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="5dp"
-                android:text="Procrastination Tendencies"
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_main_small" />
+                android:src="@drawable/img_believe" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Based on your own experience, have you observed any consistent patterns where specific cognitive distortions lead to particular types of procrastination tendencies, and when do these connections become more evident? Additionally, if you were to change these thought patterns in the future, how might this change help you overcome procrastination and improve your academic outcomes? Describe some potential strategies to make these changes happen in real life."
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="You can use your belief statement like a lighthouse during tough times. You can also connect your belief statement with your breathing, making it a part of your new, positive mindset with each breath. For instance, when you breathe in, think, “I am not defined by my challenges,” and when you breathe out, think, “I am learning new ways to improve.“
+"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
-
-
-            <EditText
-                android:id="@+id/input1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:layout_marginVertical="@dimen/text_internal"
-                android:padding = "10dp"
-                android:hint="Potential strategy"
-                android:background="#FFFFFF"
-                android:inputType="textMultiLine" />
 
 
             <Button

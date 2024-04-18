@@ -160,7 +160,7 @@ public class Chapter3_Activity2_Activity extends AppCompatActivity {
     }
 
     private void open_Next_Activity() {
-        Intent intent = new Intent(this,Chapter3_Activity3_Activity.class);
+        Intent intent = new Intent(this,Chapter3_Activity3_new_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

@@ -1,5 +1,6 @@
 package com.example.clearmind;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
@@ -10,6 +11,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -57,29 +59,29 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
             "There are two different types for this distortion, mind reading and fortune telling. <br><br>1. Mind reading: This distortion occurs when you presume that you have the ability to read others' minds and understand their thoughts. It involves anticipating a specific reaction from someone or attributing thoughts to them that may not be their actual thinking. <br><br>2. Fortune telling: This distortion arises when you make predictions about how events will unfold in a specific way, based on little or no evidence. This type of thinking is usually a way to avoid facing challenging situations or tasks.",
             "Magnification is an over-exaggeration of a thought. It arises when you make your problems and flaws seem much bigger and more important than they really are. This kind of thinking can cause worries to grow rapidly and imagine the worst possible outcomes. Magnification tends to happen when there are uncertainties beyond a person's control.",
             "Emotional reasoning is the way of evaluating yourself or a situation based on emotions. It assumes that if you have negative emotions, it must be an accurate reflection of reality and abilities. For instance, if you feel guilty, emotional reasoning would make you believe that you are inherently a bad person.",
-            "\"Should\" statements are thoughts that create a sense of obligation or unrealistic expectations about how you or others should behave or how things should be. Instead of approaching situations with flexibility and understanding, individuals who frequently use \"should\" statements impose rigid rules and judgments on themselves and others, which can lead to self-criticism, anxiety, and depression.",
+            "\"Should\" statements create unrealistic expectations about how things or people should be. Relying on these can lead to self-criticism, anxiety, and depression instead of approaching situations with flexibility.",
             "Labeling involves making negative generalizations and classifications about oneself or others based on an undesirable event or a few isolated incidents. Labeling is an extreme form of overgeneralization, which can lead to unfair and harsh criticism.",
-            "Personalization manifests when you assign responsibility to yourself for situations that are irrelevant to your actions or are beyond your control. Individuals prone to this cognitive distortion tend to perceive situations as personal even when they lack a direct connection, which can result in self-blame and self-criticism."
+            "Personalization occurs when you attribute responsibility to yourself for situations unrelated to your actions or beyond your control. Those inclined to this cognitive distortion often see situations as personal, leading to self-blame and self-criticism even when there's no direct connection."
     };
-    String[] distortion_example = {"You gave a presentation at work, and your colleagues gave you positive feedback, saying your ideas were awesome and you explained things well. However, one person offered a minor critique about your slides for potential improvement. Instead of recognizing the positive feedback, you focused solely on that one piece of criticism, feeling like your entire presentation was a failure.",
+    String[] distortion_example = {"Your colleagues praised your great ideas and clear explanations in a work presentation, but one person had a small suggestion for improving your slides. Instead of focusing on the positive feedback, you felt like the whole presentation was a failure because of that one critique.",
             "Jack set a fitness goal of exercising three times a week. However, in the final week, he was busy at school and couldn’t make it to the gym at all. This led him to perceive his entire fitness journey as a failure and gave up on both his fitness goals and routines.",
-            "Annie scratched her car twice on the curb while parking in two separate instances. Based on these two incidents, her parents concluded that she was a terrible driver and would keep damaging her car in the future.",
+            "Annie accidentally scratched her car twice while parking on separate occasions. Her parents, based on these incidents, concluded that she was a terrible driver who would continue to damage her car in the future.",
             "Stella did exceptionally well in her Physics class and received top grades consistently. However, she consistently downplays her accomplishments, believing that her success is solely due to easy tests or luck, not due to her hard work.",
-            "1. Justin sent a text message to his girlfriend, but she didn’t respond immediately. Justin immediately assumed she was upset and wanted to break up with him. In reality, his girlfriend was busy with work and had many meetings. <br><br>2. Sara has a job interview coming up, but she has already convinced herself that she will do horribly and not get the job. She starts to worry excessively about it, assuming that her future is ruined, even though the interview hasn't happened yet.",
+            "1. Justin texted his girlfriend, but she didn't reply immediately. Justin assumed she was upset and wanted to break up, but in reality, she was busy with work and had many meetings. <br><br>2. Sara has a job interview soon, but she's convinced she'll do badly and won't get the job. She's worrying excessively, assuming her future is ruined, even though the interview hasn't happened yet.",
             "After a minor disagreement with a friend, you started believing that you had damaged your friendship irreparably. You worried that your friend now hated you and feared that no one else would ever want to be friends with you.",
             "Lisa wakes up feeling anxious and worried about an upcoming presentation at work. She thinks to herself, \"I feel so anxious; I must be terrible at public speaking.\"",
             "You believe that a person in a leadership role should always make decisions quickly and confidently, never showing any uncertainty or seeking input from others.",
             "You notice your new teammate eating pizza after school, and you immediately label them as \"unhealthy\" based solely on their food choice.",
             "Your friend gets into a minor car accident, and you immediately blame yourself for having recommended the route he took."
     };
-    String[] distortion_solution = {"Journaling can be a valuable method to help overcome mental filtering. Keeping a diary or journal that involves writing down your thoughts and emotions about the events in your life will help redirect your attention away from the negatives and actively seek out the neutral or positive aspects of a situation.",
-            "To overcome All-or-nothing thinking, it's essential to understand that success and progress are not binary, all-or-nothing concepts. You need to acknowledge and address this type of thinking, and by substituting self-defeating thoughts, you can become more aware of your strengths and focus more on your progress instead of outcomes.",
+    String[] distortion_solution = {"Journaling is a helpful way to overcome mental filtering. By keeping a diary and writing down your thoughts and emotions about life events, you can shift your focus from the negatives to actively seeking out neutral or positive aspects of a situation.",
+            "To overcome All-or-nothing thinking, recognize that success and progress aren't all-or-nothing. Address this mindset by substituting self-defeating thoughts, becoming more aware of your strengths, and focusing on progress rather than outcomes.",
             "To counter overgeneralization, it's helpful to use more realistic language with a positive tone. Instead of saying, \"I always do that!\" you can say something like, \"That happens occasionally, but I'm committed to improving in the future.\"",
             "To conquer this cognitive distortion, try changing how you explain events. Instead of dismissing positive results as luck, pay more attention to how your strengths, abilities, and hard work played a role in achieving them.",
             "To conquer this cognitive distortion, you can follow the following steps: <br><br>1. Check the facts: Gather as much information as possible before making judgments or decisions. <br>2. Challenge your thoughts: Actively question your assumptions and explore alternative explanations. <br>3. Communication: Instead of assuming what others think, communicate your concerns and seek direct answers to avoid confusion or misunderstanding. <br>4. Try an alternative viewpoint: View the situation from an outsider's standpoint, considering the information needed for a more accurate understanding.",
             "To overcome magnification, you can work on recognizing these exaggerated thoughts and deliberately replacing them with more constructive and positive thinking patterns.",
-            "You can practice defusion to get distance from your emotions. For example, instead of “I feel overwhelmed”, you tell yourself, “I’m aware that I’m feeling overwhelmed.” This simple shift can promote a more objective and balanced perspective on your emotions.",
-            "One way to combat this cognitive distortion is to concentrate on cultivating self-compassion. Swap those unrealistic thoughts with more practical ones and focus on embracing yourself for who you truly are, not who you believe you should be.",
+            "You can practice defusion to get distance from your emotions. For example, instead of \"I feel overwhelmed\", you tell yourself, \"I'm aware that I'm feeling overwhelmed.\" This simple shift can promote a more objective and balanced perspective on your emotions.",
+            "One way to combat this cognitive distortion is to cultivate self-compassion. Swap those unrealistic thoughts with more practical ones and focus on embracing yourself for who you truly are, not who you believe you should be.",
             "To overcome labeling, challenge the validity of your assumptions. Find evidence contradicting your negative thinking, and remember the distinction between personal opinions and objective facts.",
             "To combat personalization and blame, explore additional factors that could have influenced your situation. Instead of placing all the blame on yourself, consider external circumstances or the actions of others that might have also played a part."
     };
@@ -266,6 +268,15 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
         popupWindow.setFocusable(true);
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.7f;
+        wm.updateViewLayout(container, p);
 
         // initialize elements
         TextView show_name = (TextView) viewPopupWindow.findViewById(R.id.name);

@@ -77,7 +77,7 @@ public class Chapter3_Activity5_1_Activity extends AppCompatActivity {
     }
 
     private void open_Previous_Activity() {
-        Intent intent = new Intent(this,Chapter3_Activity4_sum_Activity.class);
+        Intent intent = new Intent(this,Chapter3_Activity4_Activity.class);
         intent.putExtra("username", username);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);

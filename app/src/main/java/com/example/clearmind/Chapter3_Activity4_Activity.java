@@ -23,7 +23,7 @@ public class Chapter3_Activity4_Activity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chapter3_activity4);
+        setContentView(R.layout.activity_chapter3_activity4_new);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
         this.db = FirebaseDatabase.getInstance().getReference();
@@ -51,10 +51,10 @@ public class Chapter3_Activity4_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                // update Chapter1 progress
-//                Map<String, Object> chapter1_progress_update = new HashMap<>();
-//                chapter1_progress_update.put("3_Passengers_On_The_Bus", "1");
-//                db.child("Chapter2").child("progress").child(username).updateChildren(chapter1_progress_update);
+                // update Chapter progress
+                Map<String, Object> chapter_progress_update = new HashMap<>();
+                chapter_progress_update.put("5_Activity3_4", "1");
+                db.child("Chapter3").child("progress").child(username).updateChildren(chapter_progress_update);
 
                 open_Next_Activity();
 //                openPopupWindow(v);
@@ -64,13 +64,13 @@ public class Chapter3_Activity4_Activity extends AppCompatActivity {
     }
 
     private void open_Previous_Activity() {
-        Intent intent = new Intent(this,Chapter3_Activity3_Activity.class);
+        Intent intent = new Intent(this,Chapter3_Activity3_new_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }
 
     private void open_Next_Activity() {
-        Intent intent = new Intent(this,Chapter3_Activity4_stop_Activity.class);
+        Intent intent = new Intent(this,Chapter3_Activity5_1_Activity.class);
         intent.putExtra("username", username);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);

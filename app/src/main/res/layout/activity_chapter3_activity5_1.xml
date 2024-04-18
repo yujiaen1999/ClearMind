@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter3: Be aware of cognitive distortions"
+                android:text="Be aware of cognitive distortions"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -38,10 +38,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In our early activities, we’ve practiced many positive cognitive strategies designed to help you to recognize challenging emotions caused by procrastination tendencies, which can significantly impact our behaviors. These strategies can also assist us in effectively managing our responses to these emotions.
-                \n\nHowever, if you haven’t experienced any procrastination tendencies, that's great news to hear. In the upcoming activities, we’ll introduce you to cognitive distortions. Understanding these distortions can serve as a proactive step to prevent procrastination tendencies.
-                \n\nCognitive distortions are internal mental filters or biases that can lead to misperceptions of reality, negative emotions, and unhealthy mindsets. They often make you view things more negatively than they really are and question your abilities.
-                \n\nThe good news is, this is something that everyone goes through, especially when we are feeling down. The key is that you can learn to recognize those cognitive distortions so you can stop them from making you feel worse. You can reframe your thoughts to feel better and act more positively.”
+                android:text="In our early activities, we’ve practiced many positive cognitive strategies designed to help you to recognize challenging emotions caused by procrastination tendencies, which can significantly impact our behaviors.These strategies help manage our responses to these emotions.
+            "
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="However, if you haven't faced procrastination tendencies, that's fantastic news. In the upcoming activities, we’ll introduce you to cognitive distortions. Understanding these distortions can serve as a proactive step to prevent procrastination tendencies.
+            "
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Cognitive distortions are internal mental filters or biases that can lead to misperceptions of reality, negative emotions, and unhealthy mindsets. They often make you view things more negatively than they really are and question your abilities.
+            "
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="The good news is, experiencing this is common, especially when feeling down. The key is that you can learn to recognize those cognitive distortions so you can stop them from making you feel worse. You can reframe your thoughts to feel better and act more positively.
             "
                 android:textAlignment="textStart"
                 android:textColor="#000000"

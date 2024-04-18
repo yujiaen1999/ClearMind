@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter3: Summary"
+                android:text="Part 3 Summary"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -36,12 +36,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In this chapter, we practiced some positive cognitive strategies, such as breath meditation and the Stop Breathe Believe practice, that could help you progress towards your goal, even when those challenging emotions pop up. We also discussed the ten most common cognitive distortions that could lead to misperceptions of reality, negative emotions, and unhealthy mindsets and how we could change our thinking patterns and adopt more positive mindsets.
-                \n\nPlease take a moment and complete the following questions reflecting on your experiences:
+                android:text="In this part, we practiced some positive cognitive strategies, such as breath meditation and Relaxing Breathing (4-7-8) Exercise, which can be particularly helpful for those of us who tend to procrastinate. These techniques can assist in making progress toward our goals even when those challenging emotions arise.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="We discussed ten common cognitive distortions causing distorted perceptions, negative emotions, and unhealthy mindsets. Strategies for changing thinking patterns and adopting positive mindsets were highlighted to help overcome the urge to procrastinate.
+"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Following questions will help you reflect on this part:"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
 
             <TextView
                 android:id="@+id/question_1"
@@ -49,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_main_small"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="1. Have you gained any new insights from this chapter that you would like to incorporate into your approaches to managing procrastination?
+                android:text="1. Did you find specific strategies or techniques in this chapter helpful for combating procrastination? If yes, outline these strategies and explain how you plan to incorporate them into your future practices to improve your procrastination habits.
 " />
 
             <EditText
@@ -108,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_main_small"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="3. Rate the effectiveness of this chapter in managing your procrastination tendencies on a scale of 1 to 5, where 1 represents “not effective at all” and 5 represents “extremely effective.”" />
+                android:text="3. Rate the effectiveness of this part in managing your procrastination tendencies on a scale of 1 to 5, where 1 represents “not effective at all” and 5 represents “extremely effective.”" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"

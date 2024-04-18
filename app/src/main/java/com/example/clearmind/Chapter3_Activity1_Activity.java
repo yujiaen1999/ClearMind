@@ -33,6 +33,8 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
     private EditText answer1;
     private EditText answer2;
 
+    private EditText answer_episode;
+
     private TextView example;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +48,12 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
 
+        answer_episode = findViewById(R.id.input_episode);
         answer1 = findViewById(R.id.input1);
         answer2 = findViewById(R.id.input2);
         example = findViewById(R.id.example);
 
-        String txt_example = "<b>Example</b>: I’m feeling <u>anxious</u> and it is because <u>I haven’t yet begun to prepare for my final exam which is scheduled for tomorrow</u> triggers this emotion.";
+        String txt_example = "<b>Example</b>: I’m feeling <u>anxious</u> because <u>I haven't yet started preparing for my final exam scheduled for tomorrow</u>.";
         example.setText(Html.fromHtml(txt_example));
 
         // Retrieve and Display user input from the database
@@ -63,6 +66,7 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
                 }else{
                     Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
                     if(hashmap_chapter3 != null){
+                        answer_episode.setText(hashmap_chapter3.get("episode"));
                         answer1.setText(hashmap_chapter3.get("emotion"));
                         answer2.setText(hashmap_chapter3.get("event"));
                     }
@@ -89,11 +93,13 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
             public void onClick(View v){
                 String txt_answer1 = answer1.getText().toString();
                 String txt_answer2 = answer2.getText().toString();
+                String txt_answer_episode = answer_episode.getText().toString();
 
                 if (txt_answer1.isEmpty() || txt_answer2.isEmpty()){
                     Toast.makeText(Chapter3_Activity1_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
                 } else {
                     // Get all answers from user
+                    db.child("Chapter3").child("activity1").child(username).child("episode").setValue(txt_answer_episode);
                     db.child("Chapter3").child("activity1").child(username).child("emotion").setValue(txt_answer1);
                     db.child("Chapter3").child("activity1").child(username).child("event").setValue(txt_answer2);
 

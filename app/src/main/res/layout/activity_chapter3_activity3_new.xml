@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="1. The 20 Breath Meditation"
+                android:text="Learn How to Meditate"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -37,45 +37,63 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="Welcome to The 20 Breath Meditation tutorial. The 20 Breath Meditation is a concentration exercise that helps you bring awareness to one thing and keep it there. If your mind starts to wander, don't worry; we’ll show you how to guide it back to the object of concentration, which, in this exercise, is your breath and counting."
+                android:text="In this activity, you'll explore various meditation techniques, including the 20 Breath Meditation, the Relaxing Breathing (4-7-8) technique, the Mindfulness in Everyday Tasks, and Leaves on a Steam exercise. Try them out and see which one you like the most."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
-            <WebView
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="You are required to try 2 out of 4 of these activities to unlock future content, but feel free to come back to try more. You can also look up more meditation techniques on your own. Remember, each technique helps you relax in its own way, so pick the one that feels right for you."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <GridView
+                android:id="@+id/gridview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/webView"
-                android:layout_marginBottom="@dimen/text_internal"
-                tools:ignore="WebViewLayout" />
+                android:layout_height="220dp"
+                android:horizontalSpacing="6dp"
+                android:numColumns="2"
+                android:verticalSpacing="6dp" />
 
-
-<!--            <FrameLayout-->
+<!--            <WebView-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="match_parent"-->
-<!--                android:layout_margin="20dp">-->
+<!--                android:id="@+id/webView"-->
+<!--                android:layout_marginBottom="@dimen/text_internal"-->
+<!--                tools:ignore="WebViewLayout" />-->
 
-<!--                <VideoView-->
-<!--                    android:id="@+id/videoview"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="500dp"/>-->
 
-<!--            </FrameLayout>-->
+            <!--            <FrameLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_margin="20dp">-->
 
-<!--            <VideoView-->
-<!--                android:id="@+id/videoview"-->
-<!--                android:layout_margin="20dp"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="500dp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <!--                <VideoView-->
+            <!--                    android:id="@+id/videoview"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="500dp"/>-->
 
-<!--            <VideoView-->
-<!--                android:id="@+id/idVideoView"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
+            <!--            </FrameLayout>-->
+
+            <!--            <VideoView-->
+            <!--                android:id="@+id/videoview"-->
+            <!--                android:layout_margin="20dp"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="500dp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--            <VideoView-->
+            <!--                android:id="@+id/idVideoView"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content" />-->
 
 
             <!--            <TextView-->
@@ -91,48 +109,26 @@
             <!--                android:textColor="#000000"-->
             <!--                android:textSize="18dp" />-->
 
-            <TextView
-                android:id="@+id/transcript"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shape_hints"
-                android:paddingLeft="15dp"
-                android:paddingTop="5dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="5dp"
-                android:layout_marginBottom="@dimen/text_internal"
-                android:text="Can’t play the video?"
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_main_small" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/text_internal"
-                android:text="Let's bring your attention to your breath. Without changing how you breathe,
-Gradually increase the duration of your practice in small steps. You might consider using a timer to help you track the time. Keep the duration comfortable and manageable, so that you feel a sense of accomplishment rather than frustration if you find it challenging to complete it at first.
-"
-                android:textAlignment="textStart"
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_main_large" />
-
 <!--            <TextView-->
-<!--                android:id="@+id/textView4"-->
-<!--                android:layout_width="match_parent"-->
+<!--                android:id="@+id/transcript"-->
+<!--                android:layout_width="wrap_content"-->
 <!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginVertical="@dimen/text_internal"-->
-<!--                android:text="Gradually increase the duration of your practice in small steps. You might consider using a timer to help you track the time. Keep the duration comfortable and manageable, so that you feel a sense of accomplishment rather than frustration if you find it challenging to complete it at first. "-->
-<!--                android:textAlignment="textStart"-->
+<!--                android:background="@drawable/shape_hints"-->
+<!--                android:paddingLeft="15dp"-->
+<!--                android:paddingTop="5dp"-->
+<!--                android:paddingRight="15dp"-->
+<!--                android:paddingBottom="5dp"-->
+<!--                android:text="Can’t play the video?"-->
 <!--                android:textColor="#000000"-->
-<!--                android:textSize="@dimen/text_size_main_large" />-->
+<!--                android:textSize="@dimen/text_size_main_small" />-->
+
 
 
             <Button
                 android:id="@+id/button_previous"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="@dimen/text_internal"
                 android:text="Back"
                 app:backgroundTint="#5FA12E" />
 

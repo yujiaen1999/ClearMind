@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Reflecting on Cognitive Distortions in Various Procrastination Types"
+                android:text="2. Relaxing Breathing (4-7-8) Exercise"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -37,46 +37,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In Chapter 1, we introduced three different types of procrastination, which were arousal, avoidant, and decisional procrastination."
+                android:text="The Relaxing Breathing (4-7-8) Exercise helps calm your nerves. Don't do more than four cycles at first, or you might get dizzy."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/webView"
+                android:layout_marginBottom="@dimen/text_internal"
+                tools:ignore="WebViewLayout" />
+
 
             <TextView
-                android:id="@+id/tendency"
+                android:id="@+id/transcript"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/text_internal"
                 android:background="@drawable/shape_hints"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="5dp"
-                android:text="Procrastination Tendencies"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Can’t play the video?"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_small" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Based on your own experience, have you observed any consistent patterns where specific cognitive distortions lead to particular types of procrastination tendencies, and when do these connections become more evident? Additionally, if you were to change these thought patterns in the future, how might this change help you overcome procrastination and improve your academic outcomes? Describe some potential strategies to make these changes happen in real life."
-                android:textAlignment="textStart"
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_main_large" />
-
-
-            <EditText
-                android:id="@+id/input1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:layout_marginVertical="@dimen/text_internal"
-                android:padding = "10dp"
-                android:hint="Potential strategy"
-                android:background="#FFFFFF"
-                android:inputType="textMultiLine" />
 
 
             <Button

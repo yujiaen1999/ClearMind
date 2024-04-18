@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter3: Summary of cognitive distortions"
+                android:text="Summary of cognitive distortions"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
-                    android:text="Journaling can be a valuable method to help overcome mental filtering. Keeping a diary or journal that involves writing down your thoughts and emotions about the events in your life will help redirect your attention away from the negatives and actively seek out the neutral or positive aspects of a situation."
+                    android:text="Journaling is a helpful way to overcome mental filtering. By keeping a diary and writing down your thoughts and emotions about life events, you can shift your focus from the negatives to actively seeking out neutral or positive aspects of a situation."
                     android:textColor="#000000"
                     android:textSize="@dimen/text_size_main_small" />
 
@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
-                    android:text="To overcome All-or-nothing thinking, it's essential to understand that success and progress are not binary, all-or-nothing concepts. You need to acknowledge and address this type of thinking, and by substituting self-defeating thoughts, you can become more aware of your strengths and focus more on your progress instead of outcomes."
+                    android:text="To overcome All-or-nothing thinking, recognize that success and progress aren't all-or-nothing. Address this mindset by substituting self-defeating thoughts, becoming more aware of your strengths, and focusing on progress rather than outcomes."
                     android:textColor="#000000"
                     android:textSize="@dimen/text_size_main_small" />
 
@@ -363,7 +363,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
-                    android:text="To overcome Emotional Reasoning: \n1) Acknowledge the feeling, 2) call out it's emotional reasoning, and 3) find evidence of Lisa parking just fine."
+                    android:text="You can practice defusion to get distance from your emotions. For example, instead of “I feel overwhelmed”, you tell yourself, “I'm aware that I'm feeling overwhelmed.” This simple shift can promote a more objective and balanced perspective on your emotions."
                     android:textColor="#000000"
                     android:textSize="@dimen/text_size_main_small" />
 
@@ -409,7 +409,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
-                    android:text="One way to combat this cognitive distortion is to concentrate on cultivating self-compassion. Swap those unrealistic thoughts with more practical ones and focus on embracing yourself for who you truly are, not who you believe you should be."
+                    android:text="One way to combat this cognitive distortion is to cultivate self-compassion. Swap those unrealistic thoughts with more practical ones and focus on embracing yourself for who you truly are, not who you believe you should be."
                     android:textColor="#000000"
                     android:textSize="@dimen/text_size_main_small" />
 

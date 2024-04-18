@@ -128,7 +128,7 @@ public class Chapter3_Activity extends AppCompatActivity {
     }
 
     private void open_Chapter3_Activity3() {
-        Intent intent = new Intent(this,Chapter3_Activity3_Activity.class);
+        Intent intent = new Intent(this,Chapter3_Activity3_new_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

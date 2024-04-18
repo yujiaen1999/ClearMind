@@ -157,9 +157,21 @@
             android:name=".Chapter3_Activity2_Activity"
             android:exported="true" />
         <activity
+            android:name=".Chapter3_Activity3_new_Activity"
+            android:exported="true" />
+        <activity
             android:name=".Chapter3_Activity3_Activity"
             android:exported="true"
             android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".Chapter3_Activity3_2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity3_3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity3_4_Activity"
+            android:exported="true" />
         <activity
             android:name=".Chapter3_Activity4_Activity"
             android:exported="true" />

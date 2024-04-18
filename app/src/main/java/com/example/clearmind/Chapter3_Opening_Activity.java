@@ -2,9 +2,11 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +41,14 @@ public class Chapter3_Opening_Activity extends AppCompatActivity {
         button_home = findViewById(R.id.button_home);
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
+
+        TextView textView2 = findViewById(R.id.textView2);
+//        TextView textView3 = findViewById(R.id.textView3);
+
+        String text2 = "So far we learned that:" + "<ol> <li>Procrastination is often a resulting behavior triggered by some challenging emotions (part 1)</li> <li>You can allow those challenging emotions to exist but just do not let them sabotage your goal/value (part 2)</li></ol>";
+        text2  = text2 + "\nIn this part, we'll guide you through a step-by-step approach for managing challenging emotions. We will start with identifying your challenging emotions (Activity 3.1), followed by noticing how these emotions manifest physically within your body (Activity 3.2). Next, you'll engage in some meditation exercises to help you stay calm and focused (Activity 3.3). In Activity 3.4,  you'll create a compassionate self-talk statement to help manage your challenging emotions. To understand where these emotions come from, try Activity 3.5.";
+
+        textView2.setText(Html.fromHtml(text2));
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

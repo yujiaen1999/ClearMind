@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Reflecting on Cognitive Distortions in Various Procrastination Types"
+                android:text="3. Mindfulness in Everyday Tasks"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -37,46 +37,60 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In Chapter 1, we introduced three different types of procrastination, which were arousal, avoidant, and decisional procrastination."
+                android:text="Mindfulness is more than just sitting still to meditate. You can practice mindfulness in any activity you do: as long as you perform the activity with a full, present engagement, the activity becomes a meditation session."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
-
-
-            <TextView
-                android:id="@+id/tendency"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/text_internal"
-                android:background="@drawable/shape_hints"
-                android:paddingLeft="15dp"
-                android:paddingTop="5dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="5dp"
-                android:text="Procrastination Tendencies"
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_main_small" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Based on your own experience, have you observed any consistent patterns where specific cognitive distortions lead to particular types of procrastination tendencies, and when do these connections become more evident? Additionally, if you were to change these thought patterns in the future, how might this change help you overcome procrastination and improve your academic outcomes? Describe some potential strategies to make these changes happen in real life."
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="You can choose one habitual task you perform every day. It does not have to be a long activity either."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
-
-            <EditText
-                android:id="@+id/input1"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView3_5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:layout_marginVertical="@dimen/text_internal"
-                android:padding = "10dp"
-                android:hint="Potential strategy"
-                android:background="#FFFFFF"
-                android:inputType="textMultiLine" />
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Here are some daily tasks people commonly practice on. Feel free to explore your own too!"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Walking: Breathe in and start to walk slowly, focusing closely on the bottom of your feet. Each step offers an opportunity to reconnect with both yourself and the earth. As you walk, be mindful of every breath you take and count your steps as you inhale and exhale. Allow your breathing to flow naturally without trying to control it. Maintain your focus on the pace of your breathing and your steps. Remember, the key is counting."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Wash the Dishes: Feel the water's temperature and texture on your hands, hear the dishes clinking, and notice how you move while scrubbing and rinsing. Allow yourself to enjoy making the dishes clean again. If your mind starts to wander, it's completely fine. Just acknowledge it and gently guide your focus back to washing. Focus all your attention on what you're doing."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Workout: Pay attention to your body's sensations—observe your muscles, movement speed, breathing, and any tension or resistance. Feel the stretch and intensity. Simply notice your emotions without judgment. Do you feel accomplished? Are you being too harsh on yourself, or comparing your body shape with others?"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
 
 
             <Button

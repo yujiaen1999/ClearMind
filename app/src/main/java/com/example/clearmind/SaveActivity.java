@@ -2,10 +2,12 @@ package com.example.clearmind;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
@@ -83,6 +85,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
+
 public class SaveActivity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;
@@ -117,6 +122,8 @@ public class SaveActivity extends AppCompatActivity {
     private PopupWindow speechBubble;
 
     private String[] tooltip_date;
+
+    private String status_finish_learn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,14 +181,48 @@ public class SaveActivity extends AppCompatActivity {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String status_finish_learn = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("7_Summary").getValue());
+                status_finish_learn = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("7_Summary").getValue());
 
                 // HANDLE status
                 if (!status_finish_learn.equals("1")){
+                    // Tracker locked
                     scrollView.setVisibility(View.GONE);
                     newTracker_button.setVisibility(View.GONE);
                     locked_part.setVisibility(View.VISIBLE);
                 }
+
+                final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(SaveActivity.this);
+                boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
+
+                // TODO: change here to enable the isFirstRun judgement
+                if (true && status_finish_learn.equals("1")) {
+                    final View targetButton = findViewById(R.id.button_new_tracker);
+                    TapTargetView.showFor(SaveActivity.this,
+                            TapTarget.forView(targetButton, "This is the Goal Start Button", "Click this '+' to start tracking your new goal!")
+                                    .transparentTarget(true)
+                                    .targetRadius(45)
+                                    .outerCircleColor(R.color.green)
+                                    .outerCircleAlpha(0.99f)            // Specify the alpha amount for the outer circle
+                                    .targetCircleColor(R.color.yellow)
+                                    .textColor(R.color.white)
+                                    .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
+                                    .drawShadow(true)
+                                    .tintTarget(true),
+                            new TapTargetView.Listener() {
+                                @Override
+                                public void onTargetClick(TapTargetView view) {
+                                    super.onTargetClick(view);
+                                    // when user click this button
+                                    // TODO: Open form, autofill the user's input from Part 4
+                                }
+                            });
+
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("isFirstRun", true); //TODO: to enable isFirstRun, change true to false
+                    editor.apply();
+                }
+
+
             }
 
             @Override
@@ -195,6 +236,37 @@ public class SaveActivity extends AppCompatActivity {
 //            scrollView.setVisibility(View.GONE);
 //            newTracker_button.setVisibility(View.GONE);
 //            locked_part.setVisibility(View.VISIBLE);
+//        }
+
+//        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+//        boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
+//
+//        if (isFirstRun && status_finish_learn.equals("1")) {
+//            // 显示引导层
+//            final View targetButton = findViewById(R.id.button_new_tracker); // 替换为你的按钮ID
+//            TapTargetView.showFor(this,
+//                    TapTarget.forView(targetButton, "This is the Start Button", "Click this to start tracking your new goal!")
+//                            .transparentTarget(true)   // 按钮透明效果
+//                            .targetRadius(40)
+//                            .outerCircleColor(R.color.green)
+//                            .outerCircleAlpha(0.99f)            // Specify the alpha amount for the outer circle
+//                            .targetCircleColor(R.color.yellow) // 圆圈颜色
+//                            .textColor(R.color.white)   // 文本颜色
+//                            .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
+//                            .drawShadow(true)
+//                            .tintTarget(true),
+//            new TapTargetView.Listener() {
+//                        @Override
+//                        public void onTargetClick(TapTargetView view) {
+//                            super.onTargetClick(view);
+//                            // 当用户点击目标时的动作
+//                        }
+//                    });
+//
+//            // 更新首次运行状态
+//            SharedPreferences.Editor editor = prefs.edit();
+//            editor.putBoolean("isFirstRun", true);
+//            editor.apply();
 //        }
 
 

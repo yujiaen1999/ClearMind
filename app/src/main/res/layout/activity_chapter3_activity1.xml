@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter3: Describe your feelings"
+                android:text="Label the Passengers on the Bus"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="Procrastination tendencies often trigger challenging feelings. Take a moment to reflect on your most recent experience with procrastination and describe some of the difficult emotions you’ve encountered. Give each emotion a name and describe your experience of those emotions. What triggered it? How did it make you feel?"
+                android:text="When you feel any discomfort, or an urge to procrastinate, check the passengers on your bus at that moment. Give each of them a name and describe your experience of those emotions. What triggered these emotions, and how did they make you feel?"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
@@ -47,65 +47,113 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Please enter the emotion that you are experiencing most strongly:
+                android:text="Now as a practice, let’s reflect on your own recent procrastination episode.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textView_episode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="I’m feeling:"
+                android:text="Briefly describe your recent procrastination episode:"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
             <EditText
-                android:id="@+id/input1"
+                android:id="@+id/input_episode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:padding = "10dp"
-                android:hint="(name of the emotion)"
+                android:hint="(your procrastination episode)"
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
             <TextView
-                android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="and it is because:"
+                android:layout_marginBottom="5dp"
+                android:text="Enter the emotion you experiencing most strongly:"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
-            <EditText
-                android:id="@+id/input2"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:padding = "10dp"
-                android:hint="(an event)"
-                android:background="#FFFFFF"
-                android:inputType="textMultiLine" />
+                android:gravity="left"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView6"
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="I’m feeling:"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_size_main_large" />
+
+                <EditText
+                    android:id="@+id/input1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="true"
+                    android:padding = "10dp"
+                    android:hint="(name of the emotion)"
+                    android:background="#FFFFFF"
+                    android:inputType="textMultiLine" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/text_internal"
-                android:text="triggers this emotion."
-                android:textAlignment="textStart"
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_main_large" />
+                android:gravity="left"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="because:"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_size_main_large" />
+
+                <EditText
+                    android:id="@+id/input2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="true"
+                    android:padding = "10dp"
+                    android:hint="(an event)"
+                    android:background="#FFFFFF"
+                    android:inputType="textMultiLine" />
+
+            </LinearLayout>
+
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView6"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginVertical="@dimen/text_internal"-->
+<!--                android:text="triggers this emotion."-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="@dimen/text_size_main_large" />-->
 
             <TextView
                 android:id="@+id/example"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:text="Example: I’m feeling anxious and it is because I haven’t yet begun to prepare for my final exam which is scheduled for tomorrow triggers this emotion."
                 android:textSize="@dimen/text_size_main_small" />
