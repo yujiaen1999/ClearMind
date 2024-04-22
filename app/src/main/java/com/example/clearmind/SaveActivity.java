@@ -198,7 +198,7 @@ public class SaveActivity extends AppCompatActivity {
                 if (true && status_finish_learn.equals("1")) {
                     final View targetButton = findViewById(R.id.button_new_tracker);
                     TapTargetView.showFor(SaveActivity.this,
-                            TapTarget.forView(targetButton, "This is the Goal Start Button", "Click this '+' to start tracking your new goal!")
+                            TapTarget.forView(targetButton, "This is the Goal Start Button", "Click '+' to start tracking your new goal!")
                                     .transparentTarget(true)
                                     .targetRadius(45)
                                     .outerCircleColor(R.color.green)

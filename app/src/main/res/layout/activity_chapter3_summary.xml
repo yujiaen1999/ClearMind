@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="We discussed ten common cognitive distortions causing distorted perceptions, negative emotions, and unhealthy mindsets. Strategies for changing thinking patterns and adopting positive mindsets were highlighted to help overcome the urge to procrastinate.
+                android:text="We also discussed ten common cognitive distortions causing distorted perceptions, negative emotions, and unhealthy mindsets. You can try out the techniques we recommended to change thinking patterns and adopt more positive mindsets.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"

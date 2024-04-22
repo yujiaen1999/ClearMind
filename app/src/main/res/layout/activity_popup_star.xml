@@ -41,9 +41,10 @@
 
         <ScrollView
             android:id="@+id/scrollView"
-            android:layout_width="300dp"
-            android:layout_height="350dp"
+            android:layout_width="320dp"
+            android:layout_height="360dp"
             android:layout_marginTop="10dp"
+            android:overScrollMode="never"
             android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_line"
             android:padding="5dp">

@@ -150,6 +150,7 @@
         android:layout_height="0dp"
         android:paddingTop="1.5dp"
         android:background="@drawable/bg_learn_list"
+        android:overScrollMode="never"
         app:layout_constraintTop_toBottomOf="@+id/welcome"
         app:layout_constraintBottom_toTopOf="@+id/navigation_buttons" >
 

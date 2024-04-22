@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -20,6 +22,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +36,8 @@ public class Chapter3_Activity3_4_Activity extends AppCompatActivity {
     private Button button_home;
     private WebView webView;
     private TextView button_transcript;
+    private long pageOpenTime;
+    private long pageCloseTime;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +81,53 @@ public class Chapter3_Activity3_4_Activity extends AppCompatActivity {
             }
         });
 
+        LinearLayout layout_beach_ball = findViewById(R.id.beach_ball);
+        LinearLayout layout_a_train = findViewById(R.id.a_train);
+        LinearLayout layout_quicksand =findViewById(R.id.quicksand);
+        TextView textView_beach_ball =findViewById(R.id.beach_ball_content);
+        TextView textView_a_train = findViewById(R.id.a_train_content);
+        TextView textView_quicksand = findViewById(R.id.quicksand_content);
+
+        final Integer[] flag_example = {0, 0, 0};
+        layout_beach_ball.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                if (flag_example[0] == 0){
+                    textView_beach_ball.setVisibility(View.VISIBLE);
+                    flag_example[0] = 1;
+                } else{
+                    textView_beach_ball.setVisibility(View.GONE);
+                    flag_example[0] = 0;
+                }
+            }
+        });
+
+        layout_a_train.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                if (flag_example[1] == 0){
+                    textView_a_train.setVisibility(View.VISIBLE);
+                    flag_example[1] = 1;
+                } else{
+                    textView_a_train.setVisibility(View.GONE);
+                    flag_example[1] = 0;
+                }
+            }
+        });
+
+        layout_quicksand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                if (flag_example[2] == 0){
+                    textView_quicksand.setVisibility(View.VISIBLE);
+                    flag_example[2] = 1;
+                } else{
+                    textView_quicksand.setVisibility(View.GONE);
+                    flag_example[2] = 0;
+                }
+            }
+        });
+
         // Set scroll view start position
         ScrollView sv = (ScrollView) findViewById(R.id.scrollView);
         sv.post(new Runnable() {
@@ -97,7 +150,7 @@ public class Chapter3_Activity3_4_Activity extends AppCompatActivity {
 
         // Set up Youtube player
         webView = findViewById(R.id.webView);
-        String video_4 = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/r1C8hwj5LXw?si=1sSYbDfG4lVaiwRs&amp;controls=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>";
+        String video_4 = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/r1C8hwj5LXw?si=VRKAIjGXyz1CVIxb&amp;controls=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>";
 //        String breathing_video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/xDm2c5FDLNI?si=XEKPUTAFdo30xKlT\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
 //        String embeded_video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/jt7nITE3qaM?si=WQ8I-GiyDrY5s8BT\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
 //        String video_youtube = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/fHCemviY06Y?si=O_OUVoA42Bkgn5rh\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
@@ -198,6 +251,49 @@ public class Chapter3_Activity3_4_Activity extends AppCompatActivity {
         Intent intent = new Intent(this,Chapter3_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pageOpenTime = System.currentTimeMillis(); // get the page open time
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pageCloseTime = System.currentTimeMillis(); // get the page close time
+
+        if (pageCloseTime - pageOpenTime > 1999){   // Only if the view time >= 2 seconds
+            sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
+        }
+//        sendTimeStampsToFirebase();
+    }
+
+    private void sendTimeStampsToFirebase() {
+        DatabaseReference activityRef = db.child("userActivity").child(username).child("Part3_3_Activity3_Meditation4");
+
+        // create a new activityID
+        String activityId = activityRef.push().getKey();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+
+        Date resultdate_open = new Date(pageOpenTime);
+        Date resultdate_close = new Date(pageCloseTime);
+
+        Map<String, Object> activityData = new HashMap<>();
+        activityData.put("openTime_ms", pageOpenTime);
+        activityData.put("closeTime_ms", pageCloseTime);
+        activityData.put("duration", pageCloseTime - pageOpenTime);
+
+        activityData.put("openTime_str", String.valueOf(resultdate_open));
+        activityData.put("closeTime_str", String.valueOf(resultdate_close));
+
+        if (activityId != null) {
+            activityRef.child(activityId).setValue(activityData)
+                    .addOnSuccessListener(aVoid -> Log.d("Firebase", "Activity time recorded successfully"))
+                    .addOnFailureListener(e -> Log.d("Firebase", "Failed to record activity time", e));
+        }
     }
 
 }

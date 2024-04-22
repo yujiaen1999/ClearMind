@@ -29,7 +29,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,9 +47,12 @@ public class Chapter3_Activity3_new_Activity extends AppCompatActivity {
     private ArrayList<DistortionModel> DistortionModelArrayList;
     private DistortionGVAdapter adapter;
 
-    String[] meditation_name = {"The 20 Breath Meditation", "Relaxing Breathing (4-7-8) Exercise", "Mindfulness in Everyday Tasks", "Leaves on a Stream"};
+    private long pageOpenTime;
+    private long pageCloseTime;
 
-    int[] meditation_image = {R.drawable.star_a, R.drawable.star_a, R.drawable.star_a, R.drawable.star_a};
+    String[] meditation_name = {"The 20 Breath Meditation", "Relaxing Breathing (4-7-8) Exercise", "Mindful Daily Tasks", "Leaves on a Stream"};
+
+    int[] meditation_image = {R.drawable.icon_20breath, R.drawable.icon_478, R.drawable.icon_everyday, R.drawable.icon_stream};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,9 +100,9 @@ public class Chapter3_Activity3_new_Activity extends AppCompatActivity {
         DistortionModelArrayList = new ArrayList<DistortionModel>();
 
         // Done: Initialize gridview (add more)
-        DistortionModelArrayList.add(new DistortionModel("The 20 Breath Meditation", R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel("Relaxing Breathing (4-7-8) Exercise", R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel("Mindfulness in Everyday Tasks", R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel("The 20 Breath Meditation", R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel("Relaxing Breathing (4-7-8) Exercise", R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel("Mindful Daily Tasks", R.drawable.distortion_question_2));
         DistortionModelArrayList.add(new DistortionModel("Leaves on a Stream", R.drawable.distortion_question_2));
 
 //        DistortionGVAdapter adapter = new DistortionGVAdapter(this, DistortionModelArrayList);
@@ -326,6 +331,49 @@ public class Chapter3_Activity3_new_Activity extends AppCompatActivity {
         Intent intent = new Intent(this,Chapter3_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pageOpenTime = System.currentTimeMillis(); // get the page open time
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pageCloseTime = System.currentTimeMillis(); // get the page close time
+
+        if (pageCloseTime - pageOpenTime > 1){   // Only if the view time >= 2 seconds
+            sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
+        }
+//        sendTimeStampsToFirebase();
+    }
+
+    private void sendTimeStampsToFirebase() {
+        DatabaseReference activityRef = db.child("userActivity").child(username).child("Part3_3_Activity3_All");
+
+        // create a new activityID
+        String activityId = activityRef.push().getKey();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+
+        Date resultdate_open = new Date(pageOpenTime);
+        Date resultdate_close = new Date(pageCloseTime);
+
+        Map<String, Object> activityData = new HashMap<>();
+        activityData.put("openTime_ms", pageOpenTime);
+        activityData.put("closeTime_ms", pageCloseTime);
+        activityData.put("duration", pageCloseTime - pageOpenTime);
+
+        activityData.put("openTime_str", String.valueOf(resultdate_open));
+        activityData.put("closeTime_str", String.valueOf(resultdate_close));
+
+        if (activityId != null) {
+            activityRef.child(activityId).setValue(activityData)
+                    .addOnSuccessListener(aVoid -> Log.d("Firebase", "Activity time recorded successfully"))
+                    .addOnFailureListener(e -> Log.d("Firebase", "Failed to record activity time", e));
+        }
     }
 
 }

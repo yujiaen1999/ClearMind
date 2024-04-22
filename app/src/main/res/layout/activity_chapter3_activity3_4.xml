@@ -84,6 +84,140 @@
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
+            <LinearLayout
+                android:id="@+id/beach_ball"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingLeft="15dp"
+                android:paddingTop="2dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="2dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                android:background="@drawable/shape_hints">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="35dp"-->
+<!--                        android:layout_height="35dp"-->
+<!--                        android:id="@+id/image"-->
+<!--                        android:src="@drawable/icon_wash"-->
+<!--                        android:layout_margin="5dp"/>-->
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Beach Balls"
+                        android:textSize="@dimen/text_size_main_large"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/beach_ball_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="Imagine placing a beach ball in a bathtub filled with water and trying to push it down. No matter how hard you push, the ball will keep popping back up. This illustrates the impossibility of rejecting or suppressing reality or the difficult emotions we experience. The truth is, it only makes them return with stronger force because what you resist will persist."
+                    android:textColor="#000000"
+                    android:visibility="gone"
+                    android:textSize="@dimen/text_size_main_small" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/a_train"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingLeft="15dp"
+                android:paddingTop="2dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="2dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                android:background="@drawable/shape_hints">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="A Train"
+                        android:textSize="@dimen/text_size_main_large"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/a_train_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="Picture yourself standing on a bridge, observing a train as it passes beneath you. Each boxcar carries a negative thought, word, or phrase. By watching the train move along, you detach yourself from these thoughts."
+                    android:textColor="#000000"
+                    android:visibility="gone"
+                    android:textSize="@dimen/text_size_main_small" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/quicksand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingLeft="15dp"
+                android:paddingTop="2dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="2dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                android:background="@drawable/shape_hints">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Quicksand Visualization"
+                        android:textSize="@dimen/text_size_main_large"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/quicksand_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="Imagine being stuck in quicksand, similar to a person struggling against difficult emotions, which only causes us to sink deeper. By accepting our situation, like lying flat on the quicksand and not resisting, we can keep ourselves from sinking deeper."
+                    android:textColor="#000000"
+                    android:visibility="gone"
+                    android:textSize="@dimen/text_size_main_small" />
+
+            </LinearLayout>
+
 
 
             <Button

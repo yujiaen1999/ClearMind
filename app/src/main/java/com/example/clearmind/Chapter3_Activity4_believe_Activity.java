@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+// *****************************
+// Not In Use !!!!!!!
+// *****************************
 public class Chapter3_Activity4_believe_Activity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;

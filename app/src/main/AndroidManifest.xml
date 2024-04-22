@@ -266,6 +266,9 @@
             android:name=".PostSurvey13_Activity"
             android:exported="true" />
         <activity
+            android:name=".AddTimeStamp"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

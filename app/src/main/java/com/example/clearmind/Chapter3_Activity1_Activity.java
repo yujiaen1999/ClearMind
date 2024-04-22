@@ -19,8 +19,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.example.clearmind.AddTimeStamp;
 
 public class Chapter3_Activity1_Activity extends AppCompatActivity {
     private String username;
@@ -37,6 +41,12 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
 
     private TextView example;
 
+    private long pageOpenTime;
+    private long pageCloseTime;
+
+//    private AddTimeStamp addTimeStamp = new AddTimeStamp();
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter3_activity1);
@@ -52,6 +62,12 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
         answer1 = findViewById(R.id.input1);
         answer2 = findViewById(R.id.input2);
         example = findViewById(R.id.example);
+
+//        // Add time stamp
+//        addTimeStamp.addInfo(username, "Part3_1_Activity1");
+//        addTimeStamp.onResume();
+//        addTimeStamp.onPause();
+//        addTimeStamp.sendTimeStampsToFirebase();
 
         String txt_example = "<b>Example</b>: I’m feeling <u>anxious</u> because <u>I haven't yet started preparing for my final exam scheduled for tomorrow</u>.";
         example.setText(Html.fromHtml(txt_example));
@@ -113,7 +129,6 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
             }
         });
 
-
     }
 
     private void open_Previous_Activity() {
@@ -133,4 +148,48 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
         intent.putExtra("username", username);
         startActivity(intent);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pageOpenTime = System.currentTimeMillis(); // get the page open time
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pageCloseTime = System.currentTimeMillis(); // get the page close time
+
+        if (pageCloseTime - pageOpenTime > 1999){   // Only if the view time >= 2 seconds
+            sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
+        }
+//        sendTimeStampsToFirebase();
+    }
+
+    private void sendTimeStampsToFirebase() {
+        DatabaseReference activityRef = db.child("userActivity").child(username).child("Part3_1_Activity1");
+
+        // create a new activityID
+        String activityId = activityRef.push().getKey();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+
+        Date resultdate_open = new Date(pageOpenTime);
+        Date resultdate_close = new Date(pageCloseTime);
+
+        Map<String, Object> activityData = new HashMap<>();
+        activityData.put("openTime_ms", pageOpenTime);
+        activityData.put("closeTime_ms", pageCloseTime);
+        activityData.put("duration", pageCloseTime - pageOpenTime);
+
+        activityData.put("openTime_str", String.valueOf(resultdate_open));
+        activityData.put("closeTime_str", String.valueOf(resultdate_close));
+
+        if (activityId != null) {
+            activityRef.child(activityId).setValue(activityData)
+                    .addOnSuccessListener(aVoid -> Log.d("Firebase", "Activity time recorded successfully"))
+                    .addOnFailureListener(e -> Log.d("Firebase", "Failed to record activity time", e));
+        }
+    }
+
 }

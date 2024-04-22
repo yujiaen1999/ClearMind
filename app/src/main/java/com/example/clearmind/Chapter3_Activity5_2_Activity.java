@@ -31,7 +31,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +45,9 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
     private Button button_next;
     private Button button_home;
 
+    private long pageOpenTime;
+    private long pageCloseTime;
+
     private GridView gridView;
     private HashMap<String, String> hashmap_activity5;
     private  ArrayList<DistortionModel> DistortionModelArrayList;
@@ -52,21 +57,21 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
     // Done: Magnification example missing!!!
     // Done: Emotional Reasoning solution need confirm
     String[] distortion_name = {"Mental filtering", "All-or-nothing thinking", "Overgeneralization", "Discounting the positive", "Jumping to Conclusions", "Magnification", "Emotional Reasoning", "“Should” Statements", "Labeling", "Personalization and Blame"};
-    String[] distortion_intro = {"Mental filtering is like viewing the world through a negative lens. It involves focusing solely on the negative aspects while entirely disregarding the positive things in one's life.",
-            "All-or-nothing thinking is also known as polarized thinking. This type of thinking involves perceiving situations and outcomes in rigid and extreme terms. All good or all bad, all right or all wrong, everything or nothing, success or failure. This distortion can result in unrealistic standards for yourself and others, potentially affecting your relationships and motivation.",
-            "Overgeneralization thinking occurs when an individual forms a rule or draws a conclusion based on a single event or a lone piece of negative evidence. In this thought pattern, words like “always,” “never,” “forever,” often dominate their thinking. This cognitive distortion can lead to mistaken belief that all similar future events will result in the same failure or negative experience.",
-            "Discounting the positive is when a person doesn't fully accept or believe the good things that have happened to them. It's somewhat similar to mental filtering; however, these good things are actively invalidated or rejected in discounting the positive instead of simply being ignored.",
-            "There are two different types for this distortion, mind reading and fortune telling. <br><br>1. Mind reading: This distortion occurs when you presume that you have the ability to read others' minds and understand their thoughts. It involves anticipating a specific reaction from someone or attributing thoughts to them that may not be their actual thinking. <br><br>2. Fortune telling: This distortion arises when you make predictions about how events will unfold in a specific way, based on little or no evidence. This type of thinking is usually a way to avoid facing challenging situations or tasks.",
-            "Magnification is an over-exaggeration of a thought. It arises when you make your problems and flaws seem much bigger and more important than they really are. This kind of thinking can cause worries to grow rapidly and imagine the worst possible outcomes. Magnification tends to happen when there are uncertainties beyond a person's control.",
-            "Emotional reasoning is the way of evaluating yourself or a situation based on emotions. It assumes that if you have negative emotions, it must be an accurate reflection of reality and abilities. For instance, if you feel guilty, emotional reasoning would make you believe that you are inherently a bad person.",
-            "\"Should\" statements create unrealistic expectations about how things or people should be. Relying on these can lead to self-criticism, anxiety, and depression instead of approaching situations with flexibility.",
-            "Labeling involves making negative generalizations and classifications about oneself or others based on an undesirable event or a few isolated incidents. Labeling is an extreme form of overgeneralization, which can lead to unfair and harsh criticism.",
-            "Personalization occurs when you attribute responsibility to yourself for situations unrelated to your actions or beyond your control. Those inclined to this cognitive distortion often see situations as personal, leading to self-blame and self-criticism even when there's no direct connection."
+    String[] distortion_intro = {"Viewing the world through a negative lens. It involves focusing solely on the negative aspects while entirely disregarding the positive things in one's life.",
+            "Polarized thinking. All good (or all bad), all right (or all wrong), everything (or nothing), success (or failure), nothing in between. This distortion can result in unrealistic standards for yourself and others.",
+            "Forming a rule or drawing a conclusion based on a single event or a lone piece of negative evidence. Words like \"always\", \"never\", \"forever\", often dominate their thinking. Overgeneralization can lead to an exaggerated belief that all similar future events will result in the same failure or negative experience.",
+            "Not fully accepting or believing the good things that have happened to you. Similar to mental filtering; however, in discounting the positive, these good things are actively invalidated or rejected instead of simply being ignored.",
+            "There are two different types for this distortion, mind reading and fortune telling. <br><br>1. Mind reading: Presuming that you have the ability to read others' minds and understand their thoughts. It involves anticipating a specific reaction from someone or attributing thoughts to them that may not be their actual thinking. <br><br>2. Fortune telling: Making predictions about how events will unfold in a specific way, based on little or no evidence. Usually a way to avoid facing challenging situations or tasks.",
+            "Making your problems and flaws seem much bigger and more important than they really are. It can cause worries to grow rapidly and imagine the worst possible outcomes. Magnification tends to happen when there are uncertainties beyond a person's control.",
+            "Evaluating yourself or a situation based on emotions at the moment.",
+            "Imposing unrealistic expectations about how things or people should be. It can lead to self-criticism, anxiety, and depression instead of approaching situations with flexibility.",
+            "Label about oneself or others based on an undesirable event or a few isolated incidents.",
+            "Attributing responsibility to yourself for situations unrelated to your actions or beyond your control. It can lead to self-blame and self-criticism even when you are not responsible."
     };
     String[] distortion_example = {"Your colleagues praised your great ideas and clear explanations in a work presentation, but one person had a small suggestion for improving your slides. Instead of focusing on the positive feedback, you felt like the whole presentation was a failure because of that one critique.",
             "Jack set a fitness goal of exercising three times a week. However, in the final week, he was busy at school and couldn’t make it to the gym at all. This led him to perceive his entire fitness journey as a failure and gave up on both his fitness goals and routines.",
             "Annie accidentally scratched her car twice while parking on separate occasions. Her parents, based on these incidents, concluded that she was a terrible driver who would continue to damage her car in the future.",
-            "Stella did exceptionally well in her Physics class and received top grades consistently. However, she consistently downplays her accomplishments, believing that her success is solely due to easy tests or luck, not due to her hard work.",
+            "Stella did exceptionally well on her Physics class and received top grades consistently. However, she consistently downplays her accomplishments, believing that her success is solely due to easy tests or luck, instead of her hard work.",
             "1. Justin texted his girlfriend, but she didn't reply immediately. Justin assumed she was upset and wanted to break up, but in reality, she was busy with work and had many meetings. <br><br>2. Sara has a job interview soon, but she's convinced she'll do badly and won't get the job. She's worrying excessively, assuming her future is ruined, even though the interview hasn't happened yet.",
             "After a minor disagreement with a friend, you started believing that you had damaged your friendship irreparably. You worried that your friend now hated you and feared that no one else would ever want to be friends with you.",
             "Lisa wakes up feeling anxious and worried about an upcoming presentation at work. She thinks to herself, \"I feel so anxious; I must be terrible at public speaking.\"",
@@ -155,16 +160,16 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
         DistortionModelArrayList = new ArrayList<DistortionModel>();
 
         // Done: Initialize gridview (add more)
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[0], R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[1], R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[2], R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[3], R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[4], R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[5], R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[6], R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[7], R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[8], R.drawable.distortion_question));
-        DistortionModelArrayList.add(new DistortionModel(distortion_name[9], R.drawable.distortion_question));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[0], R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[1], R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[2], R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[3], R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[4], R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[5], R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[6], R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[7], R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[8], R.drawable.distortion_question_2));
+        DistortionModelArrayList.add(new DistortionModel(distortion_name[9], R.drawable.distortion_question_2));
 
 
 //        DistortionGVAdapter adapter = new DistortionGVAdapter(this, DistortionModelArrayList);
@@ -502,4 +507,48 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
         intent.putExtra("username", username);
         startActivity(intent);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pageOpenTime = System.currentTimeMillis(); // get the page open time
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pageCloseTime = System.currentTimeMillis(); // get the page close time
+
+        if (pageCloseTime - pageOpenTime > 1999){   // Only if the view time >= 2 seconds
+            sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
+        }
+//        sendTimeStampsToFirebase();
+    }
+
+    private void sendTimeStampsToFirebase() {
+        DatabaseReference activityRef = db.child("userActivity").child(username).child("Part3_5_Activity5_2");
+
+        // create a new activityID
+        String activityId = activityRef.push().getKey();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+
+        Date resultdate_open = new Date(pageOpenTime);
+        Date resultdate_close = new Date(pageCloseTime);
+
+        Map<String, Object> activityData = new HashMap<>();
+        activityData.put("openTime_ms", pageOpenTime);
+        activityData.put("closeTime_ms", pageCloseTime);
+        activityData.put("duration", pageCloseTime - pageOpenTime);
+
+        activityData.put("openTime_str", String.valueOf(resultdate_open));
+        activityData.put("closeTime_str", String.valueOf(resultdate_close));
+
+        if (activityId != null) {
+            activityRef.child(activityId).setValue(activityData)
+                    .addOnSuccessListener(aVoid -> Log.d("Firebase", "Activity time recorded successfully"))
+                    .addOnFailureListener(e -> Log.d("Firebase", "Failed to record activity time", e));
+        }
+    }
+
 }
