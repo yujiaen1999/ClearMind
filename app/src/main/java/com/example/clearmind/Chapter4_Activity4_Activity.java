@@ -103,7 +103,7 @@ public class Chapter4_Activity4_Activity extends AppCompatActivity {
     }
 
     private void open_Next_Activity() {
-        Intent intent = new Intent(this,Chapter4_Activity5_Activity.class);
+        Intent intent = new Intent(this,Chapter4_Summary_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }

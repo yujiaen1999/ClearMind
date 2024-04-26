@@ -6,6 +6,7 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,10 +28,22 @@ public class MainActivity extends AppCompatActivity {
 
     private Button button_test;
 
+//    private SharedPreferences preferences;
+//    private void incrementLaunchCount() {
+//        int launchCount = preferences.getInt("launchCount", 0);
+//        preferences.edit().putInt("launchCount", launchCount + 1).apply();
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        preferences = getSharedPreferences("AppUsageStats", MODE_PRIVATE);
+//        incrementLaunchCount();
+//        Log.d("Main count: ", String.valueOf(preferences.getInt("launchCount", 0)));
+
+
 //        Log.w("MainActivity", "onCreate");
 
 //        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);

@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter4: Willingness to carry on"
+                android:text="Willingness to Carry On"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="Keep in mind that you can allow difficult feelings to come and go without fighting and arguing with them. They can’t take control of your journey unless you allow them to. You can treat them as background noise, even though they can be loud sometimes.
+                android:text="Keep in mind that you can allow difficult feelings to come and go without fighting and arguing with them. They only gain control if you permit it. Consider them like background noise, even if they seem loud at times.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Thinking back to our discussions in chapters 2 and 3, what strategies or practices will you use to recognize these difficult passengers while keeping your focus on moving toward your destination?
+                android:text="From our earlier discussions in parts 2 and 3, what strategies will you use to stay focused on your goal while traveling with your  difficult passengers?
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -59,7 +59,7 @@
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:hint="input here"
+                android:hint="The strategy I would like to use ..."
                 android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 

@@ -1,7 +1,13 @@
 package com.example.clearmind;
 
+import android.app.AppOpsManager;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +33,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class LearnActivity extends AppCompatActivity {
@@ -62,6 +72,43 @@ public class LearnActivity extends AppCompatActivity {
     String status_postsurvey;
 
     private Integer progressValue = 0;
+
+    // Use
+    public void fetchUsageStats() {
+        UsageStatsManager usageStatsManager = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            usageStatsManager = (UsageStatsManager) getSystemService(Context.USAGE_STATS_SERVICE);
+        }
+        Calendar calendar = Calendar.getInstance();
+        long endTime = calendar.getTimeInMillis();
+        calendar.add(Calendar.DAY_OF_YEAR, -7);
+        long startTime = calendar.getTimeInMillis();
+
+        List<UsageStats> usageStatsList = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, startTime, endTime);
+
+        Map<String, Long> usageTimePerDay = new HashMap<>();
+
+        for (UsageStats stats : usageStatsList) {
+//            Log.d("This usage stats: ",String.valueOf(stats.getPackageName()));
+            if (stats.getPackageName().equals(getPackageName())) {
+                Log.d("This usage stats: ",String.valueOf(stats.getTotalTimeInForeground()));
+                Log.d("This usage stats: ", new SimpleDateFormat("yyyy-MM-dd").format(new Date(stats.getLastTimeStamp())));
+
+                String day = new SimpleDateFormat("yyyy-MM-dd").format(new Date(stats.getLastTimeStamp()));
+                long totalTimeForeground = 0; //foreground time
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    totalTimeForeground = usageTimePerDay.getOrDefault(day, 0L);
+                }
+                usageTimePerDay.put(day, totalTimeForeground + stats.getTotalTimeInForeground());
+            }
+        }
+
+        for (Map.Entry<String, Long> entry : usageTimePerDay.entrySet()) {
+            Log.d("AppUsage", "Day: " + entry.getKey() + ", Usage Time: " + entry.getValue() + " (in hours: " + entry.getValue() / (1000 * 60 * 60));
+        }
+
+    }
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +155,8 @@ public class LearnActivity extends AppCompatActivity {
         imgBtn_chapter3 = findViewById(R.id.imgbutton_chapter3);
         imgBtn_chapter4 = findViewById(R.id.imgbutton_chapter4);
         imgBtn_postsurvey = findViewById(R.id.imgbutton_postsurvey);
+
+        fetchUsageStats();
 
 //        ScrollView sv = (ScrollView) findViewById(R.id.scrollView);
 

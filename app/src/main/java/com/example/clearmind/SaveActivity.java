@@ -181,7 +181,7 @@ public class SaveActivity extends AppCompatActivity {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                status_finish_learn = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("7_Summary").getValue());
+                status_finish_learn = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("7_Activity4_5_intro_tracker").getValue());
 
                 // HANDLE status
                 if (!status_finish_learn.equals("1")){
@@ -195,7 +195,7 @@ public class SaveActivity extends AppCompatActivity {
                 boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
 
                 // TODO: change here to enable the isFirstRun judgement
-                if (true && status_finish_learn.equals("1")) {
+                if (isFirstRun && status_finish_learn.equals("1")) {
                     final View targetButton = findViewById(R.id.button_new_tracker);
                     TapTargetView.showFor(SaveActivity.this,
                             TapTarget.forView(targetButton, "This is the Goal Start Button", "Click '+' to start tracking your new goal!")
@@ -214,11 +214,12 @@ public class SaveActivity extends AppCompatActivity {
                                     super.onTargetClick(view);
                                     // when user click this button
                                     // TODO: Open form, autofill the user's input from Part 4
+                                    openPopupWindow_newTracker(view);
                                 }
                             });
 
                     SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean("isFirstRun", true); //TODO: to enable isFirstRun, change true to false
+                    editor.putBoolean("isFirstRun", false); //TODO: to enable isFirstRun, change true to false
                     editor.apply();
                 }
 
@@ -368,8 +369,8 @@ public class SaveActivity extends AppCompatActivity {
 //        barChart.max
         barChart.setNoDataText("Self-CheckIn to start tracking your current goal!");
 
-        // TODO: Bar Chart Initialization based on db
-        // TODO: Customize X axis (date string)
+        // Bar Chart NOT in use: Bar Chart Initialization based on db
+        // Bar Chart NOT in use: Customize X axis (date string)
 
          test:
         for(int i=0; i<5; i++){

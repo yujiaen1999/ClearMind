@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter4: Opening"
+                android:text="Part 4 Opening"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In part three, we practiced some positive cognitive strategies, such as breath meditation and the Stop Breathe Believe practice, which can be particularly helpful for those of us who tend to procrastinate. These techniques can assist in making progress toward our goals even when those challenging emotions arise. We also discussed the ten most common cognitive distortions that could lead to misperceptions of reality, negative emotions, and unhealthy mindsets and how we could change our thinking patterns and adopt more positive mindsets. We’ve learned that changing our thinking patterns and embracing more positive mindsets can help us overcome the urge to procrastinate. This chapter will help you find out how to stay committed to a goal that aligns with your values when difficult passengers try to throw you off track.
+                android:text="In part three, we practiced some positive cognitive strategies, such as breath meditation and the Stop Breathe Believe practice, which are useful for overcoming procrastination. We discussed common cognitive distortions and the ways to shift to positive thinking. We’ve learned that changing our thinking patterns and embracing positive mindsets help us overcome the urge to procrastinate. In this section, we'll recap key concepts from previous chapters and introduce a new framework designed to help you manage procrastination on a daily basis.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"

@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter4: Summary"
+                android:text="Part 4 Summary"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -36,8 +36,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In this chapter, we introduced a novel framework called the procrastination tracker, which consisted of two core components: goal setting and Acceptance Commitment Therapy. Additionally, we revisited content from previous chapters, discussing aspects such as identifying challenging passengers and exploring strategies or practices to maintain focus on progressing toward your destination. Now that you've established a goal for the upcoming week, remember to check in daily for the next seven days to update the procrastination tracker. We are looking forward to seeing your progress.
-                \n\nPlease take a moment and complete the following questions reflecting on your experiences:
+                android:text="Before we unlock the goal tracker feature, let’s summarize the key points covered in this part. In this part, we introduced Goal Tracker, which integrated goal-setting principles with Acceptance Commitment Therapy. We also revisited important concepts from previous parts, including coping with challenging passengers and strategies for staying focused.
+"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Following questions will help you reflect on this part:
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -95,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_main_small"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="2. Can you share a real-life situation where the information from a particular chapter proved useful when you experienced the urge to procrastinate?
+                android:text="2. Share your experience where our content helped you manage your procrastination tendency.
 " />
 
             <EditText
@@ -115,17 +125,54 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_main_small"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="3. Looking at the chapters, which one do you think has the most practical application in your daily life or work?" />
+                android:text="3. Which part(s) do you think was useful? Select all that apply." />
 
-            <EditText
-                android:id="@+id/input3"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:hint="Input your answer for question3"
-                android:padding="20dp"
-                android:background="#FFFFFF"
-                tools:ignore="ExtraText" />
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" >
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Part 1 - Discovery"
+                    android:textSize="@dimen/text_size_main_small"
+                    android:id="@+id/checkbox1"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Part 2 - Understanding"
+                    android:textSize="@dimen/text_size_main_small"
+                    android:id="@+id/checkbox2"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Part 3 - Practice"
+                    android:textSize="@dimen/text_size_main_small"
+                    android:id="@+id/checkbox3"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Part 4 - Determination"
+                    android:textSize="@dimen/text_size_main_small"
+                    android:id="@+id/checkbox4"/>
+
+            </LinearLayout>
+
+<!--            <EditText-->
+<!--                android:id="@+id/input3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:cursorVisible="true"-->
+<!--                android:hint="Input your answer for question3"-->
+<!--                android:padding="20dp"-->
+<!--                android:background="#FFFFFF"-->
+<!--                tools:ignore="ExtraText" />-->
 
             <!--      QUESTION 4      -->
             <TextView
@@ -134,17 +181,54 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_main_small"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="4. Were there any chapters that particularly engaged you or kept you interested throughout the course?" />
+                android:text="4. Which part(s) do you find interesting? Select all that apply." />
 
-            <EditText
-                android:id="@+id/input4"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:hint="Input your answer for question4"
-                android:padding="20dp"
-                android:background="#FFFFFF"
-                tools:ignore="ExtraText" />
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" >
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Part 1 - Discovery"
+                    android:textSize="@dimen/text_size_main_small"
+                    android:id="@+id/checkbox5"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Part 2 - Understanding"
+                    android:textSize="@dimen/text_size_main_small"
+                    android:id="@+id/checkbox6"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Part 3 - Practice"
+                    android:textSize="@dimen/text_size_main_small"
+                    android:id="@+id/checkbox7"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Part 4 - Determination"
+                    android:textSize="@dimen/text_size_main_small"
+                    android:id="@+id/checkbox8"/>
+
+            </LinearLayout>
+
+<!--            <EditText-->
+<!--                android:id="@+id/input4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:cursorVisible="true"-->
+<!--                android:hint="Input your answer for question4"-->
+<!--                android:padding="20dp"-->
+<!--                android:background="#FFFFFF"-->
+<!--                tools:ignore="ExtraText" />-->
 
 
             <Button

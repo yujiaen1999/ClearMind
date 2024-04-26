@@ -11,7 +11,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:text="Chapter 4: Determination"
+        android:text="Part 4: Determination"
         android:background="#5FA12E"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/text_size_heading_small"
@@ -79,7 +79,7 @@
                 android:background="@null"
                 android:drawableLeft="@drawable/icon_text"
                 android:drawablePadding="8dp"
-                android:text="Introduction of STAR framework"
+                android:text="Introduce a New Framework"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -157,22 +157,6 @@
                 app:layout_constraintVertical_bias="0.65"
                 tools:ignore="MissingConstraints" />
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:background="@null"
-                android:drawableLeft="@drawable/icon_diagram"
-                android:drawablePadding="8dp"
-                android:text="Introduce new tools"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.234"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.65"
-                tools:ignore="MissingConstraints" />
 
 <!--            <Button-->
 <!--                android:id="@+id/button8"-->
@@ -206,6 +190,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.85"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:drawableLeft="@drawable/icon_diagram"
+                android:drawablePadding="8dp"
+                android:text="Introduce Goal Tracker"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.234"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.65"
                 tools:ignore="MissingConstraints" />
 
             <TextView

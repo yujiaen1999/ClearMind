@@ -158,8 +158,8 @@ public class Chapter4_Activity extends AppCompatActivity {
                 String status_3 = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("3_Activity4_2").getValue());
                 String status_4 = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("4_Activity4_3").getValue());
                 String status_5 = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("5_Activity4_4").getValue());
-                String status_6 = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("6_Activity4_5").getValue());
-                String status_7 = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("7_Summary").getValue());
+                String status_6 = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("6_Summary").getValue());
+                String status_7 = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("7_Activity4_5_intro_tracker").getValue());
 
                 // HANDLE status_1
                 if (status_1.equals("0")) {
@@ -292,37 +292,11 @@ public class Chapter4_Activity extends AppCompatActivity {
 
                 // HANDLE status_6
                 if (status_6.equals("0")){
-                    button_activity5.setOnClickListener(new View.OnClickListener() {
+                    button_summary.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             if(status_5.equals("1")){
                                 Toast.makeText(Chapter4_Activity.this, "Open", Toast.LENGTH_SHORT).show();
-                                open_Chapter4_Activity5();
-                            } else{
-                                Toast.makeText(Chapter4_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                } else {
-                    // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_diagram_done);
-                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
-                    button_activity5.setCompoundDrawables(icon_done, null, null, null);
-                    button_activity5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            open_Chapter4_Activity5();
-                        }
-                    });
-                }
-
-                // HANDLE status_7
-                if (status_7.equals("0")){
-                    button_summary.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if(status_6.equals("1")){
-    //                                Toast.makeText(Chapter3_Activity.this, "Open", Toast.LENGTH_SHORT).show();
                                 open_Chapter4_Summary();
                             } else{
                                 Toast.makeText(Chapter4_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
@@ -334,6 +308,32 @@ public class Chapter4_Activity extends AppCompatActivity {
                     Drawable icon_done = getResources().getDrawable(R.drawable.icon_summary_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_summary.setCompoundDrawables(icon_done, null, null, null);
+                    button_summary.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            open_Chapter4_Summary();
+                        }
+                    });
+                }
+
+                // HANDLE status_7
+                if (status_7.equals("0")){
+                    button_activity5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_6.equals("1")){
+    //                                Toast.makeText(Chapter3_Activity.this, "Open", Toast.LENGTH_SHORT).show();
+                                open_Chapter4_Activity5();
+                            } else{
+                                Toast.makeText(Chapter4_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
+                    // status == "1"
+                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_diagram_done);
+                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
+                    button_activity5.setCompoundDrawables(icon_done, null, null, null);
 
                     // Add finish word
                     TextView finish_word = findViewById(R.id.finish_word);
@@ -342,10 +342,10 @@ public class Chapter4_Activity extends AppCompatActivity {
     //                    finish_word.setText("You have finished this Chapter!");
                     finish_word.setBackgroundResource(R.drawable.shape_hints);
 
-                    button_summary.setOnClickListener(new View.OnClickListener() {
+                    button_activity5.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            open_Chapter4_Summary();
+                            open_Chapter4_Activity5();
                         }
                     });
                 }
