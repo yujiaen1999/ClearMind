@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        android:background="#F2FFD8" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:text="Identify Your Passengers &amp; \nPassengers on the Bus Diagram"
+                android:textStyle="bold"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_heading_small" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="Recognizing these passengers is the first step to overcome procrastination and stay on track towards your destination! Think of your destination and possible challenging passengers. It can be anything like “health”, or “getting homework done.”
+"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="My destination:"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="@dimen/text_size_main_large" />-->
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/bus_diagram_new" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:text="My destination:"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="18dp" />-->
+
+            <EditText
+                android:id="@+id/input1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:layout_marginTop="@dimen/text_internal"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingHorizontal="10dp"
+                android:hint="My destination"
+                android:textSize="@dimen/text_size_main_large"
+                android:background="#FFFFFF"
+                android:inputType="textMultiLine" />
+
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="My passengers:"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="@dimen/text_size_main_large" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="180dp"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:src="@drawable/part2_diagram2" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView4"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:text="Passenger A:"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="18dp" />-->
+
+            <EditText
+                android:id="@+id/input2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingHorizontal="10dp"
+                android:hint="Passenger A"
+                android:textSize="@dimen/text_size_main_large"
+                android:background="#FFFFFF"
+                android:inputType="textMultiLine" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:text="Passenger B:"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="18dp"-->
+<!--                android:paddingTop="10dp"/>-->
+
+            <EditText
+                android:id="@+id/input3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:layout_marginTop="@dimen/text_internal"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingHorizontal="10dp"
+                android:hint="Passenger B"
+                android:textSize="@dimen/text_size_main_large"
+                android:background="#FFFFFF"
+                android:inputType="textMultiLine" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView6"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:text="Passenger C:"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="18dp"-->
+<!--                android:paddingTop="10dp"/>-->
+
+            <EditText
+                android:id="@+id/input4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingHorizontal="10dp"
+                android:hint="Passenger C"
+                android:textSize="@dimen/text_size_main_large"
+                android:background="#FFFFFF"
+                android:inputType="textMultiLine" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="How do your passengers persuade you to give up on your goal?"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large"
+                android:paddingTop="5dp"/>
+
+            <EditText
+                android:id="@+id/input5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingHorizontal="10dp"
+                android:hint="Passengers' persuasion"
+                android:textSize="@dimen/text_size_main_large"
+                android:background="#FFFFFF"
+                android:inputType="textMultiLine" />
+
+
+            <!--            <RelativeLayout-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/diagram2"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="370dp"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:src="@drawable/diagram2" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/circle_tv"-->
+            <!--                    android:layout_width="100dp"-->
+            <!--                    android:layout_height="60dp"-->
+            <!--                    android:layout_alignLeft="@+id/diagram2"-->
+            <!--                    android:layout_alignParentEnd="false"-->
+            <!--                    android:layout_alignParentBottom="false"-->
+            <!--                    android:layout_centerHorizontal="true"-->
+            <!--                    android:layout_marginLeft="296dp"-->
+            <!--                    android:layout_marginTop="10dp"-->
+            <!--                    android:layout_marginEnd="160dp"-->
+            <!--                    android:layout_marginBottom="171dp"-->
+            <!--                    android:background="@null"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="TEST"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="20sp" />-->
+            <!--            </RelativeLayout>-->
+
+
+            <Button
+                android:id="@+id/button_previous"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                app:backgroundTint="#5FA12E" />
+
+            <Button
+                android:id="@+id/button_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                app:backgroundTint="#5FA12E"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        app:backgroundTint="#5FA12E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.clearmind">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ClearMind.NoActionBar">
+        <activity
+            android:name=".SettingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginPageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LearnActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SaveActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AchieveActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SecureQuestionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurveyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey5_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey6_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey7_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey8_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey9_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey10_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey11_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey12_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey13_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PreSurvey14_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Opening_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Activity1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Activity2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Activity2_Question_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Intro_ACT_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Time_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Summary_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Opening_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity2_1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity2_2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity2_2Q_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Activity2_3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Diagram_Activity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Chapter2_Activity2_5_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter2_Summary_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Opening_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity3_new_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity3_Activity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".Chapter3_Activity3_2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity3_3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity3_4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity4_stop_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity4_breathe_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity4_believe_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity4_sum_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity5_1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity5_2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity5_sum_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Activity6_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter3_Summary_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Opening_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Activity5_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter4_Summary_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey1_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey2_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey3_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey4_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey5_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey6_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey7_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey8_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey9_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey10_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey11_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey12_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PostSurvey13_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".AddTimeStamp"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="true"
+            android:parentActivityName=".LoginPageActivity"></activity>
+
+        <receiver
+            android:name=".TimeBroadcast"
+            android:permission="android.permission.SEND_SMS"
+            android:enabled="true"
+            android:exported="true">
+        <intent-filter>
+            <action
+                android:name="android.intent.action.AIRPLANE_MODE"/>
+        </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
