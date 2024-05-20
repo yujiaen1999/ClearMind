@@ -7,12 +7,12 @@
     android:background="#F2FFD8"
     android:id="@+id/activity_pre_survey_1">
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="#F2FFD8"-->
-<!--        tools:layout_editor_absoluteX="-16dp"-->
-<!--        tools:layout_editor_absoluteY="-165dp">-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-165dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,16 +62,18 @@
             tools:layout_editor_absoluteX="56dp"
             tools:layout_editor_absoluteY="16dp" />
 
+        <!--      QUESTION 1      -->
         <TextView
             android:id="@+id/introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_internal"
-            android:text="This Survey contains 68 questions in total, and it takes approximately 10 minutes to complete."
+            android:text="This Survey takes approximately 10 minutes to complete."
             android:textSize="@dimen/text_size_main_small"
             android:textStyle="bold" />
 
-        <!--      QUESTION 1      -->
+<!--        This Survey contains 68 questions in total, and it takes approximately 10 minutes to complete.-->
+
         <TextView
             android:id="@+id/question_1"
             android:layout_width="wrap_content"
@@ -105,14 +107,17 @@
             android:paddingLeft="20dp" >
 
             <RadioButton
+                android:id="@+id/radiobtn_1"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="Male" />
             <RadioButton
+                android:id="@+id/radiobtn_2"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="Female" />
             <RadioButton
+                android:id="@+id/radiobtn_3"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="Other" />
@@ -150,30 +155,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginBottom="45dp"
             android:paddingLeft="20dp"
             android:paddingRight="10dp" >
 
             <RadioButton
+                android:id="@+id/radiobtn_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0-1 year" />
 
             <RadioButton
+                android:id="@+id/radiobtn_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1-2 years" />
 
             <RadioButton
+                android:id="@+id/radiobtn_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2-3 years" />
 
             <RadioButton
+                android:id="@+id/radiobtn_7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3-4 years" />
 
             <RadioButton
+                android:id="@+id/radiobtn_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4+ years" />
@@ -241,7 +252,7 @@
 <!--        </LinearLayout>-->
 
     </LinearLayout>
-<!--    </ScrollView>-->
+    </ScrollView>
 
     <Button
         android:id="@+id/button_previous"

@@ -95,9 +95,6 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
                 if (checkBox4.isChecked()) {
                     user_choice.add(checkBox4.getText().toString());
                 }
-                if (checkBox4.isChecked()) {
-                    user_choice.add(checkBox4.getText().toString());
-                }
                 if (checkBox5.isChecked()) {
                     user_choice.add(checkBox5.getText().toString());
                 }

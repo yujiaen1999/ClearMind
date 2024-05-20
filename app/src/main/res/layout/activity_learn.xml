@@ -88,16 +88,43 @@
 <!--            android:layout_height="140dp"-->
 <!--            android:layout_weight="1" />-->
 
-        <com.example.clearmind.CustomProgressBar
-            android:id="@+id/progressBar2"
+<!--        <com.example.clearmind.CustomProgressBar-->
+<!--            android:id="@+id/progressBar2"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="140dp"-->
+<!--            android:indeterminate="false"-->
+<!--            android:progressDrawable="@drawable/circular_progress_bar"-->
+<!--            android:background="@drawable/circle_shape"-->
+<!--            style="?android:attr/progressBarStyleHorizontal"-->
+<!--            android:max="100"-->
+<!--            android:progress="65"/>-->
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="100dp"
-            android:layout_height="140dp"
-            android:indeterminate="false"
-            android:progressDrawable="@drawable/circular_progress_bar"
-            android:background="@drawable/circle_shape"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:max="100"
-            android:progress="65"/>
+            android:layout_height="140dp" >
+
+            <com.example.clearmind.CustomProgressBar
+                android:id="@+id/progressBar2"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:background="@drawable/circle_shape"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="100"
+                android:progress="65"/>
+
+            <TextView
+                android:id="@+id/progressBar2_text"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:textSize="12sp"
+                android:text="0/31\nCompleted"
+                android:gravity="center"
+                android:layout_alignTop="@id/progressBar2"
+                android:layout_alignStart="@id/progressBar2" />
+
+        </RelativeLayout>
 
 
 
@@ -121,19 +148,22 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingTop="1.5dp"
         android:background="@drawable/bg_learn_list"
+        android:overScrollMode="never"
         app:layout_constraintTop_toBottomOf="@+id/welcome"
         app:layout_constraintBottom_toTopOf="@+id/navigation_buttons" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/imgbutton_presurvey"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
+                android:paddingHorizontal="10dp"
                 app:srcCompat="@drawable/imgbutton_presurvey_0"
                 android:background="@null"/>
 

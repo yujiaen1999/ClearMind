@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter3: Identify how it feels in your body"
+                android:text="Identify How it Feels Within Your Body"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="Now let’s visualize where this difficult emotion seems to manifest within your body. Try to explain in detail how it affects both your body and mind."
+                android:text="Feel/visualize which part of your body these challenging emotions run through and how it affects both your body and mind."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="What physical sensations do you observe accompanying this emotion?"
+                android:text="What physical sensations do you notice accompanying this emotion?"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />

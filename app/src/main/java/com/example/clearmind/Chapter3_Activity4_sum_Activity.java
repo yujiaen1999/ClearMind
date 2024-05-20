@@ -15,6 +15,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
+// *****************************
+// Not In Use !!!!!!!
+// *****************************
 public class Chapter3_Activity4_sum_Activity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;

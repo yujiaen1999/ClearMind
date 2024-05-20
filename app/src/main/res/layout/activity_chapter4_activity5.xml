@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:gravity="center"
             android:layout_marginLeft="@dimen/fab_margin"
             android:layout_marginRight="@dimen/fab_margin" >
 
@@ -24,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter4: Introduce new tools"
+                android:text="Introduce Goal Tracker"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -35,18 +36,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="Our app provides a variety of valuable features to support your goal achievement. The Goal Tracker tool guides you in setting a week-long goal using the STAR framework. In the Goal Breakdown section, you can update your progress daily and record your procrastination tendencies. At the end of the week, you'll have a chance to reflect on your weekly accomplishments and your procrastination habits.
+                android:text="Now you are officially ready to start using our Goal Tracker! Before you start, make sure to check out the tutorial video:
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/text_internal"
+                tools:ignore="WebViewLayout" />
+
+
+            <TextView
+                android:id="@+id/transcript"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_hints"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="5dp"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Can’t play the video?"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_small" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Now, let's complete the Goal Tracker worksheet based on the goal you set in the previous activities. Remember to return daily for the next seven days to update the worksheet. If you find yourself feeling anxious or tempted to procrastinate, don't hesitate to revisit our course materials for guidance.
+                android:text="Now with your weekly goal set, remember to check in over the next seven days to update the tracker. We are looking forward to seeing your progress.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -65,7 +88,8 @@
                 android:id="@+id/button_next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Next"
+                android:text="Unlock Goal Tracker"
+                android:layout_marginBottom="@dimen/text_internal"
                 app:backgroundTint="#5FA12E"/>
 
 

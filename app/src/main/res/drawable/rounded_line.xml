@@ -3,7 +3,12 @@
     android:shape="rectangle">
     <!-- color -->
 <!--    <solid android:color="@android:color/transparent" />-->
-    <solid android:color="#538B29" />
+<!--    TODO: Cognitive distortion PopupWindow color change?-->
+<!--    <solid android:color="#538B29" />-->
+    <solid android:color="#F2FFD8" />
+<!--    distortion icon background color: B6EB9D-->
+<!--    <solid android:color="#B6EB9D" />-->
+
     <!-- set corner -->
     <!-- android:radius -->
     <corners android:radius="10dip" />

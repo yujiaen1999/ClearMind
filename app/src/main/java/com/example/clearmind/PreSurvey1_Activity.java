@@ -2,21 +2,30 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -70,11 +79,65 @@ public class PreSurvey1_Activity extends AppCompatActivity {
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
 
+        EditText answer1 = findViewById(R.id.answer1);
+        EditText answer3 = findViewById(R.id.answer3);
+        TextView intro = findViewById(R.id.introduction);
+        intro.setText(Html.fromHtml("This Survey takes approximately <u>10 minutes</u> to complete."));
+
         RadioGroup radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
         RadioGroup radiogroup2 = (RadioGroup) findViewById(R.id.radioGroup2);
 
         activityRef = db.child("userActivity").child(username).child("PreSurvey_1");
         activityId = activityRef.push().getKey();
+
+        // Retrieve and Display user input from the database
+        db.child("PreSurvey").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                HashMap<String, String> hashmap_presurvey= (HashMap<String, String>) task.getResult().getValue();
+                if(!task.isSuccessful()){
+                    Log.e("firebase_summary", "Error getting data", task.getException());
+                }else{
+                    Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
+                    if(hashmap_presurvey != null){
+                        answer1.setText(hashmap_presurvey.get("0_age"));
+                        answer3.setText(hashmap_presurvey.get("0_major"));
+
+                        String current_answer2 = hashmap_presurvey.get("0_gender");
+                        switch (current_answer2) {
+                            case "Male":
+                                radiogroup1.check(R.id.radiobtn_1);
+                                break;
+                            case "Female":
+                                radiogroup1.check(R.id.radiobtn_2);
+                                break;
+                            case "Other":
+                                radiogroup1.check(R.id.radiobtn_3);
+                                break;
+                        };
+
+                        String current_answer4 = hashmap_presurvey.get("0_yrs_school");
+                        switch (current_answer4) {
+                            case "0-1 year":
+                                radiogroup2.check(R.id.radiobtn_4);
+                                break;
+                            case "1-2 years":
+                                radiogroup2.check(R.id.radiobtn_5);
+                                break;
+                            case "2-3 years":
+                                radiogroup2.check(R.id.radiobtn_6);
+                                break;
+                            case "3-4 years":
+                                radiogroup2.check(R.id.radiobtn_7);
+                                break;
+                            case "4+ years":
+                                radiogroup2.check(R.id.radiobtn_8);
+                                break;
+                        };
+                    }
+                }
+            }
+        });
 
         radiogroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -104,9 +167,9 @@ public class PreSurvey1_Activity extends AppCompatActivity {
             public void onClick(View v){
                 boolean toNextPage = false;
 
-                EditText answer1 = findViewById(R.id.answer1);
-//                EditText answer2 = findViewById(R.id.answer2);
-                EditText answer3 = findViewById(R.id.answer3);
+//                EditText answer1 = findViewById(R.id.answer1);
+////                EditText answer2 = findViewById(R.id.answer2);
+//                EditText answer3 = findViewById(R.id.answer3);
 
                 String txt_answer1 = answer1.getText().toString();
 //                String txt_answer2 = answer2.getText().toString();
@@ -126,9 +189,9 @@ public class PreSurvey1_Activity extends AppCompatActivity {
                 }
 
                 if (toNextPage){
-                    open_Next_Activity();
+//                    open_Next_Activity();
+                    openPopupWindow(v);
                 }
-//                open_Next_Activity();
             }
         });
 
@@ -144,9 +207,34 @@ public class PreSurvey1_Activity extends AppCompatActivity {
         Intent intent = new Intent(this,PreSurvey2_Activity.class);
         intent.putExtra("username", username);
         intent.putExtra("activityId", activityId);
-        Log.d("activityId: ", activityId);
+//        Log.d("activityId: ", activityId);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
+    }
+
+    private void openPopupWindow(View view) {
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_popup_remind, null);
+
+        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow);
+        popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setFocusable(true);
+
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        TextView show_score = (TextView) viewPopupWindow.findViewById(R.id.textView_content);
+        Button button_confirm = (Button) viewPopupWindow.findViewById(R.id.button_confirm);
+
+//        String show_txt = "Please finish the rest survey in one sitting.”";
+        show_score.setText(Html.fromHtml("Please finish the rest survey <b>in one sitting.</b>"));
+
+        button_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                open_Next_Activity();
+            }
+        });
     }
 
     @Override

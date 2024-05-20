@@ -72,6 +72,8 @@ public class ProfileActivity extends AppCompatActivity {
         achieve_button = (Button) findViewById(R.id.button_achieve);
 //        profile_button = (Button) findViewById(R.id.button_profile);
 
+        achieve_button.setVisibility(View.GONE);
+
         button_to_setting = (Button) findViewById(R.id.setting_button);
         logout_button = (Button) findViewById(R.id.logout_button);
 

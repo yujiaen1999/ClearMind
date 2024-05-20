@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter3: Opening"
+                android:text="Part 3 Opening"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -35,11 +35,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In part two, we discussed challenging emotions linked to procrastination that you might come across. We also discovered a new way to handle these challenging thoughts and feelings. In this chapter, we’ll practice some positive cognitive strategies that help you make progress towards your goal, even when those challenging emotions pop up.
+                android:text="So far we learned that:
+Procrastination is often a resulting behavior triggered by some challenging emotions (part 1)
+You can allow those challenging emotions to exist but just do not let them sabotage your goal/value (part 2)
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginVertical="@dimen/text_internal"-->
+<!--                android:text="In this part, we'll guide you through a step-by-step approach for managing challenging emotions. We will start with identifying your challenging emotions (Activity 3.1), followed by noticing how these emotions manifest physically within your body (Activity 3.2). Next, you'll engage in some meditation exercises to help you stay calm and focused (Activity 3.3). In Activity 3.4,  you'll create a compassionate self-talk statement to help manage your challenging emotions. To understand where these emotions come from, try Activity 3.5.-->
+<!--"-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="@dimen/text_size_main_large" />-->
 
             <Button
                 android:id="@+id/button_previous"

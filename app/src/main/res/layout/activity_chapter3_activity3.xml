@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter3: Practice breath meditation"
+                android:text="1. The 20 Breath Meditation"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -100,25 +100,39 @@
                 android:paddingTop="5dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="5dp"
+                android:layout_marginBottom="@dimen/text_internal"
                 android:text="Can’t play the video?"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_small" />
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/text_internal"
-                android:text="Gradually increase the duration of your practice in small steps. You might consider using a timer to help you track the time. Keep the duration comfortable and manageable, so that you feel a sense of accomplishment rather than frustration if you find it challenging to complete it at first. "
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Let's bring your attention to your breath. Without changing how you breathe,
+Gradually increase the duration of your practice in small steps. You might consider using a timer to help you track the time. Keep the duration comfortable and manageable, so that you feel a sense of accomplishment rather than frustration if you find it challenging to complete it at first.
+"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginVertical="@dimen/text_internal"-->
+<!--                android:text="Gradually increase the duration of your practice in small steps. You might consider using a timer to help you track the time. Keep the duration comfortable and manageable, so that you feel a sense of accomplishment rather than frustration if you find it challenging to complete it at first. "-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="@dimen/text_size_main_large" />-->
 
 
             <Button
                 android:id="@+id/button_previous"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:text="Back"
                 app:backgroundTint="#5FA12E" />
 

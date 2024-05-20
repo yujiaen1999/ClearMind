@@ -6,117 +6,92 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_general">
 
-    <TextView
-        android:id="@+id/welcome_title"
-        android:layout_width="390dp"
-        android:layout_height="48dp"
-        android:text="ClearMind Security Questions"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#E60C0C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.200" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="305dp"
-        android:layout_height="24dp"
-        android:text="Security Question1:"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="209dp"
-        tools:ignore="DuplicateIds,MissingConstraints"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.300" />
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="305dp"
-        android:layout_height="28dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="243dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.350"/>
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin" >
 
-    <EditText
-        android:id="@+id/answer1"
-        android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Answer1"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.410"
-        tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="80dp"
+            app:srcCompat="@drawable/design_photoroom" />
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="305dp"
-        android:layout_height="24dp"
-        android:text="Security Question2:"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="209dp"
-        tools:ignore="DuplicateIds,MissingConstraints"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.500" />
+        <TextView
+            android:id="@+id/welcome_title"
+            android:layout_width="390dp"
+            android:layout_height="48dp"
+            android:text="ClearMind Sign up"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#5FB918" />
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="305dp"
-        android:layout_height="28dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="243dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.550"/>
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="305dp"
+            android:layout_height="24dp"
+            android:text="Security Question1:" />
 
-    <EditText
-        android:id="@+id/answer2"
-        android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Answer1"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.610"
-        tools:ignore="MissingConstraints" />
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="305dp"
+            android:layout_height="28dp" />
 
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="openMain"
-        android:text="Submit"
-        app:backgroundTint="#EC96B3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.815" />
+        <EditText
+            android:id="@+id/answer1"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Answer1"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="305dp"
+            android:layout_height="24dp"
+            android:text="Security Question2:" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="305dp"
+            android:layout_height="28dp"
+            />
+
+        <EditText
+            android:id="@+id/answer2"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Answer2"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:onClick="openMain"
+            android:text="Next"
+            app:backgroundTint="#5FB918"
+            android:layout_marginTop="50dp"/>
+
+    </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

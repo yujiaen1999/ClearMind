@@ -27,11 +27,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter3: Be aware of cognitive distortions"
-                android:textStyle="bold"
+                android:text="Be Aware of Cognitive Distortions"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="@dimen/text_size_heading_small" />
+                android:textSize="@dimen/text_size_heading_small"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView2"

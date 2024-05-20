@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter3: Reflections on cognitive distortions"
+                android:text="Reflecting on Cognitive Distortions in Various Procrastination Types"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="In Chapter 1, we introduced three different types of procrastination, which were arousal, avoidant, and decisional procrastination."
+                android:text="In part 1, we introduced three different types of procrastination."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
@@ -61,8 +61,17 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reflect on your own experiences and explore whether you've noticed any pattern where specific cognitive distortions consistently lead to certain types of procrastination tendencies. In what situations do these connections become more evident?
-                \n\nNow, imagine a scenario in the future where you change these ways of thinking. How might these changes help you overcome procrastination tendencies and positively impact your academic outcomes? Describe potential strategies you want to apply to make these changes happen in real life."
+                android:text="Think of your past procrastination experiences. Do you recognize any specific cognitive distortions behind those particular procrastination episodes? How would you like to change these thought patterns in the future?"
+                android:textAlignment="textStart"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Describe your episodes, cognitive distortions behind, and some potential strategies."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />

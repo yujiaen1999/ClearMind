@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +46,8 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
     private WebView webView;
 
     private TextView button_transcript;
+    private long pageOpenTime;
+    private long pageCloseTime;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +60,8 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
 
+        button_next.setVisibility(View.GONE);
+
         // enable video transcript button
         button_transcript = findViewById(R.id.transcript);
         final Integer[] flag = {0};
@@ -66,6 +73,7 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
 
                 if (flag[0] == 0){
                     String txt_hints = "<p style=\"text-align: center\"><b>Can’t play the video?</b></p>\n" +
+                            "The 20 Breath Meditation is a concentration practice which brings your awareness to one thing and keeps it there. If your mind goes off track, don't worry, just guide it back to the object of concentration, which is the breath and the counting.<br><br>"+
                             "Focus on your breath. Without changing how you breathe, become aware of all the sensations that come with breathing. Start counting your exhales using your inner voice. As you exhale for the first time, say \"one\" silently. Continue this pattern with the next exhale, saying \"two.\" Keep up until you've counted ten full breath cycles. After that, count another ten cycles, but this time go in reverse order, starting from ten and counting down to one." +
                             "<br><br>" +
                             "Give each breath your full attention. Observe the subtle differences in the sensations of your breath. Remember, you're not changing your breath; you're simply using it as a focal point to keep your mind anchored." +
@@ -144,6 +152,11 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                // update meditation progress
+                Map<String, Object> meditation_progress_update = new HashMap<>();
+                meditation_progress_update.put("meditation_0", "1");
+                db.child("Chapter3").child("activity3").child(username).updateChildren(meditation_progress_update);
+
                 open_Previous_Activity();
             }
         });
@@ -151,10 +164,10 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                // update Chapter progress
-                Map<String, Object> chapter_progress_update = new HashMap<>();
-                chapter_progress_update.put("4_Activity3_3", "1");
-                db.child("Chapter3").child("progress").child(username).updateChildren(chapter_progress_update);
+                // update meditation progress
+                Map<String, Object> meditation_progress_update = new HashMap<>();
+                meditation_progress_update.put("meditation_0", "1");
+                db.child("Chapter3").child("activity3").child(username).updateChildren(meditation_progress_update);
 
                 open_Next_Activity();
             }
@@ -247,13 +260,13 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
 //    }
 
     private void open_Previous_Activity() {
-        Intent intent = new Intent(this,Chapter3_Activity2_Activity.class);
+        Intent intent = new Intent(this,Chapter3_Activity3_new_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }
 
     private void open_Next_Activity() {
-        Intent intent = new Intent(this,Chapter3_Activity4_Activity.class);
+        Intent intent = new Intent(this,Chapter3_Activity3_new_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }
@@ -264,5 +277,47 @@ public class Chapter3_Activity3_Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pageOpenTime = System.currentTimeMillis(); // get the page open time
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pageCloseTime = System.currentTimeMillis(); // get the page close time
+
+        if (pageCloseTime - pageOpenTime > 1999){   // Only if the view time >= 2 seconds
+            sendTimeStampsToFirebase(); // store the Time Stamp to Firebase
+        }
+//        sendTimeStampsToFirebase();
+    }
+
+    private void sendTimeStampsToFirebase() {
+        DatabaseReference activityRef = db.child("userActivity").child(username).child("Part3_3_Activity3_Meditation1");
+
+        // create a new activityID
+        String activityId = activityRef.push().getKey();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+
+        Date resultdate_open = new Date(pageOpenTime);
+        Date resultdate_close = new Date(pageCloseTime);
+
+        Map<String, Object> activityData = new HashMap<>();
+        activityData.put("openTime_ms", pageOpenTime);
+        activityData.put("closeTime_ms", pageCloseTime);
+        activityData.put("duration", pageCloseTime - pageOpenTime);
+
+        activityData.put("openTime_str", String.valueOf(resultdate_open));
+        activityData.put("closeTime_str", String.valueOf(resultdate_close));
+
+        if (activityId != null) {
+            activityRef.child(activityId).setValue(activityData)
+                    .addOnSuccessListener(aVoid -> Log.d("Firebase", "Activity time recorded successfully"))
+                    .addOnFailureListener(e -> Log.d("Firebase", "Failed to record activity time", e));
+        }
+    }
 
 }

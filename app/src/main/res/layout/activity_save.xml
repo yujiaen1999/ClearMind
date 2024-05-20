@@ -95,7 +95,7 @@
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="Learn contents to unlock Goal Tracker!"
+            android:text="Complete the Learn Page to unlock Goal Tracker"
             android:textColor="#000000"
             android:textSize="@dimen/text_size_heading_small"
             android:textStyle="bold" />
@@ -167,13 +167,13 @@
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
-            <ImageButton
-                android:id="@+id/button_info"
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:src="@drawable/button_info"
-                android:contentDescription="Add" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/button_info"-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@null"-->
+<!--                android:src="@drawable/button_info"-->
+<!--                android:contentDescription="Add" />-->
 
         </LinearLayout>
 

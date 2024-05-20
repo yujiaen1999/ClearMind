@@ -2,10 +2,12 @@ package com.example.clearmind;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
@@ -83,6 +85,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
+
 public class SaveActivity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;
@@ -117,6 +122,8 @@ public class SaveActivity extends AppCompatActivity {
     private PopupWindow speechBubble;
 
     private String[] tooltip_date;
+
+    private String status_finish_learn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,13 +163,14 @@ public class SaveActivity extends AppCompatActivity {
 //        bar_checkin_button = (Button) findViewById(R.id.button_checkin_bar);
         TextView new_gaol_reminder = findViewById(R.id.new_gaol_reminder);
         new_gaol_reminder.setVisibility(View.GONE);
+        achieve_button.setVisibility(View.GONE);
 
         ScrollView scrollView = findViewById(R.id.scrollView);
         LinearLayout locked_part = findViewById(R.id.locked_part);
 
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
-        updateProgress(70);
+        updateProgress(0);
         // set the progress bar here
 //        progressBar.setProgress(50); // 50% for example
 
@@ -173,14 +181,50 @@ public class SaveActivity extends AppCompatActivity {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String status_finish_learn = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("7_Summary").getValue());
+                status_finish_learn = String.valueOf(snapshot.child("Chapter4").child("progress").child(username).child("7_Activity4_5_intro_tracker").getValue());
+                HashMap<String,Object> status_isFirstRun = (HashMap<String,Object>) snapshot.child("Tracker").child(username).getValue();
 
                 // HANDLE status
                 if (!status_finish_learn.equals("1")){
+                    // Tracker locked
                     scrollView.setVisibility(View.GONE);
                     newTracker_button.setVisibility(View.GONE);
                     locked_part.setVisibility(View.VISIBLE);
                 }
+
+                // TODO: change here to enable the isFirstRun judgement
+                if (status_isFirstRun != null && status_finish_learn.equals("1")) {
+                    final View targetButton = findViewById(R.id.button_new_tracker);
+                    TapTargetView.showFor(SaveActivity.this,
+                            TapTarget.forView(targetButton, "This is the Goal Start Button", "Click '+' to start tracking your new goal!")
+                                    .transparentTarget(true)
+                                    .targetRadius(45)
+                                    .outerCircleColor(R.color.green)
+                                    .outerCircleAlpha(0.99f)            // Specify the alpha amount for the outer circle
+                                    .targetCircleColor(R.color.yellow)
+                                    .textColor(R.color.white)
+                                    .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
+                                    .drawShadow(true)
+                                    .tintTarget(true),
+                            new TapTargetView.Listener() {
+                                @Override
+                                public void onTargetClick(TapTargetView view) {
+                                    super.onTargetClick(view);
+                                    // when user click this button
+                                    // TODO: Open form, autofill the user's input from Part 4
+                                    HashMap<String, String> user_input = new HashMap<String, String>();
+                                    user_input.put("goal_specific", String.valueOf(snapshot.child("Chapter4").child("activity2").child(username).child("S").getValue()));
+                                    user_input.put("purpose", String.valueOf(snapshot.child("Chapter4").child("activity2").child(username).child("R").getValue()));
+                                    user_input.put("emotion", String.valueOf(snapshot.child("Chapter4").child("activity3").child(username).child("answer1").getValue()));
+                                    user_input.put("strategy", String.valueOf(snapshot.child("Chapter4").child("activity4").child(username).child("answer1").getValue()));
+
+                                    openPopupWindow_newTracker(view, true, user_input);
+                                }
+                            });
+
+                }
+
+
             }
 
             @Override
@@ -194,6 +238,37 @@ public class SaveActivity extends AppCompatActivity {
 //            scrollView.setVisibility(View.GONE);
 //            newTracker_button.setVisibility(View.GONE);
 //            locked_part.setVisibility(View.VISIBLE);
+//        }
+
+//        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+//        boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
+//
+//        if (isFirstRun && status_finish_learn.equals("1")) {
+//            // 显示引导层
+//            final View targetButton = findViewById(R.id.button_new_tracker); // 替换为你的按钮ID
+//            TapTargetView.showFor(this,
+//                    TapTarget.forView(targetButton, "This is the Start Button", "Click this to start tracking your new goal!")
+//                            .transparentTarget(true)   // 按钮透明效果
+//                            .targetRadius(40)
+//                            .outerCircleColor(R.color.green)
+//                            .outerCircleAlpha(0.99f)            // Specify the alpha amount for the outer circle
+//                            .targetCircleColor(R.color.yellow) // 圆圈颜色
+//                            .textColor(R.color.white)   // 文本颜色
+//                            .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
+//                            .drawShadow(true)
+//                            .tintTarget(true),
+//            new TapTargetView.Listener() {
+//                        @Override
+//                        public void onTargetClick(TapTargetView view) {
+//                            super.onTargetClick(view);
+//                            // 当用户点击目标时的动作
+//                        }
+//                    });
+//
+//            // 更新首次运行状态
+//            SharedPreferences.Editor editor = prefs.edit();
+//            editor.putBoolean("isFirstRun", true);
+//            editor.apply();
 //        }
 
 
@@ -295,8 +370,8 @@ public class SaveActivity extends AppCompatActivity {
 //        barChart.max
         barChart.setNoDataText("Self-CheckIn to start tracking your current goal!");
 
-        // TODO: Bar Chart Initialization based on db
-        // TODO: Customize X axis (date string)
+        // Bar Chart NOT in use: Bar Chart Initialization based on db
+        // Bar Chart NOT in use: Customize X axis (date string)
 
          test:
         for(int i=0; i<5; i++){
@@ -630,14 +705,53 @@ public class SaveActivity extends AppCompatActivity {
         selfcheckin_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                openPopupWindow(v);
+                // Determine whether there is an exist current plan
+                db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        String current_plan_name = task.getResult().getValue().toString();
+                        if(!task.isSuccessful()){
+                            Log.e("firebase_tracker", "Error getting data", task.getException());
+                            Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+                            if(current_plan_name != null){
+                                // if exist a current plan, open check in window
+                                openPopupWindow(v);
+                            } else{
+                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+
+//                db.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+////                    Post post = dataSnapshot.getValue(Post.class);
+//                        String current_plan_name = dataSnapshot.child("Tracker").child(username).child("current_plan").child("goal").getValue(String.class);
+//                        if (current_plan_name == null){
+//                            Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            // if exist a current plan, open check in window
+//                            openPopupWindow(v);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//                        System.out.println("The read failed: " + databaseError.getCode());
+//                    }
+//                });
+
+//                openPopupWindow(v);
             }
         });
 
         newTracker_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                openPopupWindow_newTracker(v);
+                openPopupWindow_newTracker(v, false, new HashMap<String,String>());
             }
         });
 
@@ -653,15 +767,15 @@ public class SaveActivity extends AppCompatActivity {
         barChart.invalidate(); // Refresh the chart
     }
 
-    private void update_LineChart() {
-        LineDataSet dataSet = new LineDataSet(entries_line, "Data point");
-        dataSet.setDrawValues(false);
-        dataSet.setColor(Color.BLUE);
-
-        LineData lineData = new LineData(dataSet);
-        lineChart.setData(lineData);
-        lineChart.invalidate();
-    }
+//    private void update_LineChart() {
+//        LineDataSet dataSet = new LineDataSet(entries_line, "Data point");
+//        dataSet.setDrawValues(false);
+//        dataSet.setColor(Color.BLUE);
+//
+//        LineData lineData = new LineData(dataSet);
+//        lineChart.setData(lineData);
+//        lineChart.invalidate();
+//    }
 
     public void openLearnActivity(){
         Intent intent = new Intent(this,LearnActivity.class);
@@ -942,7 +1056,7 @@ public class SaveActivity extends AppCompatActivity {
         });
     }
 
-    private void openPopupWindow_newTracker(View view) {
+    private void openPopupWindow_newTracker(View view, Boolean autofill, HashMap<String, String> user_input) {
         // initialize popup window
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View viewPopupWindow = layoutInflater.inflate(R.layout.activity_tracker_new, null);
@@ -964,6 +1078,16 @@ public class SaveActivity extends AppCompatActivity {
 
         input_date.setText(dateAsString);
         input_duration.setText("7 days");
+
+        if (autofill){
+            TextView textView_reminder = (TextView) viewPopupWindow.findViewById(R.id.reminder);
+            textView_reminder.setVisibility(View.VISIBLE);
+            textView_reminder.setText("Reminder: " + user_input.get("goal_specific"));
+
+            input_purpose.setText(user_input.get("purpose"));
+            input_emotion.setText(user_input.get("emotion"));
+            input_strategy.setText(user_input.get("strategy"));
+        }
 
         Button button_start = (Button) viewPopupWindow.findViewById(R.id.button_confirm);
 
@@ -1178,119 +1302,121 @@ public class SaveActivity extends AppCompatActivity {
                     Log.e("firebase_summary", "Error getting data", task.getException());
                 }else{
                     Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
-                    Map<String, String> map_completion = map_tracker.get("history_completion");
-                    Map<String, String> map_timeliness = map_tracker.get("history_timeliness_avg");
-                    if(map_tracker != null && map_completion != null && map_timeliness != null) {
-//                        Map<String, String> map_completion = map_tracker.get("history_completion");
-//                        Map<String, String> map_timeliness = map_tracker.get("history_timeliness_avg");
+                    if (map_tracker != null){
+                        Map<String, String> map_completion = map_tracker.get("history_completion");
+                        Map<String, String> map_timeliness = map_tracker.get("history_timeliness_avg");
 
-                        String[] keys = map_completion.keySet().toArray(new String[0]);  // Error here!!!!!!
-                        Arrays.sort(keys);
-                        String[] modified_date = removeFirstFourChars(keys);
+                        if (map_completion != null && map_timeliness != null){
+                            String[] keys = map_completion.keySet().toArray(new String[0]);  // Error here!!!!!!
+                            Arrays.sort(keys);
+                            String[] modified_date = removeFirstFourChars(keys);
 
-                        List<String> completion_list = new ArrayList<>();
-                        List<String> timeliness_list = new ArrayList<>();
+                            List<String> completion_list = new ArrayList<>();
+                            List<String> timeliness_list = new ArrayList<>();
 
-                        ArrayList<Entry> entriesLine1 = new ArrayList<>();
-                        ArrayList<Entry> entriesLine2 = new ArrayList<>();
+                            ArrayList<Entry> entriesLine1 = new ArrayList<>();
+                            ArrayList<Entry> entriesLine2 = new ArrayList<>();
 
-                        Integer idx = 0;
-                        for (String key : keys){
-                            completion_list.add(map_completion.get(key).toString());
-                            timeliness_list.add(String.valueOf(map_timeliness.get(key)));
+                            Integer idx = 0;
+                            for (String key : keys){
+                                completion_list.add(map_completion.get(key).toString());
+                                timeliness_list.add(String.valueOf(map_timeliness.get(key)));
 
-                            entriesLine1.add(new Entry(idx, Float.valueOf(map_completion.get(key).toString())));
-                            entriesLine2.add(new Entry(idx, Float.valueOf(String.valueOf(map_timeliness.get(key)))));
+                                // Timeliness
+                                entriesLine1.add(new Entry(idx, Float.valueOf(String.valueOf(map_timeliness.get(key)))));
+                                // Completion
+                                entriesLine2.add(new Entry(idx, Float.valueOf(map_completion.get(key).toString())));
 
-                            idx++;
-                        }
+                                idx++;
+                            }
 
-                        Log.d("map_completion", String.valueOf(map_completion));
-                        Log.d("map_timeliness", String.valueOf(map_timeliness));
+                            Log.d("map_completion", String.valueOf(map_completion));
+                            Log.d("map_timeliness", String.valueOf(map_timeliness));
 
-                        // Create a dataset for the first line (to be plotted against the left Y axis)
-                        LineDataSet lineDataSet1 = new LineDataSet(entriesLine1, "Timeliness");
-                        lineDataSet1.setColor(Color.BLUE);
-                        lineDataSet1.setValueTextColor(Color.BLACK);
-                        lineDataSet1.setAxisDependency(YAxis.AxisDependency.LEFT); // Set dependency to left Y axis
+                            // Create a dataset for the first line (to be plotted against the left Y axis)
+                            LineDataSet lineDataSet1 = new LineDataSet(entriesLine1, "Timeliness");
+//                            lineDataSet1.setColor(Color.RED);
+                            lineDataSet1.setValueTextColor(Color.BLACK);
+                            lineDataSet1.setAxisDependency(YAxis.AxisDependency.RIGHT); // Set dependency to left Y axis
 
-                        // Create a dataset for the second line (to be plotted against the right Y axis)
-                        LineDataSet lineDataSet2 = new LineDataSet(entriesLine2, "Completion");
-                        lineDataSet2.setColor(Color.GREEN);
-                        lineDataSet2.setValueTextColor(Color.BLACK);
-                        lineDataSet2.setAxisDependency(YAxis.AxisDependency.RIGHT); // Set dependency to right Y axis
+                            // Create a dataset for the second line (to be plotted against the right Y axis)
+                            LineDataSet lineDataSet2 = new LineDataSet(entriesLine2, "Completion");
+//                            lineDataSet2.setColor(Color.GREEN);
+                            lineDataSet2.setValueTextColor(Color.BLACK);
+                            lineDataSet2.setAxisDependency(YAxis.AxisDependency.LEFT); // Set dependency to right Y axis
 
-                        // Set the line width and text size
-                        lineDataSet1.setLineWidth(2f);
-                        lineDataSet1.setValueTextSize(10f);
+                            // Set the line width and text size
+                            lineDataSet1.setLineWidth(2f);
+                            lineDataSet1.setValueTextSize(10f);
 
-                        lineDataSet2.setLineWidth(2f);
-                        lineDataSet2.setValueTextSize(10f);
+                            lineDataSet2.setLineWidth(2f);
+                            lineDataSet2.setValueTextSize(10f);
 
-                        lineDataSet1.setColor(Color.parseColor("#1402B9"));
-                        lineDataSet2.setColor(Color.parseColor("#60AC50"));
+                            lineDataSet1.setColor(Color.parseColor("#1402B9"));
+                            lineDataSet2.setColor(Color.parseColor("#60AC50"));
 
-                        String[] modified_keys = removeFirstFourChars(keys);
-                        tooltip_date = modified_keys;
+                            String[] modified_keys = removeFirstFourChars(keys);
+                            tooltip_date = modified_keys;
 
 //                        XAxis xAxis = lineChart.getXAxis();
 //                        xAxis.setValueFormatter(new IndexAxisValueFormatter(modified_keys));
 //                        xAxis.setLabelRotationAngle(25f);
 
-                        // Set up the X-axis with custom labels
-                        XAxis xAxis = lineChart.getXAxis();
-                        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                        xAxis.setGranularity(1f); // Minimum interval between the axis values
-                        xAxis.setGranularityEnabled(true); // Enable granularity to prevent skipping labels
+                            // Set up the X-axis with custom labels
+                            XAxis xAxis = lineChart.getXAxis();
+                            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                            xAxis.setGranularity(1f); // Minimum interval between the axis values
+                            xAxis.setGranularityEnabled(true); // Enable granularity to prevent skipping labels
 
-                        // Custom ValueFormatter to convert index to label from the keys array
-                        xAxis.setValueFormatter(new ValueFormatter() {
-                            @Override
-                            public String getFormattedValue(float value) {
-                                // Convert float value to int and use as index to fetch label from keys array
-                                int index = (int) value;
-                                // Check index bounds to prevent IndexOutOfBoundsException
-                                if (index >= 0 && index < modified_keys.length) {
-                                    return modified_keys[index];
-                                } else {
-                                    return "";
+                            // Custom ValueFormatter to convert index to label from the keys array
+                            xAxis.setValueFormatter(new ValueFormatter() {
+                                @Override
+                                public String getFormattedValue(float value) {
+                                    // Convert float value to int and use as index to fetch label from keys array
+                                    int index = (int) value;
+                                    // Check index bounds to prevent IndexOutOfBoundsException
+                                    if (index >= 0 && index < modified_keys.length) {
+                                        // return an empty X-axis value
+                                        return "";
+//                                        return modified_keys[index];
+                                    } else {
+                                        return "";
+                                    }
                                 }
+                            });
+
+                            // Combine both datasets into LineData and set it to the chart
+                            LineData data = new LineData(lineDataSet1, lineDataSet2);
+                            lineChart.setData(data);
+
+                            // Highlight the last data points
+                            int lastPointIndex1 = entriesLine1.size() - 1;
+                            int lastPointIndex2 = entriesLine2.size() - 1;
+
+                            lineDataSet1.setCircleColors(Color.BLUE);
+                            lineDataSet2.setCircleColors(Color.GREEN);
+
+                            Drawable drawable1 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point1);
+                            Drawable drawable2 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point2);
+
+                            // Set the icon for the last entry of lineDataSet1
+                            if (lastPointIndex1 >= 0 && lastPointIndex1 < lineDataSet1.getEntryCount()) {
+                                Entry lastEntry1 = lineDataSet1.getEntryForIndex(lastPointIndex1);
+                                lastEntry1.setIcon(drawable1);
                             }
-                        });
 
-                        // Combine both datasets into LineData and set it to the chart
-                        LineData data = new LineData(lineDataSet1, lineDataSet2);
-                        lineChart.setData(data);
+                            // Set the icon for the last entry of lineDataSet2
+                            if (lastPointIndex2 >= 0 && lastPointIndex2 < lineDataSet2.getEntryCount()) {
+                                Entry lastEntry2 = lineDataSet2.getEntryForIndex(lastPointIndex2);
+                                lastEntry2.setIcon(drawable2);
+                            }
 
-                        // Highlight the last data points
-                        int lastPointIndex1 = entriesLine1.size() - 1;
-                        int lastPointIndex2 = entriesLine2.size() - 1;
+                            CustomMarkerView markerView = new CustomMarkerView(SaveActivity.this, R.layout.marker_view_layout);
+                            lineChart.setMarker(markerView);
 
-                        lineDataSet1.setCircleColors(Color.BLUE);
-                        lineDataSet2.setCircleColors(Color.GREEN);
-
-                        Drawable drawable1 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point1);
-                        Drawable drawable2 = ContextCompat.getDrawable(SaveActivity.this, R.drawable.highlight_point2);
-
-                        // Set the icon for the last entry of lineDataSet1
-                        if (lastPointIndex1 >= 0 && lastPointIndex1 < lineDataSet1.getEntryCount()) {
-                            Entry lastEntry1 = lineDataSet1.getEntryForIndex(lastPointIndex1);
-                            lastEntry1.setIcon(drawable1);
+                            // Refresh chart
+                            lineChart.invalidate();
                         }
-
-                        // Set the icon for the last entry of lineDataSet2
-                        if (lastPointIndex2 >= 0 && lastPointIndex2 < lineDataSet2.getEntryCount()) {
-                            Entry lastEntry2 = lineDataSet2.getEntryForIndex(lastPointIndex2);
-                            lastEntry2.setIcon(drawable2);
-                        }
-
-                        // Assuming 'this' is an Activity or Context
-                        CustomMarkerView markerView = new CustomMarkerView(SaveActivity.this, R.layout.marker_view_layout);
-                        lineChart.setMarker(markerView);
-
-                        // Refresh chart
-                        lineChart.invalidate();
-
                     }
                 }
             }

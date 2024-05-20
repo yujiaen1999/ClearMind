@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter4: Introduction of STAR framework"
+                android:text="Introduce a New Framework"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="While utilizing goal-setting is an essential strategy for addressing procrastination tendencies, it's crucial to understand that relying solely on goal setting may not consistently yield positive outcomes for students. For example, a study by Chase et al. (2013) demonstrated a significant increase in undergraduate student GPAs following a brief intervention that integrated goal setting with an exploration of personal values. Similarly, research by Schunk (1996) showed that when self-evaluation was combined with goal setting, it led to notable improvements in outcomes for fourth-grade students.
+                android:text="While goal-setting is an essential strategy for addressing procrastination tendencies, science says it’s not enough! When the process of goal-setting is combined with personal values, it is the most effective.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="With these insights in mind, this chapter introduces a new framework that comprises two fundamental elements: goal setting and acceptance commitment therapy. These two elements work together. We'll start by looking at the STAR framework for setting goals, and then we'll explain how acceptance commitment therapy is also a vital part of the process.
+                android:text="Thus, this part presents a fresh framework incorporating two essential components: goal setting and Acceptance and Commitment Therapy (ACT). These two elements work together. We'll begin with looking at the STAR framework for setting goals, then we'll explain how Acceptance and Commitment Therapy is also a crucial part of the process.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"

@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Chapter4: Commit to a new goal"
+                android:text="Commit to a New Goal"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Now that you're familiar with the STAR framework, it's time to set a goal that is specific, measurable, attainable, and relevant to overcome your urge to procrastinate for the upcoming week. While this framework can be applied to various aspects of your life, for now, let's concentrate on conquering procrastination.
+                android:text="Now it's time to set a goal that is specific, measurable, attainable, and relevant to overcome your urge to procrastinate for the upcoming week. While this framework can be applied to various aspects of your life, for now, let's concentrate on conquering procrastination.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
