@@ -43,7 +43,7 @@
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:paddingHorizontal="@dimen/fab_margin"
-        android:layout_height="140dp"
+        android:layout_height="95dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal"
@@ -56,14 +56,14 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/hello"
-                android:layout_width="248dp"
-                android:layout_height="40dp"
-                android:paddingTop="5dp"
+                android:layout_width="258dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
                 android:text="Hi, Welcome!"
                 android:textSize="28dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -71,10 +71,12 @@
 
             <TextView
                 android:id="@+id/instruction"
-                android:layout_width="248dp"
-                android:layout_height="100dp"
+                android:layout_width="268dp"
+                android:layout_height="45dp"
+                android:paddingTop="5dp"
+                android:paddingRight="3dp"
                 android:text="Welcome to ClearMind Learn page. You can find 4 Parts here, let's see your challenge for today."
-                android:textSize="@dimen/text_size_main_large"
+                android:textSize="14sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="#000000" />
 
@@ -99,14 +101,14 @@
 <!--            android:max="100"-->
 <!--            android:progress="65"/>-->
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="100dp"
-            android:layout_height="140dp" >
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="95dp" >
 
             <com.example.clearmind.CustomProgressBar
                 android:id="@+id/progressBar2"
-                android:layout_width="100dp"
-                android:layout_height="140dp"
+                android:layout_width="80dp"
+                android:layout_height="95dp"
                 android:indeterminate="false"
                 android:progressDrawable="@drawable/circular_progress_bar"
                 android:background="@drawable/circle_shape"
@@ -116,13 +118,15 @@
 
             <TextView
                 android:id="@+id/progressBar2_text"
-                android:layout_width="100dp"
-                android:layout_height="140dp"
-                android:textSize="12sp"
-                android:text="0/31\nCompleted"
-                android:gravity="center"
+                android:layout_width="80dp"
+                android:layout_height="95dp"
+                android:layout_alignStart="@id/progressBar2"
                 android:layout_alignTop="@id/progressBar2"
-                android:layout_alignStart="@id/progressBar2" />
+                android:layout_marginStart="-1dp"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:text="0/31\nCompleted"
+                android:textSize="10sp" />
 
         </RelativeLayout>
 
@@ -164,6 +168,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:paddingHorizontal="10dp"
+                android:layout_marginTop="8dp"
                 app:srcCompat="@drawable/imgbutton_presurvey_0"
                 android:background="@null"/>
 

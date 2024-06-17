@@ -453,14 +453,20 @@ public class LearnActivity extends AppCompatActivity {
                             dateString = date.format(formatter);
                         }
 
-                        Log.d("Get dates in DB: ", dateString);
+//                        Log.d("Get dates in DB: ", dateString);
 
-                        if (appUsage.containsKey(dateString) && appUsage.get(dateString) > 0L){
+                        if (appUsage.containsKey(dateString)){
+                            Log.d("Get dates in DB: ", dateString);
+                            Log.d("Get time in DB:  ", appUsage.get(dateString).toString());
                             if (i == 1){
                                 yesterdayUsage = appUsage.get(dateString);
                             }
-                            totalUsage += appUsage.get(dateString);
-                            totalDates += 1;
+                            if (appUsage.get(dateString) > 0L){
+                                totalUsage += appUsage.get(dateString);
+                                totalDates += 1;
+                            }
+//                            totalUsage += appUsage.get(dateString);
+//                            totalDates += 1;
                         }
                     }
 
@@ -479,14 +485,81 @@ public class LearnActivity extends AppCompatActivity {
                     name = db_learn.get("register").get(username).get("name").toString();
                     welcome.setText("Hi, " + name + "!");
 
-//                    instruction.setText("Welcome to ClearMind Learn page. You can find 4 Parts here, let's see your challenge for today.");
-                    String text_instruction = "You have signed in <u>" + totalDates.toString() + " days</u> this week and spent <u>";
-                    if (count_hours_yesterday > 0) {
-                        text_instruction = text_instruction + count_hours_yesterday + " hours ";
+////                    instruction.setText("Welcome to ClearMind Learn page. You can find 4 Parts here, let's see your challenge for today.");
+//                    String text_instruction = "Signed in <u>" + totalDates.toString();
+//                    if (totalDates > 1){
+//                        text_instruction = text_instruction + " days</u> this week<br>(<u>";
+//                    } else {
+//                        text_instruction = text_instruction + " day</u> this week<br>(<u>";
+//                    }
+//
+//                    if (count_hours_average > 0) {
+//                        if (count_hours_average == 1){
+//                            text_instruction = text_instruction + count_hours_average + " hour ";
+//                        } else{
+//                            text_instruction = text_instruction + count_hours_average + " hours ";
+//                        }
+//                    }
+//
+//                    if (count_mins_average > 1){
+//                        text_instruction = text_instruction + count_mins_average + " mins</u>/day average)<br>" + "Spent <u>";
+//                    } else{
+//                        text_instruction = text_instruction + count_mins_average + " min</u>/day average)<br>" + "Spent <u>";
+//                    }
+//
+//                    if (count_hours_yesterday > 0){
+//                        if (count_hours_yesterday == 1){
+//                            text_instruction = text_instruction + count_hours_yesterday + " hour ";
+//                        } else{
+//                            text_instruction = text_instruction + count_hours_yesterday + " hours ";
+//                        }
+//                    }
+//
+//                    if (count_mins_yesterday > 1){
+//                        text_instruction = text_instruction + count_mins_yesterday + " mins</u> yesterday";
+//                    } else{
+//                        text_instruction = text_instruction + count_mins_yesterday + " min</u> yesterday";
+//                    }
+
+                    // Hard code example
+//                    String text_example = "Signed in 4 days this week (148min avg.)<br>";
+//                    text_example += "Spent 3 hours 20 mins yesterday";
+//                    text_example += "(32 mins/day average)";
+
+
+                    // New instruction text in 2 rows
+                    String text_instruction_new = "Signed in <u>" + totalDates.toString();
+                    if (totalDates > 1){
+                        text_instruction_new = text_instruction_new + " days</u> this week (<u>";
+                    } else {
+                        text_instruction_new = text_instruction_new + " day</u> this week (<u>";
                     }
-                    text_instruction = text_instruction + count_mins_yesterday + " mins</u> yesterday.";
-                    text_instruction = text_instruction + "Your average daily usage is <u>" + count_hours_average + " hours" + count_mins_average + " mins</u>.";
-                    instruction.setText(Html.fromHtml(text_instruction));
+
+
+                    Integer count_mins_average_new = Math.toIntExact((totalUsage/7) / (1000 * 60));
+
+                    if (count_mins_average > 1){
+                        text_instruction_new = text_instruction_new + count_mins_average_new + " mins</u> avg.)<br>" + "Spent <u>";
+                    } else{
+                        text_instruction_new = text_instruction_new + count_mins_average_new + " min</u>/ avg.)<br>" + "Spent <u>";
+                    }
+
+                    if (count_hours_yesterday > 0){
+                        if (count_hours_yesterday == 1){
+                            text_instruction_new = text_instruction_new + count_hours_yesterday + " hour ";
+                        } else{
+                            text_instruction_new = text_instruction_new + count_hours_yesterday + " hours ";
+                        }
+                    }
+
+                    if (count_mins_yesterday > 1){
+                        text_instruction_new = text_instruction_new + count_mins_yesterday + " mins</u> yesterday";
+                    } else{
+                        text_instruction_new = text_instruction_new + count_mins_yesterday + " min</u> yesterday";
+                    }
+
+
+                    instruction.setText(Html.fromHtml(text_instruction_new));
 
                     // Done: Handle progress bar initialization
                     ArrayList<String> chapter_list = new ArrayList<String>();
