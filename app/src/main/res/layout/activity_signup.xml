@@ -34,7 +34,7 @@
                 android:id="@+id/welcome_title"
                 android:layout_width="390dp"
                 android:layout_height="48dp"
-                android:text="ClearMind Sign up"
+                android:text="Create Account for ClearMind"
                 android:textStyle="bold"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -47,7 +47,7 @@
                 android:layout_height="70dp"
                 android:cursorVisible="true"
                 android:ems="10"
-                android:hint="Username"
+                android:hint="Create Username"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -56,7 +56,7 @@
                 android:layout_height="70dp"
                 android:cursorVisible="true"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="Create Password"
                 android:inputType="textPassword" />
 
 <!--            <Button-->

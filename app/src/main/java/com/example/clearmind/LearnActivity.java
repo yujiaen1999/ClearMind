@@ -10,10 +10,15 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -45,6 +50,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class LearnActivity extends AppCompatActivity {
 
@@ -76,6 +83,8 @@ public class LearnActivity extends AppCompatActivity {
     String status_postsurvey;
 
     private Integer progressValue = 0;
+
+    private ValueEventListener learn_valueEventListener;
 
     // Use UsageStatsManager to get App Usage data
     public void fetchUsageStats() {
@@ -290,7 +299,6 @@ public class LearnActivity extends AppCompatActivity {
         });
     }
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
@@ -358,15 +366,20 @@ public class LearnActivity extends AppCompatActivity {
 
             if (usageTime.containsKey(dateString)) {
                 Log.d("Get dates: ", dateString + " -> " + usageTime.get(dateString));
+                Log.d("Call storeUsage", "called");
                 storeUsageTimeIfNotExists(dateString, usageTime.get(dateString));
             } else {
                 Log.d("Get dates: ", dateString + " -> " + "XXXXXXXX");
+                Log.d("Call storeUsage", "called");
                 storeUsageTimeIfNotExists(dateString, 0L);
             }
         }
+        Log.d("Loop completed", "for loop has finished executing");
 
         // Done: calculate and display in getData()
         getData();
+
+//        getData_new();
 
 
         save_button.setOnClickListener(new View.OnClickListener() {
@@ -390,6 +403,18 @@ public class LearnActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        removeValueEventListener();
+    }
+
+    private void removeValueEventListener() {
+        if (learn_valueEventListener != null) {
+            db.removeEventListener(learn_valueEventListener);
+            learn_valueEventListener = null; // Clear the reference
+        }
     }
 
     private void openPreSurveyACtivity() {
@@ -418,6 +443,376 @@ public class LearnActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void getData_new() {
+        learn_valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                HashMap<String, HashMap<String, HashMap>> db_learn= (HashMap<String, HashMap<String, HashMap>>) snapshot.getValue();
+                Log.d("Check getData_2 ", String.valueOf(db_learn));
+
+                ScrollView sv = (ScrollView) findViewById(R.id.scrollView);
+
+                Log.d("Inside check: ", "fetch appUsage start");
+                Map<String, Long> appUsage = db_learn.get("AppUsage").get(username);
+                Log.d("Inside check: ", "fetch appUsage end");
+
+//                    Log.d("Get AppUsage in DB: ", appUsage.toString());
+                Long totalUsage = 0L;
+                Integer totalDates = 0;
+                Long yesterdayUsage = 0L;
+
+                DateTimeFormatter formatter = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                }
+
+                for (int i = 1; i < 8; i++) {
+                    LocalDate date = null;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        date = LocalDate.now().minusDays(i);
+                    }
+                    String dateString = null;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        dateString = date.format(formatter);
+                    }
+
+
+                    Log.d("Inside check: ", String.valueOf(i));
+
+                    if (appUsage!=null && appUsage.containsKey(dateString)){
+                        Log.d("Get dates in DB: ", dateString);
+                        Log.d("Get time in DB:  ", appUsage.get(dateString).toString());
+                        if (i == 1){
+                            yesterdayUsage = appUsage.get(dateString);
+                        }
+                        if (appUsage.get(dateString) > 0L){
+                            totalUsage += appUsage.get(dateString);
+                            totalDates += 1;
+                        }
+//                            totalUsage += appUsage.get(dateString);
+//                            totalDates += 1;
+                    }
+
+                }
+
+                Log.d("Display totalUsage: ", totalUsage.toString());
+                Log.d("Display totalDates: ", totalDates.toString());
+                Log.d("Display yesterdayU: ", yesterdayUsage.toString());
+
+                Integer count_hours_yesterday = Math.toIntExact(yesterdayUsage / (1000 * 60 * 60));
+                Integer count_mins_yesterday = Math.toIntExact((yesterdayUsage / (1000 * 60)) % 60);
+
+                Integer count_hours_average = Math.toIntExact((totalUsage/7) / (1000 * 60 * 60));
+                Integer count_mins_average = Math.toIntExact(((totalUsage/7) / (1000 * 60)) % 60);
+
+                // Get user info and
+                // Done: generate customized welcome/instructions here
+                name = db_learn.get("register").get(username).get("name").toString();
+                welcome.setText("Hi, " + name + "!");
+
+                // New instruction text in 2 rows
+                String text_instruction_new = "Signed in <u>" + totalDates.toString();
+                if (totalDates > 1){
+                    text_instruction_new = text_instruction_new + " days</u> this week (<u>";
+                } else {
+                    text_instruction_new = text_instruction_new + " day</u> this week (<u>";
+                }
+
+
+                Integer count_mins_average_new = Math.toIntExact((totalUsage/7) / (1000 * 60));
+
+                if (count_mins_average > 1){
+                    text_instruction_new = text_instruction_new + count_mins_average_new + " mins</u> avg.)<br>" + "Spent <u>";
+                } else{
+                    text_instruction_new = text_instruction_new + count_mins_average_new + " min</u>/ avg.)<br>" + "Spent <u>";
+                }
+
+                if (count_hours_yesterday > 0){
+                    if (count_hours_yesterday == 1){
+                        text_instruction_new = text_instruction_new + count_hours_yesterday + " hour ";
+                    } else{
+                        text_instruction_new = text_instruction_new + count_hours_yesterday + " hours ";
+                    }
+                }
+
+                if (count_mins_yesterday > 1){
+                    text_instruction_new = text_instruction_new + count_mins_yesterday + " mins</u> yesterday";
+                } else{
+                    text_instruction_new = text_instruction_new + count_mins_yesterday + " min</u> yesterday";
+                }
+
+
+                instruction.setText(Html.fromHtml(text_instruction_new));
+
+
+                progressValue = 0;
+                // Done: Handle progress bar initialization
+                ArrayList<String> chapter_list = new ArrayList<String>();
+                chapter_list.add("Chapter1");
+                chapter_list.add("Chapter2");
+                chapter_list.add("Chapter3");
+                chapter_list.add("Chapter4");
+
+                for (String chapter : chapter_list) {
+                    HashMap<String, String> progress_chapter = (HashMap<String, String>) db_learn.get(chapter).get("progress").get(username);
+                    if (progress_chapter != null) {
+                        for (String value : progress_chapter.values()) {
+                            if (value.equals("1")) {
+//                                Log.d("firebase_progress", "value: " + value);
+                                progressValue += 1;
+//                                Log.d("firebase_progress", "progressValue: " + String.valueOf(progressValue));
+                            }
+                        }
+                    }
+                }
+
+                Log.d("ProgressBar_value", String.valueOf(progressValue));
+
+                CustomProgressBar progressBar = findViewById(R.id.progressBar2);
+
+                Log.d("Calculate result", String.valueOf(progressValue));
+                float ratio = (float) progressValue / 29;
+                float cur_progress = (float) ratio * 100;
+                Log.d("Calculate result", String.valueOf(Math.round(cur_progress)));
+//                progressBar.getUsername(username);
+                progressBar.setProgress(Math.round(cur_progress));
+                progressBar.setProgressValue(progressValue);
+                progressBar.invalidate();
+
+                int int_progress = Math.round(cur_progress);
+                // make sure int_progress in range of [0,100]
+                if (int_progress < 0) {
+                    int_progress = 0;
+                } else if (int_progress > 100) {
+                    int_progress = 100;
+                }
+
+                TextView progressbar_text = findViewById(R.id.progressBar2_text);
+                progressbar_text.setText(int_progress + "%");
+//                    progressbar_text.setText(progressValue+"/29");
+
+                // ============================================
+                // Initialize chapter buttons
+                status_presurvey = db_learn.get("progress").get(username).get("presurvey").toString();
+                status_chapter1 = db_learn.get("progress").get(username).get("chapter1").toString();
+                status_chapter2 = db_learn.get("progress").get(username).get("chapter2").toString();
+                status_chapter3 = db_learn.get("progress").get(username).get("chapter3").toString();
+                status_chapter4 = db_learn.get("progress").get(username).get("chapter4").toString();
+                status_postsurvey = db_learn.get("progress").get(username).get("postsurvey").toString();
+
+                // HANDLE PRE-SURVEY BUTTON
+                if (status_presurvey.equals("0")) {
+                    imgBtn_presurvey.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open PreSurvey page", Toast.LENGTH_SHORT).show();
+//                                openPreSurveyACtivity();
+                            openPopupWindow_presurey(view);
+                        }
+                    });
+                } else {
+                    // status == "2"
+                    imgBtn_presurvey.setImageResource(R.drawable.imgbutton_presurvey_2);
+                    imgBtn_presurvey.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "You have finished the PreSurvey", Toast.LENGTH_SHORT).show();
+//                                openPreSurveyACtivity();
+//                                openPopupWindow_presurey(view);
+                        }
+                    });
+                }
+
+                // HANDLE CHAPTER 1 BUTTON
+                if (status_chapter1.equals("0")){
+                    imgBtn_chapter1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_presurvey.equals("2")){
+                                Toast.makeText(LearnActivity.this, "Open Chapter 1 page", Toast.LENGTH_SHORT).show();
+                                // openPreSurveyACtivity();
+                                openChapterOneActivity();
+                            } else{
+                                Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else if (status_chapter1.equals("1")) {
+                    imgBtn_chapter1.setImageResource(R.drawable.imgbutton_chapter1_1);
+                    imgBtn_chapter1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 1 page", Toast.LENGTH_SHORT).show();
+                            openChapterOneActivity();
+                        }
+                    });
+                } else {
+                    // status == "2"
+                    imgBtn_chapter1.setImageResource(R.drawable.imgbutton_chapter1_2);
+                    imgBtn_chapter1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 1 page", Toast.LENGTH_SHORT).show();
+                            openChapterOneActivity();
+                        }
+                    });
+                }
+
+                // HANDLE CHAPTER 2 BUTTON
+                if (status_chapter2.equals("0")){
+                    imgBtn_chapter2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_chapter1.equals("2")){
+                                Toast.makeText(LearnActivity.this, "Open Chapter 2 page", Toast.LENGTH_SHORT).show();
+                                openChapterTwoActivity();
+                            } else {
+                                Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else if (status_chapter2.equals("1")) {
+                    imgBtn_chapter2.setImageResource(R.drawable.imgbutton_chapter2_1);
+                    imgBtn_chapter2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 2 page", Toast.LENGTH_SHORT).show();
+                            openChapterTwoActivity();
+                        }
+                    });
+                } else {
+                    // status == "2"
+
+                    //Set up starting position of ScrollView
+                    sv.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            //setting position here :
+//                            sv.scrollTo(0, 300*3);  // without animation
+                            sv.smoothScrollTo(0,900);  // with animation
+                        }
+                    });
+
+                    imgBtn_chapter2.setImageResource(R.drawable.imgbutton_chapter2_2);
+                    imgBtn_chapter2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 2 page", Toast.LENGTH_SHORT).show();
+                            openChapterTwoActivity();
+                        }
+                    });
+                }
+
+
+                // Handle really chapter3
+                // HANDLE CHAPTER 3 BUTTON
+                if (status_chapter3.equals("0")){
+                    imgBtn_chapter3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_chapter2.equals("2")){
+                                Toast.makeText(LearnActivity.this, "Open Chapter 3 page", Toast.LENGTH_SHORT).show();
+                                openChapterThreeActivity();
+                            } else {
+                                Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else if (status_chapter3.equals("1")) {
+                    imgBtn_chapter3.setImageResource(R.drawable.imgbutton_chapter3_1);
+                    imgBtn_chapter3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 3 page", Toast.LENGTH_SHORT).show();
+                            openChapterThreeActivity();
+                        }
+                    });
+                } else {
+                    // status == "2"
+                    imgBtn_chapter3.setImageResource(R.drawable.imgbutton_chapter3_2);
+                    imgBtn_chapter3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 3 page", Toast.LENGTH_SHORT).show();
+                            openChapterThreeActivity();
+                        }
+                    });
+                }
+
+
+                // Handle really chapter4
+                // HANDLE CHAPTER 4 BUTTON
+                if (status_chapter4.equals("0")){
+                    imgBtn_chapter4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_chapter3.equals("2")){
+                                Toast.makeText(LearnActivity.this, "Open Chapter 4 page", Toast.LENGTH_SHORT).show();
+                                openChapterFourActivity();
+                            } else {
+                                Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else if (status_chapter4.equals("1")) {
+                    imgBtn_chapter4.setImageResource(R.drawable.imgbutton_chapter4_1);
+                    imgBtn_chapter4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 4 page", Toast.LENGTH_SHORT).show();
+                            openChapterFourActivity();
+                        }
+                    });
+                } else {
+                    // status == "2"
+                    imgBtn_chapter4.setImageResource(R.drawable.imgbutton_chapter4_2);
+                    imgBtn_chapter4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "Open Chapter 4 page", Toast.LENGTH_SHORT).show();
+                            openChapterFourActivity();
+                        }
+                    });
+                }
+
+                // HANDLE POST-SURVEY BUTTON
+                if (status_postsurvey.equals("0")) {
+                    imgBtn_postsurvey.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_chapter4.equals("2")){
+                                Toast.makeText(LearnActivity.this, "Open PostSurvey page", Toast.LENGTH_SHORT).show();
+                                openPostSurveyACtivity();
+                            } else {
+                                Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
+                    // status == "2"
+                    imgBtn_postsurvey.setImageResource(R.drawable.imgbutton_postsurvey_2);
+                    imgBtn_postsurvey.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(LearnActivity.this, "You have finished the PostSurvey", Toast.LENGTH_SHORT).show();
+//                                openPostSurveyACtivity();
+                        }
+                    });
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(LearnActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        db.addValueEventListener(learn_valueEventListener);
+    }
+
+
     public void getData() {
         db.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -432,7 +827,10 @@ public class LearnActivity extends AppCompatActivity {
                     HashMap<String, HashMap<String, HashMap>> db_learn= (HashMap<String, HashMap<String, HashMap>>) task.getResult().getValue();
 //                    Log.d("Learn Page", String.valueOf(hashmap_learn.get("Chapter1")));
 
+                    Log.d("Inside check: ", "fetch appUsage start");
                     Map<String, Long> appUsage = db_learn.get("AppUsage").get(username);
+                    Log.d("Inside check: ", "fetch appUsage end");
+
 //                    Log.d("Get AppUsage in DB: ", appUsage.toString());
                     Long totalUsage = 0L;
                     Integer totalDates = 0;
@@ -454,8 +852,26 @@ public class LearnActivity extends AppCompatActivity {
                         }
 
 //                        Log.d("Get dates in DB: ", dateString);
+//                        if (dateString != null) {
+//                            if (appUsage.containsKey(dateString)){
+//                                Log.d("Get dates in DB: ", dateString);
+//                                Log.d("Get time in DB:  ", appUsage.get(dateString).toString());
+//                                if (i == 1){
+//                                    yesterdayUsage = appUsage.get(dateString);
+//                                }
+//                                if (appUsage.get(dateString) > 0L){
+//                                    totalUsage += appUsage.get(dateString);
+//                                    totalDates += 1;
+//                                }
+////                            totalUsage += appUsage.get(dateString);
+////                            totalDates += 1;
+//                            }
+//                        }
 
-                        if (appUsage.containsKey(dateString)){
+
+                        Log.d("Inside check: ", String.valueOf(i));
+
+                        if (appUsage!=null && appUsage.containsKey(dateString)){
                             Log.d("Get dates in DB: ", dateString);
                             Log.d("Get time in DB:  ", appUsage.get(dateString).toString());
                             if (i == 1){
@@ -594,8 +1010,17 @@ public class LearnActivity extends AppCompatActivity {
                     progressBar.setProgressValue(progressValue);
                     progressBar.invalidate();
 
+                    int int_progress = Math.round(cur_progress);
+                    // make sure int_progress in range of [0,100]
+                    if (int_progress < 0) {
+                        int_progress = 0;
+                    } else if (int_progress > 100) {
+                        int_progress = 100;
+                    }
+
                     TextView progressbar_text = findViewById(R.id.progressBar2_text);
-                    progressbar_text.setText(progressValue+"/29\nCompleted");
+                    progressbar_text.setText(int_progress + "%");
+//                    progressbar_text.setText(progressValue+"/29");
 
                     // ============================================
                     // Initialize chapter buttons
@@ -612,7 +1037,8 @@ public class LearnActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Toast.makeText(LearnActivity.this, "Open PreSurvey page", Toast.LENGTH_SHORT).show();
-                                openPreSurveyACtivity();
+//                                openPreSurveyACtivity();
+                                openPopupWindow_presurey(view);
                             }
                         });
                     } else {
@@ -623,6 +1049,7 @@ public class LearnActivity extends AppCompatActivity {
                             public void onClick(View view) {
                                 Toast.makeText(LearnActivity.this, "You have finished the PreSurvey", Toast.LENGTH_SHORT).show();
 //                                openPreSurveyACtivity();
+//                                openPopupWindow_presurey(view);
                             }
                         });
                     }
@@ -839,6 +1266,39 @@ public class LearnActivity extends AppCompatActivity {
         Intent intent = new Intent(this,Chapter4_Activity.class);
         intent.putExtra("username", username);
         startActivity(intent);
+    }
+
+    private void openPopupWindow_presurey(View view) {
+        // initialize popup window
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_popup_pre_survey, null);
+//        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 600, 600, true);
+        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow);
+        popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setFocusable(true);
+
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.7f;
+        wm.updateViewLayout(container, p);
+
+        // initialize elements
+        Button button_confirm = (Button) viewPopupWindow.findViewById(R.id.button_confirm);
+
+        button_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openPreSurveyACtivity();
+                popupWindow.dismiss();
+            }
+        });
     }
 
 }

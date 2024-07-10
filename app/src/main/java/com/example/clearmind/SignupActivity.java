@@ -68,7 +68,7 @@ public class SignupActivity extends AppCompatActivity {
                         // the username doesn't exist in db
                         // need to register
                         Toast.makeText(SignupActivity.this,  "Welcome New User ", Toast.LENGTH_SHORT).show();
-                        register(username, password);
+//                        register(username, password);
                         toQuestionPage = true;
                     }
                     else
@@ -79,7 +79,8 @@ public class SignupActivity extends AppCompatActivity {
                     if (toQuestionPage){
                         Intent intent = new Intent(getApplicationContext(), SecureQuestionActivity.class);
                         intent.putExtra("username", username);
-                        startActivity(intent);  //go to main page (activity)
+                        intent.putExtra("password", password);
+                        startActivity(intent);  //go to next page (activity)
                     }
 
                 }

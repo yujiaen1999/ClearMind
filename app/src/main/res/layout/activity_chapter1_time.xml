@@ -30,6 +30,13 @@
                 android:textSize="@dimen/text_size_heading_small"
                 android:textStyle="bold" />
 
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:src="@drawable/progbar_chapter1_5"-->
+<!--                />-->
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
@@ -176,19 +183,35 @@
                 android:textSize="@dimen/text_size_note" />
 
 
-            <Button
-                android:id="@+id/button_previous"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back"
-                app:backgroundTint="#5FA12E" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:weightSum="3">
 
-            <Button
-                android:id="@+id/button_next"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Next"
-                app:backgroundTint="#5FA12E" />
+                <Button
+                    android:id="@+id/button_previous"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Back"
+                    app:backgroundTint="#5FA12E"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Next"
+                    app:backgroundTint="#5FA12E" />
+
+            </LinearLayout>
 
 
         </LinearLayout>

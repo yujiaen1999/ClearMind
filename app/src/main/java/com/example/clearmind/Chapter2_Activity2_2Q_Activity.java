@@ -87,8 +87,8 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-//                open_Next_Activity();
-                openPopupWindow(v);
+                open_Next_Activity();
+//                openPopupWindow(v);
             }
         });
 

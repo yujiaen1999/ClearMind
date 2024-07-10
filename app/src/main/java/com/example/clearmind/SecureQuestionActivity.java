@@ -24,6 +24,7 @@ public class SecureQuestionActivity extends AppCompatActivity {
     private DatabaseReference db;
 
     private String username;
+    private String password;
     private EditText answer1;
     private EditText answer2;
     private Button submit_button;
@@ -34,6 +35,7 @@ public class SecureQuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_securequestion);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
+        this.password = intent.getStringExtra("password");
 
         this.db = FirebaseDatabase.getInstance().getReference();
 
@@ -80,14 +82,19 @@ public class SecureQuestionActivity extends AppCompatActivity {
                     security_questions.put("question2", txt_question2);
                     security_questions.put("answer2", txt_answer2);
 
-                    register(username, security_questions);
-                    Toast.makeText(SecureQuestionActivity.this,  "Set Security Questions successful", Toast.LENGTH_SHORT).show();
+//                    register(username, security_questions);
+//                    Toast.makeText(SecureQuestionActivity.this,  "Set Security Questions successful", Toast.LENGTH_SHORT).show();
                     toNextPage = true;
                 }
 
                 if (toNextPage){
                     Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                     intent.putExtra("username", username);
+                    intent.putExtra("password", password);
+                    intent.putExtra("question1", txt_question1);
+                    intent.putExtra("answer1", txt_answer1);
+                    intent.putExtra("question2", txt_question2);
+                    intent.putExtra("answer2", txt_answer2);
                     startActivity(intent);  //go to main page (activity)
                 }
             }
