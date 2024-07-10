@@ -89,8 +89,8 @@ public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-//                open_Next_Activity();
-                openPopupWindow(v);
+                open_Next_Activity();
+//                openPopupWindow(v);
             }
         });
 
@@ -376,6 +376,7 @@ public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
     private void open_Previous_Activity() {
         Intent intent = new Intent(this,Chapter1_Activity2_Activity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 
@@ -383,6 +384,7 @@ public class Chapter1_Activity2_Question_Activity extends AppCompatActivity {
 //        Intent intent = new Intent(this,Chapter1_Intro_ACT_Activity.class);
         Intent intent = new Intent(this,Chapter1_Time_Activity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 

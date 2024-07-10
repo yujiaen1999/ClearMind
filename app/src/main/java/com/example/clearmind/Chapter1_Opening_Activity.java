@@ -146,6 +146,7 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
     private void open_Chapter1_Activity1() {
         Intent intent = new Intent(this,Chapter1_Activity1_Activity.class);
         intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 

@@ -30,12 +30,20 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:src="@drawable/progbar_chapter1_4"-->
+<!--                />-->
+
             <!--      QUESTION 1      -->
 
             <TextView
                 android:id="@+id/question_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/text_internal"
                 android:text="1. Lynn always starts her physics homework the night before the deadline because the pressure helps her to focus. Which type of procrastination is it?"
                 android:textSize="@dimen/text_size_main_small" />
@@ -118,6 +126,7 @@
                 android:id="@+id/question_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/text_internal"
                 android:text="2. Tommy always procrastinates on his English essay because he thinks the class is super boring. Which type of procrastination is it?"
                 android:textSize="@dimen/text_size_main_small" />
@@ -188,6 +197,7 @@
                 android:id="@+id/question_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/text_internal"
                 android:text="3. Anna has been sick for a while. She puts off seeking medical advice from doctors because of her anxiety about potential diagnoses. Which type of procrastination is it?"
                 android:textSize="@dimen/text_size_main_small" />
@@ -259,6 +269,7 @@
                 android:id="@+id/question_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/text_internal"
                 android:text="4. Vincent is a talented artist, and a local gallery reached out to him to exhibit his artwork. Even though the gallery owner was impressed by his artwork and believed it would be well-received by the audience, he kept putting off submitting his work for the exhibition because of his fear of rejection and criticism by the public. Which type of procrastination is it?"
                 android:textSize="@dimen/text_size_main_small" />
@@ -330,6 +341,7 @@
                 android:id="@+id/question_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/text_internal"
                 android:text="5. John postponed declaring his college major because he enjoys learning about different subjects and wanting to explore more in different fields. Which type of procrastination is it?"
                 android:textSize="@dimen/text_size_main_small" />
@@ -408,19 +420,35 @@
                 android:textSize="@dimen/text_size_main_large" />
 
 
-            <Button
-                android:id="@+id/button_previous"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back"
-                app:backgroundTint="#5FA12E" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:weightSum="3">
 
-            <Button
-                android:id="@+id/button_next"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Next"
-                app:backgroundTint="#5FA12E" />
+                <Button
+                    android:id="@+id/button_previous"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Back"
+                    app:backgroundTint="#5FA12E"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Next"
+                    app:backgroundTint="#5FA12E" />
+
+            </LinearLayout>
 
 
         </LinearLayout>

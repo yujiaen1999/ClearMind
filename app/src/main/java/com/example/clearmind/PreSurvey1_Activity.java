@@ -189,8 +189,8 @@ public class PreSurvey1_Activity extends AppCompatActivity {
                 }
 
                 if (toNextPage){
-//                    open_Next_Activity();
-                    openPopupWindow(v);
+                    open_Next_Activity();
+//                    openPopupWindow(v);
                 }
             }
         });

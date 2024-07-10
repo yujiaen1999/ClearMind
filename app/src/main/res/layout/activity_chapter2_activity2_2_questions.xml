@@ -55,6 +55,7 @@
                 android:id="@+id/question_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="1. You have a challenging assignment that is due tomorrow, you should:"
                 android:textSize="@dimen/text_size_main_small" />
 
@@ -119,6 +120,7 @@
                 android:id="@+id/question_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/text_internal"
                 android:text="2. You find yourself at a crossroad, considering a significant change in your life: going to your dream college in a new city and you feel uncertain and fearful that you will be all on your own there. You should:"
                 android:textSize="@dimen/text_size_main_small" />
@@ -182,6 +184,7 @@
                 android:id="@+id/question_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/text_internal"
                 android:text="3. You failed a course that was required for your major and you have to retake it. You’ve been depressed recently. You should:"
                 android:textSize="@dimen/text_size_main_small" />
@@ -245,6 +248,7 @@
                 android:id="@+id/question_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/text_internal"
                 android:text="4. You've always wanted to learn to play the guitar since you were young. However, once you started taking lessons, you realized it was more time-consuming and complicated than you thought. You should:"
                 android:textSize="@dimen/text_size_main_small" />
@@ -307,6 +311,7 @@
                 android:id="@+id/question_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/text_internal"
                 android:text="5. Your doctor has advised you to lose weight and followed a healthier diet, but one day you find yourself craving junk food. You should:"
                 android:textSize="@dimen/text_size_main_small" />
@@ -366,19 +371,35 @@
 
 
 
-            <Button
-                android:id="@+id/button_previous"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back"
-                app:backgroundTint="#5FA12E" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:weightSum="3">
 
-            <Button
-                android:id="@+id/button_next"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Next"
-                app:backgroundTint="#5FA12E"/>
+                <Button
+                    android:id="@+id/button_previous"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Back"
+                    app:backgroundTint="#5FA12E" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Next"
+                    app:backgroundTint="#5FA12E" />
+
+            </LinearLayout>
 
 
         </LinearLayout>
