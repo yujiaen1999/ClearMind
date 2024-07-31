@@ -87,6 +87,11 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                // update progress
+                Map<String, Object> chapter2_progress_update = new HashMap<>();
+                chapter2_progress_update.put("4_Example", "1");
+                db.child("Chapter2").child("progress").child(username).updateChildren(chapter2_progress_update);
+
                 open_Next_Activity();
 //                openPopupWindow(v);
             }
@@ -329,7 +334,7 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
         button_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                // update Chapter1 progress
+                // update progress
                 Map<String, Object> chapter2_progress_update = new HashMap<>();
                 chapter2_progress_update.put("4_Example", "1");
                 db.child("Chapter2").child("progress").child(username).updateChildren(chapter2_progress_update);
