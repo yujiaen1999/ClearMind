@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:text="Discover Various Types of Procrastination Tendencies"
+                android:textStyle="bold"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_heading_small" />
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:src="@drawable/progbar_chapter1_3"-->
+<!--                />-->
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="There are three primary types."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+<!--            <EditText-->
+<!--                android:id="@+id/input1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:cursorVisible="true"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Input here"-->
+<!--                android:padding="20dp"-->
+<!--                android:background="#FFFFFF"-->
+<!--                tools:ignore="ExtraText" />-->
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Arousal procrastination: Purposely delaying tasks until the last moment. People with arousal procrastination tend to use the time pressure of an approaching deadline to complete their work."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Avoidant procrastination: Delaying tasks to avoid some fears triggered by the tasks. People with avoidant procrastination tend to have fear of failure, challenges, or even additional responsibilities from success."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Decisional procrastination: Delaying decision-making. People tend to have decisional procrastination when they find the task complex, are afraid of potential conflicts with others, or desire to protect their self-esteem or self-confidence."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="Now let’s test your understanding of procrastination tendencies."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+
+<!--            &lt;!&ndash;      QUESTION 1      &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/question_1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16dp"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="1. Lynn always starts her physics homework the night before the deadline because the pressure helps her to focus. Which type of procrastination is it?" />-->
+
+<!--            <RadioGroup-->
+<!--                android:id="@+id/radioGroup1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                tools:ignore="MissingConstraints"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.320">-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn1_A"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="A. Arousal" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn1_B"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="B. Avoidant" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn1_C"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="C. Decisional" />-->
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/question1_response"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="30dp"-->
+<!--                android:paddingRight="30dp"-->
+<!--                android:text=""-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="16dp" />-->
+
+<!--            &lt;!&ndash;      QUESTION 2      &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/question_2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16dp"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="2. Tommy always procrastinates on his English essay because he thinks the class is super boring. Which type of procrastination is it?" />-->
+
+<!--            <RadioGroup-->
+<!--                android:id="@+id/radioGroup2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                tools:ignore="MissingConstraints"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.320">-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn2_A"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="A. Arousal" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn2_B"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="B. Avoidant" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn2_C"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="C. Decisional" />-->
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/question2_response"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="30dp"-->
+<!--                android:paddingRight="30dp"-->
+<!--                android:text=""-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="16dp" />-->
+
+<!--            &lt;!&ndash;      QUESTION 3      &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/question_3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16dp"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="3. Anna has been sick for a while. She puts off seeking medical advice from doctors because of her anxiety about potential diagnoses. Which type of procrastination is it?" />-->
+
+<!--            <RadioGroup-->
+<!--                android:id="@+id/radioGroup3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                tools:ignore="MissingConstraints"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.320">-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn3_A"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="A. Arousal" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn3_B"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="B. Avoidant" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn3_C"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="C. Decisional" />-->
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/question3_response"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="30dp"-->
+<!--                android:paddingRight="30dp"-->
+<!--                android:text=""-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="16dp" />-->
+
+
+<!--            &lt;!&ndash;      QUESTION 4      &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/question_4"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16dp"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="4. Vincent is a talented artist, and a local gallery reached out to him to exhibit his artwork. Even though the gallery owner was impressed by his artwork and believed it would be well-received by the audience, he kept putting off submitting his work for the exhibition because of his fear of rejection and criticism by the public. Which type of procrastination is it?" />-->
+
+<!--            <RadioGroup-->
+<!--                android:id="@+id/radioGroup4"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                tools:ignore="MissingConstraints"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.320">-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn4_A"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="A. Arousal" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn4_B"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="B. Avoidant" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn4_C"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="C. Decisional" />-->
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/question4_response"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="30dp"-->
+<!--                android:paddingRight="30dp"-->
+<!--                android:text=""-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="16dp" />-->
+
+
+<!--            &lt;!&ndash;      QUESTION 5      &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/question_5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16dp"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="5. John postponed declaring his college major because he enjoys learning about different subjects and wanting to explore more in different fields. Which type of procrastination is it?" />-->
+
+<!--            <RadioGroup-->
+<!--                android:id="@+id/radioGroup5"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                tools:ignore="MissingConstraints"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.320">-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn5_A"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="A. Arousal" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn5_B"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="B. Avoidant" />-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/btn5_C"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="C. Decisional" />-->
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/question5_response"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="30dp"-->
+<!--                android:paddingRight="30dp"-->
+<!--                android:text=""-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="16dp" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView4"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="Now you’ve gained a thorough understanding of various types of procrastination, take a minute to reflect on the specific type that resonates with your own procrastination tendencies and styles."-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="18dp" />-->
+
+
+
+<!--            <Button-->
+<!--                android:id="@+id/button_previous"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Back"-->
+<!--                app:backgroundTint="#5FA12E" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/button_next"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Next"-->
+<!--                app:backgroundTint="#5FA12E"/>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:weightSum="3">
+
+                <Button
+                    android:id="@+id/button_previous"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Back"
+                    app:backgroundTint="#5FA12E"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Next"
+                    app:backgroundTint="#5FA12E" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        app:backgroundTint="#5FA12E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

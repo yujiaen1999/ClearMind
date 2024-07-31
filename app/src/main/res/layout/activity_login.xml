@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_login">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2FFD8"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-165dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="MissingConstraints"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="80dp"
+                app:srcCompat="@drawable/design_photoroom" />
+
+            <TextView
+                android:id="@+id/welcome_title"
+                android:layout_width="390dp"
+                android:layout_height="48dp"
+                android:text="ClearMind Login"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#5FB918" />
+
+
+            <EditText
+                android:id="@+id/username_input"
+                android:layout_width="250dp"
+                android:layout_height="70dp"
+                android:cursorVisible="true"
+                android:ems="10"
+                android:hint="Username"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/password_input"
+                android:layout_width="250dp"
+                android:layout_height="70dp"
+                android:cursorVisible="true"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/button_forgot_passward"
+                android:layout_width="120dp"
+                android:layout_height="27dp"
+                android:background="@null"
+                android:layout_gravity="right"
+                android:layout_marginRight="70dp"
+                android:text="forgot password?"
+                android:textAllCaps="false"
+                android:textColor="#878181"
+                app:backgroundTint="#EC96B3" />
+
+            <Button
+                android:id="@+id/entry_button"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:onClick="openMain"
+                android:text="Login"
+                android:layout_marginTop="50dp"
+                app:backgroundTint="#5FB918" />
+
+            <Button
+                android:id="@+id/button_register"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:text="Register"
+                tools:layout_editor_absoluteX="161dp"
+                tools:layout_editor_absoluteY="573dp"
+                app:backgroundTint="#5FB918"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

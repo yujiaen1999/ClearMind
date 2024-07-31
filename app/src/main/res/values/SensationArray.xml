@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sensation_array">
+        <item>Tense</item>
+        <item>Sweating</item>
+        <item>Hot</item>
+        <item>Worn down and tired</item>
+        <item>Cold</item>
+        <item>Uncomfortable</item>
+        <item>Jittery</item>
+        <item>Slowed down</item>
+        <item>Heart racing</item>
+        <item>Pain</item>
+        <item>Short of breath</item>
+        <item>Clenching</item>
+        <item>Flushed</item>
+        <item>Other</item>
+    </string-array>
+</resources>
