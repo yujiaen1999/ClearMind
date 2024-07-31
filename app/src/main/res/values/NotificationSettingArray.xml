@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="notification_array">
-        <item>Daily</item>
-        <item>2-3 times a week</item>
-        <item>Once a week</item>
-        <item>Never</item>
-    </string-array>
-</resources>
