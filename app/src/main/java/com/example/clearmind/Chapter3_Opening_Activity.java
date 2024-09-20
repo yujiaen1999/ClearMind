@@ -34,6 +34,8 @@ public class Chapter3_Opening_Activity extends AppCompatActivity {
     private long pageOpenTime;
     private long pageCloseTime;
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter3_opening);
@@ -52,6 +54,8 @@ public class Chapter3_Opening_Activity extends AppCompatActivity {
         text2  = text2 + "\nIn this part, we'll guide you through a step-by-step approach for managing challenging emotions. We will start with identifying your challenging emotions (Activity 3.1), followed by noticing how these emotions manifest physically within your body (Activity 3.2). Next, you'll engage in some meditation exercises to help you stay calm and focused (Activity 3.3). In Activity 3.4,  you'll create a compassionate self-talk statement to help manage your challenging emotions. To understand where these emotions come from, try Activity 3.5.";
 
         textView2.setText(Html.fromHtml(text2));
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

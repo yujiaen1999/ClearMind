@@ -1,123 +1,131 @@
 package com.example.clearmind;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.clearmind.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
 
-//    private DatabaseReference db;
-//    private String username;
-// Done: needs to save the data before enter next activity - No need because user haven't log in yet
-    private Button button_to_login;
-    private Button button_to_register;
+    private EditText usernameInput;
+    private EditText passwordInput;
+    private DatabaseReference db;
+    private String username;
 
-    private Button button_test;
-
-//    private SharedPreferences preferences;
-//    private void incrementLaunchCount() {
-//        int launchCount = preferences.getInt("launchCount", 0);
-//        preferences.edit().putInt("launchCount", launchCount + 1).apply();
-//    }
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        preferences = getSharedPreferences("AppUsageStats", MODE_PRIVATE);
-//        incrementLaunchCount();
-//        Log.d("Main count: ", String.valueOf(preferences.getInt("launchCount", 0)));
+        // Setup input fields and buttons
+        this.usernameInput = findViewById(R.id.username_input);
+        this.passwordInput = findViewById(R.id.password_input);
+        this.db = FirebaseDatabase.getInstance().getReference(); // Get a reference to the database
+        Button button_login = findViewById(R.id.button_login);
+        Button button_register = findViewById(R.id.button_register);
+        Button button_forgot_password = findViewById(R.id.button_forgot_passward);
 
+        // Set up login button click event
+        button_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMain();
+            }
+        });
 
-//        Log.w("MainActivity", "onCreate");
+        // Set up register button click event
+        button_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSignupActivity();
+            }
+        });
 
-//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-//        getWindow().setStatusBarColor(getResources().getColor(R.color.transparent));
+        // Set up forgot password button click event
+        button_forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                username = usernameInput.getText().toString();
+                if (username.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please input username", Toast.LENGTH_SHORT).show();
+                } else {
+                    openForgetPasswordActivity();
+                }
+            }
+        });
 
-//        Intent intent = getIntent();
-//        this.username = intent.getStringExtra("username");
-//        this.db = FirebaseDatabase.getInstance().getReference(); //get a reference of database
-//        if (savedInstanceState != null){
-//            this.username = savedInstanceState.getString("username");
-//            Log.d("save_username", "onRestoreCreate");
-//        }
-
-        // Enable full screen display and avoid nav bar overlap
+        // Handle system window insets
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.activity_main), (v, windowInsets) -> {
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-            // Apply the insets as a margin to the view. This solution sets only the
-            // bottom, left, and right dimensions, but you can apply whichever insets are
-            // appropriate to your layout. You can also update the view padding if that's
-            // more appropriate.
             ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-//            mlp.leftMargin = insets.left;
-//            mlp.rightMargin = insets.right;
             mlp.bottomMargin = insets.bottom;
             v.setLayoutParams(mlp);
-
-            // Return CONSUMED if you don't want want the window insets to keep passing
-            // down to descendant views.
             return WindowInsetsCompat.CONSUMED;
         });
-
-        button_to_login = (Button) findViewById(R.id.button);
-        button_to_register = (Button) findViewById(R.id.button2);
-
-//        button_test = (Button) findViewById(R.id.button3);
-
-        button_to_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                openLoginActivity();
-            }
-        });
-
-        // click register button
-        button_to_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                openRegisterActivity();
-            }
-        });
-
-//        button_test.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                OpenTest();
-//            }
-//        });
     }
 
-    public void openLoginActivity(){
-        Intent intent = new Intent(this,LoginActivity.class);
+    public void openMain() {
+        String username = usernameInput.getText().toString();
+        String password = passwordInput.getText().toString();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        this.db.child("users").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else {
+                    User user = task.getResult().getValue(User.class);
+                    if (user == null) {
+                        Toast.makeText(MainActivity.this, "New User, please register first", Toast.LENGTH_SHORT).show();
+                    } else {
+                        boolean verify = user.getPassword().equals(password);
+                        if (verify) {
+                            Intent intent = new Intent(getApplicationContext(), LearnActivity.class);
+                            intent.putExtra("username", username);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(MainActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    public void openSignupActivity() {
+        Intent intent = new Intent(this, SignupActivity1.class);
         startActivity(intent);
     }
 
-    public void openRegisterActivity(){
-//        Intent intent = new Intent(this,RegisterActivity.class);
-        Intent intent = new Intent(this,SignupActivity.class);
-        startActivity(intent);
-    }
-
-
-    public void OpenTest(){
-        Intent intent = new Intent(this, Chapter4_Activity2_Activity.class);
+    public void openForgetPasswordActivity() {
+        Intent intent = new Intent(this, ForgotPasswordActivity.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 
@@ -134,57 +142,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected  void onPause() {
-
+    protected void onPause() {
         super.onPause();
         Log.w("MainActivity", "onPause");
     }
 
     @Override
-    protected  void onStop() {
+    protected void onStop() {
         super.onStop();
         Log.w("MainActivity", "onStop");
     }
 
     @Override
-    protected  void onRestart() {
+    protected void onRestart() {
         super.onRestart();
         Log.w("MainActivity", "onRestart");
     }
 
     @Override
-    protected  void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         Log.w("MainActivity", "onDestroy");
     }
-
-//    //for future use
-//    public void onClickDeleteAccount(View view){
-//        Log.d("save_username", Boolean.toString(this.username == null));
-//        this.db.child("users")
-//                .child(this.username)
-//                .removeValue();
-//        this.finish();
-//    }
-//
-//    //for future use
-//    public void onClickChangePswd(View view){
-//        Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
-//        intent.putExtra("username", this.username);
-//        startActivity(intent);
-//    }
-//
-//    @Override
-//    protected void onSaveInstanceState(Bundle savedInstanceState) {
-//        Log.w("MainActivity", "onSave");
-//        savedInstanceState.putString("username", this.username);
-//        super.onSaveInstanceState(savedInstanceState);
-//    }
-//
-//    @Override
-//    public void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        Log.w("MainActivity", "onRestore");
-//        this.username = savedInstanceState.getString("username");
-//    }
 }

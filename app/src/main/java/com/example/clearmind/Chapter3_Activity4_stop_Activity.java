@@ -23,6 +23,8 @@ public class Chapter3_Activity4_stop_Activity extends AppCompatActivity {
     private Button button_next;
     private Button button_home;
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter3_activity4_stop);
@@ -39,6 +41,8 @@ public class Chapter3_Activity4_stop_Activity extends AppCompatActivity {
         String txt_stop = "<b>Stop:</b>" +
                 "<br>When you are facing a challenging moment or struggling with a different feeling, just stop what you’re doing or you can pause for a moment in your mind. You might even try to talk to yourself out loud to interrupt the stream of thoughts in your mind. For example, tell yourself, “Stop, Brenda.” “Stop, John.”";
         textView.setText(Html.fromHtml(txt_stop));
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,6 +6,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,10 +29,12 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
 
     private long pageOpenTime;
     private long pageCloseTime;
+
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
 
 
@@ -53,6 +56,8 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
                 "This section should take no more than 15 mins to complete. Let’s get started!";
 
         content.setText(Html.fromHtml(content_html));
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +98,7 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
 //                update.put("chapter1", "1");
 //                db.child("progress").child(username).updateChildren(update);
 
-                open_Chapter1_Activity1();
+                open_Chapter1_Activity0();
             }
         });
 
@@ -142,6 +147,12 @@ public class Chapter1_Opening_Activity extends AppCompatActivity {
         }
     }
 
+    private void open_Chapter1_Activity0() {
+        Intent intent = new Intent(this,Chapter1_Activity0_Activity.class);
+        intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+    }
 
     private void open_Chapter1_Activity1() {
         Intent intent = new Intent(this,Chapter1_Activity1_Activity.class);

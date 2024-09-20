@@ -39,6 +39,8 @@ public class Chapter3_Activity3_4_Activity extends AppCompatActivity {
     private long pageOpenTime;
     private long pageCloseTime;
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter3_activity3_4);
@@ -165,6 +167,7 @@ public class Chapter3_Activity3_4_Activity extends AppCompatActivity {
         vc.width=width;
         webView.setLayoutParams(vc);
 
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

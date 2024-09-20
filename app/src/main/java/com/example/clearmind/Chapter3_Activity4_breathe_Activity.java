@@ -23,6 +23,8 @@ public class Chapter3_Activity4_breathe_Activity extends AppCompatActivity {
     private Button button_next;
     private Button button_home;
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter3_activity4_breathe);
@@ -40,6 +42,8 @@ public class Chapter3_Activity4_breathe_Activity extends AppCompatActivity {
                 "<br>Now, if possible, adjust your sitting position. Sit up straight to fully use your lung’s capacity. Uncross your legs and rest your feet flat on the floor. Take slow breaths in and out. You can also try the 20 Breaths Meditation during this step if you like." +
                 "<br>Once you feel calm and focused, you can move on to Believe.";
         textView.setText(Html.fromHtml(txt_breathe));
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

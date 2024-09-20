@@ -51,6 +51,8 @@ public class Chapter4_Activity2_Activity extends AppCompatActivity {
     private long pageOpenTime;
     private long pageCloseTime;
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
+
     String[] star_name = {"Specific", "Trackable", "Achievable", "Relevant"};
     int[] star_image = {R.drawable.star_s, R.drawable.star_t, R.drawable.star_a, R.drawable.star_r};
     String[] star_intro = {"You need to be specific about your goal because vague goals can make success feel out of reach. Being specific helps you plan effectively and narrow your focus to what truly matters. For example, instead of setting a vague goal like \"I want to be fit,\" a specific goal would be \"I want to lose 20 pounds within three months through daily 30-minute exercise sessions and maintaining a balanced diet.\"",
@@ -146,6 +148,8 @@ public class Chapter4_Activity2_Activity extends AppCompatActivity {
                 }
             }
         });
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
