@@ -46,6 +46,7 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
 
 //    private AddTimeStamp addTimeStamp = new AddTimeStamp();
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +90,8 @@ public class Chapter3_Activity1_Activity extends AppCompatActivity {
                 }
             }
         });
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

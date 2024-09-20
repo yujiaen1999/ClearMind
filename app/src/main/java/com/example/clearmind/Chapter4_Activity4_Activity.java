@@ -34,6 +34,8 @@ public class Chapter4_Activity4_Activity extends AppCompatActivity {
     private long pageOpenTime;
     private long pageCloseTime;
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter4_activity4);
@@ -62,6 +64,8 @@ public class Chapter4_Activity4_Activity extends AppCompatActivity {
                 }
             }
         });
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

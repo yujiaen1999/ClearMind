@@ -30,6 +30,18 @@
             android:name=".SignupActivity"
             android:exported="true" />
         <activity
+            android:name=".SignupActivity1"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity3"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity4"
+            android:exported="true" />
+        <activity
             android:name=".LearnActivity"
             android:exported="true" />
         <activity
@@ -97,6 +109,9 @@
             android:exported="true" />
         <activity
             android:name=".Chapter1_Opening_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Activity0_Activity"
             android:exported="true" />
         <activity
             android:name=".Chapter1_Activity1_Activity"

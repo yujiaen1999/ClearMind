@@ -53,6 +53,8 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
     private  ArrayList<DistortionModel> DistortionModelArrayList;
     private DistortionGVAdapter adapter;
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
+
     // Distortion elements
     // Done: Magnification example missing!!!
     // Done: Emotional Reasoning solution need confirm
@@ -193,9 +195,7 @@ public class Chapter3_Activity5_2_Activity extends AppCompatActivity {
             }
         });
 
-
-
-
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -31,7 +32,7 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
 
     private TextView button_hint1;
     private TextView button_hint2;
@@ -53,6 +54,8 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
     private long pageOpenTime;
     private long pageCloseTime;
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter2_activity2_2_questions);
@@ -69,6 +72,8 @@ public class Chapter2_Activity2_2Q_Activity extends AppCompatActivity {
         button_hint3 = findViewById(R.id.hint_3);
         button_hint4 = findViewById(R.id.hint_4);
         button_hint5 = findViewById(R.id.hint_5);
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,6 @@
 package com.example.clearmind;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ public class Chapter1_Activity extends AppCompatActivity {
 
     private ImageButton button_back_to_learn;
     private Button button_opening;
+    private Button button_activity0;
     private Button button_activity1;
     private Button button_activity2;
     private Button button_activity2_questions;
@@ -87,6 +89,7 @@ public class Chapter1_Activity extends AppCompatActivity {
         button_back_to_learn = findViewById(R.id.button_back_learn_page);
 
         button_opening = findViewById(R.id.button_opening);
+        button_activity0 = findViewById(R.id.button1);
         button_activity1 = findViewById(R.id.button2);
         button_activity2 = findViewById(R.id.button3);
         button_activity2_questions = findViewById(R.id.button3_1);
@@ -114,56 +117,6 @@ public class Chapter1_Activity extends AppCompatActivity {
                 openLearnActivity();
             }
         });
-
-//        button_opening.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                open_Chapter1_Opening();
-//            }
-//        });
-//
-//        button_activity1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                open_Chapter1_Activity1();
-//            }
-//        });
-//
-//        button_activity2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                open_Chapter1_Activity2();
-//            }
-//        });
-//
-//        button_activity2_questions.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                open_Chapter1_Activity2_Questions();
-//            }
-//        });
-//
-//        button_act.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                open_Chapter1_Intro_ACT();
-//            }
-//        });
-//
-//        button_time.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                open_Chapter1_Time();
-//            }
-//        });
-//
-//        button_summary.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                open_Chapter1_Summary();
-//            }
-//        });
-
     }
 
     private void openNextPartActivity() {
@@ -209,6 +162,12 @@ public class Chapter1_Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void open_Chapter1_Activity0() {
+        Intent intent = new Intent(this,Chapter1_Activity0_Activity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
+
     private void open_Chapter1_Activity1() {
         Intent intent = new Intent(this,Chapter1_Activity1_Activity.class);
         intent.putExtra("username", username);
@@ -229,6 +188,7 @@ public class Chapter1_Activity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String status_1 = String.valueOf(snapshot.child("Chapter1").child("progress").child(username).child("1_Opening").getValue());
+                String status_2_1 = String.valueOf(snapshot.child("Chapter1").child("progress").child(username).child("2_Activity1_0").getValue());
                 String status_2 = String.valueOf(snapshot.child("Chapter1").child("progress").child(username).child("2_Activity1_1").getValue());
                 String status_3 = String.valueOf(snapshot.child("Chapter1").child("progress").child(username).child("3_Activity1_2_Discover").getValue());
                 String status_4 = String.valueOf(snapshot.child("Chapter1").child("progress").child(username).child("4_Activity1_2_Questions").getValue());
@@ -252,7 +212,7 @@ public class Chapter1_Activity extends AppCompatActivity {
 
                 } else {
                     // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_opening_done);
+                    @SuppressLint("UseCompatLoadingForDrawables") Drawable icon_done = getResources().getDrawable(R.drawable.icon_opening_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_opening.setCompoundDrawables(icon_done, null, null, null);
                     button_opening.setOnClickListener(new View.OnClickListener() {
@@ -263,12 +223,38 @@ public class Chapter1_Activity extends AppCompatActivity {
                     });
                 }
 
+                if (status_2_1.equals("0")) {
+                    button_activity0.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(status_1.equals("1")){
+                                Toast.makeText(Chapter1_Activity.this, "Open Activity0", Toast.LENGTH_SHORT).show();
+                                open_Chapter1_Activity1();
+                            } else{
+                                Toast.makeText(Chapter1_Activity.this, "Please complete previous content first!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
+                    // status == "1"
+                    @SuppressLint("UseCompatLoadingForDrawables") Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
+                    icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
+                    button_activity0.setCompoundDrawables(icon_done, null, null, null);
+                    button_activity0.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(Chapter1_Activity.this, "Open Chapter 1 page", Toast.LENGTH_SHORT).show();
+                            open_Chapter1_Activity0();
+                        }
+                    });
+                }
+
                 // HANDLE status_2
                 if (status_2.equals("0")){
                     button_activity1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if(status_1.equals("1")){
+                            if(status_2_1.equals("1")){
                                 Toast.makeText(Chapter1_Activity.this, "Open Activity1", Toast.LENGTH_SHORT).show();
                                 open_Chapter1_Activity1();
                             } else{
@@ -278,7 +264,7 @@ public class Chapter1_Activity extends AppCompatActivity {
                     });
                 } else {
                     // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
+                    @SuppressLint("UseCompatLoadingForDrawables") Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_activity1.setCompoundDrawables(icon_done, null, null, null);
                     button_activity1.setOnClickListener(new View.OnClickListener() {
@@ -305,7 +291,7 @@ public class Chapter1_Activity extends AppCompatActivity {
                     });
                 } else {
                     // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_text_done);
+                    @SuppressLint("UseCompatLoadingForDrawables") Drawable icon_done = getResources().getDrawable(R.drawable.icon_text_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_activity2.setCompoundDrawables(icon_done, null, null, null);
                     button_activity2.setOnClickListener(new View.OnClickListener() {
@@ -332,7 +318,7 @@ public class Chapter1_Activity extends AppCompatActivity {
                     });
                 } else {
                     // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
+                    @SuppressLint("UseCompatLoadingForDrawables") Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_activity2_questions.setCompoundDrawables(icon_done, null, null, null);
                     button_activity2_questions.setOnClickListener(new View.OnClickListener() {
@@ -384,7 +370,7 @@ public class Chapter1_Activity extends AppCompatActivity {
                     });
                 } else {
                     // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
+                    @SuppressLint("UseCompatLoadingForDrawables") Drawable icon_done = getResources().getDrawable(R.drawable.icon_practice_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_time.setCompoundDrawables(icon_done, null, null, null);
                     button_time.setOnClickListener(new View.OnClickListener() {
@@ -410,7 +396,7 @@ public class Chapter1_Activity extends AppCompatActivity {
                     });
                 } else {
                     // status == "1"
-                    Drawable icon_done = getResources().getDrawable(R.drawable.icon_summary_done);
+                    @SuppressLint("UseCompatLoadingForDrawables") Drawable icon_done = getResources().getDrawable(R.drawable.icon_summary_done);
                     icon_done.setBounds(0,0,icon_done.getMinimumWidth(), icon_done.getMinimumHeight());
                     button_summary.setCompoundDrawables(icon_done, null, null, null);
 

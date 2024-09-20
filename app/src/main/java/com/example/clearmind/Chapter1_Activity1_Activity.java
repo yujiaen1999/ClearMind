@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,13 +40,15 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
     private Button button_submit;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6,
-                     checkBox7, checkBox8, checkBox9, checkBox10, checkBox11, checkBox12;
+            checkBox7, checkBox8, checkBox9, checkBox10, checkBox11, checkBox12;
 
     private long pageOpenTime;
     private long pageCloseTime;
+
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +82,8 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
 //        if (checkBox1.isChecked()) {
 //            user_choice.add(checkBox1.getText().toString());
 //        }
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -295,7 +300,7 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
     }
 
     private void open_Previous_Activity() {
-        Intent intent = new Intent(this,Chapter1_Opening_Activity.class);
+        Intent intent = new Intent(this,Chapter1_Activity0_Activity.class);
         intent.putExtra("username", username);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);

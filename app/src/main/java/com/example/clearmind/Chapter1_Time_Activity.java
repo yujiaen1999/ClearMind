@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -35,7 +36,7 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
 
     private String answer1;
     private String answer2;
@@ -45,6 +46,7 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
     private Integer frequency = 1;
     private long pageOpenTime;
     private long pageCloseTime;
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,8 @@ public class Chapter1_Time_Activity  extends AppCompatActivity {
         button_home = findViewById(R.id.button_home);
         button_back = findViewById(R.id.button_previous);
         button_next = findViewById(R.id.button_next);
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
