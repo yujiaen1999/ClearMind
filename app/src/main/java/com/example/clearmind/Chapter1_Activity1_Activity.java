@@ -18,8 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -36,6 +38,7 @@ import java.util.Set;
 
 public class Chapter1_Activity1_Activity extends AppCompatActivity {
     private String username;
+    private String topChoice = "undefined";
     private DatabaseReference db;
 
     private Button button_back;
@@ -55,7 +58,9 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_chapter1_activity1);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
+
         this.db = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference topChoiceRef = db.child("Chapter1").child("activity0_user_input").child(username).child("0");;
 
         button_home = findViewById(R.id.button_home);
         button_back = findViewById(R.id.button_previous);
@@ -84,6 +89,39 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
 //        }
 
         navigationDrawerHelper.setupNavigationDrawer(username);
+
+        topChoiceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+
+                    String firstItem = dataSnapshot.getValue(String.class);
+
+                    if (firstItem != null) {
+                        topChoice = firstItem;
+                    } else {
+                        Log.e("Firebase", "No data for the first item.");
+                    }
+
+                } else {
+                    Log.e("Firebase", "User data does not exist.");
+                }
+
+                TextView textView1 = findViewById(R.id.textView1);
+                String template = "You chose [ %s ] as one of your top life values. Think about why those values are important and meaningful to you. Have you ever made any effort to pursue these values before? Has anything ever stopped you from pursuing these values?";
+                String text = String.format(template, topChoice);
+                textView1.setText(text);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Firebase", "Database error: " + databaseError.getMessage());
+                TextView textView1 = findViewById(R.id.textView1);
+                String template = "You chose [ %s ] as one of your top life values. Think about why those values are important and meaningful to you. Have you ever made any effort to pursue these values before? Has anything ever stopped you from pursuing these values?";
+                String text = String.format(template, topChoice);
+                textView1.setText(text);
+            }
+        });
 
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override

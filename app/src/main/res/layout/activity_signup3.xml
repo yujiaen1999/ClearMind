@@ -44,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="ClearMind"
+                    android:fontFamily="@font/delius_swash_caps"
                     android:textColor="#007F5F"
                     android:textSize="28sp"
                     android:includeFontPadding="false"
