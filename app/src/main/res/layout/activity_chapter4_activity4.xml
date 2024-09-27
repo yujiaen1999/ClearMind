@@ -45,13 +45,13 @@
 
             <EditText
                 android:id="@+id/input1"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:hint="The strategy I would like to use ..."
-                android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +25,7 @@ public class Chapter3_Activity4_sum_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
 
     private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 

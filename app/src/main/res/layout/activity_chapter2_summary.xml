@@ -69,13 +69,13 @@
 
             <EditText
                 android:id="@+id/input1"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:hint="Input your answer for question1"
                 android:textSize="@dimen/text_size_main_large"
                 android:padding="10dp"
-                android:background="#FFFFFF"
                 tools:ignore="ExtraText" />
 
             <!--      QUESTION 2      -->
@@ -89,13 +89,13 @@
 
             <EditText
                 android:id="@+id/input2"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:textSize="@dimen/text_size_main_large"
                 android:hint="Input your answer for question2"
                 android:padding="10dp"
-                android:background="#FFFFFF"
                 tools:ignore="ExtraText" />
 
             <!--      QUESTION 3      -->
@@ -109,13 +109,13 @@
 
             <EditText
                 android:id="@+id/input_real_3"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:textSize="@dimen/text_size_main_large"
                 android:hint="Input your answer for question3"
                 android:padding="10dp"
-                android:background="#FFFFFF"
                 tools:ignore="ExtraText" />
 
             <!--      QUESTION 3      -->

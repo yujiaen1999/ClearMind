@@ -34,13 +34,13 @@
 
             <EditText
                 android:id="@+id/input1"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:hint="My difficult thoughts and feelings are..."
-                android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
             <TextView
@@ -57,13 +57,13 @@
 
             <EditText
                 android:id="@+id/input2"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:hint="input here"
-                android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
             <LinearLayout

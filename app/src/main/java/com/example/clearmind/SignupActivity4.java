@@ -55,10 +55,10 @@ public class SignupActivity4 extends AppCompatActivity {
         this.password = intent.getStringExtra("password");
         this.fullName = intent.getStringExtra("fullName");
         this.email = intent.getStringExtra("email");
-        this.txt_question1 = intent.getStringExtra("txt_question1");
-        this.txt_question2 = intent.getStringExtra("txt_question2");
-        this.txt_answer1 = intent.getStringExtra("txt_answer1");
-        this.txt_answer2 = intent.getStringExtra("txt_answer1");
+        this.txt_question1 = intent.getStringExtra("question1");
+        this.txt_question2 = intent.getStringExtra("question2");
+        this.txt_answer1 = intent.getStringExtra("answer1");
+        this.txt_answer2 = intent.getStringExtra("answer2");
 
         this.db = FirebaseDatabase.getInstance().getReference();
 

@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -38,7 +39,7 @@ public class Chapter4_Activity2_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
 
     private GridView gridView;
     private  ArrayList<DistortionModel> DistortionModelArrayList;

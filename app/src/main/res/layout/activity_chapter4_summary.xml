@@ -101,12 +101,12 @@
 
             <EditText
                 android:id="@+id/input2"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:hint="Input your answer for question2"
-                android:padding="20dp"
-                android:background="#FFFFFF"
+                android:padding="10dp"
                 tools:ignore="ExtraText" />
 
             <!--      QUESTION 3      -->

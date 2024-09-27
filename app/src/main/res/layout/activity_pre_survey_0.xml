@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2FFD8"
+    android:background="#FFFFFF"
     android:id="@+id/activity_pre_survey_0">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F2FFD8"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="-165dp">
+        android:background="#FFFFFF"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:ignore="MissingConstraints"
             android:layout_marginLeft="@dimen/fab_margin"
-            android:layout_marginRight="@dimen/fab_margin" >
+            android:layout_marginRight="@dimen/fab_margin"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
             <TextView
                 android:id="@+id/textView1"
@@ -32,7 +32,6 @@
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_heading_small"
                 android:textStyle="bold" />
-
 
 
             <TextView
@@ -64,15 +63,14 @@
                 android:textStyle="bold" />
 
 
-                <Button
-                    android:id="@+id/button_confirm"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/text_internal"
-                    android:text="Start"
-                    android:layout_gravity="center"
-                    app:backgroundTint="#5FA12E"
-                    />
+            <Button
+                android:id="@+id/button_confirm"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/text_internal"
+                android:text="Start"
+                app:backgroundTint="#54B263" />
 
             <!--        This Survey contains 68 questions in total, and it takes approximately 10 minutes to complete.-->
 
@@ -99,8 +97,6 @@
             <!--            app:backgroundTint="#5FA12E" />-->
 
             <!--        </LinearLayout>-->
-
-
 
 
             <!--        <LinearLayout-->
@@ -141,7 +137,7 @@
         </LinearLayout>
     </ScrollView>
 
-<!--    <Button-->
+    <!--    <Button-->
 <!--        android:id="@+id/button_previous"-->
 <!--        android:layout_width="100dp"-->
 <!--        android:layout_height="wrap_content"-->

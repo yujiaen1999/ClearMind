@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_general"
     android:id="@+id/activity_chapter1">
 
         <TextView
@@ -12,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:text="Part 1: Discovery"
-            android:background="#5FA12E"
+            android:background="#54B263"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/text_size_heading_small"
             android:textStyle="bold"

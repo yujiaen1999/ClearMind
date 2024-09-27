@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ public class Chapter3_Activity6_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
 
     private TextView button_tendency;
 

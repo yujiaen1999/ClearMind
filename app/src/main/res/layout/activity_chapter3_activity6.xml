@@ -69,13 +69,13 @@
 
             <EditText
                 android:id="@+id/input1"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:layout_marginVertical="@dimen/text_internal"
                 android:padding = "10dp"
                 android:hint="Potential strategy"
-                android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
             <LinearLayout

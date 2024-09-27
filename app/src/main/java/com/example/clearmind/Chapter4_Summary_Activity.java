@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -35,7 +36,7 @@ public class Chapter4_Summary_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
 
     private String txt_answer1;
     private EditText answer2;
