@@ -22,6 +22,26 @@
             android:layout_marginRight="@dimen/fab_margin">
 
             <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="The destination here can be big, such as your top value mentioned in Part 1, or it can be any small goal toward your top value. [explanation of the difference between goal and value]"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="Previous examples show how people can still drive to their destination, even with difficult passengers. Now, let’s think of your own goal (destination) and the possible challenging thoughts (challenging passengers) that may lead you to procrastinate toward the goal. Managing challenging passengers, which you will learn in Part 3, will be much clearer once you know who they are."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -286,7 +306,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
-            android:text="Identify Your Passengers &amp; \nPassengers on the Bus Diagram"
+            android:text="Identify Your Own Destination &amp; Passengers"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />

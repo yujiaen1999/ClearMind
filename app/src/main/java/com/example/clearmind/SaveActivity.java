@@ -805,27 +805,6 @@ public class SaveActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-//                db.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-////                    Post post = dataSnapshot.getValue(Post.class);
-//                        String current_plan_name = dataSnapshot.child("Tracker").child(username).child("current_plan").child("goal").getValue(String.class);
-//                        if (current_plan_name == null){
-//                            Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
-//                        } else {
-//                            // if exist a current plan, open check in window
-//                            openPopupWindow(v);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//                        System.out.println("The read failed: " + databaseError.getCode());
-//                    }
-//                });
-
-//                openPopupWindow(v);
             }
         });
 

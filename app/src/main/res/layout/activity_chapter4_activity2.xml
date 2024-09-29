@@ -106,46 +106,46 @@
 
             <EditText
                 android:id="@+id/input1"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:hint="Specific:"
-                android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
             <EditText
                 android:id="@+id/input2"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:hint="Trackable:"
-                android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
             <EditText
                 android:id="@+id/input3"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:hint="Achievable:"
-                android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
             <EditText
                 android:id="@+id/input4"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:hint="Relevant:"
-                android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
             <TextView

@@ -47,12 +47,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="In this chapter, you will:\n
-1. explore various kinds of procrastination and the underlying reasons behind procrastination behaviors
+                android:text="In this chapter, you will:\n1. Identify your life values.\n2. Explore various kinds of procrastination and the underlying reasons behind procrastination behaviors.\n3. Be introduced to Acceptance and Commitment Therapy, which can help you manage procrastination tendencies.
 "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
+
 
             <!--            <Button-->
             <!--                android:id="@+id/button_previous"-->

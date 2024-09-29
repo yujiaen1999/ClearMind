@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="In this part, we explored various procrastination tendencies and the reasons behind such behaviors.
+                android:text="In this part, we explored various procrastination tendencies and the reasons behind such behaviors, focusing on how they relate to your life priorities and values.
                 \n\nFollowing questions will help you reflect on this chapter:
 "
                 android:textAlignment="textStart"
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="2. Did you gain any new insights from this chapter that you would like to integrate into your approaches for managing procrastination?"
+                android:text="2. What do you believe are the main reasons behind your procrastination behaviors, particularly when it comes to actions linked to your most important values?"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_small" />
 
@@ -134,33 +134,34 @@
                 android:padding="10dp"
                 tools:ignore="ExtraText" />
 
-            <!--      QUESTION 3      -->
-            <!--            <TextView-->
-            <!--                android:id="@+id/question_3"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:textSize="16dp"-->
-            <!--                android:padding="20dp"-->
-            <!--                android:text="3. Have you gained any new insights from this chapter that you would like to incorporate into your approaches to managing procrastination?" />-->
+            <TextView
+                android:id="@+id/question_real_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="3. Which new insight(s) you gained from this part would you like to integrate for managing procrastination and better aligning with your life priorities?"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_small" />
 
-            <!--            <EditText-->
-            <!--                android:id="@+id/input3"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:cursorVisible="true"-->
-            <!--                android:ems="10"-->
-            <!--                android:hint="Input your answer for question3"-->
-            <!--                android:padding="20dp"-->
-            <!--                android:background="#FFFFFF"-->
-            <!--                tools:ignore="ExtraText" />-->
 
-            <!--      QUESTION 3      -->
+            <EditText
+                android:id="@+id/input_real_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CustomEditTextWhite"
+                android:cursorVisible="true"
+                android:ems="10"
+                android:hint="Input your answer for question3"
+                android:padding="10dp"
+                tools:ignore="ExtraText" />
+
+            <!--      QUESTION 4      -->
             <TextView
                 android:id="@+id/question_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="3. Rate the effectiveness of this chapter in managing your procrastination on a scale of 1 to 5, where 1 is “not effective“ and 5 is ”extremely effective.“"
+                android:text="4. Rate the effectiveness of this chapter in managing your procrastination on a scale of 1 to 5, where 1 is “not effective“ and 5 is ”extremely effective.“"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_small" />
 

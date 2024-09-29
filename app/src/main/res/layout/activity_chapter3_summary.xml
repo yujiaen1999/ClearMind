@@ -66,12 +66,12 @@
 
             <EditText
                 android:id="@+id/input1"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:hint="Input your answer for question1"
-                android:padding="20dp"
-                android:background="#FFFFFF"
+                android:padding="10dp"
                 tools:ignore="ExtraText" />
 
             <!--      QUESTION 2      -->
@@ -81,16 +81,16 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_main_small"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="2. If you could share one cognitive distortion you've learned about in this chapter with your friend, which one would you choose and why?" />
+                android:text="2. What are some small actions you can take to manage any cognitive distortion(s) you have, in order to pursue your value/goal?" />
 
             <EditText
                 android:id="@+id/input2"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:hint="Input your answer for question2"
-                android:padding="20dp"
-                android:background="#FFFFFF"
+                android:padding="10dp"
                 tools:ignore="ExtraText" />
 
             <!--      QUESTION 3      -->

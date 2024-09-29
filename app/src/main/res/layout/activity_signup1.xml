@@ -48,6 +48,7 @@
                     android:text="ClearMind"
                     android:textColor="#007F5F"
                     android:textSize="28sp"
+                    android:fontFamily="@font/delius_swash_caps"
                     android:includeFontPadding="false"
                     android:layout_gravity="center" />
             </LinearLayout>

@@ -49,6 +49,7 @@ public class Chapter1_Activity0_Activity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DragValueAdapter adapter;
     private ItemTouchHelper touchHelper;
+    private String topChoice = "Career";
 
     private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
@@ -134,6 +135,8 @@ public class Chapter1_Activity0_Activity extends AppCompatActivity {
                     Log.e("firebase", "Error getting data", task.getException());
                 }else{
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    topChoice = user_choice.get(0);
+
                     for(int i = 0; i < user_choice.size(); i++) {
                         String value = user_choice.get(i);
                         if(hashmap_reasons != null && hashmap_reasons.containsKey(value)){
@@ -202,6 +205,7 @@ public class Chapter1_Activity0_Activity extends AppCompatActivity {
     private void open_Next_Activity() {
         Intent intent = new Intent(this, Chapter1_Activity1_Activity.class);
         intent.putExtra("username", username);
+        intent.putExtra("topChoice", topChoice);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }

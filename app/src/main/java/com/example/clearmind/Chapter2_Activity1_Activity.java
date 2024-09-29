@@ -17,8 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -34,6 +36,7 @@ import java.util.Set;
 public class Chapter2_Activity1_Activity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;
+    private String topChoice = "undefined";
 
     private Button button_back;
     private Button button_next;
@@ -53,6 +56,8 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
         this.db = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference topChoiceRef = db.child("Chapter1").child("activity0_user_input").child(username);
+
 
         button_home = findViewById(R.id.button_home);
         button_back = findViewById(R.id.button_previous);
@@ -72,6 +77,40 @@ public class Chapter2_Activity1_Activity extends AppCompatActivity {
         // when click next, store them to our database?
 
         navigationDrawerHelper.setupNavigationDrawer(username);
+
+        topChoiceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+
+                    String firstItem = dataSnapshot.child("0").getValue(String.class);
+
+                    if (firstItem != null) {
+                        topChoice = firstItem;
+                    } else {
+                        Log.e("Firebase", "No data for the first item.");
+                    }
+
+                } else {
+                    Log.e("Firebase", "User data does not exist.");
+                }
+
+                TextView textView1 = findViewById(R.id.textView1);
+                String template = "One reason people often procrastinate and choose not to follow their values is that challenging thoughts and feelings can get in the way. What kind of challenging thoughts and feelings have counteracted your efforts toward your top value [ %s ] mentioned in Part 1?";
+                String text = String.format(template, topChoice);
+                textView1.setText(text);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Firebase", "Database error: " + databaseError.getMessage());
+
+                TextView textView1 = findViewById(R.id.textView1);
+                String template = "One reason people often procrastinate and choose not to follow their values is that challenging thoughts and feelings can get in the way. What kind of challenging thoughts and feelings have counteracted your efforts toward your top value [ %s ] mentioned in Part 1?";
+                String text = String.format(template, topChoice);
+                textView1.setText(text);
+            }
+        });
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

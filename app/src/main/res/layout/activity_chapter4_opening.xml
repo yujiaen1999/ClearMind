@@ -32,6 +32,17 @@
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="In this section, we'll recap key concepts from previous parts and introduce a new framework designed to help you manage procrastination on a daily basis, ensuring you stay aligned with your priorities and goals.
+"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
