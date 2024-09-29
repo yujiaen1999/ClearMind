@@ -1,5 +1,9 @@
 package com.example.clearmind;
 
+// ***********************
+// This is actually the Goal Tracker
+// ***********************
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,6 +30,7 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -88,6 +93,9 @@ import java.util.Map;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 
+import nl.bryanderidder.themedtogglebuttongroup.ThemedButton;
+import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup;
+
 public class SaveActivity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;
@@ -118,12 +126,15 @@ public class SaveActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private TextView progressText;
+    private TextView completion_score;
 
     private PopupWindow speechBubble;
 
     private String[] tooltip_date;
 
     private String status_finish_learn;
+
+    private Integer iterate_num = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,6 +181,8 @@ public class SaveActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
+        completion_score = findViewById(R.id.completion_score);
+
         updateProgress(0);
         // set the progress bar here
 //        progressBar.setProgress(50); // 50% for example
@@ -474,7 +487,74 @@ public class SaveActivity extends AppCompatActivity {
         // ***************************************************************
         // Initialization: initialize line chart from the database
         // ***************************************************************
-        initialize_LineChart();
+        initialize_LineChart("Both");
+
+
+        // react to the selection change of Toggle Buttons
+        ThemedToggleButtonGroup toggleButtonGroup = findViewById(R.id.toggle_buttons);
+        ThemedButton buttonBoth = findViewById(R.id.button_both);
+
+        // Initialize button_both to be selected at beginning
+        toggleButtonGroup.post(new Runnable() {
+            @Override
+            public void run() {
+                toggleButtonGroup.selectButton(R.id.button_both);
+            }
+        });
+
+
+        // Set a listener for selection changes
+        toggleButtonGroup.setOnSelectListener((ThemedButton btn) -> {
+            // handle selected button
+//            return kotlin.Unit.INSTANCE;
+            String name_button = btn.getText();
+//            Toast.makeText(SaveActivity.this, name_button, Toast.LENGTH_SHORT).show();
+            Log.d("Check toggle", name_button);
+
+            initialize_LineChart(name_button);
+
+//            // call initialize_LineChart() here based on
+//            switch (name_button) {
+//                case "Completion":
+////                    Toast.makeText(SaveActivity.this, "1. This is " + name_button, Toast.LENGTH_SHORT).show();
+//                    initialize_LineChart(name_button);
+//                    break;
+//                case "Both":
+////                    Toast.makeText(SaveActivity.this, "2. This is " + name_button, Toast.LENGTH_SHORT).show();
+//                    initialize_LineChart(name_button);
+//                    break;
+//                case "Timeliness":
+////                    Toast.makeText(SaveActivity.this, "3. This is " + name_button, Toast.LENGTH_SHORT).show();
+//                    initialize_LineChart(name_button);
+//                    break;
+//            }
+
+            return kotlin.Unit.INSTANCE;
+        });
+
+//
+//        toggleButtonGroup.setOnSelectListener(new ThemedToggleButtonGroup.OnSelectListener() {
+//            @Override
+//            public void onSelect(ThemedButton button) {
+//                // Handle the button selection
+//                switch (button.getId()) {
+//                    case R.id.button_completion:
+//                        // Do something when "Completion" is selected
+//                        System.out.println("Completion selected");
+//                        break;
+//                    case R.id.button_both:
+//                        // Do something when "Both" is selected
+//                        System.out.println("Both selected");
+//                        break;
+//                    case R.id.button_timeliness:
+//                        // Do something when "Timeliness" is selected
+//                        System.out.println("Timeliness selected");
+//                        break;
+//                    default:
+//                        break;
+//                }
+//            }
+//        });
 
 
 //        entries_line = new ArrayList<>();
@@ -583,7 +663,8 @@ public class SaveActivity extends AppCompatActivity {
                         double timeliness_rounded = Math.round(timeliness_avg * 10) / 10.0;
 
                         TextView cur_avg_score = findViewById(R.id.cur_avg_score);
-                        cur_avg_score.setText("Average Timeliness Score: " + String.valueOf(timeliness_rounded));
+//                        cur_avg_score.setText("Average Timeliness Score: " + String.valueOf(timeliness_rounded));
+                        cur_avg_score.setText(String.valueOf(timeliness_rounded));
 
                         // move current_plan to history plan if finished
                         String end_date_status = tracker_progress.get(end_date).get("status").toString();
@@ -1292,7 +1373,7 @@ public class SaveActivity extends AppCompatActivity {
     }
 
 
-    private void initialize_LineChart() {
+    private void initialize_LineChart(String toggle_selection) {
         // Line Chart initialize
         db.child("Tracker").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -1387,6 +1468,34 @@ public class SaveActivity extends AppCompatActivity {
 
                             // Combine both datasets into LineData and set it to the chart
                             LineData data = new LineData(lineDataSet1, lineDataSet2);
+//                            LineData data1 = new LineData(lineDataSet1);
+//                            LineData data2 = new LineData(lineDataSet2);
+
+                            // React based on the value of toggle_selection
+                            if ("Completion".equals(toggle_selection)) {
+                                // Handle case when toggle_selection is "Completion"
+                                data = new LineData(lineDataSet2);
+                            } else if ("Both".equals(toggle_selection)) {
+                                // Handle case when toggle_selection is "Both"
+                                data = new LineData(lineDataSet1, lineDataSet2);
+                            } else if ("Timeliness".equals(toggle_selection)) {
+                                // Handle case when toggle_selection is "Timeliness"
+                                data = new LineData(lineDataSet1);
+                            } else {
+                                // Handle any default or error case
+                                data = new LineData(lineDataSet1, lineDataSet2);
+                            }
+
+//                            if (iterate_num % 3 == 0){
+//                                data = new LineData(lineDataSet1, lineDataSet2);
+//                            } else if (iterate_num % 3 == 1) {
+//                                data = new LineData(lineDataSet1);
+//                            } else {
+//                                data = new LineData(lineDataSet2);
+//                            }
+//
+//                            iterate_num += 1;
+
                             lineChart.setData(data);
 
                             // Highlight the last data points
@@ -1427,6 +1536,7 @@ public class SaveActivity extends AppCompatActivity {
         progressBar.setProgress(progress);
         String progressPercentage = progress + "%";
         progressText.setText(progressPercentage);
+        completion_score.setText(progressPercentage);
     }
 
     private void showSpeechBubble(View anchorView, int position) {
