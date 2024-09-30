@@ -12,5 +12,5 @@
     <string name="title_activity_register">RegisterActivity</string>
 
     <string name="underlined_Timeliness"><u>Timeliness this week</u></string>
-    <string name="underlined_Overtime"><u>Timeliness/Completion overtime</u></string>
+    <string name="underlined_Overtime"><u>Weekly Timeliness/Completion overtime</u></string>
 </resources>

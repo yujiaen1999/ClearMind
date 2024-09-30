@@ -785,6 +785,31 @@ public class SaveActivity extends AppCompatActivity {
             }
         });
 
+//        selfcheckin_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v){
+//                // Determine whether there is an exist current plan
+//                db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                        String current_plan_name = task.getResult().getValue().toString();
+//                        if(!task.isSuccessful()){
+//                            Log.e("firebase_tracker", "Error getting data", task.getException());
+//                            Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                        }else{
+//                            Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+//                            if(current_plan_name != null){
+//                                // if exist a current plan, open check in window
+//                                openPopupWindow(v, dateAsString);
+//                            } else{
+//                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    }
+//                });
+//            }
+//        });
+
         selfcheckin_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -792,18 +817,24 @@ public class SaveActivity extends AppCompatActivity {
                 db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        String current_plan_name = task.getResult().getValue().toString();
-                        if(!task.isSuccessful()){
+                        if (!task.isSuccessful()) {
                             Log.e("firebase_tracker", "Error getting data", task.getException());
                             Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
-                            if(current_plan_name != null){
-                                // if exist a current plan, open check in window
+                            return;
+                        }
+
+                        DataSnapshot snapshot = task.getResult();
+                        if (snapshot.exists()) {
+                            Object value = snapshot.getValue();
+                            if (value != null) {
+                                String current_plan_name = value.toString();
+                                // Continue to proceed current_plan_name
                                 openPopupWindow(v, dateAsString);
-                            } else{
+                            } else {
                                 Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                             }
+                        } else {
+                            Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -993,26 +1024,31 @@ public class SaveActivity extends AppCompatActivity {
                 String txt_cur_emotion = input_emotion.getText().toString();
                 String txt_cur_strategy = input_strategy.getText().toString();
 
-                Integer int_daily = Integer.parseInt(txt_daily_goal);
-                Integer int_weekly = Integer.parseInt(txt_weekly_goal);
-
-                Log.d("Print daily: ", int_daily.toString());
-                Log.d("Print weekly: ", int_weekly.toString());
+                Integer int_daily;
+                Integer int_weekly;
 
                 if (txt_daily_goal.isEmpty() || txt_weekly_goal.isEmpty() || txt_cur_emotion.isEmpty() || txt_cur_strategy.isEmpty()){
                     Toast.makeText(SaveActivity.this,  "Empty input", Toast.LENGTH_SHORT).show();
-                } else if (int_daily<0 || int_daily>100 || int_weekly<0 || int_weekly>100) {
-                    Toast.makeText(SaveActivity.this,  "Invalid input", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Daily check in
-                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_daily").setValue(txt_daily_goal);
-                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_weekly").setValue(txt_weekly_goal);
-                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("emotion").setValue(txt_cur_emotion);
-                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("strategy").setValue(txt_cur_strategy);
-                    db.child("Tracker").child(username).child("current_plan").child("completion").setValue(txt_weekly_goal);
+                    int_daily = Integer.parseInt(txt_daily_goal);
+                    int_weekly = Integer.parseInt(txt_weekly_goal);
 
-                    popupWindow.dismiss();
-                    openPopupWindow3(v, dateAsString);
+                    Log.d("Print daily: ", int_daily.toString());
+                    Log.d("Print weekly: ", int_weekly.toString());
+
+                    if (int_daily<0 || int_daily>100 || int_weekly<0 || int_weekly>100) {
+                        Toast.makeText(SaveActivity.this,  "Invalid input", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Daily check in
+                        db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_daily").setValue(txt_daily_goal);
+                        db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_weekly").setValue(txt_weekly_goal);
+                        db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("emotion").setValue(txt_cur_emotion);
+                        db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("strategy").setValue(txt_cur_strategy);
+                        db.child("Tracker").child(username).child("current_plan").child("completion").setValue(txt_weekly_goal);
+
+                        popupWindow.dismiss();
+                        openPopupWindow3(v, dateAsString);
+                    }
                 }
 //                popupWindow.dismiss();
 //                openPopupWindow3(v, dateAsString);
@@ -1020,6 +1056,90 @@ public class SaveActivity extends AppCompatActivity {
             }
         });
     }
+
+//    // Function with bug
+//    private void openPopupWindow2(View view, String dateAsString) {
+//        // initialize popup window
+//        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+//        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_self_checkin_2, null);
+////        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 600, 600, true);
+//        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow);
+//        popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+//        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+//        popupWindow.setFocusable(true);
+//
+//        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+//
+//        // Dim the background when popup the window
+//        View container = (View) popupWindow.getContentView().getParent();
+//        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+//        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+//        // add flag
+//        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+//        p.dimAmount = 0.4f;
+//        wm.updateViewLayout(container, p);
+//
+//        // initialize elements
+//        TextView textView_date = (TextView) viewPopupWindow.findViewById(R.id.textView_date);
+//        TextView textView_daily_comp = (TextView) viewPopupWindow.findViewById(R.id.textView_daily);
+//        TextView textView_weekly_comp = (TextView) viewPopupWindow.findViewById(R.id.textView_weekly);
+//
+//        EditText input_daily_goal = (EditText) viewPopupWindow.findViewById(R.id.input1);
+//        EditText input_weekly_goal = (EditText) viewPopupWindow.findViewById(R.id.input2);
+//        EditText input_emotion = (EditText) viewPopupWindow.findViewById(R.id.input3);
+//        EditText input_strategy = (EditText) viewPopupWindow.findViewById(R.id.input4);
+//
+////        Button button_yes = (Button) viewPopupWindow.findViewById(R.id.button_yes);
+////        Button button_no = (Button) viewPopupWindow.findViewById(R.id.button_no);
+//        Button button_next = (Button) viewPopupWindow.findViewById(R.id.button_confirm);
+//
+//        textView_date.setText("Date: " + dateAsString);
+//        String date_without_slash = removeSlashes(dateAsString);
+//
+//        String txt_daily = "How much (in %) did you complete today out of your <b>daily</b> goal?";
+//        String txt_weekly = "How much (in %) did you complete out of your <b>weekly</b> goal?";
+//
+//        textView_daily_comp.setText(Html.fromHtml(txt_daily));
+//        textView_weekly_comp.setText(Html.fromHtml(txt_weekly));
+//
+//        button_next.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v){
+////                String current_date = input_date.toString();
+////                db.child("Tracker").child(username).child("current_plan").child(current_date).setValue(input_feel.toString());
+//
+//                String txt_daily_goal = input_daily_goal.getText().toString();
+//                String txt_weekly_goal = input_weekly_goal.getText().toString();
+//                String txt_cur_emotion = input_emotion.getText().toString();
+//                String txt_cur_strategy = input_strategy.getText().toString();
+//
+//                Integer int_daily = Integer.parseInt(txt_daily_goal);
+//                Integer int_weekly = Integer.parseInt(txt_weekly_goal);
+//
+//                Log.d("Print daily: ", int_daily.toString());
+//                Log.d("Print weekly: ", int_weekly.toString());
+//
+//                if (txt_daily_goal.isEmpty() || txt_weekly_goal.isEmpty() || txt_cur_emotion.isEmpty() || txt_cur_strategy.isEmpty()){
+//                    Toast.makeText(SaveActivity.this,  "Empty input", Toast.LENGTH_SHORT).show();
+//                } else if (int_daily<0 || int_daily>100 || int_weekly<0 || int_weekly>100) {
+//                    Toast.makeText(SaveActivity.this,  "Invalid input", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    // Daily check in
+//                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_daily").setValue(txt_daily_goal);
+//                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_weekly").setValue(txt_weekly_goal);
+//                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("emotion").setValue(txt_cur_emotion);
+//                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("strategy").setValue(txt_cur_strategy);
+//                    db.child("Tracker").child(username).child("current_plan").child("completion").setValue(txt_weekly_goal);
+//
+//                    popupWindow.dismiss();
+//                    openPopupWindow3(v, dateAsString);
+//                }
+////                popupWindow.dismiss();
+////                openPopupWindow3(v, dateAsString);
+//
+//            }
+//        });
+//    }
 
     private void openPopupWindow3(View view, String dateAsString) {
         // initialize popup window
@@ -1633,7 +1753,34 @@ public class SaveActivity extends AppCompatActivity {
                             String content_html2 = "You didn’t have a task to complete on this date.";
                             bubble_text.setText(Html.fromHtml(content_html2));
 
-                            // Enbale check in button
+                            // Enable check in button
+//                            button_check_in.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v){
+//                                    // Determine whether there is an exist current plan
+//                                    db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                                            String current_plan_name = task.getResult().getValue().toString();
+//                                            if(!task.isSuccessful()){
+//                                                Log.e("firebase_tracker", "Error getting data", task.getException());
+//                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                                            }else{
+//                                                Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+//                                                if(current_plan_name != null){
+//                                                    // if exist a current plan, open check in window
+//                                                    speechBubble.dismiss(); // need to dismiss the current speech bubble first
+//                                                    openPopupWindow(v, selected_date);
+//                                                } else{
+//                                                    Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            }
+//                                        }
+//                                    });
+//                                }
+//                            });
+
+                            // Enable check in button
                             button_check_in.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v){
@@ -1641,19 +1788,25 @@ public class SaveActivity extends AppCompatActivity {
                                     db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                         @Override
                                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                            String current_plan_name = task.getResult().getValue().toString();
-                                            if(!task.isSuccessful()){
+                                            if (!task.isSuccessful()) {
                                                 Log.e("firebase_tracker", "Error getting data", task.getException());
                                                 Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
-                                            }else{
-                                                Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
-                                                if(current_plan_name != null){
-                                                    // if exist a current plan, open check in window
+                                                return;
+                                            }
+
+                                            DataSnapshot snapshot = task.getResult();
+                                            if (snapshot.exists()) {
+                                                Object value = snapshot.getValue();
+                                                if (value != null) {
+                                                    String current_plan_name = value.toString();
+                                                    // Continue to proceed current_plan_name
                                                     speechBubble.dismiss(); // need to dismiss the current speech bubble first
                                                     openPopupWindow(v, selected_date);
-                                                } else{
+                                                } else {
                                                     Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                                                 }
+                                            } else {
+                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
@@ -1665,7 +1818,34 @@ public class SaveActivity extends AppCompatActivity {
                             String content_html3 = "You have not recorded your progress for this day. Submit one through the “Self-Checkin” button.";
                             bubble_text.setText(Html.fromHtml(content_html3));
 
-                            // Enbale check in button
+//                            // Enbale check in button
+//                            button_check_in.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v){
+//                                    // Determine whether there is an exist current plan
+//                                    db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                                            String current_plan_name = task.getResult().getValue().toString();
+//                                            if(!task.isSuccessful()){
+//                                                Log.e("firebase_tracker", "Error getting data", task.getException());
+//                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                                            }else{
+//                                                Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+//                                                if(current_plan_name != null){
+//                                                    // if exist a current plan, open check in window
+//                                                    speechBubble.dismiss(); // need to dismiss the current speech bubble first
+//                                                    openPopupWindow(v, selected_date);
+//                                                } else{
+//                                                    Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            }
+//                                        }
+//                                    });
+//                                }
+//                            });
+
+                            // Enable check in button
                             button_check_in.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v){
@@ -1673,24 +1853,31 @@ public class SaveActivity extends AppCompatActivity {
                                     db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                         @Override
                                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                            String current_plan_name = task.getResult().getValue().toString();
-                                            if(!task.isSuccessful()){
+                                            if (!task.isSuccessful()) {
                                                 Log.e("firebase_tracker", "Error getting data", task.getException());
                                                 Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
-                                            }else{
-                                                Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
-                                                if(current_plan_name != null){
-                                                    // if exist a current plan, open check in window
+                                                return;
+                                            }
+
+                                            DataSnapshot snapshot = task.getResult();
+                                            if (snapshot.exists()) {
+                                                Object value = snapshot.getValue();
+                                                if (value != null) {
+                                                    String current_plan_name = value.toString();
+                                                    // Continue to proceed current_plan_name
                                                     speechBubble.dismiss(); // need to dismiss the current speech bubble first
                                                     openPopupWindow(v, selected_date);
-                                                } else{
+                                                } else {
                                                     Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                                                 }
+                                            } else {
+                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
                                 }
                             });
+
                             break;
                         default:
                             break;

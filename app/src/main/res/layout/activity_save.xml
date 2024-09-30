@@ -508,19 +508,7 @@
 <!--                </TableRow>-->
 <!--            </TableLayout>-->
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="0dp"
-                android:paddingRight="20dp"
-                android:text="@string/underlined_Overtime"
-                android:gravity="left"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_main_small" />
-
-<!--            <Button-->
+            <!--            <Button-->
 <!--                android:id="@+id/button_switch"-->
 <!--                android:layout_width="100dp"-->
 <!--                android:layout_height="40dp"-->
@@ -562,6 +550,18 @@
 <!--                    app:backgroundTint="#FFFFFF" />-->
 
 <!--            </LinearLayout>-->
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingLeft="0dp"
+                android:paddingRight="20dp"
+                android:text="@string/underlined_Overtime"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_small"
+                android:textStyle="bold" />
 
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:id="@+id/toggle_buttons"
