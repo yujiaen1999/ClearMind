@@ -7,6 +7,7 @@ package com.example.clearmind;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -18,6 +19,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -417,7 +419,7 @@ public class SaveActivity extends AppCompatActivity {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
-// Enable both left and right Y axes
+// Enable both left and right Y axis
         YAxis leftAxis = lineChart.getAxisLeft();
         YAxis rightAxis = lineChart.getAxisRight();
         rightAxis.setEnabled(true); // Enable the right Y axis
@@ -427,8 +429,8 @@ public class SaveActivity extends AppCompatActivity {
         rightAxis.setAxisMinimum(0f); // Set minimum to 1
         rightAxis.setAxisMaximum(5f); // Set maximum to 5
 
-        leftAxis.setGranularity(20f);
-        rightAxis.setGranularity(1f);
+        leftAxis.setGranularity(100f);
+        rightAxis.setGranularity(5f);
 
 
         // Get the legend object from your chart
@@ -798,7 +800,7 @@ public class SaveActivity extends AppCompatActivity {
                             Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
                             if(current_plan_name != null){
                                 // if exist a current plan, open check in window
-                                openPopupWindow(v);
+                                openPopupWindow(v, dateAsString);
                             } else{
                                 Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                             }
@@ -865,7 +867,7 @@ public class SaveActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void openPopupWindow(View view) {
+    private void openPopupWindow(View view, String date_selected) {
         // initialize popup window
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View viewPopupWindow = layoutInflater.inflate(R.layout.activity_self_checkin_1, null);
@@ -877,8 +879,18 @@ public class SaveActivity extends AppCompatActivity {
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.4f;
+        wm.updateViewLayout(container, p);
+
         // initialize elements
         EditText input_date = (EditText) viewPopupWindow.findViewById(R.id.input1);
+        TextView textView_date = (TextView) viewPopupWindow.findViewById(R.id.textView_intro);
 //        EditText input_feel = (EditText) viewPopupWindow.findViewById(R.id.input2);
 
 //        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -886,8 +898,11 @@ public class SaveActivity extends AppCompatActivity {
 //        String dateAsString = dateFormat.format(current_date);
 
         Log.d("Current date: ", dateAsString);
+        Log.d("Selected date: ", date_selected);
 
-        input_date.setText(dateAsString);
+//        input_date.setText(dateAsString);
+        input_date.setText(date_selected);
+        textView_date.setText("Date: " + date_selected);
 
         Button button_yes = (Button) viewPopupWindow.findViewById(R.id.button_yes);
         Button button_no = (Button) viewPopupWindow.findViewById(R.id.button_no);
@@ -934,6 +949,15 @@ public class SaveActivity extends AppCompatActivity {
         popupWindow.setFocusable(true);
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.4f;
+        wm.updateViewLayout(container, p);
 
         // initialize elements
         TextView textView_date = (TextView) viewPopupWindow.findViewById(R.id.textView_date);
@@ -1008,6 +1032,15 @@ public class SaveActivity extends AppCompatActivity {
         popupWindow.setFocusable(true);
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.4f;
+        wm.updateViewLayout(container, p);
 
         String date_without_slash = removeSlashes(dateAsString);
 
@@ -1127,6 +1160,15 @@ public class SaveActivity extends AppCompatActivity {
         popupWindow.setFocusable(true);
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.4f;
+        wm.updateViewLayout(container, p);
 
         // initialize elements
         EditText input_goal = (EditText) viewPopupWindow.findViewById(R.id.input1);
@@ -1536,6 +1578,7 @@ public class SaveActivity extends AppCompatActivity {
         speechBubble = new PopupWindow(bubbleView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
 
         TextView bubble_text = bubbleView.findViewById(R.id.speechBubbleText);
+        Button button_check_in = bubbleView.findViewById(R.id.button_checkin);
 
 //        bubble_text.setText(String.valueOf(position));
 
@@ -1557,6 +1600,15 @@ public class SaveActivity extends AppCompatActivity {
                     String[] keys = map_progress.keySet().toArray(new String[0]);
                     Arrays.sort(keys);
 
+                    // selected date: keys[position]
+                    // Extract year, month, and day from the string
+                    String year = keys[position].substring(0, 4);
+                    String month = keys[position].substring(4, 6);
+                    String day = keys[position].substring(6, 8);
+
+                    // Format the string as YYYY/MM/DD
+                    String selected_date = String.format("%s/%s/%s", year, month, day);
+
                     String content_pending = "";
 //                    String content = "";
 //                    String htmlString = "<h2>Title</h2><br><p>This is a sample paragraph of <b>HTML</b> text.</p>";
@@ -1574,22 +1626,71 @@ public class SaveActivity extends AppCompatActivity {
 //                            }
 
                             bubble_text.setText(Html.fromHtml(content_html));
+
+                            button_check_in.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#C9C9C9")));
                             break;
                         case "0":
                             String content_html2 = "You didn’t have a task to complete on this date.";
-//                            if (position == 5 || position == 6){
-//                                content_html2 = "<br>" + content_html2;
-//                            }
-
                             bubble_text.setText(Html.fromHtml(content_html2));
+
+                            // Enbale check in button
+                            button_check_in.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v){
+                                    // Determine whether there is an exist current plan
+                                    db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                            String current_plan_name = task.getResult().getValue().toString();
+                                            if(!task.isSuccessful()){
+                                                Log.e("firebase_tracker", "Error getting data", task.getException());
+                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                            }else{
+                                                Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+                                                if(current_plan_name != null){
+                                                    // if exist a current plan, open check in window
+                                                    speechBubble.dismiss(); // need to dismiss the current speech bubble first
+                                                    openPopupWindow(v, selected_date);
+                                                } else{
+                                                    Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+
                             break;
                         case "-1":
                             String content_html3 = "You have not recorded your progress for this day. Submit one through the “Self-Checkin” button.";
-//                            if (position == 5 || position == 6){
-//                                content_html3 = "<br>" + content_html3;
-//                            }
-
                             bubble_text.setText(Html.fromHtml(content_html3));
+
+                            // Enbale check in button
+                            button_check_in.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v){
+                                    // Determine whether there is an exist current plan
+                                    db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                            String current_plan_name = task.getResult().getValue().toString();
+                                            if(!task.isSuccessful()){
+                                                Log.e("firebase_tracker", "Error getting data", task.getException());
+                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                            }else{
+                                                Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+                                                if(current_plan_name != null){
+                                                    // if exist a current plan, open check in window
+                                                    speechBubble.dismiss(); // need to dismiss the current speech bubble first
+                                                    openPopupWindow(v, selected_date);
+                                                } else{
+                                                    Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            });
                             break;
                         default:
                             break;

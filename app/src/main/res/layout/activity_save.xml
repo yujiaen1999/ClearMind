@@ -46,7 +46,7 @@
         <ImageButton
             android:id="@+id/button_new_tracker"
             android:layout_width="40dp"
-            android:layout_height="match_parent"
+            android:layout_height="72dp"
             android:background="@null"
             android:paddingTop="25dp"
             android:paddingBottom="12dp"
@@ -295,7 +295,7 @@
                         android:gravity="left"
                         android:paddingLeft="0dp"
                         android:paddingRight="0dp"
-                        android:text="00%"
+                        android:text="0.0"
                         android:textColor="#000000"
                         android:textSize="@dimen/text_size_heading_large"
                         />
@@ -441,6 +441,7 @@
 
             <Button
                 android:id="@+id/button_checkin_today"
+                android:visibility="gone"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:text="Self-Checkin"

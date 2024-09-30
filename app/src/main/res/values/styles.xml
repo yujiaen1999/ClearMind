@@ -32,4 +32,12 @@
         <item name="android:padding">2dp</item>
         <item name="android:gravity">left</item>
     </style>
+
+    <style name="CustomEditTextWhite_goal" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edittext_landing_white2</item>
+        <item name="android:textColorHint">#BC878181</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
 </resources>
