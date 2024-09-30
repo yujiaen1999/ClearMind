@@ -709,18 +709,24 @@ public class SaveActivity extends AppCompatActivity {
                 db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        String current_plan_name = task.getResult().getValue().toString();
-                        if(!task.isSuccessful()){
+                        if (!task.isSuccessful()) {
                             Log.e("firebase_tracker", "Error getting data", task.getException());
                             Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
-                            if(current_plan_name != null){
-                                // if exist a current plan, open check in window
+                            return;
+                        }
+
+                        DataSnapshot snapshot = task.getResult();
+                        if (snapshot.exists()) {
+                            Object value = snapshot.getValue();
+                            if (value != null) {
+                                String current_plan_name = value.toString();
+                                // Continue to proceed current_plan_name
                                 openPopupWindow(v);
-                            } else{
+                            } else {
                                 Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                             }
+                        } else {
+                            Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -888,26 +894,31 @@ public class SaveActivity extends AppCompatActivity {
                 String txt_cur_emotion = input_emotion.getText().toString();
                 String txt_cur_strategy = input_strategy.getText().toString();
 
-                Integer int_daily = Integer.parseInt(txt_daily_goal);
-                Integer int_weekly = Integer.parseInt(txt_weekly_goal);
-
-                Log.d("Print daily: ", int_daily.toString());
-                Log.d("Print weekly: ", int_weekly.toString());
+                Integer int_daily;
+                Integer int_weekly;
 
                 if (txt_daily_goal.isEmpty() || txt_weekly_goal.isEmpty() || txt_cur_emotion.isEmpty() || txt_cur_strategy.isEmpty()){
                     Toast.makeText(SaveActivity.this,  "Empty input", Toast.LENGTH_SHORT).show();
-                } else if (int_daily<0 || int_daily>100 || int_weekly<0 || int_weekly>100) {
-                    Toast.makeText(SaveActivity.this,  "Invalid input", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Daily check in
-                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_daily").setValue(txt_daily_goal);
-                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_weekly").setValue(txt_weekly_goal);
-                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("emotion").setValue(txt_cur_emotion);
-                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("strategy").setValue(txt_cur_strategy);
-                    db.child("Tracker").child(username).child("current_plan").child("completion").setValue(txt_weekly_goal);
+                    int_daily = Integer.parseInt(txt_daily_goal);
+                    int_weekly = Integer.parseInt(txt_weekly_goal);
 
-                    popupWindow.dismiss();
-                    openPopupWindow3(v, dateAsString);
+                    Log.d("Print daily: ", int_daily.toString());
+                    Log.d("Print weekly: ", int_weekly.toString());
+
+                    if (int_daily<0 || int_daily>100 || int_weekly<0 || int_weekly>100) {
+                        Toast.makeText(SaveActivity.this,  "Invalid input", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Daily check in
+                        db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_daily").setValue(txt_daily_goal);
+                        db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_weekly").setValue(txt_weekly_goal);
+                        db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("emotion").setValue(txt_cur_emotion);
+                        db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("strategy").setValue(txt_cur_strategy);
+                        db.child("Tracker").child(username).child("current_plan").child("completion").setValue(txt_weekly_goal);
+
+                        popupWindow.dismiss();
+                        openPopupWindow3(v, dateAsString);
+                    }
                 }
 //                popupWindow.dismiss();
 //                openPopupWindow3(v, dateAsString);
@@ -1439,53 +1450,85 @@ public class SaveActivity extends AppCompatActivity {
         db.child("Tracker").child(username).child("current_plan").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                Map<String, Map> map_tracker = (Map<String, Map>) task.getResult().getValue();
-                if(!task.isSuccessful()){
+                if (!task.isSuccessful()) {
                     Log.e("firebase_summary", "Error getting data", task.getException());
-                }else{
-                    Map<String, Map> map_progress = map_tracker.get("progress");
-                    String[] keys = map_progress.keySet().toArray(new String[0]);
-                    Arrays.sort(keys);
+                    // You can display a message to the user here, indicating that data retrieval failed
+                    return;
+                }
 
-                    String content_pending = "";
-//                    String content = "";
-//                    String htmlString = "<h2>Title</h2><br><p>This is a sample paragraph of <b>HTML</b> text.</p>";
+                DataSnapshot snapshot = task.getResult();
+                if (snapshot == null || !snapshot.exists()) {
+                    Log.e("firebase_summary", "No data found at the specified path.");
+                    // Handle the case where data does not exist
+                    return;
+                }
 
-                    String current_status = (String) map_progress.get(keys[position]).get("status").toString();
+                // Attempt to convert the data to a Map
+                Map<String, Object> map_tracker = (Map<String, Object>) snapshot.getValue();
+                if (map_tracker == null) {
+                    Log.e("firebase_summary", "Data is null or not in expected format.");
+                    return;
+                }
 
-                    switch (current_status) {
-                        case "1":
-                            String content_html = "Completion-daily: " + map_progress.get(keys[position]).get("goal_daily") + "%<br>"
-                                    + "Completion-weekly: " + map_progress.get(keys[position]).get("goal_weekly") + "%<br>"
-                                    + "Emotion: " + map_progress.get(keys[position]).get("emotion") + "<br>"
-                                    + "Strategy: " + map_progress.get(keys[position]).get("strategy") + "<br>";
-//                            if (position == 5 || position == 6){
-//                                content_html = "<br>" + content_html;
-//                            }
+                // Get the "progress" child node data
+                Map<String, Object> map_progress = (Map<String, Object>) map_tracker.get("progress");
+                if (map_progress == null) {
+                    Log.e("firebase_summary", "'progress' key not found in map_tracker.");
+                    return;
+                }
 
-                            bubble_text.setText(Html.fromHtml(content_html));
-                            break;
-                        case "0":
-                            String content_html2 = "You didn’t have a task to complete on this date.";
-//                            if (position == 5 || position == 6){
-//                                content_html2 = "<br>" + content_html2;
-//                            }
+                // Get the array of keys and sort them
+                String[] keys = map_progress.keySet().toArray(new String[0]);
+                Arrays.sort(keys);
 
-                            bubble_text.setText(Html.fromHtml(content_html2));
-                            break;
-                        case "-1":
-                            String content_html3 = "You have not recorded your progress for this day. Submit one through the “Self-Checkin” button.";
-//                            if (position == 5 || position == 6){
-//                                content_html3 = "<br>" + content_html3;
-//                            }
+                // Check if the position is valid
+                if (position < 0 || position >= keys.length) {
+                    Log.e("firebase_summary", "Position is out of bounds.");
+                    return;
+                }
 
-                            bubble_text.setText(Html.fromHtml(content_html3));
-                            break;
-                        default:
-                            break;
-                    }
+                // Get the current progress data
+                Map<String, Object> currentProgress = (Map<String, Object>) map_progress.get(keys[position]);
+                if (currentProgress == null) {
+                    Log.e("firebase_summary", "No progress data found for key: " + keys[position]);
+                    return;
+                }
 
-//                    bubble_text.setText(String.valueOf(current_status));
+                // Get the "status" value
+                Object statusObj = currentProgress.get("status");
+                if (statusObj == null) {
+                    Log.e("firebase_summary", "'status' key not found in current progress data.");
+                    return;
+                }
+
+                String current_status = statusObj.toString();
+
+                switch (current_status) {
+                    case "1":
+                        // Retrieve other fields and handle possible null values
+                        String goal_daily = currentProgress.get("goal_daily") != null ? currentProgress.get("goal_daily").toString() : "N/A";
+                        String goal_weekly = currentProgress.get("goal_weekly") != null ? currentProgress.get("goal_weekly").toString() : "N/A";
+                        String emotion = currentProgress.get("emotion") != null ? currentProgress.get("emotion").toString() : "N/A";
+                        String strategy = currentProgress.get("strategy") != null ? currentProgress.get("strategy").toString() : "N/A";
+
+                        String content_html = "Completion-daily: " + goal_daily + "%<br>"
+                                + "Completion-weekly: " + goal_weekly + "%<br>"
+                                + "Emotion: " + emotion + "<br>"
+                                + "Strategy: " + strategy + "<br>";
+
+                        bubble_text.setText(Html.fromHtml(content_html));
+                        break;
+                    case "0":
+                        String content_html2 = "You didn’t have a task to complete on this date.";
+                        bubble_text.setText(Html.fromHtml(content_html2));
+                        break;
+                    case "-1":
+                        String content_html3 = "You have not recorded your progress for this day. Submit one through the “Self-Checkin” button.";
+                        bubble_text.setText(Html.fromHtml(content_html3));
+                        break;
+                    default:
+                        Log.e("firebase_summary", "Unknown status value: " + current_status);
+                        break;
                 }
             }
         });
