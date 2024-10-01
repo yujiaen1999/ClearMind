@@ -61,7 +61,7 @@
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:hint="(your procrastination episode)"
-                android:background="#FFFFFF"
+                style="@style/CustomEditTextWhite"
                 android:inputType="textMultiLine" />
 
             <TextView
@@ -96,7 +96,7 @@
                     android:cursorVisible="true"
                     android:padding = "10dp"
                     android:hint="(name of the emotion)"
-                    android:background="#FFFFFF"
+                    style="@style/CustomEditTextWhite"
                     android:inputType="textMultiLine" />
 
             </LinearLayout>
@@ -124,7 +124,7 @@
                     android:cursorVisible="true"
                     android:padding = "10dp"
                     android:hint="(an event)"
-                    android:background="#FFFFFF"
+                    style="@style/CustomEditTextWhite"
                     android:inputType="textMultiLine" />
 
             </LinearLayout>

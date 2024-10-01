@@ -2,6 +2,7 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +54,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         submit = findViewById(R.id.submit_button);
 
+        System.out.println("In setting security questions");
         getData();
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -95,13 +97,16 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                System.out.println("In setting security questions");
                 question1 = String.valueOf(snapshot.child("security").child(username).child("question1").getValue());
                 question2 = String.valueOf(snapshot.child("security").child(username).child("question2").getValue());
 
                 answer1 = String.valueOf(snapshot.child("security").child(username).child("answer1").getValue());
                 answer2 = String.valueOf(snapshot.child("security").child(username).child("answer2").getValue());
-//                Toast.makeText(ProfileActivity.this, email, Toast.LENGTH_SHORT).show();
 
+//                Toast.makeText(ProfileActivity.this, email, Toast.LENGTH_SHORT).show();
+                Log.i("FP", question1);
+                Log.i("FP", question2);
                 show_question1.setText(question1);
                 show_question2.setText(question2);
 //                show_email.setText("email: " + email);
