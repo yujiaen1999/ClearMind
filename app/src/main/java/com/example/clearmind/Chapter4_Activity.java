@@ -337,7 +337,7 @@ public class Chapter4_Activity extends AppCompatActivity {
 
                     // Add finish word
                     TextView finish_word = findViewById(R.id.finish_word);
-                    String txt_word = "&#127881; You have finished this Chapter!";
+                    String txt_word = "&#127881; You have finished all Parts!";
                     finish_word.setText(Html.fromHtml(txt_word));
     //                    finish_word.setText("You have finished this Chapter!");
                     finish_word.setBackgroundResource(R.drawable.shape_hints);

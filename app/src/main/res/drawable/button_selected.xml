@@ -13,7 +13,7 @@
     <!-- Original shape layer -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#BBE48B" />
+            <solid android:color="#54B363" />
             <corners android:radius="5dip" />
             <stroke android:width="0px" android:color="#388e3c" />
         </shape>

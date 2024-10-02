@@ -168,7 +168,7 @@
                 android:paddingRight="0dp"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="#FF6200"
                 android:textSize="@dimen/text_size_main_large" />
 
 <!--            <ImageButton-->
@@ -192,7 +192,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginVertical="10dp"
                 android:gravity="left"
                 android:paddingLeft="0dp"
                 android:paddingRight="20dp"
@@ -221,6 +221,7 @@
                 android:horizontalSpacing="6dp"
                 android:numColumns="7"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 android:verticalSpacing="6dp" />
 
 
@@ -558,6 +559,8 @@
                 android:gravity="left"
                 android:paddingLeft="0dp"
                 android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/underlined_Overtime"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_small"

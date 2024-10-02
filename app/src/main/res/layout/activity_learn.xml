@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#54B363"
     android:id="@+id/activity_learn">
 
 
@@ -67,7 +67,7 @@
                 android:text="Hi, Welcome!"
                 android:textSize="28dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#000000" />
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/instruction"
@@ -78,7 +78,7 @@
                 android:text="Welcome to ClearMind Learn page. You can find 4 Parts here, let's see your challenge for today."
                 android:textSize="14sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#000000" />
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 
@@ -138,6 +138,7 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center"
                     android:text="66%"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
 
                 <TextView
@@ -147,6 +148,7 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center"
                     android:text="Completed"
+                    android:textColor="@color/white"
                     android:textSize="9sp" />
 
             </LinearLayout>

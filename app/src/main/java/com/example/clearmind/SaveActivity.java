@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.util.Log;
@@ -248,43 +249,6 @@ public class SaveActivity extends AppCompatActivity {
             }
         });
 
-//        Integer test = 1;
-//        if (test == 1){
-//            scrollView.setVisibility(View.GONE);
-//            newTracker_button.setVisibility(View.GONE);
-//            locked_part.setVisibility(View.VISIBLE);
-//        }
-
-//        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
-//
-//        if (isFirstRun && status_finish_learn.equals("1")) {
-//            // 显示引导层
-//            final View targetButton = findViewById(R.id.button_new_tracker); // 替换为你的按钮ID
-//            TapTargetView.showFor(this,
-//                    TapTarget.forView(targetButton, "This is the Start Button", "Click this to start tracking your new goal!")
-//                            .transparentTarget(true)   // 按钮透明效果
-//                            .targetRadius(40)
-//                            .outerCircleColor(R.color.green)
-//                            .outerCircleAlpha(0.99f)            // Specify the alpha amount for the outer circle
-//                            .targetCircleColor(R.color.yellow) // 圆圈颜色
-//                            .textColor(R.color.white)   // 文本颜色
-//                            .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
-//                            .drawShadow(true)
-//                            .tintTarget(true),
-//            new TapTargetView.Listener() {
-//                        @Override
-//                        public void onTargetClick(TapTargetView view) {
-//                            super.onTargetClick(view);
-//                            // 当用户点击目标时的动作
-//                        }
-//                    });
-//
-//            // 更新首次运行状态
-//            SharedPreferences.Editor editor = prefs.edit();
-//            editor.putBoolean("isFirstRun", true);
-//            editor.apply();
-//        }
 
 
 
@@ -302,13 +266,13 @@ public class SaveActivity extends AppCompatActivity {
         DistortionModelArrayList = new ArrayList<CheckinModel>();
 
         // Done: Initialize gridview (add more)
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
 
 //        DistortionGVAdapter adapter = new DistortionGVAdapter(this, DistortionModelArrayList);
         adapter = new CheckinGVAdapter(this, DistortionModelArrayList);
@@ -1443,7 +1407,7 @@ public class SaveActivity extends AppCompatActivity {
                 if (Integer.parseInt(date) < Integer.parseInt(cur_date_str)){
                     DistortionModelArrayList.get(position).setImgid(R.drawable.timeliness_past);
                 } else{
-                    DistortionModelArrayList.get(position).setImgid(R.drawable.timeliness_pending);
+                    DistortionModelArrayList.get(position).setImgid(R.drawable.timeliness_past);
                 }
                 break;
             case "0":  // 0 == not to have daily check-in;
@@ -1516,6 +1480,10 @@ public class SaveActivity extends AppCompatActivity {
 
     private void initialize_LineChart(String toggle_selection) {
         // Line Chart initialize
+
+        // Clear the highlight on the chart, remove the tooltip before switching charts
+        lineChart.highlightValue(null);
+
         db.child("Tracker").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -1661,6 +1629,12 @@ public class SaveActivity extends AppCompatActivity {
                                 lastEntry2.setIcon(drawable2);
                             }
 
+                            // Set up Tooltip for nodes
+                            // Fixed: hava a standing bug need to fix
+                            // when a tooltip of the Completion node is opening,
+                            // then changing to Timeliness chart. The app will crash.
+                            // Bug Fixed by adding a highlightValue clear function in the very beginning to help remove the tooltip before switching charts
+                            // **********************************************
                             CustomMarkerView markerView = new CustomMarkerView(SaveActivity.this, R.layout.marker_view_layout);
                             lineChart.setMarker(markerView);
 
@@ -1750,7 +1724,7 @@ public class SaveActivity extends AppCompatActivity {
                             button_check_in.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#C9C9C9")));
                             break;
                         case "0":
-                            String content_html2 = "You didn’t have a task to complete on this date.";
+                            String content_html2 = "You didn't have a task to complete this date.";
                             bubble_text.setText(Html.fromHtml(content_html2));
 
                             // Enable check in button
@@ -1815,7 +1789,7 @@ public class SaveActivity extends AppCompatActivity {
 
                             break;
                         case "-1":
-                            String content_html3 = "You have not recorded your progress for this day. Submit one through the “Self-Checkin” button.";
+                            String content_html3 = "You have not recorded your progress of this day.";
                             bubble_text.setText(Html.fromHtml(content_html3));
 
 //                            // Enbale check in button
@@ -1901,6 +1875,8 @@ public class SaveActivity extends AppCompatActivity {
 
     public class CustomMarkerView extends MarkerView {
         private TextView tvContent;
+        private Integer tooltip_length;
+        private Integer cur_index;
 
         public CustomMarkerView(Context context, int layoutResource) {
             super(context, layoutResource);
@@ -1912,9 +1888,20 @@ public class SaveActivity extends AppCompatActivity {
         // use it to update the content (user-interface)
         @Override
         public void refreshContent(Entry e, Highlight highlight) {
-            String txt_content = "Date: " + tooltip_date[(int)e.getX()] + "\n"
+//            Log.d("Check what e: ", String.valueOf(e.getX()));
+
+//            String txt_content = "Hi";
+
+            String txt_content = "Week " + (int)(e.getX() + 1) + "\n"
+                        + "Start Date: " + tooltip_date[(int)e.getX()] + "\n"
                         + "Value: " + e.getY();
+
             tvContent.setText(txt_content);
+
+            if (tooltip_date != null){
+                tooltip_length = tooltip_date.length;
+            }
+            cur_index = (int)e.getX();
 //             tvContent.setText(String.format("Value: %s", e.getY()));
             super.refreshContent(e, highlight);
         }
@@ -1922,7 +1909,11 @@ public class SaveActivity extends AppCompatActivity {
         @Override
         public MPPointF getOffset() {
             // This provides the offset for the MarkerView. It's the difference between the touch point and the marker view
-            return new MPPointF(-(getWidth() / 2), getHeight()-45);
+            if (tooltip_date != null && cur_index+1 == tooltip_length) {
+                // The condition is true
+                return new MPPointF(-(getWidth() / 2)-70, getHeight()-70);
+            }
+            return new MPPointF(-(getWidth() / 2), getHeight()-70);
         }
     }
 
