@@ -148,9 +148,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="70dp"
-                android:text="Next"
-                android:onClick="openMain"
-                tools:ignore="UsingOnClickInXml" />
+                android:text="Next" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

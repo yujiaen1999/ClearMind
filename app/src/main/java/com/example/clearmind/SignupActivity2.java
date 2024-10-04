@@ -15,7 +15,6 @@ public class SignupActivity2 extends AppCompatActivity {
     private String password;
     private EditText fullName;
     private EditText email;
-    private Button nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class SignupActivity2 extends AppCompatActivity {
 
         this.fullName = findViewById(R.id.full_name_input);
         this.email = findViewById(R.id.email_input);
-        this.nextButton = findViewById(R.id.entry_button);
+        Button nextButton = findViewById(R.id.entry_button);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
         this.password = intent.getStringExtra("password");
