@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="Procrastination could be one of the things that may have stopped you in the past."
+                android:text="(Procrastination could be one of the things that may have stopped you in the past.)\n"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
@@ -45,13 +45,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp"
+                style="@style/CustomEditTextWhite"
+                android:padding="10dp"
                 android:hint="Input here"
                 android:textSize="@dimen/text_size_main_small"
-                android:background="#FFFFFF"
                 tools:ignore="ExtraText" />
 
             <TextView
@@ -60,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="Reflect on whether an urge to procrastinate has ever sabotaged pursuing your values."
+                android:text="\nReflect on whether an urge to procrastinate has ever sabotaged pursuing your values."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
