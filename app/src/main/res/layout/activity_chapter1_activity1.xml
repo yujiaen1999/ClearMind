@@ -30,22 +30,33 @@
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
 
-            <TextView
-                android:id="@+id/textView1_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/text_internal"
-                android:text="(Procrastination could be one of the things that may have stopped you in the past.)\n"
-                android:textAlignment="textStart"
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_main_large" />
-
             <EditText
                 android:id="@+id/input1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                style="@style/CustomEditTextWhite"
+                style="@style/CustomEditText"
+                android:padding="10dp"
+                android:hint="Input here"
+                android:textSize="@dimen/text_size_main_small"
+                tools:ignore="ExtraText" />
+
+            <TextView
+                android:id="@+id/textView1_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
+                android:text="Has anything ever stopped you from pursuing these values?"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <EditText
+                android:id="@+id/input1_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                style="@style/CustomEditText"
                 android:padding="10dp"
                 android:hint="Input here"
                 android:textSize="@dimen/text_size_main_small"
@@ -57,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="\nReflect on whether an urge to procrastinate has ever sabotaged pursuing your values."
+                android:text="Reflect on whether an urge to procrastinate has ever sabotaged pursuing your values."
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
@@ -68,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="If so, why did you procrastinate? If not, consider why you might put off certain tasks."
+                android:text="Why did you procrastinate? If you have not procrastinated so far, consider why you might put off certain tasks. "
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />

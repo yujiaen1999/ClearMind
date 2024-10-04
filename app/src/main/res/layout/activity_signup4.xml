@@ -94,7 +94,6 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
-
             <LinearLayout
                 android:id="@+id/user_info"
                 android:layout_width="369dp"
@@ -116,7 +115,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
                 <RadioGroup
                     android:id="@+id/answer3"
@@ -148,6 +146,16 @@
                         android:textSize="20sp" />
                 </RadioGroup>
 
+                <EditText
+                    android:id="@+id/details_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Please Provide Details"
+                    android:padding="10dp"
+                    style="@style/CustomEditText"
+                    android:layout_marginBottom="15dp"
+                    android:inputType="text"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/question4"
@@ -181,8 +189,7 @@
                 android:layout_marginBottom="70dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="100dp"
-                android:text="Next"
-                app:layout_constraintTop_toBottomOf="@id/user_info" />
+                android:text="Next"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

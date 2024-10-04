@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -34,6 +35,7 @@ public class SignupActivity4 extends AppCompatActivity {
 
     private String answer3;
     private EditText answer4;
+    private EditText answer3_details;
 
     private String username;
     private String password;
@@ -43,6 +45,7 @@ public class SignupActivity4 extends AppCompatActivity {
     private String txt_question2;
     private String txt_answer1;
     private String txt_answer2;
+    private String txt_answer3_details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,21 +62,30 @@ public class SignupActivity4 extends AppCompatActivity {
         this.txt_question2 = intent.getStringExtra("question2");
         this.txt_answer1 = intent.getStringExtra("answer1");
         this.txt_answer2 = intent.getStringExtra("answer2");
+        this.txt_answer3_details = "";
 
         this.db = FirebaseDatabase.getInstance().getReference();
 
         this.answer4 = findViewById(R.id.answer4);
+        this.answer3_details = findViewById(R.id.details_input);
         Button submit = findViewById(R.id.entry_button);
 
         RadioGroup radioGroup = findViewById(R.id.answer3);
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             answer3 = radioButton.getText().toString();
+            if (checkedId == R.id.btn_yes) {
+                answer3_details.setVisibility(View.VISIBLE);
+            } else if (checkedId == R.id.btn_no) {
+                answer3_details.setText("");
+                answer3_details.setVisibility(View.GONE);
+            }
         });
 
         submit.setOnClickListener(view -> {
             boolean toMainPage = false;
             String txt_answer3 = answer3;
+            txt_answer3_details = answer3_details.getText().toString();
             String txt_answer4 = answer4.getText().toString();
 
             if (username.isEmpty() || fullName.isEmpty() || email.isEmpty() || password.isEmpty() || txt_answer3.isEmpty()){
@@ -85,6 +97,7 @@ public class SignupActivity4 extends AppCompatActivity {
                 map.put("email", email);
                 map.put("Question4", txt_answer4);
                 map.put("Question5", txt_answer3);
+                map.put("Question5_details", txt_answer3_details);
 
                 HashMap<String, Object> security_questions = new HashMap<>();
                 security_questions.put("question1", txt_question1);
