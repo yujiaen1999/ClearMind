@@ -1,12 +1,18 @@
 package com.example.clearmind;
 
+// ***********************
+// This is actually the Goal Tracker
+// ***********************
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.util.Log;
@@ -14,6 +20,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +33,7 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -88,6 +96,9 @@ import java.util.Map;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 
+import nl.bryanderidder.themedtogglebuttongroup.ThemedButton;
+import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup;
+
 public class SaveActivity extends AppCompatActivity {
     private String username;
     private DatabaseReference db;
@@ -97,7 +108,7 @@ public class SaveActivity extends AppCompatActivity {
     private Button selfcheckin_button;
     private ImageButton newTracker_button;
 
-//    private Button line_checkin_button;
+    //    private Button line_checkin_button;
 //    private Button bar_checkin_button;
     private ArrayList<BarEntry> entries_bar;
     private List<Entry> entries_line;
@@ -118,12 +129,15 @@ public class SaveActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private TextView progressText;
+    private TextView completion_score;
 
     private PopupWindow speechBubble;
 
     private String[] tooltip_date;
 
     private String status_finish_learn;
+
+    private Integer iterate_num = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,6 +184,8 @@ public class SaveActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
+        completion_score = findViewById(R.id.completion_score);
+
         updateProgress(0);
         // set the progress bar here
 //        progressBar.setProgress(50); // 50% for example
@@ -233,43 +249,6 @@ public class SaveActivity extends AppCompatActivity {
             }
         });
 
-//        Integer test = 1;
-//        if (test == 1){
-//            scrollView.setVisibility(View.GONE);
-//            newTracker_button.setVisibility(View.GONE);
-//            locked_part.setVisibility(View.VISIBLE);
-//        }
-
-//        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
-//
-//        if (isFirstRun && status_finish_learn.equals("1")) {
-//            // 显示引导层
-//            final View targetButton = findViewById(R.id.button_new_tracker); // 替换为你的按钮ID
-//            TapTargetView.showFor(this,
-//                    TapTarget.forView(targetButton, "This is the Start Button", "Click this to start tracking your new goal!")
-//                            .transparentTarget(true)   // 按钮透明效果
-//                            .targetRadius(40)
-//                            .outerCircleColor(R.color.green)
-//                            .outerCircleAlpha(0.99f)            // Specify the alpha amount for the outer circle
-//                            .targetCircleColor(R.color.yellow) // 圆圈颜色
-//                            .textColor(R.color.white)   // 文本颜色
-//                            .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
-//                            .drawShadow(true)
-//                            .tintTarget(true),
-//            new TapTargetView.Listener() {
-//                        @Override
-//                        public void onTargetClick(TapTargetView view) {
-//                            super.onTargetClick(view);
-//                            // 当用户点击目标时的动作
-//                        }
-//                    });
-//
-//            // 更新首次运行状态
-//            SharedPreferences.Editor editor = prefs.edit();
-//            editor.putBoolean("isFirstRun", true);
-//            editor.apply();
-//        }
 
 
 
@@ -287,13 +266,13 @@ public class SaveActivity extends AppCompatActivity {
         DistortionModelArrayList = new ArrayList<CheckinModel>();
 
         // Done: Initialize gridview (add more)
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
-        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_pending, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
+        DistortionModelArrayList.add(new CheckinModel("date", R.drawable.timeliness_past, "-"));
 
 //        DistortionGVAdapter adapter = new DistortionGVAdapter(this, DistortionModelArrayList);
         adapter = new CheckinGVAdapter(this, DistortionModelArrayList);
@@ -373,7 +352,7 @@ public class SaveActivity extends AppCompatActivity {
         // Bar Chart NOT in use: Bar Chart Initialization based on db
         // Bar Chart NOT in use: Customize X axis (date string)
 
-         test:
+        test:
         for(int i=0; i<5; i++){
             float value = (float) Math.random() * 10 ; // substitute to actual data
             BarEntry bar_entry = new BarEntry(entries_bar.size(), Math.round(value));
@@ -404,7 +383,7 @@ public class SaveActivity extends AppCompatActivity {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
-// Enable both left and right Y axes
+// Enable both left and right Y axis
         YAxis leftAxis = lineChart.getAxisLeft();
         YAxis rightAxis = lineChart.getAxisRight();
         rightAxis.setEnabled(true); // Enable the right Y axis
@@ -414,8 +393,8 @@ public class SaveActivity extends AppCompatActivity {
         rightAxis.setAxisMinimum(0f); // Set minimum to 1
         rightAxis.setAxisMaximum(5f); // Set maximum to 5
 
-        leftAxis.setGranularity(20f);
-        rightAxis.setGranularity(1f);
+        leftAxis.setGranularity(100f);
+        rightAxis.setGranularity(5f);
 
 
         // Get the legend object from your chart
@@ -474,7 +453,74 @@ public class SaveActivity extends AppCompatActivity {
         // ***************************************************************
         // Initialization: initialize line chart from the database
         // ***************************************************************
-        initialize_LineChart();
+        initialize_LineChart("Both");
+
+
+        // react to the selection change of Toggle Buttons
+        ThemedToggleButtonGroup toggleButtonGroup = findViewById(R.id.toggle_buttons);
+        ThemedButton buttonBoth = findViewById(R.id.button_both);
+
+        // Initialize button_both to be selected at beginning
+        toggleButtonGroup.post(new Runnable() {
+            @Override
+            public void run() {
+                toggleButtonGroup.selectButton(R.id.button_both);
+            }
+        });
+
+
+        // Set a listener for selection changes
+        toggleButtonGroup.setOnSelectListener((ThemedButton btn) -> {
+            // handle selected button
+//            return kotlin.Unit.INSTANCE;
+            String name_button = btn.getText();
+//            Toast.makeText(SaveActivity.this, name_button, Toast.LENGTH_SHORT).show();
+            Log.d("Check toggle", name_button);
+
+            initialize_LineChart(name_button);
+
+//            // call initialize_LineChart() here based on
+//            switch (name_button) {
+//                case "Completion":
+////                    Toast.makeText(SaveActivity.this, "1. This is " + name_button, Toast.LENGTH_SHORT).show();
+//                    initialize_LineChart(name_button);
+//                    break;
+//                case "Both":
+////                    Toast.makeText(SaveActivity.this, "2. This is " + name_button, Toast.LENGTH_SHORT).show();
+//                    initialize_LineChart(name_button);
+//                    break;
+//                case "Timeliness":
+////                    Toast.makeText(SaveActivity.this, "3. This is " + name_button, Toast.LENGTH_SHORT).show();
+//                    initialize_LineChart(name_button);
+//                    break;
+//            }
+
+            return kotlin.Unit.INSTANCE;
+        });
+
+//
+//        toggleButtonGroup.setOnSelectListener(new ThemedToggleButtonGroup.OnSelectListener() {
+//            @Override
+//            public void onSelect(ThemedButton button) {
+//                // Handle the button selection
+//                switch (button.getId()) {
+//                    case R.id.button_completion:
+//                        // Do something when "Completion" is selected
+//                        System.out.println("Completion selected");
+//                        break;
+//                    case R.id.button_both:
+//                        // Do something when "Both" is selected
+//                        System.out.println("Both selected");
+//                        break;
+//                    case R.id.button_timeliness:
+//                        // Do something when "Timeliness" is selected
+//                        System.out.println("Timeliness selected");
+//                        break;
+//                    default:
+//                        break;
+//                }
+//            }
+//        });
 
 
 //        entries_line = new ArrayList<>();
@@ -583,7 +629,8 @@ public class SaveActivity extends AppCompatActivity {
                         double timeliness_rounded = Math.round(timeliness_avg * 10) / 10.0;
 
                         TextView cur_avg_score = findViewById(R.id.cur_avg_score);
-                        cur_avg_score.setText("Average Timeliness Score: " + String.valueOf(timeliness_rounded));
+//                        cur_avg_score.setText("Average Timeliness Score: " + String.valueOf(timeliness_rounded));
+                        cur_avg_score.setText(String.valueOf(timeliness_rounded));
 
                         // move current_plan to history plan if finished
                         String end_date_status = tracker_progress.get(end_date).get("status").toString();
@@ -702,6 +749,31 @@ public class SaveActivity extends AppCompatActivity {
             }
         });
 
+//        selfcheckin_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v){
+//                // Determine whether there is an exist current plan
+//                db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                        String current_plan_name = task.getResult().getValue().toString();
+//                        if(!task.isSuccessful()){
+//                            Log.e("firebase_tracker", "Error getting data", task.getException());
+//                            Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                        }else{
+//                            Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+//                            if(current_plan_name != null){
+//                                // if exist a current plan, open check in window
+//                                openPopupWindow(v, dateAsString);
+//                            } else{
+//                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    }
+//                });
+//            }
+//        });
+
         selfcheckin_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -721,7 +793,7 @@ public class SaveActivity extends AppCompatActivity {
                             if (value != null) {
                                 String current_plan_name = value.toString();
                                 // Continue to proceed current_plan_name
-                                openPopupWindow(v);
+                                openPopupWindow(v, dateAsString);
                             } else {
                                 Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
                             }
@@ -790,7 +862,7 @@ public class SaveActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void openPopupWindow(View view) {
+    private void openPopupWindow(View view, String date_selected) {
         // initialize popup window
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View viewPopupWindow = layoutInflater.inflate(R.layout.activity_self_checkin_1, null);
@@ -802,8 +874,18 @@ public class SaveActivity extends AppCompatActivity {
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.4f;
+        wm.updateViewLayout(container, p);
+
         // initialize elements
         EditText input_date = (EditText) viewPopupWindow.findViewById(R.id.input1);
+        TextView textView_date = (TextView) viewPopupWindow.findViewById(R.id.textView_intro);
 //        EditText input_feel = (EditText) viewPopupWindow.findViewById(R.id.input2);
 
 //        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -811,8 +893,11 @@ public class SaveActivity extends AppCompatActivity {
 //        String dateAsString = dateFormat.format(current_date);
 
         Log.d("Current date: ", dateAsString);
+        Log.d("Selected date: ", date_selected);
 
-        input_date.setText(dateAsString);
+//        input_date.setText(dateAsString);
+        input_date.setText(date_selected);
+        textView_date.setText("Date: " + date_selected);
 
         Button button_yes = (Button) viewPopupWindow.findViewById(R.id.button_yes);
         Button button_no = (Button) viewPopupWindow.findViewById(R.id.button_no);
@@ -859,6 +944,15 @@ public class SaveActivity extends AppCompatActivity {
         popupWindow.setFocusable(true);
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.4f;
+        wm.updateViewLayout(container, p);
 
         // initialize elements
         TextView textView_date = (TextView) viewPopupWindow.findViewById(R.id.textView_date);
@@ -927,6 +1021,90 @@ public class SaveActivity extends AppCompatActivity {
         });
     }
 
+//    // Function with bug
+//    private void openPopupWindow2(View view, String dateAsString) {
+//        // initialize popup window
+//        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+//        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_self_checkin_2, null);
+////        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow, 600, 600, true);
+//        final PopupWindow popupWindow = new PopupWindow(viewPopupWindow);
+//        popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+//        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+//        popupWindow.setFocusable(true);
+//
+//        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+//
+//        // Dim the background when popup the window
+//        View container = (View) popupWindow.getContentView().getParent();
+//        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+//        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+//        // add flag
+//        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+//        p.dimAmount = 0.4f;
+//        wm.updateViewLayout(container, p);
+//
+//        // initialize elements
+//        TextView textView_date = (TextView) viewPopupWindow.findViewById(R.id.textView_date);
+//        TextView textView_daily_comp = (TextView) viewPopupWindow.findViewById(R.id.textView_daily);
+//        TextView textView_weekly_comp = (TextView) viewPopupWindow.findViewById(R.id.textView_weekly);
+//
+//        EditText input_daily_goal = (EditText) viewPopupWindow.findViewById(R.id.input1);
+//        EditText input_weekly_goal = (EditText) viewPopupWindow.findViewById(R.id.input2);
+//        EditText input_emotion = (EditText) viewPopupWindow.findViewById(R.id.input3);
+//        EditText input_strategy = (EditText) viewPopupWindow.findViewById(R.id.input4);
+//
+////        Button button_yes = (Button) viewPopupWindow.findViewById(R.id.button_yes);
+////        Button button_no = (Button) viewPopupWindow.findViewById(R.id.button_no);
+//        Button button_next = (Button) viewPopupWindow.findViewById(R.id.button_confirm);
+//
+//        textView_date.setText("Date: " + dateAsString);
+//        String date_without_slash = removeSlashes(dateAsString);
+//
+//        String txt_daily = "How much (in %) did you complete today out of your <b>daily</b> goal?";
+//        String txt_weekly = "How much (in %) did you complete out of your <b>weekly</b> goal?";
+//
+//        textView_daily_comp.setText(Html.fromHtml(txt_daily));
+//        textView_weekly_comp.setText(Html.fromHtml(txt_weekly));
+//
+//        button_next.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v){
+////                String current_date = input_date.toString();
+////                db.child("Tracker").child(username).child("current_plan").child(current_date).setValue(input_feel.toString());
+//
+//                String txt_daily_goal = input_daily_goal.getText().toString();
+//                String txt_weekly_goal = input_weekly_goal.getText().toString();
+//                String txt_cur_emotion = input_emotion.getText().toString();
+//                String txt_cur_strategy = input_strategy.getText().toString();
+//
+//                Integer int_daily = Integer.parseInt(txt_daily_goal);
+//                Integer int_weekly = Integer.parseInt(txt_weekly_goal);
+//
+//                Log.d("Print daily: ", int_daily.toString());
+//                Log.d("Print weekly: ", int_weekly.toString());
+//
+//                if (txt_daily_goal.isEmpty() || txt_weekly_goal.isEmpty() || txt_cur_emotion.isEmpty() || txt_cur_strategy.isEmpty()){
+//                    Toast.makeText(SaveActivity.this,  "Empty input", Toast.LENGTH_SHORT).show();
+//                } else if (int_daily<0 || int_daily>100 || int_weekly<0 || int_weekly>100) {
+//                    Toast.makeText(SaveActivity.this,  "Invalid input", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    // Daily check in
+//                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_daily").setValue(txt_daily_goal);
+//                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("goal_weekly").setValue(txt_weekly_goal);
+//                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("emotion").setValue(txt_cur_emotion);
+//                    db.child("Tracker").child(username).child("current_plan").child("progress").child(date_without_slash).child("strategy").setValue(txt_cur_strategy);
+//                    db.child("Tracker").child(username).child("current_plan").child("completion").setValue(txt_weekly_goal);
+//
+//                    popupWindow.dismiss();
+//                    openPopupWindow3(v, dateAsString);
+//                }
+////                popupWindow.dismiss();
+////                openPopupWindow3(v, dateAsString);
+//
+//            }
+//        });
+//    }
+
     private void openPopupWindow3(View view, String dateAsString) {
         // initialize popup window
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -938,6 +1116,15 @@ public class SaveActivity extends AppCompatActivity {
         popupWindow.setFocusable(true);
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.4f;
+        wm.updateViewLayout(container, p);
 
         String date_without_slash = removeSlashes(dateAsString);
 
@@ -1057,6 +1244,15 @@ public class SaveActivity extends AppCompatActivity {
         popupWindow.setFocusable(true);
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // Dim the background when popup the window
+        View container = (View) popupWindow.getContentView().getParent();
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+        // add flag
+        p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        p.dimAmount = 0.4f;
+        wm.updateViewLayout(container, p);
 
         // initialize elements
         EditText input_goal = (EditText) viewPopupWindow.findViewById(R.id.input1);
@@ -1211,7 +1407,7 @@ public class SaveActivity extends AppCompatActivity {
                 if (Integer.parseInt(date) < Integer.parseInt(cur_date_str)){
                     DistortionModelArrayList.get(position).setImgid(R.drawable.timeliness_past);
                 } else{
-                    DistortionModelArrayList.get(position).setImgid(R.drawable.timeliness_pending);
+                    DistortionModelArrayList.get(position).setImgid(R.drawable.timeliness_past);
                 }
                 break;
             case "0":  // 0 == not to have daily check-in;
@@ -1282,8 +1478,12 @@ public class SaveActivity extends AppCompatActivity {
     }
 
 
-    private void initialize_LineChart() {
+    private void initialize_LineChart(String toggle_selection) {
         // Line Chart initialize
+
+        // Clear the highlight on the chart, remove the tooltip before switching charts
+        lineChart.highlightValue(null);
+
         db.child("Tracker").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -1377,6 +1577,34 @@ public class SaveActivity extends AppCompatActivity {
 
                             // Combine both datasets into LineData and set it to the chart
                             LineData data = new LineData(lineDataSet1, lineDataSet2);
+//                            LineData data1 = new LineData(lineDataSet1);
+//                            LineData data2 = new LineData(lineDataSet2);
+
+                            // React based on the value of toggle_selection
+                            if ("Completion".equals(toggle_selection)) {
+                                // Handle case when toggle_selection is "Completion"
+                                data = new LineData(lineDataSet2);
+                            } else if ("Both".equals(toggle_selection)) {
+                                // Handle case when toggle_selection is "Both"
+                                data = new LineData(lineDataSet1, lineDataSet2);
+                            } else if ("Timeliness".equals(toggle_selection)) {
+                                // Handle case when toggle_selection is "Timeliness"
+                                data = new LineData(lineDataSet1);
+                            } else {
+                                // Handle any default or error case
+                                data = new LineData(lineDataSet1, lineDataSet2);
+                            }
+
+//                            if (iterate_num % 3 == 0){
+//                                data = new LineData(lineDataSet1, lineDataSet2);
+//                            } else if (iterate_num % 3 == 1) {
+//                                data = new LineData(lineDataSet1);
+//                            } else {
+//                                data = new LineData(lineDataSet2);
+//                            }
+//
+//                            iterate_num += 1;
+
                             lineChart.setData(data);
 
                             // Highlight the last data points
@@ -1401,6 +1629,12 @@ public class SaveActivity extends AppCompatActivity {
                                 lastEntry2.setIcon(drawable2);
                             }
 
+                            // Set up Tooltip for nodes
+                            // Fixed: hava a standing bug need to fix
+                            // when a tooltip of the Completion node is opening,
+                            // then changing to Timeliness chart. The app will crash.
+                            // Bug Fixed by adding a highlightValue clear function in the very beginning to help remove the tooltip before switching charts
+                            // **********************************************
                             CustomMarkerView markerView = new CustomMarkerView(SaveActivity.this, R.layout.marker_view_layout);
                             lineChart.setMarker(markerView);
 
@@ -1417,6 +1651,7 @@ public class SaveActivity extends AppCompatActivity {
         progressBar.setProgress(progress);
         String progressPercentage = progress + "%";
         progressText.setText(progressPercentage);
+        completion_score.setText(progressPercentage);
     }
 
     private void showSpeechBubble(View anchorView, int position) {
@@ -1437,6 +1672,7 @@ public class SaveActivity extends AppCompatActivity {
         speechBubble = new PopupWindow(bubbleView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
 
         TextView bubble_text = bubbleView.findViewById(R.id.speechBubbleText);
+        Button button_check_in = bubbleView.findViewById(R.id.button_checkin);
 
 //        bubble_text.setText(String.valueOf(position));
 
@@ -1450,85 +1686,178 @@ public class SaveActivity extends AppCompatActivity {
         db.child("Tracker").child(username).child("current_plan").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
+                Map<String, Map> map_tracker = (Map<String, Map>) task.getResult().getValue();
+                if(!task.isSuccessful()){
                     Log.e("firebase_summary", "Error getting data", task.getException());
-                    // You can display a message to the user here, indicating that data retrieval failed
-                    return;
-                }
+                }else{
+                    Map<String, Map> map_progress = map_tracker.get("progress");
+                    String[] keys = map_progress.keySet().toArray(new String[0]);
+                    Arrays.sort(keys);
 
-                DataSnapshot snapshot = task.getResult();
-                if (snapshot == null || !snapshot.exists()) {
-                    Log.e("firebase_summary", "No data found at the specified path.");
-                    // Handle the case where data does not exist
-                    return;
-                }
+                    // selected date: keys[position]
+                    // Extract year, month, and day from the string
+                    String year = keys[position].substring(0, 4);
+                    String month = keys[position].substring(4, 6);
+                    String day = keys[position].substring(6, 8);
 
-                // Attempt to convert the data to a Map
-                Map<String, Object> map_tracker = (Map<String, Object>) snapshot.getValue();
-                if (map_tracker == null) {
-                    Log.e("firebase_summary", "Data is null or not in expected format.");
-                    return;
-                }
+                    // Format the string as YYYY/MM/DD
+                    String selected_date = String.format("%s/%s/%s", year, month, day);
 
-                // Get the "progress" child node data
-                Map<String, Object> map_progress = (Map<String, Object>) map_tracker.get("progress");
-                if (map_progress == null) {
-                    Log.e("firebase_summary", "'progress' key not found in map_tracker.");
-                    return;
-                }
+                    String content_pending = "";
+//                    String content = "";
+//                    String htmlString = "<h2>Title</h2><br><p>This is a sample paragraph of <b>HTML</b> text.</p>";
 
-                // Get the array of keys and sort them
-                String[] keys = map_progress.keySet().toArray(new String[0]);
-                Arrays.sort(keys);
+                    String current_status = (String) map_progress.get(keys[position]).get("status").toString();
 
-                // Check if the position is valid
-                if (position < 0 || position >= keys.length) {
-                    Log.e("firebase_summary", "Position is out of bounds.");
-                    return;
-                }
+                    switch (current_status) {
+                        case "1":
+                            String content_html = "Completion-daily: " + map_progress.get(keys[position]).get("goal_daily") + "%<br>"
+                                    + "Completion-weekly: " + map_progress.get(keys[position]).get("goal_weekly") + "%<br>"
+                                    + "Emotion: " + map_progress.get(keys[position]).get("emotion") + "<br>"
+                                    + "Strategy: " + map_progress.get(keys[position]).get("strategy") + "<br>";
+//                            if (position == 5 || position == 6){
+//                                content_html = "<br>" + content_html;
+//                            }
 
-                // Get the current progress data
-                Map<String, Object> currentProgress = (Map<String, Object>) map_progress.get(keys[position]);
-                if (currentProgress == null) {
-                    Log.e("firebase_summary", "No progress data found for key: " + keys[position]);
-                    return;
-                }
+                            bubble_text.setText(Html.fromHtml(content_html));
 
-                // Get the "status" value
-                Object statusObj = currentProgress.get("status");
-                if (statusObj == null) {
-                    Log.e("firebase_summary", "'status' key not found in current progress data.");
-                    return;
-                }
+                            button_check_in.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#C9C9C9")));
+                            break;
+                        case "0":
+                            String content_html2 = "You didn't have a task to complete this date.";
+                            bubble_text.setText(Html.fromHtml(content_html2));
 
-                String current_status = statusObj.toString();
+                            // Enable check in button
+//                            button_check_in.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v){
+//                                    // Determine whether there is an exist current plan
+//                                    db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                                            String current_plan_name = task.getResult().getValue().toString();
+//                                            if(!task.isSuccessful()){
+//                                                Log.e("firebase_tracker", "Error getting data", task.getException());
+//                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                                            }else{
+//                                                Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+//                                                if(current_plan_name != null){
+//                                                    // if exist a current plan, open check in window
+//                                                    speechBubble.dismiss(); // need to dismiss the current speech bubble first
+//                                                    openPopupWindow(v, selected_date);
+//                                                } else{
+//                                                    Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            }
+//                                        }
+//                                    });
+//                                }
+//                            });
 
-                switch (current_status) {
-                    case "1":
-                        // Retrieve other fields and handle possible null values
-                        String goal_daily = currentProgress.get("goal_daily") != null ? currentProgress.get("goal_daily").toString() : "N/A";
-                        String goal_weekly = currentProgress.get("goal_weekly") != null ? currentProgress.get("goal_weekly").toString() : "N/A";
-                        String emotion = currentProgress.get("emotion") != null ? currentProgress.get("emotion").toString() : "N/A";
-                        String strategy = currentProgress.get("strategy") != null ? currentProgress.get("strategy").toString() : "N/A";
+                            // Enable check in button
+                            button_check_in.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v){
+                                    // Determine whether there is an exist current plan
+                                    db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                            if (!task.isSuccessful()) {
+                                                Log.e("firebase_tracker", "Error getting data", task.getException());
+                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
 
-                        String content_html = "Completion-daily: " + goal_daily + "%<br>"
-                                + "Completion-weekly: " + goal_weekly + "%<br>"
-                                + "Emotion: " + emotion + "<br>"
-                                + "Strategy: " + strategy + "<br>";
+                                            DataSnapshot snapshot = task.getResult();
+                                            if (snapshot.exists()) {
+                                                Object value = snapshot.getValue();
+                                                if (value != null) {
+                                                    String current_plan_name = value.toString();
+                                                    // Continue to proceed current_plan_name
+                                                    speechBubble.dismiss(); // need to dismiss the current speech bubble first
+                                                    openPopupWindow(v, selected_date);
+                                                } else {
+                                                    Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                                }
+                                            } else {
+                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            });
 
-                        bubble_text.setText(Html.fromHtml(content_html));
-                        break;
-                    case "0":
-                        String content_html2 = "You didn’t have a task to complete on this date.";
-                        bubble_text.setText(Html.fromHtml(content_html2));
-                        break;
-                    case "-1":
-                        String content_html3 = "You have not recorded your progress for this day. Submit one through the “Self-Checkin” button.";
-                        bubble_text.setText(Html.fromHtml(content_html3));
-                        break;
-                    default:
-                        Log.e("firebase_summary", "Unknown status value: " + current_status);
-                        break;
+                            break;
+                        case "-1":
+                            String content_html3 = "You have not recorded your progress of this day.";
+                            bubble_text.setText(Html.fromHtml(content_html3));
+
+//                            // Enbale check in button
+//                            button_check_in.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v){
+//                                    // Determine whether there is an exist current plan
+//                                    db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                                            String current_plan_name = task.getResult().getValue().toString();
+//                                            if(!task.isSuccessful()){
+//                                                Log.e("firebase_tracker", "Error getting data", task.getException());
+//                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                                            }else{
+//                                                Log.d("firebase_tracker", String.valueOf(task.getResult().getValue()));
+//                                                if(current_plan_name != null){
+//                                                    // if exist a current plan, open check in window
+//                                                    speechBubble.dismiss(); // need to dismiss the current speech bubble first
+//                                                    openPopupWindow(v, selected_date);
+//                                                } else{
+//                                                    Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            }
+//                                        }
+//                                    });
+//                                }
+//                            });
+
+                            // Enable check in button
+                            button_check_in.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v){
+                                    // Determine whether there is an exist current plan
+                                    db.child("Tracker").child(username).child("current_plan").child("goal").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                            if (!task.isSuccessful()) {
+                                                Log.e("firebase_tracker", "Error getting data", task.getException());
+                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
+
+                                            DataSnapshot snapshot = task.getResult();
+                                            if (snapshot.exists()) {
+                                                Object value = snapshot.getValue();
+                                                if (value != null) {
+                                                    String current_plan_name = value.toString();
+                                                    // Continue to proceed current_plan_name
+                                                    speechBubble.dismiss(); // need to dismiss the current speech bubble first
+                                                    openPopupWindow(v, selected_date);
+                                                } else {
+                                                    Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                                }
+                                            } else {
+                                                Toast.makeText(SaveActivity.this, "Please set up a new goal first", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+
+                            break;
+                        default:
+                            break;
+                    }
+
+//                    bubble_text.setText(String.valueOf(current_status));
                 }
             }
         });
@@ -1546,6 +1875,8 @@ public class SaveActivity extends AppCompatActivity {
 
     public class CustomMarkerView extends MarkerView {
         private TextView tvContent;
+        private Integer tooltip_length;
+        private Integer cur_index;
 
         public CustomMarkerView(Context context, int layoutResource) {
             super(context, layoutResource);
@@ -1557,9 +1888,20 @@ public class SaveActivity extends AppCompatActivity {
         // use it to update the content (user-interface)
         @Override
         public void refreshContent(Entry e, Highlight highlight) {
-            String txt_content = "Date: " + tooltip_date[(int)e.getX()] + "\n"
-                        + "Value: " + e.getY();
+//            Log.d("Check what e: ", String.valueOf(e.getX()));
+
+//            String txt_content = "Hi";
+
+            String txt_content = "Week " + (int)(e.getX() + 1) + "\n"
+                    + "Start Date: " + tooltip_date[(int)e.getX()] + "\n"
+                    + "Value: " + e.getY();
+
             tvContent.setText(txt_content);
+
+            if (tooltip_date != null){
+                tooltip_length = tooltip_date.length;
+            }
+            cur_index = (int)e.getX();
 //             tvContent.setText(String.format("Value: %s", e.getY()));
             super.refreshContent(e, highlight);
         }
@@ -1567,7 +1909,11 @@ public class SaveActivity extends AppCompatActivity {
         @Override
         public MPPointF getOffset() {
             // This provides the offset for the MarkerView. It's the difference between the touch point and the marker view
-            return new MPPointF(-(getWidth() / 2), getHeight()-45);
+            if (tooltip_date != null && cur_index+1 == tooltip_length) {
+                // The condition is true
+                return new MPPointF(-(getWidth() / 2)-70, getHeight()-70);
+            }
+            return new MPPointF(-(getWidth() / 2), getHeight()-70);
         }
     }
 

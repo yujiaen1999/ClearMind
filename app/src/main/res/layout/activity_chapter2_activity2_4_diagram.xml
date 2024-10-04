@@ -120,12 +120,13 @@
 
             <EditText
                 android:id="@+id/input2"
-                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:padding="10dp"
+                style="@style/CustomEditTextWhite"
                 android:hint="Passenger A"
+                android:textSize="@dimen/text_size_main_large"
+                android:padding="10dp"
                 android:inputType="textMultiLine" />
 
 <!--            <TextView-->
@@ -148,6 +149,7 @@
                 android:layout_marginTop="@dimen/text_internal"
                 android:padding="10dp"
                 android:hint="Passenger B"
+                android:textSize="@dimen/text_size_main_large"
                 style="@style/CustomEditTextWhite"
                 android:inputType="textMultiLine" />
 
@@ -171,6 +173,7 @@
                 android:layout_marginVertical="@dimen/text_internal"
                 android:padding="10dp"
                 android:hint="Passenger C"
+                android:textSize="@dimen/text_size_main_large"
                 style="@style/CustomEditTextWhite"
                 android:inputType="textMultiLine" />
 
@@ -192,8 +195,9 @@
                 android:cursorVisible="true"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:padding="10dp"
-                style="@style/CustomEditTextWhite"
                 android:hint="Passengers' persuasion"
+                android:textSize="@dimen/text_size_main_large"
+                style="@style/CustomEditTextWhite"
                 android:inputType="textMultiLine" />
 
 

@@ -159,10 +159,10 @@
                 android:id="@+id/entry_button"
                 style="@style/RoundedButtonStyle"
                 android:layout_width="331dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="70dp"
                 android:onClick="openMain"
                 android:layout_gravity="center"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="100dp"
                 android:text="Next"
                 app:layout_constraintTop_toBottomOf="@id/user_info"
                 tools:ignore="UsingOnClickInXml" />

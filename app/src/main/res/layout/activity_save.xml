@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_general"
+    android:background="#54B363"
     android:id="@+id/activity_save">
 
     <LinearLayout
         android:id="@+id/textView_head"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="72dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="#5FA12E"
+        android:background="#54B363"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -24,14 +24,15 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="72dp"
             android:text="Goal Tracker"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"
             android:paddingTop="24dp"
-            android:background="#5FA12E"
+            android:paddingBottom="12dp"
+            android:background="#54B363"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/text_size_heading_small"
+            android:textSize="@dimen/text_size_heading_large"
             android:textStyle="bold"
             android:gravity="center" />
 
@@ -44,11 +45,13 @@
 
         <ImageButton
             android:id="@+id/button_new_tracker"
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:layout_height="72dp"
             android:background="@null"
-            android:paddingTop="30dp"
-            android:src="@drawable/button_add2"
+            android:paddingTop="25dp"
+            android:paddingBottom="12dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/button_add4"
             android:contentDescription="Add" />
 
 
@@ -107,7 +110,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/background_general"
+        android:background="@drawable/bg_goal_tracker"
         app:layout_constraintTop_toBottomOf="@+id/textView_head"
         app:layout_constraintBottom_toTopOf="@+id/navigation_buttons" >
 
@@ -142,17 +145,18 @@
             android:layout_height="wrap_content"
             android:paddingLeft="0dp"
             android:paddingRight="15dp"
-            android:text="Start a new Goal here ↑"
+            android:text="Time to start a new Goal here! ↑"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#FF0000"
             android:textSize="@dimen/text_size_main_small" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
             android:orientation="horizontal"
+            android:background="@drawable/bg_goal_name"
             android:gravity="center">
 
             <TextView
@@ -161,10 +165,10 @@
                 android:layout_height="30dp"
                 android:text="Goal: Name,goal"
                 android:paddingLeft="0dp"
-                android:paddingRight="20dp"
+                android:paddingRight="0dp"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="#FF6200"
                 android:textSize="@dimen/text_size_main_large" />
 
 <!--            <ImageButton-->
@@ -177,38 +181,38 @@
 
         </LinearLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/separate_line"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
-            </ImageView>
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/separate_line"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginBottom="5dp">-->
+<!--            </ImageView>-->
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginVertical="10dp"
                 android:gravity="left"
                 android:paddingLeft="0dp"
                 android:paddingRight="20dp"
-                android:text="Timeliness this week"
+                android:text="@string/underlined_Timeliness"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_small"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/cur_avg_score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:gravity="left"
-                android:paddingLeft="0dp"
-                android:paddingRight="20dp"
-                android:text="Average Timeliness Score: "
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_note"
-                />
+<!--            <TextView-->
+<!--                android:id="@+id/cur_avg_score"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:gravity="left"-->
+<!--                android:paddingLeft="0dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:text="Average Timeliness Score: "-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="@dimen/text_size_note"-->
+<!--                />-->
 
             <GridView
                 android:id="@+id/gridview"
@@ -217,7 +221,102 @@
                 android:horizontalSpacing="6dp"
                 android:numColumns="7"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 android:verticalSpacing="6dp" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_goal_card"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:gravity="left"
+                        android:paddingLeft="0dp"
+                        android:paddingRight="0dp"
+                        android:text="Completion this week"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/completion_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:gravity="left"
+                        android:paddingLeft="0dp"
+                        android:paddingRight="0dp"
+                        android:text="00%"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/text_size_heading_large"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_goal_card"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:gravity="left"
+                        android:paddingLeft="0dp"
+                        android:paddingRight="0dp"
+                        android:text="Average Timeliness Score"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/cur_avg_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:gravity="left"
+                        android:paddingLeft="0dp"
+                        android:paddingRight="0dp"
+                        android:text="0.0"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/text_size_heading_large"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+<!--            <TextView-->
+<!--                android:id="@+id/cur_avg_score"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:gravity="left"-->
+<!--                android:paddingLeft="0dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:text="Average Timeliness Score: "-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="@dimen/text_size_note"-->
+<!--                />-->
 
 <!--            <TextView-->
 <!--                android:id="@+id/textView2"-->
@@ -277,6 +376,7 @@
 <!--            </ImageView>-->
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="0dp"
@@ -294,6 +394,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="10dp"
+                android:visibility="gone"
                 >
 
                 <ProgressBar
@@ -323,6 +424,7 @@
 
 
             <com.github.mikephil.charting.charts.BarChart
+                android:visibility="gone"
                 android:id="@+id/barChart"
                 android:layout_width="match_parent"
                 android:layout_height="200dp" />
@@ -340,6 +442,7 @@
 
             <Button
                 android:id="@+id/button_checkin_today"
+                android:visibility="gone"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:text="Self-Checkin"
@@ -406,24 +509,160 @@
 <!--                </TableRow>-->
 <!--            </TableLayout>-->
 
+            <!--            <Button-->
+<!--                android:id="@+id/button_switch"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:text="Switch"-->
+<!--                android:layout_gravity="left"-->
+<!--                app:backgroundTint="@color/yellow"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="3">-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/button_completion"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:drawableLeft="@drawable/square_green"-->
+<!--                    android:text="Completion"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    app:backgroundTint="#FFFFFF"/>-->
+
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1" />-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/button_timeliness"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:drawableLeft="@drawable/square_blue"-->
+<!--                    android:text="Timeliness"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    app:backgroundTint="#FFFFFF" />-->
+
+<!--            </LinearLayout>-->
+
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="left"
                 android:paddingLeft="0dp"
                 android:paddingRight="20dp"
-                android:text="Timeliness/Completion overtime"
-                android:gravity="left"
-                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/underlined_Overtime"
                 android:textColor="#000000"
-                android:textSize="@dimen/text_size_main_small" />
+                android:textSize="@dimen/text_size_main_small"
+                android:textStyle="bold" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/toggle_buttons"
+                android:layout_width="wrap_content"
+                android:padding="1dp"
+                android:layout_marginVertical="8dp"
+                app:toggle_requiredAmount="1"
+                app:toggle_selectableAmount="1"
+                app:toggle_horizontalSpacing="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_toggle_buttons"
+                app:justifyContent="center"> <!-- this attribute is from the underlying FlexboxLayout -->
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:id="@+id/button_completion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    app:toggle_backgroundColor="#ECEAEA"
+                    app:toggle_selectedBackgroundColor="#54B363"
+                    app:toggle_btnCornerRadius="5dp"
+                    app:toggle_textAlignment="center"
+                    app:toggle_textSize="@dimen/text_size_note"
+                    app:toggle_textGravity="center"
+                    app:toggle_text="Completion" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:id="@+id/button_both"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="28dp"
+                    app:toggle_textPaddingLeft="30dp"
+                    app:toggle_textPaddingRight="30dp"
+                    app:toggle_backgroundColor="#ECEAEA"
+                    app:toggle_selectedBackgroundColor="#54B363"
+                    app:toggle_btnCornerRadius="5dp"
+                    app:toggle_textAlignment="center"
+                    app:toggle_textSize="@dimen/text_size_note"
+                    app:toggle_textGravity="center"
+
+                    app:toggle_text="Both" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:id="@+id/button_timeliness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    app:toggle_backgroundColor="#ECEAEA"
+                    app:toggle_selectedBackgroundColor="#54B363"
+                    app:toggle_btnCornerRadius="5dp"
+                    app:toggle_textAlignment="center"
+                    app:toggle_textSize="@dimen/text_size_note"
+                    app:toggle_textGravity="center"
+                    app:toggle_text="Timeliness" />
+
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+
+<!--            <Button-->
+<!--                style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
+<!--                android:id="@+id/button11"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Button 1"-->
+<!--                android:textSize="14sp"-->
+<!--                />-->
+
+<!--            <com.google.android.material.button.MaterialButtonToggleGroup-->
+<!--                android:id="@+id/toggleButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <Button-->
+<!--                    style="?attr/materialButtonOutlinedStyle"-->
+<!--                    android:id="@+id/button1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Button 1"-->
+<!--                    />-->
+<!--                <Button-->
+<!--                    style="?attr/materialButtonOutlinedStyle"-->
+<!--                    android:id="@+id/button2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Button 2"-->
+<!--                    />-->
+<!--                <Button-->
+<!--                    style="?attr/materialButtonOutlinedStyle"-->
+<!--                    android:id="@+id/button3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Button 3"-->
+<!--                    />-->
+<!--            </com.google.android.material.button.MaterialButtonToggleGroup>-->
+
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 />
-
 
 
         </LinearLayout>

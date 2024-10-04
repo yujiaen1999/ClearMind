@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,8 @@ public class Chapter2_Activity extends AppCompatActivity {
     private Button button_activity2_4;
     private Button button_activity2_5;
     private Button button_summary;
+
+    private TextView button_next_part;
 
 
 
@@ -79,6 +82,7 @@ public class Chapter2_Activity extends AppCompatActivity {
         button_activity2_4 = findViewById(R.id.button6);
         button_activity2_5 = findViewById(R.id.button7);
         button_summary = findViewById(R.id.button8);
+        button_next_part = findViewById(R.id.finish_word_2);
 
 //        HashMap<String, Object> progress_map = new HashMap<>();
 //        progress_map.put("1_Opening", "0");
@@ -92,6 +96,13 @@ public class Chapter2_Activity extends AppCompatActivity {
 //        this.db.child("Chapter2").child("progress").child(username).setValue(progress_map);
 
         getData();
+
+        button_next_part.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openNextPartActivity();
+            }
+        });
 
         button_back_to_learn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,6 +168,12 @@ public class Chapter2_Activity extends AppCompatActivity {
 //        });
     }
 
+
+    private void openNextPartActivity() {
+        Intent intent = new Intent(this,Chapter3_Activity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
 
     private void openLearnActivity() {
         Intent intent = new Intent(this,LearnActivity.class);
@@ -430,11 +447,18 @@ public class Chapter2_Activity extends AppCompatActivity {
                     button_summary.setCompoundDrawables(icon_done, null, null, null);
 
                     // Add finish word
-                    TextView finish_word = findViewById(R.id.finish_word);
-                    String txt_word = "&#127881; You have finished this Chapter!";
-                    finish_word.setText(Html.fromHtml(txt_word));
+                    TextView finish_word_1 = findViewById(R.id.finish_word);
+//                    TextView finish_word_2 = findViewById(R.id.finish_word_2);
+                    LinearLayout finish_words = findViewById(R.id.finish_words);
+                    finish_words.setVisibility(View.VISIBLE);
+
+
+                    // emoji 127881
+                    String txt_word = "&#127881; You have finished this Part!";
+                    finish_word_1.setText(Html.fromHtml(txt_word));
 //                    finish_word.setText("You have finished this Chapter!");
-                    finish_word.setBackgroundResource(R.drawable.shape_hints);
+//                    finish_word.setBackgroundResource(R.drawable.shape_hints);
+                    button_next_part.setText(Html.fromHtml("<u>Continue to the next part!</u>"));
 
                     button_summary.setOnClickListener(new View.OnClickListener() {
                         @Override

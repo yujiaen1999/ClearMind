@@ -46,7 +46,7 @@ public class Chapter1_Activity extends AppCompatActivity {
     private Button button_summary;
     private TextView button_next_part;
 
-
+//    check Github repo push
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

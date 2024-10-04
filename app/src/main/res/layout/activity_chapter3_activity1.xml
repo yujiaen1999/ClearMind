@@ -94,8 +94,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:cursorVisible="true"
+                    android:padding = "10dp"
                     android:hint="(name of the emotion)"
-                    android:padding="10dp"
                     style="@style/CustomEditTextWhite"
                     android:inputType="textMultiLine" />
 
@@ -122,8 +122,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:cursorVisible="true"
+                    android:padding = "10dp"
                     android:hint="(an event)"
-                    android:padding="10dp"
                     style="@style/CustomEditTextWhite"
                     android:inputType="textMultiLine" />
 
