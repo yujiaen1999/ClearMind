@@ -47,7 +47,7 @@ public class NavigationDrawerHelper {
             {"Opening", "Prioritize Your Life Values", "Discover Procrastination Reasons", "Procrastination Tendencies", "Tendencies Questions", "How to Use the App", "Summary"},
             {"Opening", "Your Challenging Emotions", "Passengers On The Bus", "Example of Driving the bus", "Identify your passengers", "Willingness to Carry On", "Summary"},
             {"Opening", "Label the Passengers on the Bus", "Identify how it feels in your body", "Learn How to Meditate", "Make a Belief Statement", "Be aware of cognitive distortions", "Summary of cognitive distortions", "Reflection on cognitive distortions", "Summary"},
-            {"Opening", "Introduce a New Framework", "Commit to a new goal", "Identify your passengers", "Willingness to carry on", "Willingness to Carry On", "Summary"}
+            {"Opening", "Introduce a New Framework", "Commit to a new goal", "Identify your passengers", "Willingness to carry on", "Introduction to Goal Tracker", "Summary"}
     };
 
     private static final Class<?>[][] TARGET_ACTIVITIES = {
