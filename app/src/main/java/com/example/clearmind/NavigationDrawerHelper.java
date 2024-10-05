@@ -47,14 +47,14 @@ public class NavigationDrawerHelper {
             {"Opening", "Prioritize Your Life Values", "Discover Procrastination Reasons", "Procrastination Tendencies", "Tendencies Questions", "How to Use the App", "Summary"},
             {"Opening", "Your Challenging Emotions", "Passengers On The Bus", "Example of Driving the bus", "Identify your passengers", "Willingness to Carry On", "Summary"},
             {"Opening", "Label the Passengers on the Bus", "Identify how it feels in your body", "Learn How to Meditate", "Make a Belief Statement", "Be aware of cognitive distortions", "Summary of cognitive distortions", "Reflection on cognitive distortions", "Summary"},
-            {"Opening", "Introduce a New Framework", "Commit to a new goal", "Identify your passengers", "Willingness to carry on", "Introduction to Goal Tracker", "Summary"}
+            {"Opening", "Introduce a New Framework", "Commit to a new goal", "Identify your passengers", "Willingness to carry on", "Summary", "Introduction to Goal Tracker"}
     };
 
     private static final Class<?>[][] TARGET_ACTIVITIES = {
             {Chapter1_Opening_Activity.class, Chapter1_Activity0_Activity.class, Chapter1_Activity1_Activity.class, Chapter1_Activity2_Activity.class, Chapter1_Activity2_Question_Activity.class, Chapter1_Time_Activity.class, Chapter1_Summary_Activity.class},
             {Chapter2_Opening_Activity.class, Chapter2_Activity1_Activity.class, Chapter2_Activity2_1_Activity.class, Chapter2_Activity2_2Q_Activity.class, Chapter2_Diagram_Activity.class, Chapter2_Activity2_5_Activity.class, Chapter2_Summary_Activity.class},
             {Chapter3_Opening_Activity.class, Chapter3_Activity1_Activity.class, Chapter3_Activity2_Activity.class, Chapter3_Activity3_new_Activity.class, Chapter3_Activity4_Activity.class, Chapter3_Activity5_1_Activity.class, Chapter3_Activity5_sum_Activity.class, Chapter3_Activity6_Activity.class, Chapter3_Summary_Activity.class},
-            {Chapter4_Opening_Activity.class, Chapter4_Activity1_Activity.class, Chapter4_Activity2_Activity.class, Chapter4_Activity3_Activity.class, Chapter4_Activity4_Activity.class, Chapter4_Activity5_Activity.class, Chapter4_Summary_Activity.class}
+            {Chapter4_Opening_Activity.class, Chapter4_Activity1_Activity.class, Chapter4_Activity2_Activity.class, Chapter4_Activity3_Activity.class, Chapter4_Activity4_Activity.class, Chapter4_Summary_Activity.class, Chapter4_Activity5_Activity.class}
     };
 
     private static final String[] CHAPTERS = {"Chapter1", "Chapter2", "Chapter3", "Chapter4"};
