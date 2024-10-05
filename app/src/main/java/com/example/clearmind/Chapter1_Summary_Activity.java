@@ -41,7 +41,7 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
     private EditText answer1;
     private EditText answer2;
     private EditText answer_real_3;
-    private String txt_answer3;
+    private String txt_answer4;
     private long pageOpenTime;
     private long pageCloseTime;
 
@@ -78,9 +78,10 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
                     if(hashmap_summary != null){
                         answer1.setText(hashmap_summary.get("answer1"));
                         answer2.setText(hashmap_summary.get("answer2"));
+                        answer_real_3.setText(hashmap_summary.get("answer3"));
 
-                        String current_answer3 = hashmap_summary.get("answer3");
-                        switch (current_answer3) {
+                        String current_answer4 = hashmap_summary.get("answer4");
+                        switch (current_answer4) {
                             case "1":
                                 radiogroup1.check(R.id.radiobtn_1);
                                 break;
@@ -108,7 +109,7 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton selected_button = (RadioButton) findViewById(checkedId);
 //                selected_button.setChecked(true);
-                txt_answer3 = selected_button.getText().toString();
+                txt_answer4 = selected_button.getText().toString();
 //                Toast.makeText(getApplicationContext(), "your choice is " + selected_button.getText(), Toast.LENGTH_LONG).show();
             }
         });
@@ -137,7 +138,7 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
                 String txt_answer2 = answer2.getText().toString();
                 String txt_answer_real_3 = answer_real_3.getText().toString();
 
-                if (txt_answer1.isEmpty() || txt_answer2.isEmpty() || txt_answer_real_3.isEmpty() || txt_answer3 == null){
+                if (txt_answer1.isEmpty() || txt_answer2.isEmpty() || txt_answer_real_3.isEmpty() || txt_answer4 == null){
                     Toast.makeText(Chapter1_Summary_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
                 } else {
                     // Get all answers from user
@@ -145,7 +146,7 @@ public class Chapter1_Summary_Activity extends AppCompatActivity {
                     map.put("answer1", txt_answer1);
                     map.put("answer2", txt_answer2);
                     map.put("answer3", txt_answer_real_3);
-                    map.put("answer4", txt_answer3);
+                    map.put("answer4", txt_answer4);
 
                     db.child("Chapter1").child("summary").child(username).setValue(map);
 

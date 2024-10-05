@@ -99,18 +99,20 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Other"
+                        android:text="Other:"
                         android:textSize="@dimen/text_size_main_small"
                         android:paddingRight="20dp"
                         android:id="@+id/checkbox8"/>
 
                     <EditText
                         android:id="@+id/input2"
+                        style="@style/CustomEditTextWhite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:cursorVisible="true"
@@ -120,7 +122,6 @@
                         android:paddingBottom="2dp"
                         android:hint="Input here"
                         android:textSize="@dimen/text_size_main_small"
-                        android:background="#FFFFFF"
                         tools:ignore="ExtraText" />
 
                 </LinearLayout>

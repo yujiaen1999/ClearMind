@@ -2,6 +2,7 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -82,6 +83,23 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
         checkBox11 = findViewById(R.id.checkbox11);
         checkBox12 = findViewById(R.id.checkbox12);
 
+        // Get and Display user input from the database
+        db.child("Chapter1").child("activity1_single_questions").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                HashMap<String, String> hashmap_summary = (HashMap<String, String>) task.getResult().getValue();
+                if(!task.isSuccessful()){
+                    Log.e("firebase_summary", "Error getting data", task.getException());
+                }else{
+                    Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
+                    if(hashmap_summary != null){
+                        answer1.setText(hashmap_summary.get("Question1"));
+                        answer2.setText(hashmap_summary.get("Question2"));
+                    }
+                }
+            }
+        });
+
 //        Set<String> user_choice = new HashSet<>();
 
 //        Toast.makeText(Chapter1_Activity1_Activity.this, checkBox1.getText().toString(), Toast.LENGTH_SHORT).show();
@@ -110,18 +128,18 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
                 }
 
                 TextView textView1 = findViewById(R.id.textView1);
-                String template = "You chose [ %s ] as one of your top life values. Think about why those values are important and meaningful to you. Have you ever made any effort to pursue these values before? Has anything ever stopped you from pursuing these values?";
+                String template = "You chose [ <b>%s</b> ] as one of your top life values. Think about why those values are important and meaningful to you. Have you ever made any effort to pursue these values?";
                 String text = String.format(template, topChoice);
-                textView1.setText(text);
+                textView1.setText(Html.fromHtml(text));
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("Firebase", "Database error: " + databaseError.getMessage());
                 TextView textView1 = findViewById(R.id.textView1);
-                String template = "You chose [ %s ] as one of your top life values. Think about why those values are important and meaningful to you. Have you ever made any effort to pursue these values before?";
+                String template = "You chose [ <b>%s</b> ] as one of your top life values. Think about why those values are important and meaningful to you. Have you ever made any effort to pursue these values?";
                 String text = String.format(template, topChoice);
-                textView1.setText(text);
+                textView1.setText(Html.fromHtml(text));
             }
         });
 
@@ -267,12 +285,27 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                // update Chapter1 progress
-                Map<String, Object> chapter1_progress_update = new HashMap<>();
-                chapter1_progress_update.put("2_Activity1_1", "1");
-                db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
+                // Read user's input and button chose, and write them to database
+                String txt_answer1 = answer1.getText().toString();
+                String txt_answer2 = answer2.getText().toString();
 
-                open_Next_Activity();
+                if (txt_answer1.isEmpty() || txt_answer2.isEmpty()){
+                    Toast.makeText(Chapter1_Activity1_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Get all answers from user
+                    Map<String, String> singleQuestions = new HashMap<>();
+                    singleQuestions.put("Question1", txt_answer1);
+                    singleQuestions.put("Question2", txt_answer2);
+                    db.child("Chapter1").child("activity1_single_questions").child(username).setValue(singleQuestions);
+
+                    // update Chapter1 progress
+                    // update Chapter1 progress
+                    Map<String, Object> chapter1_progress_update = new HashMap<>();
+                    chapter1_progress_update.put("2_Activity1_1", "1");
+                    db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
+
+                    open_Next_Activity();
+                }
             }
         });
     }

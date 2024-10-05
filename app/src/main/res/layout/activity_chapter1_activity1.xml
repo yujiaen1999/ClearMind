@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                style="@style/CustomEditText"
+                style="@style/CustomEditTextWhite"
                 android:padding="10dp"
                 android:hint="Input here"
                 android:textSize="@dimen/text_size_main_small"
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="Has anything ever stopped you from pursuing these values?"
+                android:text="Have you ever procrastinated on pursuing these values? If you have not, can you think of a situation where you would procrastinate?"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                style="@style/CustomEditText"
+                style="@style/CustomEditTextWhite"
                 android:padding="10dp"
                 android:hint="Input here"
                 android:textSize="@dimen/text_size_main_small"
@@ -64,6 +64,7 @@
 
             <TextView
                 android:id="@+id/textView1_3"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"

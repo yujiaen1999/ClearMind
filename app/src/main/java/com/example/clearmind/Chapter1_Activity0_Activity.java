@@ -234,7 +234,7 @@ public class Chapter1_Activity0_Activity extends AppCompatActivity {
     }
 
     private void sendTimeStampsToFirebase() {
-        DatabaseReference activityRef = db.child("userActivity").child(username).child("Part1_1_Activity1");
+        DatabaseReference activityRef = db.child("userActivity").child(username).child("Part1_1_Activity0");
 
         // create a new activityID
         String activityId = activityRef.push().getKey();
