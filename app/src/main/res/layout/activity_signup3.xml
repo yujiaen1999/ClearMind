@@ -121,16 +121,8 @@
                     android:id="@+id/spinner1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    style="@style/Tooltip" />
-
-<!--                <TextView-->
-<!--                    android:id="@+id/question1_hint"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="In what city were you born ?     ▼"-->
-<!--                    style="@style/Tooltip"-->
-<!--                    android:paddingStart="10dp" />-->
+                    style="@style/SpinnerTooltip"
+                    android:paddingStart="10dp" />
 
                 <EditText
                     android:id="@+id/answer1"
@@ -160,8 +152,8 @@
                     android:id="@+id/spinner2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    style="@style/Tooltip" />
+                    style="@style/SpinnerTooltip"
+                    android:paddingStart="10dp" />
 
 <!--                <TextView-->
 <!--                    android:id="@+id/question2_hint"-->

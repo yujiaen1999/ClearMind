@@ -99,8 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:text="1. Have you recognized any procrastination tendencies in your daily life? How do these tendencies manifest in your routines and tasks? What do you believe are the main reasons behind your procrastination behaviors?
-"
+                android:text="1. Have you recognized any procrastination tendencies in your daily life? How do these tendencies manifest in your routines and tasks?"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_small" />
 

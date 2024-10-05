@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,7 +9,6 @@
     android:background="@drawable/background_general">
 
     <ScrollView
-        android:id="@+id/outer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F2FFD8"
@@ -16,22 +16,17 @@
         tools:layout_editor_absoluteY="1dp">
 
         <LinearLayout
-            android:id="@+id/wrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <!-- Combined Layout -->
             <LinearLayout
                 android:id="@+id/combinedLayoutSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_margin="20dp"
-                android:padding="20dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -44,13 +39,13 @@
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/delius_swash_caps"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="ClearMind"
                     android:textColor="#007F5F"
-                    android:textSize="28sp"
-                    android:fontFamily="@font/delius_swash_caps"
-                    android:includeFontPadding="false"
-                    android:layout_gravity="center" />
+                    android:textSize="28sp" />
             </LinearLayout>
 
             <TextView
@@ -67,15 +62,14 @@
                 android:textSize="34sp"
                 android:textStyle="bold" />
 
-            <!-- Horizontal LinearLayout for Progress Bar and Text -->
             <LinearLayout
                 android:id="@+id/barToolTip"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ProgressBar
                     android:id="@+id/determinateBar"
@@ -97,17 +91,15 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
-
             <LinearLayout
                 android:id="@+id/user_info"
-                android:layout_width="369dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="vertical"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="50dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/barToolTip">
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/username_show"
@@ -115,10 +107,7 @@
                     android:layout_height="wrap_content"
                     android:text="Username:"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#007F5F"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textColor="#007F5F" />
 
                 <EditText
                     android:id="@+id/username_input"
@@ -138,10 +127,7 @@
                     android:layout_marginTop="15dp"
                     android:text="Password:"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#007F5F"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/answer1" />
+                    android:textColor="#007F5F" />
 
                 <EditText
                     android:id="@+id/password_input"
@@ -159,13 +145,10 @@
                 android:id="@+id/entry_button"
                 style="@style/RoundedButtonStyle"
                 android:layout_width="331dp"
-                android:layout_marginBottom="70dp"
-                android:onClick="openMain"
                 android:layout_gravity="center"
                 android:layout_marginTop="100dp"
-                android:text="Next"
-                app:layout_constraintTop_toBottomOf="@id/user_info"
-                tools:ignore="UsingOnClickInXml" />
+                android:layout_marginBottom="70dp"
+                android:text="Next" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

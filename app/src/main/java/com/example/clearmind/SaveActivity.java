@@ -108,7 +108,7 @@ public class SaveActivity extends AppCompatActivity {
     private Button selfcheckin_button;
     private ImageButton newTracker_button;
 
-//    private Button line_checkin_button;
+    //    private Button line_checkin_button;
 //    private Button bar_checkin_button;
     private ArrayList<BarEntry> entries_bar;
     private List<Entry> entries_line;
@@ -352,7 +352,7 @@ public class SaveActivity extends AppCompatActivity {
         // Bar Chart NOT in use: Bar Chart Initialization based on db
         // Bar Chart NOT in use: Customize X axis (date string)
 
-         test:
+        test:
         for(int i=0; i<5; i++){
             float value = (float) Math.random() * 10 ; // substitute to actual data
             BarEntry bar_entry = new BarEntry(entries_bar.size(), Math.round(value));
@@ -1893,8 +1893,8 @@ public class SaveActivity extends AppCompatActivity {
 //            String txt_content = "Hi";
 
             String txt_content = "Week " + (int)(e.getX() + 1) + "\n"
-                        + "Start Date: " + tooltip_date[(int)e.getX()] + "\n"
-                        + "Value: " + e.getY();
+                    + "Start Date: " + tooltip_date[(int)e.getX()] + "\n"
+                    + "Value: " + e.getY();
 
             tvContent.setText(txt_content);
 

@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="How much do you, yourself agree to the following statements? \n1 = Disagree; 5 = Agree"
+                android:text="How much do you, yourself agree to the following statements? \n1 = Strongly Disagree; 5 = Strongly Agree"
                 android:textSize="@dimen/text_size_main_small"
                 android:textStyle="bold" />
 
