@@ -28,9 +28,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:text="So far we learned that:\nProcrastination is often a resulting behavior triggered by some challenging emotions (part 1)
-\nYou can allow those challenging emotions to exist but just do not let them sabotage your goal/value (part 2)
-"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_size_main_large" />
