@@ -77,6 +77,8 @@
 
     <LinearLayout
         android:id="@+id/locked_part"
+        android:background="@drawable/bg_goal_tracker"
+        android:layout_marginTop="72dp"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

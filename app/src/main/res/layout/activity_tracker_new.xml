@@ -1,8 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_goal_popup"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -10,7 +15,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="30dp"
-        android:background="@drawable/bg_goal_popup" >
+        >
 
 
 <!--        <TextView-->
@@ -55,6 +60,7 @@
             android:hint="My goal is..."
             android:layout_marginBottom="5dp"
             android:paddingHorizontal="10dp"
+            android:inputType="textMultiLine"
             tools:ignore="ExtraText" />
 
         <TextView
@@ -80,12 +86,12 @@
             android:id="@+id/input2"
             style="@style/CustomEditTextWhite_goal"
             android:layout_width="300dp"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:cursorVisible="true"
             android:hint="The purpose of my goal is..."
             android:layout_marginBottom="15dp"
             android:paddingHorizontal="10dp"
-            tools:ignore="ExtraText" />
+            android:inputType="textMultiLine" />
 
 
             <LinearLayout
@@ -162,11 +168,12 @@
             android:id="@+id/input5"
             style="@style/CustomEditTextWhite_goal"
             android:layout_width="300dp"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:cursorVisible="true"
             android:hint="My difficult emotion is..."
             android:layout_marginBottom="10dp"
             android:paddingHorizontal="10dp"
+            android:inputType="textMultiLine"
             tools:ignore="ExtraText" />
 
         <TextView
@@ -183,11 +190,12 @@
             android:id="@+id/input6"
             style="@style/CustomEditTextWhite_goal"
             android:layout_width="300dp"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:cursorVisible="true"
             android:hint="My strategy is..."
             android:layout_marginBottom="20dp"
             android:paddingHorizontal="10dp"
+            android:inputType="textMultiLine"
             tools:ignore="ExtraText" />
 
         <!--        <TextView-->
@@ -266,5 +274,7 @@
             app:layout_constraintVertical_bias="0.7"/>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -214,8 +214,8 @@ public class SaveActivity extends AppCompatActivity {
                     TapTargetView.showFor(SaveActivity.this,
                             TapTarget.forView(targetButton, "This is the Goal Start Button", "Click '+' to start tracking your new goal!")
                                     .transparentTarget(true)
-                                    .targetRadius(45)
-                                    .outerCircleColor(R.color.green)
+                                    .targetRadius(40)
+                                    .outerCircleColor(R.color.bg_green)
                                     .outerCircleAlpha(0.99f)            // Specify the alpha amount for the outer circle
                                     .targetCircleColor(R.color.yellow)
                                     .textColor(R.color.white)
