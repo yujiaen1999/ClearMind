@@ -6,7 +6,7 @@
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_gravity="end"
-    android:background="#F1FED7"
+    android:background="#FFFFFF"
     android:visibility="gone"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:padding="8dp"
-                android:background="#F1FED7"
+                android:background="#FFFFFF"
                 android:gravity="left"
                 tools:ignore="RtlHardcoded" />
 
@@ -72,7 +72,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:padding="8dp"
-                android:background="#F1FED7"
+                android:background="#FFFFFF"
                 android:gravity="left"
                 tools:ignore="RtlHardcoded" />
 
@@ -112,7 +112,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:padding="8dp"
-                android:background="#F1FED7"
+                android:background="#FFFFFF"
                 android:gravity="left"
                 tools:ignore="RtlHardcoded" />
 
@@ -160,7 +160,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:padding="8dp"
-                android:background="#F1FED7"
+                android:background="#FFFFFF"
                 android:gravity="left"
                 tools:ignore="RtlHardcoded" />
 
