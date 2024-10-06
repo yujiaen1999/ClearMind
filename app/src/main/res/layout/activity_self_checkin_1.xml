@@ -1,0 +1,143 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_goal_popup">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="30dp"
+        android:background="@drawable/bg_goal_popup" >
+
+
+        <TextView
+            android:id="@+id/textView_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:"
+            android:textSize="@dimen/text_size_main_small"
+            android:gravity="left"
+            android:layout_marginBottom="15dp"
+            android:textColor="#000000"
+            />
+
+        <EditText
+            android:id="@+id/input1"
+            android:visibility="gone"
+            android:layout_width="300dp"
+            android:layout_height="36dp"
+            android:cursorVisible="true"
+            android:hint="current date"
+            android:layout_marginBottom="10dp"
+            android:paddingHorizontal="10dp"
+            android:background="#FFFFFF"
+            android:textSize="@dimen/text_size_main_small"
+            tools:ignore="ExtraText" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView_example"-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="How are you feeling today?"-->
+<!--            android:textSize="18dp"-->
+<!--            android:gravity="left"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:textColor="#000000"-->
+<!--            />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/input2"-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="36dp"-->
+<!--            android:cursorVisible="true"-->
+<!--            android:hint="My feeling is..."-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:paddingHorizontal="10dp"-->
+<!--            android:background="#FFFFFF"-->
+<!--            tools:ignore="ExtraText" />-->
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Do you have any daily goal for this date?"
+            android:textSize="@dimen/text_size_main_small"
+            android:gravity="left"
+            android:layout_marginBottom="25dp"
+            android:textColor="#000000"
+            />
+
+<!--        <EditText-->
+<!--            android:id="@+id/input2"-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="36dp"-->
+<!--            android:cursorVisible="true"-->
+<!--            android:hint="My feeling is..."-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:paddingHorizontal="10dp"-->
+<!--            android:background="#FFFFFF"-->
+<!--            tools:ignore="ExtraText" />-->
+
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_yes"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_heading_large"
+                android:layout_marginBottom="0dp"
+                android:layout_marginRight="50dp"
+                app:backgroundTint="#54B363"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7"/>
+
+            <Button
+                android:id="@+id/button_no"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_heading_large"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="50dp"
+                app:backgroundTint="#FA0B0B"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9"/>
+
+        </LinearLayout>
+
+<!--        -->
+<!--        <Button-->
+<!--            android:id="@+id/button_confirm"-->
+<!--            android:layout_width="250dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Confirm"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.5"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.7"/>-->
+
+    </LinearLayout>
+
+</LinearLayout>

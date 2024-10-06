@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/banner_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="If challenging thoughts you wrote earlier are causing you to procrastinate, good news! You can manage those challenging thoughts. Watch the video below:"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/text_internal"
+                tools:ignore="WebViewLayout" />
+
+            <TextView
+                android:id="@+id/transcript"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_hints"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="5dp"
+                android:text="Can’t play the video?"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="Note: \nEven if your passengers are loud and confrontational, it's essential to recognize that they can't physically harm you. Your main focus should always be on the direction of travel (towards your values), while being prepared for occasional disruptive behaviors from your passengers."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_note" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="@dimen/text_internal"-->
+<!--                android:text="Imagine you are a bus driver, driving your bus along the path of life. Your bus is filled with diverse passengers, each representing your difficult thoughts, emotions, memories, and challenging sensations. Some of the passengers seem friendly, while many others are not. Some passengers appear angry, while some others are judgmental. You also have passengers who are gripped by fear and carry sadness or shame, urging you to avoid taking risks or postpone making decisions.-->
+<!--                \n\nYour natural instinct might be to fight with these difficult passengers and get them off the bus. You try to push them away or ignore them by covering your ears and closing your eyes, hoping they won’t bother you anymore. However, you soon realize that this approach doesn’t get you very far. With your attention diverted, you can't drive your bus, and you can't make progress towards your destination. Additionally, by fighting the challenging passengers and distracting yourself, you also miss the chance to interact with the friendly passengers on the bus.-->
+<!--                \n\nThere is a better solution. Instead of fighting or avoiding these passengers, you learn to accept, allow, and let them be. You can focus your attention on driving your bus towards your values and the destination, regardless of the unpleasant passengers on board. It's not ideal to have these unpleasant passengers on board, but you acknowledge their presence without judgment. You recognize that the solution is not to push them away, but to create space for them internally and don't let them control your journey. As you journey towards your destination, you may learn valuable lessons from those challenging passengers."-->
+<!--                android:textAlignment="textStart"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="@dimen/text_size_main_large" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <Button
+                    android:id="@+id/button_previous"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/baseline_keyboard_double_arrow_left_24"
+                    app:backgroundTint="#54B363" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/baseline_keyboard_double_arrow_right_24"
+                    app:backgroundTint="#54B363" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/banner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#54B363"
+        android:gravity="center_horizontal"
+        android:padding="0dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/button_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_home_24"
+            android:contentDescription="Home button" />
+
+        <TextView
+            android:id="@+id/banner_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:text="Passengers on the Bus Metaphor"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/button_navigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_format_list_bulleted_24"
+            android:contentDescription="Navigation button" />
+
+    </LinearLayout>
+
+    <include layout="@layout/navigation_drawer" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

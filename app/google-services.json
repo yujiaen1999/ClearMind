@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "324251870640",
+    "firebase_url": "https://clearmind-442ad-default-rtdb.firebaseio.com",
+    "project_id": "clearmind-442ad",
+    "storage_bucket": "clearmind-442ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324251870640:android:28556d290c35015eff6275",
+        "android_client_info": {
+          "package_name": "com.example.clearmind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324251870640-9v2487i1a3mjrehc362ipv9f44939o8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN0VTXfY575A6Hr-K225hEuCFAK1U9Tbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324251870640-9v2487i1a3mjrehc362ipv9f44939o8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
