@@ -7,6 +7,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -132,7 +134,7 @@ public class NavigationDrawerHelper {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<List<String>> statuses = new ArrayList<>();
-                int[] lastPos = new int[]{0, 0};
+                int[] lastPos = new int[]{-1, -1};
 
                 for (int i = 0; i < CHAPTERS.length; i++) {
                     List<String> subStatuses = new ArrayList<>();
@@ -161,7 +163,9 @@ public class NavigationDrawerHelper {
         int currentRow = currentCoordinate[0];
         int currentColumn = currentCoordinate[1];
 
-        if (currentColumn < ACTIVITIES_ORDER[currentRow].length - 1) {
+        if (currentRow == -1 && currentColumn == -1) {
+            return new int[]{0, 0};
+        } else if (currentColumn < ACTIVITIES_ORDER[currentRow].length - 1) {
             // Same row, next column
             return new int[]{currentRow, currentColumn + 1};
         } else if (currentRow < ACTIVITIES_ORDER.length - 1) {
@@ -175,7 +179,7 @@ public class NavigationDrawerHelper {
 
     private String getStatus(DataSnapshot snapshot, String chapter, String activity) {
         Object value = snapshot.child(chapter).child("progress").child(username).child(activity).getValue();
-        return value != null ? value.toString() : "0"; // 默认值为"0"
+        return value != null ? value.toString() : "0"; // Default value "0"
     }
 
     private void updateNavigationLinks(List<List<String>> statuses, int[] lastPos) {
@@ -204,6 +208,15 @@ public class NavigationDrawerHelper {
             } else {
                 if (chapterPos == lastPos[0] && sectionPos == lastPos[1]) {
                     textView.setText("→ " + linkText);
+
+                    GradientDrawable background = new GradientDrawable();
+                    background.setShape(GradientDrawable.RECTANGLE);
+                    background.setColor(Color.parseColor("#FFA500"));
+                    background.setCornerRadius(16);
+                    textView.setBackground(background);
+
+                    textView.setTypeface(null, Typeface.BOLD);
+
                     linkView.setOnClickListener(v -> {
                         Intent intent = new Intent(activity, targetActivity);
                         intent.putExtra("username", username);
