@@ -199,6 +199,7 @@ public class NavigationDrawerHelper {
             TextView textView = (TextView) linkView;
             if (status != null && status.equals("1")) {
                 textView.setText("√ " + linkText);
+                textView.setTextColor(Color.BLACK);
                 linkView.setOnClickListener(v -> {
                     Intent intent = new Intent(activity, targetActivity);
                     intent.putExtra("username", username);
@@ -208,6 +209,7 @@ public class NavigationDrawerHelper {
             } else {
                 if (chapterPos == lastPos[0] && sectionPos == lastPos[1]) {
                     textView.setText("→ " + linkText);
+                    textView.setTextColor(Color.BLACK);
 
                     GradientDrawable background = new GradientDrawable();
                     background.setShape(GradientDrawable.RECTANGLE);
@@ -225,6 +227,7 @@ public class NavigationDrawerHelper {
                     });
                 } else {
                     textView.setText("○ " + linkText);
+                    textView.setTextColor(Color.GRAY);
                 }
             }
         } else {
