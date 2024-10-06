@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_internal"
-                android:text="The following questions ask how you have sought to cope with a hardship in your life. \n1 = I haven't been doing this at all; 2 = A little bit; 3 = A medium amount; 4 = I've ben doing this a lot"
+                android:text="The following questions ask how you have sought to cope with a hardship in your life. \n1 = I haven't been doing this at all; 2 = A little bit; 3 = A medium amount; 4 = I've been doing this a lot"
                 android:textSize="@dimen/text_size_main_small"
                 android:textStyle="bold" />
 
