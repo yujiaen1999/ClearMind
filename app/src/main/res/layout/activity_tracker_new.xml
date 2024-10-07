@@ -1,9 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_goal_popup"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/rounded_bg">
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -11,7 +15,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="30dp"
-        android:background="@drawable/rounded_bg" >
+        >
 
 
 <!--        <TextView-->
@@ -49,13 +53,14 @@
 
         <EditText
             android:id="@+id/input1"
+            style="@style/CustomEditTextWhite_goal"
             android:layout_width="300dp"
             android:layout_height="36dp"
             android:cursorVisible="true"
             android:hint="My goal is..."
             android:layout_marginBottom="5dp"
             android:paddingHorizontal="10dp"
-            android:background="#FFFFFF"
+            android:inputType="textMultiLine"
             tools:ignore="ExtraText" />
 
         <TextView
@@ -79,14 +84,14 @@
 
         <EditText
             android:id="@+id/input2"
+            style="@style/CustomEditTextWhite_goal"
             android:layout_width="300dp"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:cursorVisible="true"
             android:hint="The purpose of my goal is..."
             android:layout_marginBottom="15dp"
             android:paddingHorizontal="10dp"
-            android:background="#FFFFFF"
-            tools:ignore="ExtraText" />
+            android:inputType="textMultiLine" />
 
 
             <LinearLayout
@@ -107,13 +112,13 @@
 
                     <EditText
                         android:id="@+id/input3"
-                        android:layout_width="200dp"
+                        style="@style/CustomEditTextWhite_goal"
+                        android:layout_width="190dp"
                         android:layout_height="36dp"
                         android:cursorVisible="true"
                         android:hint="YYYY/MM/DD"
                         android:layout_marginBottom="10dp"
                         android:paddingHorizontal="10dp"
-                        android:background="#FFFFFF"
                         tools:ignore="ExtraText" />
 
             </LinearLayout>
@@ -136,14 +141,14 @@
 
                     <EditText
                         android:id="@+id/input4"
-                        android:layout_width="200dp"
+                        style="@style/CustomEditTextWhite_goal"
+                        android:layout_width="190dp"
                         android:layout_height="36dp"
                         android:cursorVisible="true"
                         android:hint="XX days"
                         android:enabled="false"
                         android:layout_marginBottom="10dp"
                         android:paddingHorizontal="10dp"
-                        android:background="#FFFFFF"
                         tools:ignore="ExtraText" />
 
             </LinearLayout>
@@ -161,13 +166,14 @@
 
         <EditText
             android:id="@+id/input5"
+            style="@style/CustomEditTextWhite_goal"
             android:layout_width="300dp"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:cursorVisible="true"
             android:hint="My difficult emotion is..."
             android:layout_marginBottom="10dp"
             android:paddingHorizontal="10dp"
-            android:background="#FFFFFF"
+            android:inputType="textMultiLine"
             tools:ignore="ExtraText" />
 
         <TextView
@@ -182,13 +188,14 @@
 
         <EditText
             android:id="@+id/input6"
+            style="@style/CustomEditTextWhite_goal"
             android:layout_width="300dp"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
             android:cursorVisible="true"
             android:hint="My strategy is..."
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:paddingHorizontal="10dp"
-            android:background="#FFFFFF"
+            android:inputType="textMultiLine"
             tools:ignore="ExtraText" />
 
         <!--        <TextView-->
@@ -252,11 +259,13 @@
 
         <Button
             android:id="@+id/button_confirm"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Start tracking my goal"
+            android:textSize="@dimen/text_size_main_large"
+            android:textColor="@color/white"
             android:layout_marginBottom="10dp"
-            app:backgroundTint="@color/yellow"
+            app:backgroundTint="#54B363"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -265,5 +274,7 @@
             app:layout_constraintVertical_bias="0.7"/>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

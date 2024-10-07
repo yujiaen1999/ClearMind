@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_general"
     android:id="@+id/activity_chapter4">
 
     <TextView
@@ -12,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:text="Part 4: Determination"
-        android:background="#5FA12E"
+        android:background="#54B263"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/text_size_heading_small"
         android:textStyle="bold"
@@ -213,12 +212,12 @@
                 android:id="@+id/finish_word"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text=""
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="18dp" />
 

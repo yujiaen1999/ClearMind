@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -31,9 +32,10 @@ public class Chapter1_Activity2_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
     private long pageOpenTime;
     private long pageCloseTime;
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
 //    private String answer1;
 //    private String answer2;
@@ -71,6 +73,8 @@ public class Chapter1_Activity2_Activity extends AppCompatActivity {
         textView4.setText(Html.fromHtml(txt_textView4));
         textView5.setText(Html.fromHtml(txt_textView5));
 
+        navigationDrawerHelper.setupNavigationDrawer(username);
+
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -92,7 +96,6 @@ public class Chapter1_Activity2_Activity extends AppCompatActivity {
                 Map<String, Object> chapter1_progress_update = new HashMap<>();
                 chapter1_progress_update.put("3_Activity1_2_Discover", "1");
                 db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
-
                 open_Next_Activity();
 //                openPopupWindow(v);
             }

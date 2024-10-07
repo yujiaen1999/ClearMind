@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F2FFD8"
+        android:background="#FFFFFF"
         tools:layout_editor_absoluteX="-16dp"
         tools:layout_editor_absoluteY="-165dp">
 
@@ -260,7 +260,7 @@
         android:layout_height="wrap_content"
         android:text="Back"
         android:layout_gravity="left"
-        app:backgroundTint="#5FA12E"
+        app:backgroundTint="#54B263"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -274,7 +274,7 @@
         android:layout_height="wrap_content"
         android:text="Next"
         android:layout_gravity="right"
-        app:backgroundTint="#5FA12E"
+        app:backgroundTint="#54B263"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

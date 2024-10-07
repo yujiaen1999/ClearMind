@@ -7,10 +7,12 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        android:background="#F2FFD8" >
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/banner_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,14 +23,23 @@
 
             <TextView
                 android:id="@+id/textView1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:text="Identify Your Passengers &amp; \nPassengers on the Bus Diagram"
-                android:textStyle="bold"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="The destination here can be big, such as your top value mentioned in Part 1, or it can be any small goal toward your top value. [explanation of the difference between goal and value]"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
-                android:textSize="@dimen/text_size_heading_small" />
+                android:textSize="@dimen/text_size_main_large" />
+
+            <TextView
+                android:id="@+id/textView1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="Previous examples show how people can still drive to their destination, even with difficult passengers. Now, let’s think of your own goal (destination) and the possible challenging thoughts (challenging passengers) that may lead you to procrastinate toward the goal. Managing challenging passengers, which you will learn in Part 3, will be much clearer once you know who they are."
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -69,17 +80,14 @@
 
             <EditText
                 android:id="@+id/input1"
+                style="@style/CustomEditTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:layout_marginBottom="@dimen/text_internal"
                 android:layout_marginTop="@dimen/text_internal"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingHorizontal="10dp"
+                android:padding="10dp"
                 android:hint="My destination"
-                android:textSize="@dimen/text_size_main_large"
-                android:background="#FFFFFF"
                 android:inputType="textMultiLine" />
 
 
@@ -115,12 +123,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingHorizontal="10dp"
+                style="@style/CustomEditTextWhite"
                 android:hint="Passenger A"
                 android:textSize="@dimen/text_size_main_large"
-                android:background="#FFFFFF"
+                android:padding="10dp"
                 android:inputType="textMultiLine" />
 
 <!--            <TextView-->
@@ -141,12 +147,10 @@
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:layout_marginTop="@dimen/text_internal"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingHorizontal="10dp"
+                android:padding="10dp"
                 android:hint="Passenger B"
                 android:textSize="@dimen/text_size_main_large"
-                android:background="#FFFFFF"
+                style="@style/CustomEditTextWhite"
                 android:inputType="textMultiLine" />
 
 <!--            <TextView-->
@@ -167,12 +171,10 @@
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:layout_marginVertical="@dimen/text_internal"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingHorizontal="10dp"
+                android:padding="10dp"
                 android:hint="Passenger C"
                 android:textSize="@dimen/text_size_main_large"
-                android:background="#FFFFFF"
+                style="@style/CustomEditTextWhite"
                 android:inputType="textMultiLine" />
 
             <TextView
@@ -192,12 +194,10 @@
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:layout_marginBottom="@dimen/text_internal"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingHorizontal="10dp"
+                android:padding="10dp"
                 android:hint="Passengers' persuasion"
                 android:textSize="@dimen/text_size_main_large"
-                android:background="#FFFFFF"
+                style="@style/CustomEditTextWhite"
                 android:inputType="textMultiLine" />
 
 
@@ -232,52 +232,86 @@
             <!--                    android:textSize="20sp" />-->
             <!--            </RelativeLayout>-->
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/text_internal"
-                android:weightSum="3">
+                android:weightSum="6">
 
                 <Button
                     android:id="@+id/button_previous"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Back"
-                    app:backgroundTint="#5FA12E" />
+                    android:drawableStart="@drawable/baseline_keyboard_double_arrow_left_24"
+                    app:backgroundTint="#54B363" />
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="4" />
 
                 <Button
                     android:id="@+id/button_next"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Next"
-                    app:backgroundTint="#5FA12E" />
+                    android:drawableEnd="@drawable/baseline_keyboard_double_arrow_right_24"
+                    app:backgroundTint="#54B363" />
 
             </LinearLayout>
-
-
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/button_home"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/banner_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Exit"
-        app:backgroundTint="#5FA12E"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#54B363"
+        android:gravity="center_horizontal"
+        android:padding="0dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/button_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_home_24"
+            android:contentDescription="Home button" />
+
+        <TextView
+            android:id="@+id/banner_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:text="Identify Your Own Destination &amp; Passengers"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/button_navigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_format_list_bulleted_24"
+            android:contentDescription="Navigation button" />
+
+    </LinearLayout>
+
+    <include layout="@layout/navigation_drawer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

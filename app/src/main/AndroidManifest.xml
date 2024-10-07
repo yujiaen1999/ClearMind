@@ -28,6 +28,23 @@
             android:exported="true" />
         <activity
             android:name=".SignupActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity1"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity2"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity3"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity4"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true" />
         <activity
             android:name=".LearnActivity"
@@ -97,6 +114,9 @@
             android:exported="true" />
         <activity
             android:name=".Chapter1_Opening_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Chapter1_Activity0_Activity"
             android:exported="true" />
         <activity
             android:name=".Chapter1_Activity1_Activity"

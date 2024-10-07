@@ -6,11 +6,14 @@
     android:layout_height="match_parent">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#F2FFD8"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/banner_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,17 +22,6 @@
             android:gravity="center"
             android:layout_marginLeft="@dimen/fab_margin"
             android:layout_marginRight="@dimen/fab_margin" >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:text="Label the Passengers on the Bus"
-                android:textStyle="bold"
-                android:textAlignment="textStart"
-                android:textColor="#000000"
-                android:textSize="@dimen/text_size_heading_small" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -69,7 +61,7 @@
                 android:cursorVisible="true"
                 android:padding = "10dp"
                 android:hint="(your procrastination episode)"
-                android:background="#FFFFFF"
+                style="@style/CustomEditTextWhite"
                 android:inputType="textMultiLine" />
 
             <TextView
@@ -104,7 +96,7 @@
                     android:cursorVisible="true"
                     android:padding = "10dp"
                     android:hint="(name of the emotion)"
-                    android:background="#FFFFFF"
+                    style="@style/CustomEditTextWhite"
                     android:inputType="textMultiLine" />
 
             </LinearLayout>
@@ -132,7 +124,7 @@
                     android:cursorVisible="true"
                     android:padding = "10dp"
                     android:hint="(an event)"
-                    android:background="#FFFFFF"
+                    style="@style/CustomEditTextWhite"
                     android:inputType="textMultiLine" />
 
             </LinearLayout>
@@ -158,52 +150,87 @@
                 android:text="Example: I’m feeling anxious and it is because I haven’t yet begun to prepare for my final exam which is scheduled for tomorrow triggers this emotion."
                 android:textSize="@dimen/text_size_main_small" />
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/text_internal"
-                android:weightSum="3">
+                android:weightSum="6">
 
                 <Button
                     android:id="@+id/button_previous"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Back"
-                    app:backgroundTint="#5FA12E" />
+                    android:drawableStart="@drawable/baseline_keyboard_double_arrow_left_24"
+                    app:backgroundTint="#54B363" />
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="4" />
 
                 <Button
                     android:id="@+id/button_next"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Next"
-                    app:backgroundTint="#5FA12E" />
+                    android:drawableEnd="@drawable/baseline_keyboard_double_arrow_right_24"
+                    app:backgroundTint="#54B363" />
 
             </LinearLayout>
-
 
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/button_home"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/banner_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Exit"
-        app:backgroundTint="#5FA12E"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#54B363"
+        android:gravity="center_horizontal"
+        android:padding="0dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/button_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_home_24"
+            android:contentDescription="Home button" />
+
+        <TextView
+            android:id="@+id/banner_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:text="Label the Passengers on the Bus"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/button_navigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_format_list_bulleted_24"
+            android:contentDescription="Navigation button" />
+
+    </LinearLayout>
+
+    <include layout="@layout/navigation_drawer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

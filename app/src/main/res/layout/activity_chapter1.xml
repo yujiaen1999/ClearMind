@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_general"
     android:id="@+id/activity_chapter1">
 
         <TextView
@@ -12,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:text="Part 1: Discovery"
-            android:background="#5FA12E"
+            android:background="#54B263"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/text_size_heading_small"
             android:textStyle="bold"
@@ -62,6 +61,23 @@
                             android:drawableLeft="@drawable/icon_opening"
                             android:drawablePadding="8dp"
                             android:text="Opening"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.250"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.15"
+                            tools:ignore="MissingConstraints" />
+
+                        <Button
+                            android:id="@+id/button1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:background="@null"
+                            android:drawableLeft="@drawable/icon_practice"
+                            android:drawablePadding="8dp"
+                            android:text="Prioritize Your Life Value"
                             android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"

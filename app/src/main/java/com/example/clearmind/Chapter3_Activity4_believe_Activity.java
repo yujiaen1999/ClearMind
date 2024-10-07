@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,9 @@ public class Chapter3_Activity4_believe_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
+
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,8 @@ public class Chapter3_Activity4_believe_Activity extends AppCompatActivity {
         String txt_believe = "<b>Believe:</b>" +
                 "<br>Once you are ready, draft a short and simple belief statement that addresses the challenging thoughts and emotions you observed earlier. For example, if your stress stemmed from difficult schoolwork, an effective belief statement could be “I  am developing new strategies to manage my stress so that I don’t procrastinate” or “I am capable of mastering my challenging emotions if I stay focused on my goals.”";
         textView.setText(Html.fromHtml(txt_believe));
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override

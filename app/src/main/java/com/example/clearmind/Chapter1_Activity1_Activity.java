@@ -2,12 +2,13 @@ package com.example.clearmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,42 +18,52 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.PriorityQueue;
 import java.util.Set;
 
 public class Chapter1_Activity1_Activity extends AppCompatActivity {
     private String username;
+    private String topChoice = "undefined";
     private DatabaseReference db;
+    private EditText answer1;
+    private EditText answer2;
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
     private Button button_submit;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6,
-                     checkBox7, checkBox8, checkBox9, checkBox10, checkBox11, checkBox12;
+            checkBox7, checkBox8, checkBox9, checkBox10, checkBox11, checkBox12;
 
     private long pageOpenTime;
     private long pageCloseTime;
+
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter1_activity1);
         Intent intent = getIntent();
         this.username = intent.getStringExtra("username");
+
         this.db = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference topChoiceRef = db.child("Chapter1").child("activity0_user_input").child(username).child("0");
+
+        answer1 = findViewById(R.id.input1);
+        answer2 = findViewById(R.id.input1_2);
 
         button_home = findViewById(R.id.button_home);
         button_back = findViewById(R.id.button_previous);
@@ -72,6 +83,23 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
         checkBox11 = findViewById(R.id.checkbox11);
         checkBox12 = findViewById(R.id.checkbox12);
 
+        // Get and Display user input from the database
+        db.child("Chapter1").child("activity1_single_questions").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                HashMap<String, String> hashmap_summary = (HashMap<String, String>) task.getResult().getValue();
+                if(!task.isSuccessful()){
+                    Log.e("firebase_summary", "Error getting data", task.getException());
+                }else{
+                    Log.d("firebase_summary", String.valueOf(task.getResult().getValue()));
+                    if(hashmap_summary != null){
+                        answer1.setText(hashmap_summary.get("Question1"));
+                        answer2.setText(hashmap_summary.get("Question2"));
+                    }
+                }
+            }
+        });
+
 //        Set<String> user_choice = new HashSet<>();
 
 //        Toast.makeText(Chapter1_Activity1_Activity.this, checkBox1.getText().toString(), Toast.LENGTH_SHORT).show();
@@ -79,6 +107,41 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
 //        if (checkBox1.isChecked()) {
 //            user_choice.add(checkBox1.getText().toString());
 //        }
+
+        navigationDrawerHelper.setupNavigationDrawer(username);
+
+        topChoiceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+
+                    String firstItem = dataSnapshot.getValue(String.class);
+
+                    if (firstItem != null) {
+                        topChoice = firstItem;
+                    } else {
+                        Log.e("Firebase", "No data for the first item.");
+                    }
+
+                } else {
+                    Log.e("Firebase", "User data does not exist.");
+                }
+
+                TextView textView1 = findViewById(R.id.textView1);
+                String template = "You chose [ <b>%s</b> ] as one of your top life values. Think about why those values are important and meaningful to you. Have you ever made any effort to pursue these values?";
+                String text = String.format(template, topChoice);
+                textView1.setText(Html.fromHtml(text));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Firebase", "Database error: " + databaseError.getMessage());
+                TextView textView1 = findViewById(R.id.textView1);
+                String template = "You chose [ <b>%s</b> ] as one of your top life values. Think about why those values are important and meaningful to you. Have you ever made any effort to pursue these values?";
+                String text = String.format(template, topChoice);
+                textView1.setText(Html.fromHtml(text));
+            }
+        });
 
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,6 +242,13 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
                     }
                 });
 
+                String txt_answer1 = answer1.getText().toString();
+                String text_answer2 = answer2.getText().toString();
+                Map<String, String> singleQuestions = new HashMap<>();
+                singleQuestions.put("Question1", txt_answer1);
+                singleQuestions.put("Question2", text_answer2);
+                db.child("Chapter1").child("activity1_single_questions").child(username).setValue(singleQuestions);
+
 //                HashMap<String, Object> map = new HashMap<>();
 //                map.put("Lack of Motivation", 0);
 //                map.put("Fear of Failure", 0);
@@ -215,12 +285,27 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                // update Chapter1 progress
-                Map<String, Object> chapter1_progress_update = new HashMap<>();
-                chapter1_progress_update.put("2_Activity1_1", "1");
-                db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
+                // Read user's input and button chose, and write them to database
+                String txt_answer1 = answer1.getText().toString();
+                String txt_answer2 = answer2.getText().toString();
 
-                open_Next_Activity();
+                if (txt_answer1.isEmpty() || txt_answer2.isEmpty()){
+                    Toast.makeText(Chapter1_Activity1_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Get all answers from user
+                    Map<String, String> singleQuestions = new HashMap<>();
+                    singleQuestions.put("Question1", txt_answer1);
+                    singleQuestions.put("Question2", txt_answer2);
+                    db.child("Chapter1").child("activity1_single_questions").child(username).setValue(singleQuestions);
+
+                    // update Chapter1 progress
+                    // update Chapter1 progress
+                    Map<String, Object> chapter1_progress_update = new HashMap<>();
+                    chapter1_progress_update.put("2_Activity1_1", "1");
+                    db.child("Chapter1").child("progress").child(username).updateChildren(chapter1_progress_update);
+
+                    open_Next_Activity();
+                }
             }
         });
     }
@@ -295,7 +380,7 @@ public class Chapter1_Activity1_Activity extends AppCompatActivity {
     }
 
     private void open_Previous_Activity() {
-        Intent intent = new Intent(this,Chapter1_Opening_Activity.class);
+        Intent intent = new Intent(this,Chapter1_Activity0_Activity.class);
         intent.putExtra("username", username);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);

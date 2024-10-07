@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -30,14 +31,16 @@ public class Chapter2_Summary_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
 
     private EditText answer1;
     private EditText answer2;
+    private EditText answer_real_3;
     private String txt_answer3;
     private long pageOpenTime;
     private long pageCloseTime;
 
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +55,9 @@ public class Chapter2_Summary_Activity extends AppCompatActivity {
 
         answer1 = findViewById(R.id.input1);
         answer2 = findViewById(R.id.input2);
+        answer_real_3 = findViewById(R.id.input_real_3);
 
         RadioGroup radiogroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
-
 
         // Retrieve and Display user input from the database
         db.child("Chapter2").child("summary").child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -103,6 +106,8 @@ public class Chapter2_Summary_Activity extends AppCompatActivity {
             }
         });
 
+        navigationDrawerHelper.setupNavigationDrawer(username);
+
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -123,15 +128,17 @@ public class Chapter2_Summary_Activity extends AppCompatActivity {
                 // Read user's input and button chose, and write them to database
                 String txt_answer1 = answer1.getText().toString();
                 String txt_answer2 = answer2.getText().toString();
+                String txt_answer_real_3 = answer_real_3.getText().toString();
 
-                if (txt_answer1.isEmpty() || txt_answer2.isEmpty() || txt_answer3 == null){
+                if (txt_answer1.isEmpty() || txt_answer2.isEmpty() || txt_answer_real_3.isEmpty() || txt_answer3 == null){
                     Toast.makeText(Chapter2_Summary_Activity.this,  "Empty input", Toast.LENGTH_SHORT).show();
                 } else {
                     // Get all answers from user
                     HashMap<String, Object> map = new HashMap<>();
                     map.put("answer1", txt_answer1);
                     map.put("answer2", txt_answer2);
-                    map.put("answer3", txt_answer3);
+                    map.put("answer3", txt_answer_real_3);
+                    map.put("answer4", txt_answer3);
 
                     db.child("Chapter2").child("summary").child(username).setValue(map);
 

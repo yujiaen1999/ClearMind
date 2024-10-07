@@ -14,6 +14,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,13 +38,15 @@ public class Chapter4_Activity5_Activity extends AppCompatActivity {
 
     private Button button_back;
     private Button button_next;
-    private Button button_home;
+    private ImageButton button_home;
 
     private WebView webView;
     private TextView button_transcript;
 
     private long pageOpenTime;
     private long pageCloseTime;
+
+    private final NavigationDrawerHelper navigationDrawerHelper = new NavigationDrawerHelper(this);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +95,10 @@ public class Chapter4_Activity5_Activity extends AppCompatActivity {
 
         // Set up Youtube player
         webView = findViewById(R.id.webView);
-        String video_4 = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/LqdDLGPipF4?si=lsN_aM_GJzdNOP-g\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>";
+        String video_4 = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/PJHWVwoMQV8?si=FW9ESsnWnxJtV4NS\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>";
+
+        // <iframe width="560" height="315" src="https://www.youtube.com/embed/PJHWVwoMQV8?si=FW9ESsnWnxJtV4NS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+//        String video_4 = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/LqdDLGPipF4?si=lsN_aM_GJzdNOP-g\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>";
 //        String breathing_video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/xDm2c5FDLNI?si=XEKPUTAFdo30xKlT\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
 //        String embeded_video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/jt7nITE3qaM?si=WQ8I-GiyDrY5s8BT\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
 //        String video_youtube = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/fHCemviY06Y?si=O_OUVoA42Bkgn5rh\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
@@ -107,6 +113,7 @@ public class Chapter4_Activity5_Activity extends AppCompatActivity {
         vc.width=width;
         webView.setLayoutParams(vc);
 
+        navigationDrawerHelper.setupNavigationDrawer(username);
 
         button_home.setOnClickListener(new View.OnClickListener() {
             @Override
