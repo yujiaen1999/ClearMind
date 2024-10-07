@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- White background layer -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+            <!-- Adjust the corner radius if needed to match the shape above -->
+            <corners android:radius="0dip" />
+        </shape>
+    </item>
+
+    <!-- Original shape layer -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#54B363" />
+            <corners android:radius="5dip" />
+            <stroke android:width="0px" android:color="#388e3c" />
+        </shape>
+    </item>
+
+</layer-list>

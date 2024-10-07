@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/banner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#54B363"
+        android:gravity="center_horizontal"
+        android:padding="0dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/button_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_home_24"
+            android:contentDescription="Home button" />
+
+        <TextView
+            android:id="@+id/banner_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="Part 1 Summary"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/button_navigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_format_list_bulleted_24"
+            android:contentDescription="Navigation button" />
+
+    </LinearLayout>
+
+    <include layout="@layout/navigation_drawer" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/banner_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:orientation="vertical">
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                android:src="@drawable/progbar_chapter1_6"-->
+            <!--                />-->
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_internal"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="In this part, we explored various procrastination tendencies and the reasons behind such behaviors, focusing on how they relate to your life priorities and values.
+                \n\nFollowing questions will help you reflect on this chapter:
+"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_large" />
+
+            <!--      QUESTION 1      -->
+            <TextView
+                android:id="@+id/question_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:text="1. Do you recognize any procrastination tendencies these days? How do these tendencies manifest in your routines and tasks?"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_small" />
+
+            <EditText
+                android:id="@+id/input1"
+                style="@style/CustomEditTextWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:hint="Input your answer for question1"
+                android:padding="10dp"
+                tools:ignore="ExtraText" />
+
+            <!--      QUESTION 2      -->
+            <TextView
+                android:id="@+id/question_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="2. What do you believe are the main reasons behind your procrastination behaviors, particularly when it comes to actions linked to your most important values?"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_small" />
+
+            <EditText
+                android:id="@+id/input2"
+                style="@style/CustomEditTextWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:hint="Input your answer for question2"
+                android:padding="10dp"
+                tools:ignore="ExtraText" />
+
+            <TextView
+                android:id="@+id/question_real_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="3. Which new insight(s) you gained from this part would you like to integrate for managing procrastination and better aligning with your life priorities?"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_small" />
+
+
+            <EditText
+                android:id="@+id/input_real_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CustomEditTextWhite"
+                android:cursorVisible="true"
+                android:ems="10"
+                android:hint="Input your answer for question3"
+                android:padding="10dp"
+                tools:ignore="ExtraText" />
+
+            <!--      QUESTION 4      -->
+            <TextView
+                android:id="@+id/question_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/text_internal"
+                android:text="4. Rate the effectiveness of this chapter in managing your procrastination on a scale of 1 to 5, where 1 is “not effective“ and 5 is ”extremely effective.“"
+                android:textColor="#000000"
+                android:textSize="@dimen/text_size_main_small" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_internal"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+
+                <RadioButton
+                    android:id="@+id/radiobtn_1"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#007F5F"
+                    android:text="1"
+                    android:textColor="#007F5F" />
+
+                <RadioButton
+                    android:id="@+id/radiobtn_2"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#007F5F"
+                    android:text="2"
+                    android:textColor="#007F5F" />
+
+                <RadioButton
+                    android:id="@+id/radiobtn_3"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#007F5F"
+                    android:text="3"
+                    android:textColor="#007F5F" />
+
+                <RadioButton
+                    android:id="@+id/radiobtn_4"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#007F5F"
+                    android:text="4"
+                    android:textColor="#007F5F" />
+
+                <RadioButton
+                    android:id="@+id/radiobtn_5"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#007F5F"
+                    android:text="5"
+                    android:textColor="#007F5F" />
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <Button
+                    android:id="@+id/button_previous"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/baseline_keyboard_double_arrow_left_24"
+                    app:backgroundTint="#54B363" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/baseline_keyboard_double_arrow_right_24"
+                    app:backgroundTint="#54B363" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

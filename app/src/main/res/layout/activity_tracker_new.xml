@@ -1,0 +1,280 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_goal_popup"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="30dp"
+        >
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView_date"-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Date:"-->
+<!--            android:textSize="18dp"-->
+<!--            android:gravity="left"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:textColor="#000000"-->
+<!--            />-->
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/input1"-->
+        <!--            android:layout_width="300dp"-->
+        <!--            android:layout_height="36dp"-->
+        <!--            android:cursorVisible="true"-->
+        <!--            android:hint="current date"-->
+        <!--            android:layout_marginBottom="10dp"-->
+        <!--            android:paddingHorizontal="10dp"-->
+        <!--            android:background="#FFFFFF"-->
+        <!--            tools:ignore="ExtraText" />-->
+
+        <TextView
+            android:id="@+id/textView_example"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="What’s your goal?"
+            android:textSize="@dimen/text_size_main_large"
+            android:gravity="left"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+            />
+
+        <EditText
+            android:id="@+id/input1"
+            style="@style/CustomEditTextWhite_goal"
+            android:layout_width="300dp"
+            android:layout_height="36dp"
+            android:cursorVisible="true"
+            android:hint="My goal is..."
+            android:layout_marginBottom="5dp"
+            android:paddingHorizontal="10dp"
+            android:inputType="textMultiLine"
+            tools:ignore="ExtraText" />
+
+        <TextView
+            android:id="@+id/reminder"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Reminder: "
+            android:visibility="gone"
+            android:textSize="@dimen/text_size_note" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="What’s the purpose of your goal?"
+            android:textSize="@dimen/text_size_main_large"
+            android:gravity="left"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+            />
+
+        <EditText
+            android:id="@+id/input2"
+            style="@style/CustomEditTextWhite_goal"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:hint="The purpose of my goal is..."
+            android:layout_marginBottom="15dp"
+            android:paddingHorizontal="10dp"
+            android:inputType="textMultiLine" />
+
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Start time:"
+                        android:textSize="@dimen/text_size_main_large"
+                        android:gravity="left"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="#000000"
+                        />
+
+                    <EditText
+                        android:id="@+id/input3"
+                        style="@style/CustomEditTextWhite_goal"
+                        android:layout_width="190dp"
+                        android:layout_height="36dp"
+                        android:cursorVisible="true"
+                        android:hint="YYYY/MM/DD"
+                        android:layout_marginBottom="10dp"
+                        android:paddingHorizontal="10dp"
+                        tools:ignore="ExtraText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Duration:"
+                        android:textSize="@dimen/text_size_main_large"
+                        android:gravity="left"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="#000000"
+                        />
+
+                    <EditText
+                        android:id="@+id/input4"
+                        style="@style/CustomEditTextWhite_goal"
+                        android:layout_width="190dp"
+                        android:layout_height="36dp"
+                        android:cursorVisible="true"
+                        android:hint="XX days"
+                        android:enabled="false"
+                        android:layout_marginBottom="10dp"
+                        android:paddingHorizontal="10dp"
+                        tools:ignore="ExtraText" />
+
+            </LinearLayout>
+
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Difficult thoughts or emotions?"
+            android:textSize="@dimen/text_size_main_large"
+            android:gravity="left"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+            />
+
+        <EditText
+            android:id="@+id/input5"
+            style="@style/CustomEditTextWhite_goal"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:hint="My difficult emotion is..."
+            android:layout_marginBottom="10dp"
+            android:paddingHorizontal="10dp"
+            android:inputType="textMultiLine"
+            tools:ignore="ExtraText" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Strategies to cope with the difficulties"
+            android:textSize="@dimen/text_size_main_large"
+            android:gravity="left"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+            />
+
+        <EditText
+            android:id="@+id/input6"
+            style="@style/CustomEditTextWhite_goal"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:hint="My strategy is..."
+            android:layout_marginBottom="20dp"
+            android:paddingHorizontal="10dp"
+            android:inputType="textMultiLine"
+            tools:ignore="ExtraText" />
+
+        <!--        <TextView-->
+        <!--            android:layout_width="300dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Do you have any daily goal for today?"-->
+        <!--            android:textSize="18dp"-->
+        <!--            android:gravity="left"-->
+        <!--            android:layout_marginBottom="5dp"-->
+        <!--            android:textColor="#000000"-->
+        <!--            />-->
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/input2"-->
+        <!--            android:layout_width="300dp"-->
+        <!--            android:layout_height="36dp"-->
+        <!--            android:cursorVisible="true"-->
+        <!--            android:hint="My feeling is..."-->
+        <!--            android:layout_marginBottom="10dp"-->
+        <!--            android:paddingHorizontal="10dp"-->
+        <!--            android:background="#FFFFFF"-->
+        <!--            tools:ignore="ExtraText" />-->
+
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="300dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:gravity="center">-->
+
+        <!--            <Button-->
+        <!--                android:id="@+id/button_yes"-->
+        <!--                android:layout_width="100dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Yes"-->
+        <!--                android:layout_marginBottom="10dp"-->
+        <!--                android:layout_marginRight="50dp"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintHorizontal_bias="0.5"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent"-->
+        <!--                app:layout_constraintVertical_bias="0.7"/>-->
+
+        <!--            <Button-->
+        <!--                android:id="@+id/button_no"-->
+        <!--                android:layout_width="100dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="No"-->
+        <!--                android:layout_marginBottom="10dp"-->
+        <!--                android:layout_marginLeft="50dp"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintHorizontal_bias="0.5"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent"-->
+        <!--                app:layout_constraintVertical_bias="0.9"/>-->
+
+        <!--        </LinearLayout>-->
+
+
+        <Button
+            android:id="@+id/button_confirm"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Start tracking my goal"
+            android:textSize="@dimen/text_size_main_large"
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"
+            app:backgroundTint="#54B363"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
