@@ -633,6 +633,7 @@ public class LearnActivity extends AppCompatActivity {
                                 // openPreSurveyACtivity();
                                 openChapterOneActivity();
                             } else{
+                                imgBtn_chapter1.setImageResource(R.drawable.imgbutton_chapter1_lock);
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -667,6 +668,7 @@ public class LearnActivity extends AppCompatActivity {
                                 Toast.makeText(LearnActivity.this, "Open Chapter 2 page", Toast.LENGTH_SHORT).show();
                                 openChapterTwoActivity();
                             } else {
+                                imgBtn_chapter2.setImageResource(R.drawable.imgbutton_chapter2_lock);
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -714,6 +716,7 @@ public class LearnActivity extends AppCompatActivity {
                                 Toast.makeText(LearnActivity.this, "Open Chapter 3 page", Toast.LENGTH_SHORT).show();
                                 openChapterThreeActivity();
                             } else {
+                                imgBtn_chapter3.setImageResource(R.drawable.imgbutton_chapter3_lock);
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -750,6 +753,7 @@ public class LearnActivity extends AppCompatActivity {
                                 Toast.makeText(LearnActivity.this, "Open Chapter 4 page", Toast.LENGTH_SHORT).show();
                                 openChapterFourActivity();
                             } else {
+                                imgBtn_chapter4.setImageResource(R.drawable.imgbutton_chapter4_lock);
                                 Toast.makeText(LearnActivity.this, "Please complete previous Chapter first!", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -1056,6 +1060,9 @@ public class LearnActivity extends AppCompatActivity {
 
                     // HANDLE CHAPTER 1 BUTTON
                     if (status_chapter1.equals("0")){
+                        if(!status_presurvey.equals("2")) {
+                            imgBtn_chapter1.setImageResource(R.drawable.imgbutton_chapter1_lock);
+                        }
                         imgBtn_chapter1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -1091,6 +1098,9 @@ public class LearnActivity extends AppCompatActivity {
 
                     // HANDLE CHAPTER 2 BUTTON
                     if (status_chapter2.equals("0")){
+                        if(!status_chapter1.equals("2")) {
+                            imgBtn_chapter2.setImageResource(R.drawable.imgbutton_chapter2_lock);
+                        }
                         imgBtn_chapter2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -1138,6 +1148,9 @@ public class LearnActivity extends AppCompatActivity {
                     // Handle really chapter3
                     // HANDLE CHAPTER 3 BUTTON
                     if (status_chapter3.equals("0")){
+                        if(!status_chapter2.equals("2")) {
+                            imgBtn_chapter3.setImageResource(R.drawable.imgbutton_chapter3_lock);
+                        }
                         imgBtn_chapter3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -1174,6 +1187,9 @@ public class LearnActivity extends AppCompatActivity {
                     // Handle really chapter4
                     // HANDLE CHAPTER 4 BUTTON
                     if (status_chapter4.equals("0")){
+                        if(!status_chapter3.equals("2")) {
+                            imgBtn_chapter4.setImageResource(R.drawable.imgbutton_chapter4_lock);
+                        }
                         imgBtn_chapter4.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -1208,6 +1224,9 @@ public class LearnActivity extends AppCompatActivity {
 
                     // HANDLE POST-SURVEY BUTTON
                     if (status_postsurvey.equals("0")) {
+                        if(!status_chapter4.equals("2")) {
+                            imgBtn_postsurvey.setImageResource(R.drawable.imgbutton_chapter4_lock);
+                        }
                         imgBtn_postsurvey.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
